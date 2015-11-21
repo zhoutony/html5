@@ -32,7 +32,7 @@ block prepend body
                         a(herf="#").btn_search
             if data.cinemas
                 each cinemasFirstArray,UppercinemasKey in data.cinemas
-                    dl.filmlist
+                    dl.filmlist(cc="#{index}")
                         dt
                             i.demo-icon.icon-down-dir
                             | #{UppercinemasKey}
