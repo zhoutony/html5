@@ -75,6 +75,30 @@ app.post(['/:publicsignalshort/member/bindingcard'], chk_login.isLoggedIn, funct
     });
 })
 
+app.get(['/queryLocation/:longitude/:latitude'], function (req, res) {
+    var render_data = {};
+    var my_api_addr = "/queryLocationByLatitudeLongitude.aspx";
+    var longitude = req.params["longitude"];
+    var latitude = req.params["latitude"];
+    var options = {
+        uri: my_api_addr,
+        args: {
+            longitude: longitude,
+            latitude:   latitude
+        }
+    };
+
+    model.getDataFromPhp(options, function (err, data) {
+        render_data.err = err;
+        console.log(data);
+        if (!err && data && data.location) {
+            render_data.location = data.location;
+            
+        }
+        res.send(data);
+    });
+})
+
 app.post(['/:publicsignalshort/member/bindingcard/opencinema'], function (req, res) {
     var options = {
         uri: "/cinema/list",
