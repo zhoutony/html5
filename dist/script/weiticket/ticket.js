@@ -9,7 +9,7 @@ webpackJsonp([11,17],[
 	var cache = __webpack_require__(4);
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
-	var widgets = __webpack_require__(15);
+	var widgets = __webpack_require__(11);
 
 	/* jshint ignore:end */
 	$(document).ready(function() {
@@ -31,6 +31,25 @@ webpackJsonp([11,17],[
 	    //     });
 	    // }
 	    // getCurrentPosition();
+
+	    var filmlists = $('.filmlist');
+	    var _len = filmlists.length;
+
+	    for(var i = 0; i < _len; i++){
+	        if(i > 1){
+	            $(filmlists[i]).addClass('hidefilm');
+	        }
+	    }
+	    $('._dt').on('click', function(evt){
+	        var _el = $(this.parentElement);
+	        if(_el.hasClass('hidefilm')){
+	            _el.removeClass('hidefilm');
+	        }else{
+	            _el.addClass('hidefilm');
+	        }
+	        return;
+	    })
+
 
 	}); //END of jquery documet.ready 
 
@@ -4923,11 +4942,7 @@ webpackJsonp([11,17],[
 
 
 /***/ },
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5136,6 +5151,10 @@ webpackJsonp([11,17],[
 	;
 
 /***/ },
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
 /* 16 */,
 /* 17 */,
 /* 18 */
