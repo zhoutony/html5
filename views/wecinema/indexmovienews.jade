@@ -20,7 +20,10 @@ if data && data.movieNews
 					div.main.flex
 						if movieNew.isTop
 							span.ico_edit_top 置顶
-						| 阅读 #{movieNew.readCount} #{_time}分钟前
+							span.n_name 票友君
+							span.num 阅读 
+								b #{movieNew.readCount} 
+							time #{_time}分钟前
 		else
 			section
 				div.flexbox_v_c
@@ -38,4 +41,7 @@ if data && data.movieNews
 							img(src="#{movieNew.image3}")
 				footer.flexbox 
 					div.main.flex
-						| 阅读 #{movieNew.readCount} #{_time}分钟前
+						span.n_name 票友君
+						span.num 阅读 
+							b #{movieNew.readCount} 
+						time #{_time}分钟前
