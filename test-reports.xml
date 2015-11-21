@@ -1,0 +1,23 @@
+<testsuite name="Mocha Tests" tests="21" failures="0" errors="0" skipped="0" timestamp="Wed, 25 Mar 2015 05:51:18 GMT" time="0.08">
+<testcase classname="授权 php api test suit" name="用户授权接口" time="0.015"/>
+<testcase classname="影城页面 php api test suit" name="影院信息接口" time="0.005"/>
+<testcase classname="影城页面 php api test suit" name="影院在线影片列表" time="0.003"/>
+<testcase classname="影城页面 php api test suit" name="影院未上映影片列表" time="0.003"/>
+<testcase classname="影城页面 php api test suit" name="影片信息接口" time="0.001"/>
+<testcase classname="影城页面 php api test suit" name="影片排期接口" time="0.002"/>
+<testcase classname="首页 php api test suit" name="城市列表接口" time="0.002"/>
+<testcase classname="首页 php api test suit" name="城市影院列表" time="0.001"/>
+<testcase classname="我的 php api test suit" name="我的订单接口" time="0.001"/>
+<testcase classname="我的 php api test suit" name="订单详情接口" time="0.001"/>
+<testcase classname="订单 php api test suit" name="获取未支付订单接口" time="0.001"/>
+<testcase classname="订单 php api test suit" name="支付订单接口" time="0.001"/>
+<testcase classname="订单 php api test suit" name="退款接口" time="0.002"/>
+<testcase classname="订单 php api test suit" name="维权接口" time="0.002"/>
+<testcase classname="订单 php api test suit" name="支付回调" time="0.001"/>
+<testcase classname="影厅信息 php api test suit" name="获取影厅信息接口" time="0.001"/>
+<testcase classname="影厅信息 php api test suit" name="影厅不可售座位接口" time="0.001"/>
+<testcase classname="座位 php api test suit" name="锁座接口" time="0.001"/>
+<testcase classname="座位 php api test suit" name="取消锁座接口" time="0.002"/>
+<testcase classname="php server" name="get google" time="0.001"/>
+<testcase classname="middleware test suit" name="send get request with cookies" time="0.028"/>
+</testsuite>
