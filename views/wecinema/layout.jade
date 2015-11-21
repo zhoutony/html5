@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        include ./pagelets/head/meta.jade
+        block meta
+        // 标题
+        block title
+        // 默认样式
+        include ./pagelets/head/style.jade
+        block style
+    body
+        block body
+        block footer
+        block script
+        include ./pagelets/analytics.jade

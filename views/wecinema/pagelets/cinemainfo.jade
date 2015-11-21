@@ -1,0 +1,59 @@
+block prepend body
+    include advert
+    div._cinema-info_(data-cinemaname="#{data.cinemaInfos.name}" data-cinematel="#{data.cinemaInfos.tel}" data-cinemaisqrcode="#{data.isQrcode}" data-isonlycinema="#{data.isOnlyCinema}")
+        if data && data.cinemaInfos
+            - var cinemaName;
+            - var cinemaTele;
+            if data.cinemaInfos.name
+                - cinemaName = data.cinemaInfos.name;
+            if data.cinemaInfos.tel
+                - cinemaTele = data.cinemaInfos.tel;
+            a.cinema-info(href="#")
+                if data.cinemaInfos.name
+                    h3.cinema-name
+                        | #{cinemaName}
+                if data.cinemaInfos.addr
+                    p.cinema-address
+                        | #{data.cinemaInfos.addr}
+                if data.specialServices && Object.keys(data.specialServices).length !== 0
+                    nav.iconfont.icon-list
+                        each specKey, specVal in data.specialServices
+                            i(class="#{specKey}")
+                span.arrow-left
+    div.m-m-info
+        h3
+            | 影院信息
+        if data
+            if data.cinemaInfos
+                ul.m-m-list
+                    if data.cinemaInfos.tel
+                      li
+                          i.iconfont.icon-phone
+                          p.cinema-telephone
+                            | #{data.cinemaInfos.tel}
+                    li(class="open-location"
+                          data-latitude=data.cinemaInfos.longitude
+                          data-longitude=data.cinemaInfos.longitude
+                          data-name=data.cinemaInfos.name
+                          data-address=data.cinemaInfos.addr
+                          data-scale=1
+                          data-info-url='')
+                    if data.cinemaInfos.route
+                        li
+                            i.iconfont.icon-transit
+                            p
+                                | 公交路线 : #{data.cinemaInfos.route}
+                    if data.cinemaInfos.subway
+                        li
+                            i.iconfont.icon-subway
+                            p
+                                | 地铁线路 : #{data.cinemaInfos.subway} 
+            if  data.specialServicesDetails && Object.keys(data.specialServicesDetails).length !== 0
+                div.m-m-feature
+                    h3
+                        | 特色服务
+                    ul.m-m-list
+                        each specVal, specKey in data.specialServicesDetails
+                            li
+                                  i.iconfont(class=specKey)
+                                  p #{specVal}

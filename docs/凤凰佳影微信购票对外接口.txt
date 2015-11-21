@@ -1,0 +1,42 @@
+凤凰佳影微信购票对外接口
+
+获取用户授权返回信息接口
+请求方式：get
+请求  URI：http://weixin8.ecticket.com.cn/Gateway/GetCode
+
+请求参数：
+参数名			数据类型	是否可控			注释
+appid			String	非空				公众号唯一标识
+url				String	非空				回调地址（接收数据的地址）
+type			Int		非空				"微信请求类型
+										0：snsapi_base
+										1 : snsapi_userinfo"
+param			String	非空				随链接返回信息，输入什么就返回什么，用于调用时标识
+
+响应正文：
+
+参数名			数据类型					注释
+code			String					获取用户信息的钥匙，由微信返回，详细使用方法请阅读微信公众平台开发技术文档
+state			String					请求参数中的param
+
+备注：此接口调用后返回回调地址（url）的方式为get 。
+
+=================================================================================
+
+构造实例：
+
+"http://weixin8.ecticket.com.cn/Gateway/GetCode?appid=fac980640fcd7575&url=http://www.wxmovie.com/wx/sddyy/wechat.html#move_list&type=0&param=sddyy";
+
+=================================================================================
+
+该接口使用在微信公众号的首都影院当中的非会员链接当中
+
+如果点击首都电影院的非会员菜单
+
+则调用对方（火）的地址，传入callback_url以及appid，得到一个微信所需要的code
+
+得到code之后，再向微信得到open_id
+
+在这之前需要调用后端的接口得到公众号的appid和secert
+
+当然，这里有两个appid，需要注意一下

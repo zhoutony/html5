@@ -1,0 +1,15 @@
+OAtuth的逻辑部分：
+
+接口地址：
+http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html
+
+检测cookies里有所谓的openid字段？
+
+如果有，则检测route当中的公众号缩写，即当前所在的公众号的路由是否与openid当中的key/value中的key是一致的
+
+如果是不一致的，那么就开始向微信请求鉴权的过程，如果是一致的，那么value当中的openid实际上就是用户的userid了
+
+两次鉴权得到openid这个事情很简单，cookies会缓存一个月
+
+针对xycjfqd的公众号：鲁信影城钢城店
+lemonhall公众号的openid是："openId": "ou-y5uE6FEjyPuUgsYtaS5O9Cw_I

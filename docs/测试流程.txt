@@ -1,0 +1,10 @@
+内网测试机：
+
+192.168.200.241 cgi.wxmovie.com
+
+本地开发：
+
+植入cookie:
+1. 抓包获得openid
+2. 在smart.wepiao.com页面植入cook，比如document.cookie='open_id=j%3A%7B%22public_short%22%3A%22qdavrgjyc%22%2C%22openid%22%3A%22oPoz5jkaLjOOU995K4NtAoVjNeyI%22%7D; session_id=2a6cf860-f3cc-11e4-bd69-ab43aec34886; publicsignalshort=qdavrgjyc; cinema_id=1003759'
+3. 打开网页 比如，smart.wepiao.com/wx/choose_cinema/qdavrgjyc

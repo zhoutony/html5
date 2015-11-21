@@ -1,0 +1,66 @@
+extends ./layout
+
+block title
+        title 票友网
+
+
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        div.succ
+            dl
+                dt.myphoto
+                    i
+                dd
+                    b LIUDAQ1007
+                    p.myprice 余额：0.00元
+            nav.mynav
+                ul.flexbox_v_c
+                    li.flex
+                        a(href="") 登录
+                    li.flex
+                        i.ico_io
+                    li.flex
+                        a(href="") 注册
+            div.mymenu
+                ul.flexbox
+                    li.curr
+                        a(href="")
+                            i.n01
+                            p 订单
+                    li
+                        a(href="")
+                            i.n02
+                            p 衍生品
+                    li
+                        a(href="")
+                            i.n03
+                            p 卡包
+                    li
+                        a(href="")
+                            i.n04
+                            p 红包
+                    li
+                        a(href="")
+                            i.n05
+                            p 活动
+                    li
+                        a(href="")
+                            i.n06
+                            p 设置
+    footer.footer
+        h2 客服电话：4008-188-188
+        p 电影票友服务由北京亚视联合在线科技有限公司提供
+
+
+
+
+block prepend footer
+
+block prepend script
+    script
+        
+
+
