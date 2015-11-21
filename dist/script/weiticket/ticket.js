@@ -32,6 +32,25 @@ webpackJsonp([12,17],[
 	    // }
 	    // getCurrentPosition();
 
+	    var filmlists = $('.filmlist');
+	    var _len = filmlists.length;
+
+	    for(var i = 0; i < _len; i++){
+	        if(i > 1){
+	            $(filmlists[i]).addClass('hidefilm');
+	        }
+	    }
+	    $('._dt').on('click', function(evt){
+	        var _el = $(this.parentElement);
+	        if(_el.hasClass('hidefilm')){
+	            _el.removeClass('hidefilm');
+	        }else{
+	            _el.addClass('hidefilm');
+	        }
+	        return;
+	    })
+
+
 	}); //END of jquery documet.ready 
 
 /***/ },

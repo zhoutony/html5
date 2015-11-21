@@ -32,8 +32,8 @@ block prepend body
                         a(herf="#").btn_search
             if data.cinemas
                 each cinemasFirstArray,UppercinemasKey in data.cinemas
-                    dl.filmlist(cc="#{index}")
-                        dt
+                    dl.filmlist
+                        dt._dt
                             i.demo-icon.icon-down-dir
                             | #{UppercinemasKey}
                         each _cinemas in cinemasFirstArray
@@ -51,8 +51,8 @@ block prepend body
                                                 p 
                                                     if _cinemas.isTicket
                                                         span 座
-                                                p.del #{_cinemas.limitPrice}
-                                                p.newprice #{_cinemas.retailPrice}
+                                                p.del #{_cinemas.retailPrice}
+                                                p.newprice #{_cinemas.limitPrice}
 
 block prepend footer
 

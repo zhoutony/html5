@@ -58,6 +58,9 @@ require('./pages/infotxt');
 //vipcard
 require('./pages/vipcard');
 
+//vipcard
+require('./pages/login');
+
 
 
 
