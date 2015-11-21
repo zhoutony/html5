@@ -1,0 +1,84 @@
+extends ./layout
+
+block title
+        title 票友网
+
+
+
+block prepend body
+    include ./pagelets/loading
+    
+    //mask Begin
+    div.mask.flexbox_v
+        div.maskbtn
+            a.btn_close(href="#")
+                i.demo-icon.icon-cancel
+        div.maskother.flex
+            //centent Begin
+            div.regist
+                header
+                    p 电影票友登录
+                nav
+                    ul.flexbox
+                        li.curr.flex 手机号快捷登录
+                        li.flex 票友会员登录
+                //手机号快捷登录
+                ul.registbox
+                    li.flexbox_v_c
+                        label(for="") 手机号
+                        input(type="text",placeholder="请添写注册手机号").flex.biginput
+                        a(href="")
+                            i.icon-cancel-circled
+                        a(href="")
+                            i.icon-down-open-mini
+
+                    li.flexbox_v_c
+                        label(for="") 验证码
+                        input(type="number",placeholder="请输入验证码").flex
+                        input(type="button",value="发送验证码").btn_code
+                div.flexbox
+                    input(type="button",value="登录").btn_regist.flex
+                // 票友会员登录
+                ul.registbox
+                    li.flexbox_v_c
+                        label(for="") 票友账户
+                        input(type="text",placeholder="请输入注册账户").flex.biginput
+                        a(href="")
+                            i.icon-cancel-circled
+                        a(href="")
+                            i.icon-down-open-mini
+
+                    li.flexbox_v_c
+                        label(for="") 密码
+                        input(type="text",placeholder="请输入票友登录密码").flex
+                        input(type="button",value="发送验证码").btn_code
+                div.registinfo
+                    a(href="#")
+                        p 温馨提示：未注册电影票友账号的手机号，登录时将自动注册，
+                        p 且代表您已同意
+                            span 电影票友用户协议》
+                dl.qucklogin
+                    dt 快捷方式
+                    dd.flexbox_vh_c
+                        p
+                            a(href="#").b_weixin
+                        p
+                            a(href="#").b_qq
+                        p
+                            a(href="#").b_sinaweibo
+
+
+            //centent End
+    //mask End
+     
+
+
+
+
+block prepend footer
+
+block prepend script
+    script
+        
+
+

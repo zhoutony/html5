@@ -86,7 +86,7 @@ body { }
 .mui-slider-indicator { position: absolute; bottom: 8px; /*width: 100%;*/ text-align: center; background: none; }
 .mui-slider-indicator.mui-segmented-control { position: relative; bottom: auto; }
 .mui-slider-indicator .mui-indicator { display: inline-block; width: 6px; height: 6px; margin: 1px 6px; cursor: pointer; background: #aaa; border-radius: 50%; }
-.mui-slider-indicator .mui-active.mui-indicator { background: #fff; }
+.mui-slider-indicator .mui-active.mui-indicator { background: none; }
 .mui-slider-indicator .mui-icon { width: 40px; height: 30px; margin: 3px; font-size: 20px; line-height: 30px; text-align: center; border: 1px solid #ddd; }
 .mui-slider-indicator .mui-number { display: inline-block; width: 58px; line-height: 32px; }
 .mui-slider-indicator .mui-number span { color: #ff5053; }
@@ -116,22 +116,22 @@ body { }
 .info02 { background: url(../images/info02.png) no-repeat center center; background-size: cover; }
 .btn_share { width: 2.1rem; height: 2.1rem; background: url(../images/add_share.png) no-repeat center center; background-size: cover; }
 .time i { width: 1.2rem; height: 1.2rem; background: url(../images/time.png) no-repeat center center; background-size: cover; }
-.sharetool { position: absolute; right: 1.1rem; bottom: -0.5rem; }
+.sharetool { position: absolute; right: 1.1rem; bottom: 0.5rem; }
 .sharetool a { width: 2.4rem; height: 2.4rem; margin-right: 0.4rem; border-radius: 4rem; }
 .sharetool a span { text-indent: -1000rem; }
 /**ico End**/
 /**scrollpic Begin**/
-.scrollpic { height: 12.1rem; background: #f2f2f2; overflow: hidden; position: relative; }
+.scrollpic { height: 13.57rem; background: #f2f2f2; overflow: hidden; position: relative; }
 .imgico { position: relative; }
  
-.scrollpic1 img { height: 15.3rem; }
-.imgico:after { content: ''; display: block; width: 5.3rem; height: 5.3rem; position: absolute; left: 0.9rem; top: 0.9rem; background: url(../images/img_ico.png) no-repeat center center; background-size: cover; }
+.scrollpic1  { height: 12.29rem; }
+.imgico:after { content: ''; display: block; width: 4em; height: 4em; position: absolute; left: 0.9rem; top: 0.9rem; background: url(../images/img_ico.png) no-repeat center center; background-size: cover; }
 .scrollpic ul { width: 100%; display: -webkit-box; display: -moz-box; display: box; }
 .scrollpic li { width: 100%; height: 10.5rem; }
 .scrollpic li a, .scrollpic li img { display: block; }
 .scrollpic .currbox { position: absolute; bottom: 0.5rem; right:0.5rem; }
 .scrollpic .currbox span { width: 0.5rem; height: 0.5rem; border: 0.1rem solid #00948D; margin: 0 0.1rem; border-radius: 1rem; background: #00948D; display: inline-block; vertical-align: middle; overflow: hidden; }
-.addimg { height: 15.3rem!important; background: #f2f2f2; overflow: hidden; position: relative; }
+.addimg { height: 12.29rem;!important; background: #f2f2f2; overflow: hidden; position: relative; }
 .addimg .btn_share, .addimg h2 { position: absolute!important; z-index: 1!important; }
 .addimg .btn_share { bottom: 1.3rem; left: 1.3rem; }
 .addimg h2 { background: #00948D; padding: 0 1rem; height: 1rem; color: #fff; left: 0; top: 0; font-size: 0.6rem; line-height: 1rem; }
@@ -146,7 +146,7 @@ body { }
 .txtbox { padding: 0rem 0; margin-bottom: 1rem; position: relative; }
 .txtbox h2 { font-size: 1.1rem; line-height: 1; text-align: center; color: #333; padding: 0.8rem 0; position: relative; }
 .txtbox h2:after { position: absolute; bottom: 0; left: 0; content: ''; width: 100%; height: 1px; background: #717071; -webkit-transform: scaleY(0.5); overflow: hidden; }
-.txtbox .txtmid{padding: 1rem 2.9rem 2.5rem;background: #F7F7F7; }
+.txtbox .txtmid{padding: 1rem 2.9rem 3.5rem;background: #F7F7F7; }
 .txtbox p { font-size: 0.9rem;height:4.2rem; line-height: 1.5rem;  color: #717171; 
     text-overflow: ellipsis;
     white-space: normal!important;
@@ -181,8 +181,8 @@ body { }
 .navtool li i.n02 { background: url(../images/navtool_02.png) no-repeat center center; background-size: auto 100%; }
 .navtool li i.n03 { background: url(../images/navtool_03.png) no-repeat center center; background-size: auto 100%; }
 .navtool li i.n04 { background: url(../images/navtool_04.png) no-repeat center center; background-size: auto 100%; }
-.navtool li i.nadd { width: 4.4rem; height: 3.4rem; border-radius: 0 0 0.3rem 0.3rem; background: #00948D url(../images/ico_add.png) no-repeat center center; background-size: auto 2.1rem; line-height: 1; margin-top: -0.5rem }
-.navtool li.curr i.n01 { background: url(../images/navtool_01_c.png) no-repeat center center; background-size: auto 100%; }
+.navtool li i.nadd { width: 3.4rem; height: 3.4rem; border-radius: 0 0 0.3rem 0.3rem; background: #00948D url(../images/ico_add.png) no-repeat center center; background-size: auto 1.6rem; line-height: 1; margin-top: -0.5rem }
+.navtool li.curr i.n01 { background: url(../images/navtool_01_c.png) no-repeat center center; background-size: 100% auto; }
 .navtool li.curr i.n02 { background: url(../images/navtool_02_c.png) no-repeat center center; background-size: auto 100%; }
 .navtool li.curr i.n03 { background: url(../images/navtool_03_c.png) no-repeat center center; background-size: auto 100%; }
 .navtool li.curr i.n04 { background: url(../images/navtool_04_c.png) no-repeat center center; background-size: auto 100%; }
@@ -318,14 +318,28 @@ body { }
 .search { margin-top: 1rem; }
 .search .searchtxt { font-size: 1.2rem; color: #00968d; text-align: center; }
 .serachmid .btn_search { display: block; width: 2rem; height: 3.3rem; background: url(../images/search.png) no-repeat center center; background-size: 1.2rem auto; margin: 0 0.5rem; }
-.filmlist { padding: 1rem 0; }
-.filmlist dt { padding-left: 1.8rem; padding-right: 1.8rem; }
+.filmlist { padding: 0rem 0; }
+.filmlist dt { position: relative; padding-left: 1.8rem; padding-right: 1.8rem; }
 .filmlist dt { background: #f7f7f7; line-height: 2.5rem; height: 2.5rem; font-size: 1.4rem; }
 .filmlist dt i { color: #00968d; font-size: 1.6rem; }
+
 .filmlist li { position: relative; padding-left: 1.8rem; padding-right: 1.8rem; padding-top: 1rem; padding-bottom: 1rem; }
 .filmlist li a h2 { color: #333; }
 .filmlist .timebox a h2 { color: #00968d; }
+.hidefilm dd{display:none;-webkit-transition: .5s all; -moz-transition: .5s all; -o-transition: .5s all; -ms-transition: .5s all; transition: .5s all}
+.filmlist dt:after,.hidefilm dt:before {position: absolute;
+    top: 0;
+    left: -1rem;
+    right: -1rem;
+    content: '';
+    height: 1px;
+    background: #717071;
+    -webkit-transform: scaleY(0.5);
+    overflow: hidden;}
+    .hidefilm:last-child dt:before{bottom:0;top:auto;}
+.hidefilm dt i:before{transform:rotate(-90deg);}
 .filmlist li:after { content: ''; display: block; height: 1px; overflow: hidden; background: #717071; position: absolute; bottom: 0; left: 0; right: 0; -webkit-transform: scaleY(0.5); }
+.filmlist dd:last-child li:after{display:none;}
 .filmlist .infobox h2 { font-size: 1.1rem; line-height: 1.5; color: #333; }
 .filmlist .infobox p { font-size: 0.9rem; color: #666; line-height: 1.6; }
 .filmlist .infobox p b { color: #fff; background: #f29700; padding: 0.1rem 0.5rem; font-size: 0.9rem; border-radius: 10rem; display: inline-block; line-height: 1; vertical-align: middle; margin-left: 1rem; }
@@ -589,4 +603,4 @@ body { }
 .vipcard .cardmid  .piaoyou .cardlay:after{display:none;}
 .vipcard .cardmid  .piaoyou .cardend{border:none;}
  
-.vipico i{ }
+ 
