@@ -20,5 +20,11 @@ app.get(["/login"], function(req, res){
             pageSize:   10
         }
     };
-    res.render("wecinema/login");
+    render_data.data = {};
+    render_data.data = {
+        reversion: global.reversion,
+        staticBase: global.staticBase
+
+    }
+    res.render("wecinema/login", render_data);
 });

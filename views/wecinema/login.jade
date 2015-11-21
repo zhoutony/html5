@@ -19,40 +19,43 @@ block prepend body
                 header
                     p 电影票友登录
                 nav
-                    ul.flexbox
+                    ul.flexbox.tabnav
                         li.curr.flex 手机号快捷登录
                         li.flex 票友会员登录
                 //手机号快捷登录
-                ul.registbox
-                    li.flexbox_v_c
-                        label(for="") 手机号
-                        input(type="text",placeholder="请添写注册手机号").flex.biginput
-                        a(href="")
-                            i.icon-cancel-circled
-                        a(href="")
-                            i.icon-down-open-mini
+                div.tabcont
+                    div.tabbox
+                        ul.registbox
+                            li.flexbox_v_c
+                                label(for="") 手机号
+                                input(type="text",placeholder="请添写注册手机号").flex.biginput
+                                a(href="")
+                                    i.icon-cancel-circled
+                                a(href="")
+                                    i.icon-down-open-mini
 
-                    li.flexbox_v_c
-                        label(for="") 验证码
-                        input(type="number",placeholder="请输入验证码").flex
-                        input(type="button",value="发送验证码").btn_code
-                div.flexbox
-                    input(type="button",value="登录").btn_regist.flex
-                // 票友会员登录
-                ul.registbox
-                    li.flexbox_v_c
-                        label(for="") 账户
-                        input(type="text",placeholder="请输入注册账户").flex.biginput
-                        a(href="")
-                            i.icon-cancel-circled
-                        a(href="")
-                            i.icon-down-open-mini
+                            li.flexbox_v_c
+                                label(for="") 验证码
+                                input(type="number",placeholder="请输入验证码").flex
+                                input(type="button",value="发送验证码").btn_code
+                        div.flexbox
+                            input(type="button",value="登录").btn_regist.flex
+                    div.tabbox.hide
+                        // 票友会员登录
+                        ul.registbox
+                            li.flexbox_v_c
+                                label(for="") 账户
+                                input(type="text",placeholder="请输入注册账户").flex.biginput
+                                a(href="")
+                                    i.icon-cancel-circled
+                                a(href="")
+                                    i.icon-down-open-mini
 
-                    li.flexbox_v_c
-                        label(for="") 密码
-                        input(type="text",placeholder="请输入票友登录密码").flex
-                div.flexbox
-                    input(type="button",value="登录").btn_regist.flex
+                            li.flexbox_v_c
+                                label(for="") 密码
+                                input(type="text",placeholder="请输入票友登录密码").flex
+                        div.flexbox
+                            input(type="button",value="登录").btn_regist.flex
                 div.registinfo
                     a(href="#")
                         p 温馨提示：未注册电影票友账号的手机号，登录时将自动注册，
@@ -79,7 +82,9 @@ block prepend body
 block prepend footer
 
 block prepend script
-    script
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/login.js?#{data.reversion}")
+
         
 
 
