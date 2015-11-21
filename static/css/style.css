@@ -421,20 +421,22 @@ body { }
 .cardpop .cardlist li p { color: #898989; font-size: 1rem; line-height: 1.4; margin: 0.3rem 1.75rem 0; }
 .cardpop .cardmid li { margin: 1rem 2rem 0; padding: 1rem 0 0.5rem 1.2rem; background: #fff url(../images/cardinfo.png) no-repeat center top; background-size: auto 1.5rem; }
 .cardpop .cardmid .cardinfo { padding: 0 0.5rem; }
-.cardpop .cardmid .cardinfo .main p { padding-top: 1rem; color: #b5b5b5; }
+.cardpop .cardmid .cardinfo .main p { padding-top: 1rem; color: #B4B4B5;font-size:0.9rem; }
 .cardpop .cardmid .cardinfo .main b { font-size: 2rem; line-height: 2; color: #b5b5b5; }
-.cardmid .cardlay:after { content: ''; display: block; width: 8rem; height: 8rem; position: absolute; right: 1rem; top: 0; background: url(../images/quan.png) no-repeat center center; background-size: cover; z-index: 0; }
+.cardmid .cardlay:after { content: ''; display: block; width: 4rem; height: 4rem; position: absolute; right: 1rem; top: 0; background: url(../images/quan.png) no-repeat center center; background-size: cover; z-index: 0; }
 .cardmid .cardlay { margin-right: 0.5rem; background: url(../images/card_arro.png) no-repeat right center; background-size: auto 2.3rem; position: relative; z-index: 1; }
 .cardpop .cardmid .cardinfo .aside { padding-top: 2rem; padding-bottom: 0.5rem; }
 .cardpop .cardmid .cardinfo .aside p { padding-right: 1rem; color: #717171; font-size: 0.1rem; line-height: 2; text-align: right; }
 .cardpop .cardmid .cardend { border-top: 1px dotted #707070; margin: 0.5rem 0 0; padding: 0.5rem 0.5rem 0; }
 .cardpop .cardmid .cardend .main { color: #707070; font-size: 1rem; }
 .cardpop .cardmid .cardend .aside { font-size: 0.8rem; color: #b6b6b6; }
+.cardpop .cardmid li{ position:relative;}
 .cardpop .cardmid .new { background: #fff url(../images/cardinfo_curr.png) no-repeat center top; background-size: auto 1.5rem; }
 .cardpop .cardmid .new .cardlay { margin-right: 0.5rem; background: url(../images/card_arro_curr.png) no-repeat right center; background-size: auto 2.3rem; }
 .cardpop .cardmid .new .cardinfo .main b, .cardpop .cardmid .new .cardinfo .main p { color: #00968d; }
 .cardpop .cardmid .new .cardend .aside { color: #78797b; }
 .cardpop .cardmid .new .cardend .aside span { color: #e50112; }
+
 .succ dl { text-align: center; padding-bottom: 2rem; }
 .succ dt { height: 6.9rem; margin: 2rem 0 1rem; background: url(../images/succ_01.png) no-repeat center center; background-size: 6.9rem auto; }
 .succ dd b { color: #dcdedd; font-size: 2rem; line-height: 1; }
@@ -539,7 +541,7 @@ body { }
 .transition9 { -webkit-transition: .9s all; -moz-transition: .9s all; -o-transition: .9s all; -ms-transition: .9s all; transition: .9s all }
 .transition10 { -webkit-transition: .10s all; -moz-transition: .10s all; -o-transition: .10s all; -ms-transition: .10s all; transition: .10s all }
 /**内容页**/
-.infotxt { padding: 1rem 1.8rem; }
+.infotxt { padding: 0rem 1.8rem 1rem; }
 .infotxt .infocon h3 { font-size: 1.1rem; line-height: 1; color: #333; position: relative; }
 .infotxt .infocon h3 span { padding: 0 1rem 0 0; background: #fff; position: relative; z-index: 1; }
 .infotxt .infocon h3:after { content: ''; display: block; height: 1px; background: #595757; overflow: hidden; position: absolute; z-index: 0; left: 0; right: 0; top: 50%; margin-top: -0.5px; }
@@ -551,7 +553,7 @@ body { }
 .linkname { display: inline-block; font-size: 0.8rem; }
 .linkname time { display: block; font-size: 0.45rem; }
 .infomenu i, .infomenu span { display: block; }
-.txtfoot { margin-top: -0.6rem; position: relative; font-size: 0.7rem; color: #00AF95; }
+.txtfoot { margin-top: -0.6rem;padding:0 1rem; position: relative; font-size: 0.7rem; color: #00AF95; }
 .codeinfo .imgbox { width: 12rem; }
 .codeinfo .txtbox { text-align: center; border: 1px solid #00AF95; color: #00AF95; margin: 1rem 0; }
 .codeinfo .txtbox h4 { font-size: 1.6rem; padding: 3rem 0 0; }
@@ -565,6 +567,7 @@ body { }
 .b_oicq { background: url(../images/i_oicq.png) no-repeat center center; background-size: auto 100%; }
 .b_sina { background: url(../images/i_sina.png) no-repeat center center; background-size: auto 100%; }
 .infoconimg { margin-bottom: 1rem; }
+.infotxt .infocon .codeinfo  p:after{display:none;}
 /**upload**/
 .upload { }
 .uploadlist { padding: 0 2.5rem; }
@@ -574,3 +577,16 @@ body { }
 .uploadlist li label { width: 5.5rem; padding: 0 0 0 0.9rem; color: #b3b3b3; }
 .upload .btn_regist { margin: 3rem 4em 1rem; }
 .upload .logo { width: 8rem; height: 8rem; border: 1px solid #C8C9CA; margin: 0 auto 1rem; }
+/**vipcard**/
+.vipcard .smalltit {text-align:center;font-size:0.8rem;color:#00948D;padding:2.5rem 0;}
+.vipcard .uploadbtn{text-align:center;}
+.vipcard .uploadbtn span{color:#EEEEEF;font-size:2rem;}
+.vipcard .uploadbtn span,
+.vipcard .uploadbtn label{display:inline-block; vertical-align:middle;}
+.vipcard .uploadbtn label{color:#fff;background:#EEEEEF;padding:0rem 2rem;font-size:5rem;line-height:1;height:6rem;}
+.vipcard .uploadbtn input{ position:absolute;left:0;top:0;right:0;bottom:0; opacity:0;}
+.vipcard .cardmid  .piaoyou{background:  url(../images/vipcardico.png) no-repeat left center;background-size:auto 100%;margin-left:2rem;}
+.vipcard .cardmid  .piaoyou .cardlay:after{display:none;}
+.vipcard .cardmid  .piaoyou .cardend{border:none;}
+ 
+.vipico i{ }

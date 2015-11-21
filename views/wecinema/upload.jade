@@ -1,0 +1,48 @@
+extends ./layout
+
+block title
+        title 票友网
+
+
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        div.regist.upload
+            header.upheader
+                i.ico_piao
+                span 优惠上传
+            div.logo
+            ul.uploadlist
+                li.flexbox_v_c
+                    label 类型
+                    input(type="text",value="红包").flex
+                li.flexbox_v_c
+                    label 金额
+                    input(type="number",value="33").flex
+                    span 元
+                li.flexbox_v_c
+                    label 截止时间
+                    input(type="time",value="2015-10-10").flex
+                li.flexbox_v_c
+                    label 条件说明
+                    input(type="text",value="仅可购买电影票").flex
+            .flexbox
+                input.btn_regist.flex(type="button",value="上传")
+            div.registinfo
+                a(href="#")
+                    p.
+                        温馨提示：未注册电影票友账号的手机号，登录时将自动注册，
+                    p 且代表您已同意
+                        span 《电影票友用户协议》
+
+
+
+block prepend footer
+
+block prepend script
+    script
+        
+
+
