@@ -177,7 +177,7 @@ body { }
 .navtool li:last-child:after { left: 0; right: auto; }
 .navtool li.curr, .navtool li.curr a { color: #00948D; }
 .navtool li i { display: block; overflow: hidden; width: 1.6rem; height: 1.6rem; margin: 0rem auto 0.3rem; }
-.navtool li i.n01 { background: url(../images/navtool_01_c.png) no-repeat center center; background-size: auto 100%; }
+.navtool li i.n01 { background: url(../images/navtool_01.png) no-repeat center center; background-size: 100% auto;; }
 .navtool li i.n02 { background: url(../images/navtool_02.png) no-repeat center center; background-size: auto 100%; }
 .navtool li i.n03 { background: url(../images/navtool_03.png) no-repeat center center; background-size: auto 100%; }
 .navtool li i.n04 { background: url(../images/navtool_04.png) no-repeat center center; background-size: auto 100%; }
@@ -196,7 +196,7 @@ body { }
 .movietool li:last-child { margin-right: 1rem; }
 .movietool li:last-child a { border-radius: 0 1rem 1rem 0; }
 /**tabs**/
-
+.hide{display:none;}
 .tabs { border: 1px solid #dcdddd; height: 2rem; border-radius: 2rem; line-height: 1.8rem; margin: 0 1rem 1rem; }
 .tabs .city { width: 8rem; }
 .tabs .city { padding: 0rem 0 0 1rem; font-size: 1.2rem; color: #898989; }
@@ -355,8 +355,8 @@ body { }
 .mask { background: rgba(0,0,0,.6); position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 20; }
 .mask .maskbtn { border-bottom: 0.5rem solid #00968d; height: 8rem; }
 .mask .btn_close { }
-.mask .btn_close { display: block; text-align: center; padding: 3rem 0 0; color: #fff; font-size: 4rem; }
-.mask .btn_close i { margin: auto; display: block; width: 4rem; height: 4rem; background: url(../images/i_close.png) no-repeat center center; background-size: cover; }
+.mask .btn_close { display: block; text-align: center; padding: 5rem 0 3rem; color: #fff; font-size: 4rem; }
+.mask .btn_close i { margin: auto; display: block; width: 1.5rem; height: 1.5rem; background: url(../images/i_close.png) no-repeat center center; background-size: cover; }
 .mask .btn_close i:before { display: none; }
 .mask .maskother { background: #efefef; overflow-y: auto; }
 .redinfo { margin: 1.5rem 3rem 0; }
@@ -368,7 +368,7 @@ body { }
 .redinfo .btn_back { margin: 1rem; display: block; background: #00968d; color: #fff; text-align: center; height: 3rem; line-height: 3rem; font-size: 1.4rem; }
 /**regist **/
 .regist { margin: 2.5rem 0rem 0; }
-.regist header { border-bottom: 1px solid #dbdbdb; text-align: center; text-align: center; font-size: 1.4rem; color: #00968d; background: url(../images/login.png) no-repeat center top; background-size: 5rem auto; padding: 5.5rem 0 1rem; margin-bottom: 2rem; }
+.regist header { border-bottom: 1px solid #dbdbdb; text-align: center; text-align: center; font-size: 1.1rem; color: #00968d; background: url(../images/login.png) no-repeat center top; background-size: 5rem auto; padding: 5.5rem 0 0.5rem; margin-bottom: 2rem; }
 .regist nav { margin: 0 3rem; }
 .regist nav li { border: 1px solid #00968d; height: 3rem; line-height: 3rem; color: #00968d; font-size: 1.2rem; text-align: center; }
 .regist nav li:first-child { margin-right: 0.05rem; border-radius: 4rem 0 0 4rem; }

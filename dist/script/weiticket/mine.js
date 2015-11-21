@@ -1,15 +1,15 @@
-webpackJsonp([14,17],[
+webpackJsonp([13,16],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	    __webpack_require__(1),
-	    __webpack_require__(3),
-	    __webpack_require__(8),
-	    __webpack_require__(4),
-	    __webpack_require__(2),
 	    __webpack_require__(5),
-	    __webpack_require__(11)
+	    __webpack_require__(8),
+	    __webpack_require__(2),
+	    __webpack_require__(4),
+	    __webpack_require__(3),
+	    __webpack_require__(9)
 	], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
 	             _,
 	             Deferred,
@@ -419,6 +419,199 @@ webpackJsonp([14,17],[
 
 /***/ },
 /* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	  __webpack_require__(1),
+	  __webpack_require__(5),
+	  __webpack_require__(8)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
+	  $, _, Deferred
+	) {
+
+	  // 参数增加公众号缩写publicsignalshort是因为站点内的所有路由均加了公众号
+	  //keyfn 获取seseion的值
+	  //urifn 获取路由地址
+	  //datafn 返回数据
+	  var initialize = function(keyfn, urifn, datafn) {
+	    return function(id, publicsignalshort) {
+	      var key = keyfn(id);
+	      var defer = new _.Deferred();
+	      var item = sessionStorage.getItem(key);
+	      if (item) {
+	        defer.resolve(JSON.parse(item));
+	        return defer.promise();
+	      } else {
+	        $.get(urifn(id, publicsignalshort), function(data) {
+	          item = datafn(data);
+	          sessionStorage.setItem(key, JSON.stringify(item));
+	          defer.resolve(item);
+	        });
+	      }
+	      return defer.promise();
+	    };
+	  };
+
+	  var movieCache = initialize(function(id) {
+	    return 'movie-' + id;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/movie_info/' + id + '/';
+	  }, function(data) {
+	    return data.data.movie;
+	  });
+
+	  var publicSignalCache = initialize(function(id) {
+	    return 'publicsignal-' + id;
+	  }, function(id) {
+	    return '/' + id + '/public_signal_info/';
+	  }, function(data) {
+	    return data;
+	  });
+
+	  var cinemaCache = initialize(function(id) {
+	    return 'cinema-' + id;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/cinema_info_html/' + id + '/';
+	  }, function(data) {
+	    if (data && data.data) {
+	      return data.data.cinema;
+	    }
+	  });
+
+	  //基本排期信息
+	  var scheduleInfoCache = initialize(function(mpid) {
+	    return 'movieScheduleInfo-' + mpid;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/movieScheduleInfo/' + id;
+	  }, function(data) {
+	    return data.data;
+	  });
+
+	  return {
+	    cinema: cinemaCache,
+	    movie: movieCache,
+	    publicSignal: publicSignalCache,
+	    scheduleInfo: scheduleInfoCache
+	  };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21)], __WEBPACK_AMD_DEFINE_RESULT__ = function(_) {
+
+	    // var pluses = /\+/g;
+
+	    // function raw(s) {
+	    //     return s;
+	    // }
+
+	    // function decoded(s) {
+	    //     return decodeURIComponent(s.replace(pluses, ' '));
+	    // }
+
+	    // var cookie = function cookie(key, value, options) {
+
+	    //     // write
+	    //     if (value !== undefined) {
+	    //         options = _.extend({}, cookie.defaults, options);
+
+	    //         if (value === null) {
+	    //             options.expires = -1;
+	    //         }
+
+	    //         if (typeof options.expires === 'number') {
+	    //             var days = options.expires,
+	    //                 t = options.expires = new Date();
+	    //             t.setDate(t.getDate() + days);
+	    //         }
+
+	    //         value = cookie.json ? JSON.stringify(value) : String(value);
+
+	    //         return (document.cookie = [
+	    //             encodeURIComponent(key), '=', cookie.raw ? value : encodeURIComponent(value),
+	    //             options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+	    //             options.path ? '; path=' + options.path : '',
+	    //             options.domain ? '; domain=' + options.domain : '',
+	    //             options.secure ? '; secure' : ''
+	    //         ].join(''));
+	    //     }
+
+	    //     // read
+	    //     var decode = cookie.raw ? raw : decoded;
+	    //     var cookies = document.cookie.split('; ');
+	    //     for (var i = 0, l = cookies.length; i < l; i++) {
+	    //         var parts = cookies[i].split('=');
+	    //         if (decode(parts.shift()) === key) {
+	    //             var c = decode(parts.join('='));
+	    //             return cookie.json ? JSON.parse(c) : c;
+	    //         }
+	    //     }
+
+	    //     return null;
+	    // };
+
+	    // cookie.defaults = {};
+
+	    // function removeCookie(key, options) {
+	    //     if (cookie(key) !== null) {
+	    //         cookie(key, null, options);
+	    //         return true;
+	    //     }
+	    //     return false;
+	    // };
+
+	    // cookie.remove = removeCookie;
+
+	    // return cookie;
+
+	    var docCookies = {
+	      getItem: function (sKey) {
+	        if (!sKey) { return null; }
+	        return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+	      },
+	      setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+	        if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
+	        var sExpires = "";
+	        if (vEnd) {
+	          switch (vEnd.constructor) {
+	            case Number:
+	              sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
+	              break;
+	            case String:
+	              sExpires = "; expires=" + vEnd;
+	              break;
+	            case Date:
+	              sExpires = "; expires=" + vEnd.toUTCString();
+	              break;
+	          }
+	        }
+	        document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+	        return true;
+	      },
+	      removeItem: function (sKey, sPath, sDomain) {
+	        if (!this.hasItem(sKey)) { return false; }
+	        document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+	        return true;
+	      },
+	      hasItem: function (sKey) {
+	        if (!sKey) { return false; }
+	        return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+	      },
+	      keys: function () {
+	        var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+	        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
+	        return aKeys;
+	      }
+	    };
+
+	    return docCookies;
+
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*! iScroll v5.0.6 ~ (c) 2008-2013 Matteo Spinelli ~ http://cubiq.org/license */
@@ -2429,7 +2622,7 @@ webpackJsonp([14,17],[
 	})(window, document, Math);
 
 /***/ },
-/* 3 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.2
@@ -2440,206 +2633,13 @@ webpackJsonp([14,17],[
 	//# sourceMappingURL=underscore-min.map
 
 /***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	  __webpack_require__(1),
-	  __webpack_require__(3),
-	  __webpack_require__(8)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
-	  $, _, Deferred
-	) {
-
-	  // 参数增加公众号缩写publicsignalshort是因为站点内的所有路由均加了公众号
-	  //keyfn 获取seseion的值
-	  //urifn 获取路由地址
-	  //datafn 返回数据
-	  var initialize = function(keyfn, urifn, datafn) {
-	    return function(id, publicsignalshort) {
-	      var key = keyfn(id);
-	      var defer = new _.Deferred();
-	      var item = sessionStorage.getItem(key);
-	      if (item) {
-	        defer.resolve(JSON.parse(item));
-	        return defer.promise();
-	      } else {
-	        $.get(urifn(id, publicsignalshort), function(data) {
-	          item = datafn(data);
-	          sessionStorage.setItem(key, JSON.stringify(item));
-	          defer.resolve(item);
-	        });
-	      }
-	      return defer.promise();
-	    };
-	  };
-
-	  var movieCache = initialize(function(id) {
-	    return 'movie-' + id;
-	  }, function(id, publicsignalshort) {
-	    return '/' + publicsignalshort + '/movie_info/' + id + '/';
-	  }, function(data) {
-	    return data.data.movie;
-	  });
-
-	  var publicSignalCache = initialize(function(id) {
-	    return 'publicsignal-' + id;
-	  }, function(id) {
-	    return '/' + id + '/public_signal_info/';
-	  }, function(data) {
-	    return data;
-	  });
-
-	  var cinemaCache = initialize(function(id) {
-	    return 'cinema-' + id;
-	  }, function(id, publicsignalshort) {
-	    return '/' + publicsignalshort + '/cinema_info_html/' + id + '/';
-	  }, function(data) {
-	    if (data && data.data) {
-	      return data.data.cinema;
-	    }
-	  });
-
-	  //基本排期信息
-	  var scheduleInfoCache = initialize(function(mpid) {
-	    return 'movieScheduleInfo-' + mpid;
-	  }, function(id, publicsignalshort) {
-	    return '/' + publicsignalshort + '/movieScheduleInfo/' + id;
-	  }, function(data) {
-	    return data.data;
-	  });
-
-	  return {
-	    cinema: cinemaCache,
-	    movie: movieCache,
-	    publicSignal: publicSignalCache,
-	    scheduleInfo: scheduleInfoCache
-	  };
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21)], __WEBPACK_AMD_DEFINE_RESULT__ = function(_) {
-
-	    // var pluses = /\+/g;
-
-	    // function raw(s) {
-	    //     return s;
-	    // }
-
-	    // function decoded(s) {
-	    //     return decodeURIComponent(s.replace(pluses, ' '));
-	    // }
-
-	    // var cookie = function cookie(key, value, options) {
-
-	    //     // write
-	    //     if (value !== undefined) {
-	    //         options = _.extend({}, cookie.defaults, options);
-
-	    //         if (value === null) {
-	    //             options.expires = -1;
-	    //         }
-
-	    //         if (typeof options.expires === 'number') {
-	    //             var days = options.expires,
-	    //                 t = options.expires = new Date();
-	    //             t.setDate(t.getDate() + days);
-	    //         }
-
-	    //         value = cookie.json ? JSON.stringify(value) : String(value);
-
-	    //         return (document.cookie = [
-	    //             encodeURIComponent(key), '=', cookie.raw ? value : encodeURIComponent(value),
-	    //             options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-	    //             options.path ? '; path=' + options.path : '',
-	    //             options.domain ? '; domain=' + options.domain : '',
-	    //             options.secure ? '; secure' : ''
-	    //         ].join(''));
-	    //     }
-
-	    //     // read
-	    //     var decode = cookie.raw ? raw : decoded;
-	    //     var cookies = document.cookie.split('; ');
-	    //     for (var i = 0, l = cookies.length; i < l; i++) {
-	    //         var parts = cookies[i].split('=');
-	    //         if (decode(parts.shift()) === key) {
-	    //             var c = decode(parts.join('='));
-	    //             return cookie.json ? JSON.parse(c) : c;
-	    //         }
-	    //     }
-
-	    //     return null;
-	    // };
-
-	    // cookie.defaults = {};
-
-	    // function removeCookie(key, options) {
-	    //     if (cookie(key) !== null) {
-	    //         cookie(key, null, options);
-	    //         return true;
-	    //     }
-	    //     return false;
-	    // };
-
-	    // cookie.remove = removeCookie;
-
-	    // return cookie;
-
-	    var docCookies = {
-	      getItem: function (sKey) {
-	        if (!sKey) { return null; }
-	        return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
-	      },
-	      setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
-	        if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
-	        var sExpires = "";
-	        if (vEnd) {
-	          switch (vEnd.constructor) {
-	            case Number:
-	              sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
-	              break;
-	            case String:
-	              sExpires = "; expires=" + vEnd;
-	              break;
-	            case Date:
-	              sExpires = "; expires=" + vEnd.toUTCString();
-	              break;
-	          }
-	        }
-	        document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
-	        return true;
-	      },
-	      removeItem: function (sKey, sPath, sDomain) {
-	        if (!this.hasItem(sKey)) { return false; }
-	        document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
-	        return true;
-	      },
-	      hasItem: function (sKey) {
-	        if (!sKey) { return false; }
-	        return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
-	      },
-	      keys: function () {
-	        var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
-	        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
-	        return aKeys;
-	      }
-	    };
-
-	    return docCookies;
-
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ },
 /* 6 */,
 /* 7 */,
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(root){
-	  var _ = __webpack_require__(3);
+	  var _ = __webpack_require__(5);
 	  // Let's borrow a couple of things from Underscore that we'll need
 
 	  // _.each
@@ -3095,188 +3095,7 @@ webpackJsonp([14,17],[
 	})(this);
 
 /***/ },
-/* 9 */,
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
-	 * Created by gaowhen on 14/11/27.
-	 */
-
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(1),
-	    __webpack_require__(3)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
-	    $,
-	    _
-	) {
-	    var toastModal = {
-	        method: function (modal) {
-	            modal.$modal.addClass('modal').removeClass('m-modal m-modal-m').html(modal.setting.body);
-	            setTimeout(function () {
-	                modal.hide();
-	            }, 2000);
-	        }
-	    };
-
-	    var alertModal = {
-	        btn: '<a href="#" class="btn btn-cancel">返回</a>',
-	        method: function(modal) {
-	            modal.hide();
-	        }
-	    };
-
-	    var confirmModal = {
-	        confirm: {
-	            btn: '<a href="#" class="btn btn-confirm">确认</a>',
-	            method: function(modal) {
-	                modal.hide();
-	            }
-	        },
-	        cancel: {
-	            btn: '<a href="#" class="btn gray btn-cancel">取消</a>',
-	            method: function(modal) {
-	                modal.hide();
-	            }
-	        }
-	    };
-
-	    var defaults = {
-	        isShowHead: false,
-	        head: 'should be text or dom',
-	        body: 'text or dom',
-	        type: 'alert', // confirm
-	        foot: alertModal
-	    };
-
-	    function Modal() {
-	        this.init();
-	    }
-
-	    _.extend(Modal.prototype, {
-	        init: function() {
-	            this.$overlay = $('<div class="full-screen"></div>');
-	            this.$modal = $('' +
-	                '<div class="m-modal m-modal-m">' +
-	                '<div class="m-m-header"></div>' +
-	                '<div class="m-m-body" style="text-align: center;"></div>' +
-	                '<div class="m-m-footer"><div class="btn-box"></div></div>' +
-	                '</div>');
-
-	            this.$head = this.$modal.find('.m-m-header');
-	            this.$body = this.$modal.find('.m-m-body');
-	            this.$foot = this.$modal.find('.m-m-footer');
-	            this.$btn = this.$foot.find('.btn-box');
-
-	            this.$overlay.hide();
-	            this.$modal.hide();
-
-	            this.speed = 150;
-
-	            var $body = $('body');
-	            $body.append(this.$overlay);
-	            $body.append(this.$modal);
-
-	            this.$overlay.on('click', function(e) {
-	                if (e.preventDefault) {
-	                    e.preventDefault();
-	                }
-	                // that.hide();
-	            });
-	        },
-	        setHead: function(head) {
-	            this.$head.removeClass('empty').html(head);
-	        },
-	        setContent: function(content) {
-	            this.$body.html(content);
-	        },
-	        show: function(opt) {
-	            var that = this;
-
-	            opt = _.extend(defaults, opt);
-
-	            that.$overlay.show(that.speed);
-
-	            if (opt.isShowHead) {
-	                that.$head.removeClass('empty');
-	                that.setHead(opt.head);
-	            } else {
-	                that.$head.addClass('empty');
-	            }
-
-	            switch (opt.type) {
-	                case 'alert':
-	                    if (opt.foot && (opt.foot.btn || opt.foot.method)) {
-	                        alertModal = _.extend(alertModal, opt.foot);
-	                    }
-
-	                    that.$modal.empty().addClass('m-modal m-modal-m').removeClass('modal')
-	                        .append(that.$head).append(that.$body).append(that.$foot);
-
-	                    that.$body.html(opt.body);
-
-	                    that.$btn.empty().append(alertModal.btn);
-
-	                    that.$modal.on('click', '.btn-cancel', function(e) {
-	                        e.preventDefault();
-	                        alertModal.method(that);
-	                        that.hide();
-	                    });
-	                    break;
-	                case 'confirm':
-	                    if (opt.foot && (opt.foot.confirm || opt.foot.cancel)) {
-	                        confirmModal = _.extend(confirmModal, opt.foot);
-	                    }
-
-	                    that.$modal.empty().addClass('m-modal m-modal-m').removeClass('modal')
-	                        .append(that.$head).append(that.$body).append(that.$foot);
-
-	                    that.$body.html(opt.body);
-	                    that.$btn.empty().append(confirmModal.cancel.btn).append(confirmModal.confirm.btn);
-
-	                    that.$modal.on('click', '.btn-cancel', function(e) {
-	                        e.preventDefault();
-
-	                        that.hide();
-	                        confirmModal.cancel.method(that);
-	                    });
-
-	                    that.$modal.on('click', '.btn-confirm', function(e) {
-	                        e.preventDefault();
-
-	                        that.hide();
-	                        confirmModal.confirm.method(that);
-	                    });
-	                    break;
-	                case 'tip':
-	                    that.$modal.addClass('modal').removeClass('m-modal m-modal-m').html(opt.body);
-	                    break;
-	                case 'toast':
-	                    that.setting = opt;
-	                    toastModal.method(that);
-	                    break;
-	                default:
-	            }
-
-	            if (opt.klas === 'full') {
-	                this.$modal.removeClass('m-modal-m').addClass('m-modal-full');
-	            }
-
-	            that.$modal.show(that.speed);
-	        },
-	        hide: function() {
-	            this.$overlay.remove();
-	            this.$modal.remove();
-	        }
-	    });
-
-	    return Modal;
-
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-
-/***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -3284,9 +3103,9 @@ webpackJsonp([14,17],[
 	 */
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
-	        __webpack_require__(3),
-	        __webpack_require__(10),
 	        __webpack_require__(5),
+	        __webpack_require__(11),
+	        __webpack_require__(3),
 	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
 	                 _,
@@ -3483,6 +3302,187 @@ webpackJsonp([14,17],[
 	        };
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
 	;
+
+/***/ },
+/* 10 */,
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Created by gaowhen on 14/11/27.
+	 */
+
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	    __webpack_require__(1),
+	    __webpack_require__(5)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
+	    $,
+	    _
+	) {
+	    var toastModal = {
+	        method: function (modal) {
+	            modal.$modal.addClass('modal').removeClass('m-modal m-modal-m').html(modal.setting.body);
+	            setTimeout(function () {
+	                modal.hide();
+	            }, 2000);
+	        }
+	    };
+
+	    var alertModal = {
+	        btn: '<a href="#" class="btn btn-cancel">返回</a>',
+	        method: function(modal) {
+	            modal.hide();
+	        }
+	    };
+
+	    var confirmModal = {
+	        confirm: {
+	            btn: '<a href="#" class="btn btn-confirm">确认</a>',
+	            method: function(modal) {
+	                modal.hide();
+	            }
+	        },
+	        cancel: {
+	            btn: '<a href="#" class="btn gray btn-cancel">取消</a>',
+	            method: function(modal) {
+	                modal.hide();
+	            }
+	        }
+	    };
+
+	    var defaults = {
+	        isShowHead: false,
+	        head: 'should be text or dom',
+	        body: 'text or dom',
+	        type: 'alert', // confirm
+	        foot: alertModal
+	    };
+
+	    function Modal() {
+	        this.init();
+	    }
+
+	    _.extend(Modal.prototype, {
+	        init: function() {
+	            this.$overlay = $('<div class="full-screen"></div>');
+	            this.$modal = $('' +
+	                '<div class="m-modal m-modal-m">' +
+	                '<div class="m-m-header"></div>' +
+	                '<div class="m-m-body" style="text-align: center;"></div>' +
+	                '<div class="m-m-footer"><div class="btn-box"></div></div>' +
+	                '</div>');
+
+	            this.$head = this.$modal.find('.m-m-header');
+	            this.$body = this.$modal.find('.m-m-body');
+	            this.$foot = this.$modal.find('.m-m-footer');
+	            this.$btn = this.$foot.find('.btn-box');
+
+	            this.$overlay.hide();
+	            this.$modal.hide();
+
+	            this.speed = 150;
+
+	            var $body = $('body');
+	            $body.append(this.$overlay);
+	            $body.append(this.$modal);
+
+	            this.$overlay.on('click', function(e) {
+	                if (e.preventDefault) {
+	                    e.preventDefault();
+	                }
+	                // that.hide();
+	            });
+	        },
+	        setHead: function(head) {
+	            this.$head.removeClass('empty').html(head);
+	        },
+	        setContent: function(content) {
+	            this.$body.html(content);
+	        },
+	        show: function(opt) {
+	            var that = this;
+
+	            opt = _.extend(defaults, opt);
+
+	            that.$overlay.show(that.speed);
+
+	            if (opt.isShowHead) {
+	                that.$head.removeClass('empty');
+	                that.setHead(opt.head);
+	            } else {
+	                that.$head.addClass('empty');
+	            }
+
+	            switch (opt.type) {
+	                case 'alert':
+	                    if (opt.foot && (opt.foot.btn || opt.foot.method)) {
+	                        alertModal = _.extend(alertModal, opt.foot);
+	                    }
+
+	                    that.$modal.empty().addClass('m-modal m-modal-m').removeClass('modal')
+	                        .append(that.$head).append(that.$body).append(that.$foot);
+
+	                    that.$body.html(opt.body);
+
+	                    that.$btn.empty().append(alertModal.btn);
+
+	                    that.$modal.on('click', '.btn-cancel', function(e) {
+	                        e.preventDefault();
+	                        alertModal.method(that);
+	                        that.hide();
+	                    });
+	                    break;
+	                case 'confirm':
+	                    if (opt.foot && (opt.foot.confirm || opt.foot.cancel)) {
+	                        confirmModal = _.extend(confirmModal, opt.foot);
+	                    }
+
+	                    that.$modal.empty().addClass('m-modal m-modal-m').removeClass('modal')
+	                        .append(that.$head).append(that.$body).append(that.$foot);
+
+	                    that.$body.html(opt.body);
+	                    that.$btn.empty().append(confirmModal.cancel.btn).append(confirmModal.confirm.btn);
+
+	                    that.$modal.on('click', '.btn-cancel', function(e) {
+	                        e.preventDefault();
+
+	                        that.hide();
+	                        confirmModal.cancel.method(that);
+	                    });
+
+	                    that.$modal.on('click', '.btn-confirm', function(e) {
+	                        e.preventDefault();
+
+	                        that.hide();
+	                        confirmModal.confirm.method(that);
+	                    });
+	                    break;
+	                case 'tip':
+	                    that.$modal.addClass('modal').removeClass('m-modal m-modal-m').html(opt.body);
+	                    break;
+	                case 'toast':
+	                    that.setting = opt;
+	                    toastModal.method(that);
+	                    break;
+	                default:
+	            }
+
+	            if (opt.klas === 'full') {
+	                this.$modal.removeClass('m-modal-m').addClass('m-modal-full');
+	            }
+
+	            that.$modal.show(that.speed);
+	        },
+	        hide: function() {
+	            this.$overlay.remove();
+	            this.$modal.remove();
+	        }
+	    });
+
+	    return Modal;
+
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
 
 /***/ },
 /* 12 */,
