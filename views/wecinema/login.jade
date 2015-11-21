@@ -41,7 +41,7 @@ block prepend body
                 // 票友会员登录
                 ul.registbox
                     li.flexbox_v_c
-                        label(for="") 票友账户
+                        label(for="") 账户
                         input(type="text",placeholder="请输入注册账户").flex.biginput
                         a(href="")
                             i.icon-cancel-circled
@@ -51,7 +51,8 @@ block prepend body
                     li.flexbox_v_c
                         label(for="") 密码
                         input(type="text",placeholder="请输入票友登录密码").flex
-                        input(type="button",value="发送验证码").btn_code
+                div.flexbox
+                    input(type="button",value="登录").btn_regist.flex
                 div.registinfo
                     a(href="#")
                         p 温馨提示：未注册电影票友账号的手机号，登录时将自动注册，
