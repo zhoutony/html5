@@ -35,3 +35,29 @@ app.get(['/:cityId/ticket/:movieId'], function(req, res){
         res.render("wecinema/ticket", render_data);
     });
 });
+
+
+function getCinemas(_cinemas){
+    if(_cinemas){
+        var _len = _cinemas.length,
+            cinemas = [];
+        if(_len > 0){
+            var UpperMap = {};
+            for (var i = 0; i < _len; i++) {
+                var cinema = _cinemas[i];
+                var UpperFirst = cinema.districtName;
+                if (UpperMap[UpperFirst] === undefined) {
+                    UpperMap[UpperFirst] = [];
+                    UpperMap[UpperFirst].push(cinema);
+                } else {
+                    UpperMap[UpperFirst].push(cinema);
+                }
+            }
+            return UpperMap;
+        }else{
+            return {};
+        }
+    }else{
+        return {};
+    }
+}
