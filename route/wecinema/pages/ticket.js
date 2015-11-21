@@ -29,7 +29,7 @@ app.get(['/:cityId/ticket/:movieId'], function(req, res){
         console.log(data.movie);
         render_data.data.err = err;
         if (!err && data) {
-            render_data.data.cinemas = data.cinemas;
+            render_data.data.cinemas = getCinemas(data.cinemas);
             render_data.data.movie = data.movie;
         }
         res.render("wecinema/ticket", render_data);
