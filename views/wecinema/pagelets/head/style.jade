@@ -1,0 +1,6 @@
+if data && data.staticBase && data.reversion
+	link(rel="stylesheet", href="#{data.staticBase}/css/fontello.css?#{data.reversion}")
+	link(rel="stylesheet", href="#{data.staticBase}/css/style.css?#{data.reversion}")
+else
+	link(rel="stylesheet", href="/css/fontello.css")
+	link(rel="stylesheet", href="/css/style.css")

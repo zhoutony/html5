@@ -1,0 +1,41 @@
+if data && data.movieNews
+	each movieNew, index in data.movieNews
+		- var _time = Math.floor( (new Date() - new Date(movieNew.publishtime)) / 1000 / 60 )
+		if movieNew.isTop
+			section.first
+				div.flexbox_v_c
+					h2.flex #{movieNew.title}
+					
+				ul.flexbox 
+					li.flex 
+						a(href="")
+							img(src="#{movieNew.image1}")
+					li.flex 
+						a(href="")
+							img(src="#{movieNew.image2}")
+					li.flex 
+						a(href="")
+							img(src="#{movieNew.image3}")
+				footer.flexbox 
+					div.main.flex
+						if movieNew.isTop
+							span.ico_edit_top 置顶
+						| 阅读 #{movieNew.readCount} #{_time}分钟前
+		else
+			section
+				div.flexbox_v_c
+					h2.flex #{movieNew.title}
+					
+				ul.flexbox 
+					li.flex 
+						a(href="")
+							img(src="#{movieNew.image1}")
+					li.flex 
+						a(href="")
+							img(src="#{movieNew.image2}")
+					li.flex 
+						a(href="")
+							img(src="#{movieNew.image3}")
+				footer.flexbox 
+					div.main.flex
+						| 阅读 #{movieNew.readCount} #{_time}分钟前

@@ -1,0 +1,73 @@
+extends ./layout
+
+block title
+        title 票友网
+
+
+
+block prepend body
+
+    //wrap
+    div.wrap
+         div.tabs.movietabs
+            div.flexbox
+                div.city 
+                    a(href="#") 北京
+                        i.demo-icon.icon-down-open-mini
+                ul.flex.flexbox
+                    li.curr.flex 正在上映
+                    li.flex 即将上映
+        div.addimg
+            img(src="/tempimages/add01.jpg")
+        if (data && !data.err && data.movies)
+            section.movielist
+                ul
+                    each movie, index in data.movies
+                        li.flexbox
+                            div.picmid
+                                a(href="/110000/ticket/#{movie.movieID}")
+                                    img(src="#{movie.movieImage}")
+                            div.txtmid.flex 
+                                a(href="/110000/ticket/10034")
+                                    h2 #{movie.movieNameCN}
+                                        span #{movie.movieVersions}
+                                        span.curr 巨幕
+                                    p #{movie.intro}
+                            div.toolmid
+                                a(href="/110000/ticket/#{movie.movieID}").btn_buy
+                                    span 购票
+                                div.btnbar
+                                    a(href="/")
+                                        i.ico_firend
+                                        span 好友买单
+                                    a(href="/")
+                                        i.ico_redbag
+                                        span 邀红包
+        div.navtool
+             ul.flexbox_v_c
+                li.flex 
+                    a(href="/")
+                        i.n01 
+                        | 头条
+                li.flex.curr
+                    a(href="index.html")
+                        i.n02 
+                        | 电影
+                li.flex
+                    a(href="index.html")
+                        i.n03 
+                        | 发现
+                li.flex
+                    a(href="index.html")
+                        i.n04 
+                        | 优惠
+
+
+
+
+block prepend footer
+
+block prepend script
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/filmlist.js?#{data.reversion}")
+

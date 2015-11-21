@@ -1,0 +1,181 @@
+API Documentation
+This page details how to render jade using the JavaScript API in node.js
+
+Installation
+via npm:
+
+npm install jade
+Usage
+options
+All API methods take the following set of options:
+
+{
+filename:string
+Used in exceptions, and required for relative includes and extends
+doctype:string
+If the doctype is not specified as part of the template, you can specify it here. It is sometimes useful to get self-closing tags and remove mirroring of boolean attributes.
+pretty:boolean | string
+Adds whitespace to the resulting html to make it easier for a human to read using ' ' as indentation. If a string is specified, that will be used as indentation instead (e.g. '\t').
+self:boolean
+Use a self namespace to hold the locals (false by default)
+debug:boolean
+If set to true, the tokens and function body is logged to stdout
+compileDebug:boolean
+Set this to false to disable debugging instrumentation (recommended in production). Set it to true to include the function source in the compiled template for better error messages (sometimes useful in development).
+cache:boolean
+If set to true, compiled functions are cached. filename must be set as the cache key.
+compiler:class
+Override the default compiler
+parser:class
+Override the default parser
+globals:Array.<string>
+Add a list of global names to make accessible in templates
+}
+jade.compile(source, options)
+Compile some jade source to a function which can be rendered multiple times with different locals.
+
+sourcestring
+The source jade to compile
+optionsoptions
+An options object (see above)
+returnsfunction
+A function to generate the html from an object containing locals
+var jade = require('jade');
+
+// Compile a function
+var fn = jade.compile('string of jade', options);
+
+// Render the function
+var html = fn(locals);
+// => '<string>of jade</string>'
+jade.compileFile(path, options)
+Compile some jade source from a file to a function which can be rendered multiple times with different locals.
+
+sourcepath
+The path to a jade file
+optionsoptions
+An options object (see above)
+returnsfunction
+A function to generate the html from an object containing locals
+var jade = require('jade');
+
+// Compile a function
+var fn = jade.compileFile('path to jade file', options);
+
+// Render the function
+var html = fn(locals);
+// => '<string>of jade</string>'
+jade.compileClient(source, options)
+Compile some jade source to a string of JavaScript that can be used client side along with the jade runtime.
+
+sourcestring
+The source jade to compile
+optionsoptions
+An options object (see above)
+returnsstring
+A string of JavaScript representing a function
+var jade = require('jade');
+
+// Compile a function
+var fn = jade.compileClient('string of jade', options);
+
+// Render the function
+var html = fn(locals);
+// => 'function template(locals) { return "<string>of jade</string>"; }'
+jade.compileClientWithDependenciesTracked(source, options)
+See jade.compileClient except that this method returns an object of the form:
+
+{
+  'body': 'function (locals) {...}',
+  'dependencies': ['filename.jade']
+}
+You should only use this method if you need to implement something like watching for changes to the jade files.
+
+jade.compileFileClient(path, options)
+Compile a jade template file to a string of Javascript that can be used client side along with the jade runtime.
+
+pathstring
+The path to a jade file
+optionsoptions
+An options object (see above)
+options.namestring
+If you pass a .name property on the options object, it will be used as the function name for your client side template function.
+returnsstring
+A Javascript function body.
+First, our template file.
+
+h1 This is a Jade template
+h2 By #{author}
+Then, we compile the jade file into a function string.
+
+var fs   = require('fs');
+var jade = require('jade');
+
+// Compile the template to a function string
+var jsFunctionString = jade.compileFileClient('/path/to/jadeFile.jade', {name: "fancyTemplateFun"});
+
+// Maybe you want to compile all of your templates to a templates.js file and serve it to the client
+fs.writeFileSync("templates.js", jsFunctionString);
+Here's what the output function string looks like (written to templates.js).
+
+function fancyTemplateFun(locals) {
+  var buf = [];
+  var jade_mixins = {};
+  var jade_interp;
+
+  var locals_for_with = (locals || {});
+
+  (function (author) {
+    buf.push("<h1>This is a Jade template</h1><h2>By "
+      + (jade.escape((jade_interp = author) == null ? '' : jade_interp))
+      + "</h2>");
+  }.call(this, "author" in locals_for_with ?
+    locals_for_with.author : typeof author !== "undefined" ?
+      author : undefined)
+  );
+
+  return buf.join("");
+}
+
+Be sure to send the Jade runtime (node_modules/jade/runtime.js) to the client in addition to the template that you just compiled.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/runtime.js"></script>
+    <script src="/templates.js"></script>
+  </head>
+
+  <body>
+    <h1>This is one fancy template.</h1>
+
+    <script type="text/javascript">
+      var html = window.fancyTemplateFun({author: "enlore"});
+      var div = document.createElement("div");
+      div.innerHTML = html;
+      document.body.appendChild(div);
+    </script>
+  </body>
+</html>
+jade.render(source, options)
+sourcestring
+The source jade to render
+optionsoptions
+An options object (see above), also used as the locals object
+returnsstring
+The resulting html string
+var jade = require('jade');
+
+var html = jade.render('string of jade', options);
+// => '<string>of jade</string>'
+jade.renderFile(filename, options)
+filenamestring
+The path to the jade file to render
+optionsoptions
+An options object (see above), also used as the locals object
+returnsstring
+The resulting html string
+var jade = require('jade');
+
+var html = jade.renderFile('path/to/file.jade', options);
+// ...

@@ -1,0 +1,108 @@
+extends ./layout
+
+block title
+        title 票友网
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        //轮刷1广告
+        if(data && data.firstAds)
+            div.scrollpic.mui-slider.imgico
+                ul.mui-slider-group.mui-slider-loop
+                    - var _ad_firstList = data.firstAds[0];
+                    - var _ad_firstLen = data.firstAds.length;
+                    - var _ad_lastList = data.firstAds[_ad_firstLen - 1];
+                    li.mui-slider-item.mui-slider-item-duplicate
+                        a(href="/110000/ticket/10034")
+                            if _ad_lastList
+                                img(src="#{_ad_lastList.imageUrl}")
+                    each indexAd in data.firstAds
+                        li.mui-slider-item
+                            a(href="/110000/ticket/10034")
+                                img(src="#{indexAd.imageUrl}")
+                    li.mui-slider-item.mui-slider-item-duplicate
+                        a(href="/110000/ticket/10034")
+                            img(src="#{_ad_firstList.imageUrl}")
+                div.currbox.mui-slider-indicator
+                    each indexAd, index in data.firstAds
+                        span.mui-indicator
+
+            div._txtboxs_
+                each indexAd, index in data.firstAds
+                    if index === 0
+                        div.txtbox
+                            h2 #{indexAd.movie.movieNameCN}
+                            div.txtmid
+                                p #{indexAd.movie.intro}
+                            div.sharetool
+                                a(href='/110000/ticket/10034').ico_ticket
+                                a(href='/110000/ticket/10034').ico_price
+                    else
+                        div.txtbox.m-hide
+                            h2 #{indexAd.movie.movieNameCN}
+                            div.txtmid
+                                p #{indexAd.movie.intro}
+                            div.sharetool
+                                a(href='/110000/ticket/10034').ico_ticket
+                                a(href='/110000/ticket/10034').ico_price
+        //轮刷2广告
+        div.scrollpic1
+            if(data && data.secondAds)
+                div.mui-slider
+                    div.mui-slider-group.mui-slider-loop
+                        - var _ad_secondList = data.secondAds[0];
+                        - var _ad_secondLen = data.secondAds.length;
+                        - var _ad_secondlastList = data.secondAds[_ad_secondLen - 1];
+                        div.addimg.mui-slider-item.mui-slider-item-duplicate
+                            h2 
+                                span 耳语
+                            a(href="#").btn_share
+                            a(href="#{_ad_secondlastList.url}")
+                                img(src="#{_ad_secondlastList.imageUrl}")
+                            
+                        each secondAd, index in data.secondAds
+                            div.addimg.mui-slider-item
+                                h2 
+                                    span 耳语
+                                a(href="#").btn_share
+                                a(href="#{secondAd.url}")
+                                    img(src="#{secondAd.imageUrl}")
+                        div.mui-slider-item.mui-slider-item-duplicate
+                            a(href="#{_ad_secondList.url}")
+                                img(src="#{_ad_secondList.imageUrl}")
+                            
+
+        div.hotmovie
+            
+        div.navtool
+             ul.flexbox_v_c
+                li.flex.curr 
+                    a(href="/")
+                        i.n01 
+                        | 头条
+                li.flex
+                    a(href="/11000/filmlist")
+                        i.n02 
+                        | 电影
+                li.flex
+                    a(href="")
+                        i.nadd
+                li.flex
+                    a(href="index.html")
+                        i.n03 
+                        | 发现
+                li.flex
+                    a(href="index.html")
+                        i.n04 
+                        | 友惠
+
+
+block prepend footer
+
+block prepend script
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+
+

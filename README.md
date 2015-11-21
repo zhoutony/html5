@@ -1,5 +1,3 @@
-# html5
-
 # wechat movie node.js base
 
 

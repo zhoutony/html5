@@ -1,0 +1,139 @@
+extends ./layout
+
+block title
+        title 票友网
+
+
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        if data && !data.err
+            if data.movie
+                div.filmlistbox
+                    a.flexbox
+                        div.imgbox
+                            img(src="#{data.movie.movieImage}")
+                        div.boxtxt.flex
+                            h2 #{data.movie.movieNameCN}
+                            ul 
+                                li 导演：#{data.movie.director}
+                                li 演员：#{data.movie.actors}
+                                li 日期：#{data.movie.releaseTime}上映
+                                li 时长：#{data.movie.filmLength}        
+            div.tabs.serachmid
+                div.flexbox
+                    div.city
+                        a(href="#") 北京
+                        i.demo-icon.icon-down-open-mini
+                    div.flex.searchbox.flexbox
+                        div.flex.searchtxt
+                        a(herf="#").btn_search
+            dl.filmlist
+                dt
+                    i.demo-icon.icon-down-dir
+                    | 附近影院
+                dd
+                    ul 
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+            dl.filmlist
+                dt
+                    i.demo-icon.icon-down-dir
+                    | 朝阳区
+                dd
+                    ul 
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院4
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+                        li 
+                            a(href="/schedule/1002895/6032").flexbox
+                                div.infobox.flex 
+                                    h2 通州区电影院
+                                    p 北京市通州区西海子西塔胡同1号
+                                    p 今天暂无剩余场次
+                                        b 心迷宫立减10元
+                                div.pricebox
+                                    p 
+                                        span 座
+                                    p.del ￥51
+                                    p.newprice ￥19.9
+
+
+
+
+block prepend footer
+
+block prepend script
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/ticket.js?#{data.reversion}")
+
+

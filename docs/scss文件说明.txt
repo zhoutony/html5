@@ -1,0 +1,23 @@
+文件目录
+css文件目录 -----dist/
+scss文件目录  -----static/css/
+
+注意：	
+1.scss文件生成css文件，直接改动scss即可，每次运行一下gulp
+2.文件夹中的fonts和图片需要手动添加到本地仓库
+
+scss文件目录说明
+libs    ------------ 重置的scss文件（reset）
+wecinema ----------- 智慧影院的scss文件（common&pages）
+	fonts ---------- svg图片以及webfont字体文件
+	libs  ---------- scss变量文件以及loading、font等scss文件
+	project  ------- 独立可用的scss模块文件：城市选择、选座、会员卡
+
+	style ---------- 所有智慧影院的样式
+	style-blue ----- blue模板样式
+	style-yellow --- yellow模板样式
+
+注意：
+	member-card.scss编译文件报错的话将注释去掉，然后调试，
+	提交时再注释回去，保证不引用重复的基础scss文件
+test
