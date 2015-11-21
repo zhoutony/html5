@@ -6,8 +6,11 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 
+var dialogs = require('../util/dialogs.js');
+
 /* jshint ignore:end */
 $(document).ready(function() {
+    window.dialogs = dialogs;
     //加载 头条电影列表
     $.get('/movienews/0', function(data) {
         $('.hotmovie').html(data)
