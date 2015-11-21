@@ -30,109 +30,35 @@ block prepend body
                     div.flex.searchbox.flexbox
                         div.flex.searchtxt
                         a(herf="#").btn_search
-            dl.filmlist
-                dt
-                    i.demo-icon.icon-down-dir
-                    | 附近影院
-                dd
-                    ul 
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-            dl.filmlist
-                dt
-                    i.demo-icon.icon-down-dir
-                    | 朝阳区
-                dd
-                    ul 
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院4
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-                        li 
-                            a(href="/schedule/1002895/6032").flexbox
-                                div.infobox.flex 
-                                    h2 通州区电影院
-                                    p 北京市通州区西海子西塔胡同1号
-                                    p 今天暂无剩余场次
-                                        b 心迷宫立减10元
-                                div.pricebox
-                                    p 
-                                        span 座
-                                    p.del ￥51
-                                    p.newprice ￥19.9
-
-
-
+            if data.cinemas
+                each cinemasFirstArray,UppercinemasKey in data.cinemas
+                    dl.filmlist
+                        dt
+                            i.demo-icon.icon-down-dir
+                            | #{UppercinemasKey}
+                        each _cinemas in cinemasFirstArray
+                            dd
+                                ul 
+                                    li 
+                                        a(href="/schedule/1002895/6032").flexbox
+                                            div.infobox.flex 
+                                                h2 #{_cinemas.cinemaName}
+                                                p #{_cinemas.cinemaAddress}
+                                                p #{_cinemas.showTimeCount}
+                                                    if _cinemas.voucherNote != ''
+                                                        b #{_cinemas.voucherNote}
+                                            div.pricebox
+                                                p 
+                                                    if _cinemas.isTicket
+                                                        span 座
+                                                p.del #{_cinemas.limitPrice}
+                                                p.newprice #{_cinemas.retailPrice}
 
 block prepend footer
 
 block prepend script
+    script
+        | var cinemas = !{JSON.stringify(data.cinemas)};
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/ticket.js?#{data.reversion}")
 
