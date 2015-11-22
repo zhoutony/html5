@@ -49,6 +49,9 @@ block prepend body
                                 a(href='/110000/ticket/10034').ico_price
         //轮刷2广告
         div.scrollpic1
+            h2 
+                span 耳语
+            a(href="#").btn_share
             if(data && data.secondAds)
                 div.mui-slider
                     div.mui-slider-group.mui-slider-loop
@@ -56,18 +59,13 @@ block prepend body
                         - var _ad_secondLen = data.secondAds.length;
                         - var _ad_secondlastList = data.secondAds[_ad_secondLen - 1];
                         div.addimg.mui-slider-item.mui-slider-item-duplicate
-                            h2 
-                                span 耳语
-                            a(href="#").btn_share
+                            
                             a(href="#{_ad_secondlastList.url}")
                                 img(src="#{_ad_secondlastList.imageUrl}")
                             
                         each secondAd, index in data.secondAds
                             div.addimg.mui-slider-item
-                                h2 
-                                    span 耳语
-                                a(href="#").btn_share
-                                a(href="#{secondAd.url}")
+                                  a(href="#{secondAd.url}")
                                     img(src="#{secondAd.imageUrl}")
                         div.mui-slider-item.mui-slider-item-duplicate
                             a(href="#{_ad_secondList.url}")
