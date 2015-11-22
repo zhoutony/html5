@@ -225,7 +225,7 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .arrow { font-size: 2rem; margin-top: -3rem; }
 .movielist .toolmid { width: auto; }
 /**film**/
- 
+ .fmaddimg{height:auto;}
 .closetit { display: none; background: #00968e; color: #fff; }
 .closetit h2 { text-align: center; height: 2rem; font-size: 1.4rem; line-height: 2rem; }
 .closetit .close { position: absolute; left: 0; top: 0; width: 4rem; height: 2rem; text-align: center; color: #fff; line-height: 2rem; font-size: 1.3rem; }
@@ -599,6 +599,7 @@ color:#fff;
 .vipcard .cardmid .piaoyou .cardlay:after { display: none; }
 .vipcard .cardmid .piaoyou .cardend { border: none; }
 /**城市列表**/
+.citypop{ position:fixed;overflow-y:auto;background:#fff;top:0;left:0;bottom:0;right:0;}
 .city-list { padding: 0rem 0; }
 .city-list h3 { position: relative; margin: -1px 0 0 0; padding: 0 1rem; font-weight: normal; color: #00948D; height: 2rem; line-height: 2rem; background: #f2f2f2; font-size: 1.1rem; margin: 0 1rem; }
 .city-list h3 + ul { overflow: hidden; height: auto; margin: 0 1rem; }
@@ -609,6 +610,10 @@ color:#fff;
 .city-list h3 + ul.area-list li { float: none; width: 100%; border-bottom: 1px solid #f3f3f3; }
 .city-list h3 + ul.area-list li span { display: inline-block; width: 3rem; text-align: left; padding-left: 1rem; border: none; }
 .city-list h3 + ul.area-list li mark { font-size: 1rem; color: #9d9d9d; margin-left: 10px; }
-
+.registbox li.eorrinput{background:#e8fffe; border:2px solid #00948D;}
+.registbox li.eorrinput .biginput{border-right:none;}
+.registbox li.eorrinput input { border-right:2px solid #00948D;}
+ .registbox li.eorrinput input.btn_code{border-right:2px solid #fff;margin:-2px 0;}
+ .registbox li.eorrinput:last-child{border-right:2px solid #fff;}
 .registbox input.eorrinput{background:red;}
-.regist .onbox{background:red;}
+.regist .onbox{background:#00948D;}
