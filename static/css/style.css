@@ -151,12 +151,13 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .txtbox p { font-size: 0.9rem; height: 4.2rem; line-height: 1.5rem; color: #717171; text-overflow: ellipsis; white-space: normal!important; -webkit-line-clamp: 3; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; }
 .txtbox .txtinfo { font-size: 1rem; color: #c6c7c7; padding: 0 1rem 1rem; background: #f6f7f7; }
 .hotmovie { padding: 0rem 0rem 4rem; }
-.hotmovie section { position: relative; background: #f6f7f7; padding: 0.5rem 1rem 1rem; }
+.hotmovie section { position: relative; background: #f6f7f7; padding: 0.5rem 1rem 0.5rem; }
 .hotmovie section:last-child { padding-bottom: 1rem; }
 .hotmovie header { height: 2.4rem; line-height: 2.4rem; color: #fff; background: #00968f; text-align: center; font-size: 1.6rem; }
 .hotmovie h2 { font-size: 1.1rem; color: #333; line-height: 2.4; position: relative; color: #221814; }
 .hotmovie section:after { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
 .hotmovie ul { }
+.hotmovie section li{width:16.5rem;}
 .hotmovie section li:first-child { margin-right: 3px; }
 .hotmovie section li:last-child { margin-left: 3px; }
 .hotmovie li img { width: 100%; height: auto; }
@@ -165,7 +166,7 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .hotmovie footer span b { font-weight: normal; }
 .hotmovie footer span.num { padding: 0 0.3rem; }
 .hotmovie footer span.ico_edit_top { color: #fff; margin-top: -0.1rem; }
-.hotmovie footer span.n_name { color: #00948D; margin-top: -0.1rem; }
+.hotmovie footer span.n_name { color: #00948D;   }
 /**navtool Begin**/
 .navtool { background: #eeefef; height: 4rem; position: fixed; bottom: 0; left: 0rem; right: 0rem; }
 .navtool:after { content: ''; display: block; height: 1px; overflow: hidden; background: #00948D; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
@@ -618,3 +619,28 @@ color:#fff;
  .registbox li.eorrinput:last-child{border-right:2px solid #fff;}
 .registbox input.eorrinput{background:red;}
 .regist .onbox{background:#00948D;}
+
+/**分享弹出**/
+.sharepop{ position:fixed;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,.8)}
+.sharebtn a{display:block;font-size:1.1rem;color:#fff;height:2rem;line-height:2rem;text-align:center;background:#00948D;}
+.sharecon{background:#fff;padding:2.2rem;}
+.sharecon li{padding:1.5rem 0; position:relative;}
+.sharecon li a{display:inline-block; vertical-align:middle;overflow:hidden;width:5.5rem;height:5.5rem;margin-left:1.5rem ;}
+.sharecon li:after{position: absolute; bottom: 0; left: 0; content: ''; width: 100%; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
+.sharecon li:last-child:after{display:none;}
+.sharecon .share_weixin{background:url(../images/share_weixin.png) no-repeat center center;background-size:cover;}
+.sharecon .share_friend{background:url(../images/share_friend.png) no-repeat center center;background-size:cover;}
+.sharecon .share_sina{background:url(../images/share_sina.png) no-repeat center center;background-size:cover;}
+.sharecon .share_oicq{background:url(../images/share_oicq.png) no-repeat center center;background-size:cover;}
+.sharecon .share_qq{background:url(../images/share_qq.png) no-repeat center center;background-size:cover;}
+.sharecon .share_qqweibo{background:url(../images/share_qqweibo.png) no-repeat center center;background-size:cover;}
+.sharecon .share_dou{background:url(../images/share_dou.png) no-repeat center center;background-size:cover;}
+.sharecon .share_email{background:url(../images/share_email.png) no-repeat center center;background-size:cover;}
+/**首页新加**/
+.imgtxt h2{line-height:1.6;font-size:0.9rem;margin-bottom:1.8rem;}
+.imgtxt  ul{ position:relative;}
+.hotmovie .imgtxt  li{width:auto;}
+.imgtxt  li p{ position:absolute;bottom:0.5rem;left:0rem;}
+.imgtxt  li p span{margin-right:0.5rem;font-size:0.5rem;display:inline-block; vertical-align:middle;}
+.imgtxt  li p .ico_edit_top{width:1.8rem;height:0.8rem;line-height:0.8rem;}
+.imgtxt  li img{width: 9.8rem;}
