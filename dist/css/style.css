@@ -494,7 +494,7 @@ color:#fff;
 .onlineinfo { padding: 1rem 2.5rem 0; overflow: hidden; }
 .onlineinfo .ontext h2 { font-size: 1.2rem; color: #333; }
 .onlineinfo .ontext p { font-size: 0.9rem; color: #666; line-height: 1.4; }
-.onlineinfo .onbtn a { display: block; width: 7.5rem; height: 2.1rem; color: #fff; background: #00968d; text-align: center; line-height: 2.1rem; border-radius: 10rem; font-size: 1.4rem; }
+.onlineinfo .onbtn a { display: block; width: 7.5rem; height: 2.1rem; color: #fff; background: #00968d; text-align: center; line-height: 2.1rem; border-radius: 10rem; font-size: 1.1rem; }
 .onlinemid div { height: 2.5rem; line-height: 2.5rem; padding: 0 2.5rem; font-size: 0.9rem; margin: 0.5rem 0; position: relative; }
 .onlinemid div:after { position: absolute; bottom: 0; left: -1rem; right: -1rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .onlinemid div:before { position: absolute; top: 0; left: -1rem; right: -1rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
@@ -599,7 +599,7 @@ color:#fff;
 .vipcard .cardmid .piaoyou .cardlay:after { display: none; }
 .vipcard .cardmid .piaoyou .cardend { border: none; }
 /**城市列表**/
-.citypop{ position:fixed;overflow-y:auto;background:#fff;top:0;left:0;bottom:0;right:0;}
+.citypop{ z-index:100; position:fixed;overflow-y:auto;background:#fff;top:0;left:0;bottom:0;right:0;}
 .city-list { padding: 0rem 0; }
 .city-list h3 { position: relative; margin: -1px 0 0 0; padding: 0 1rem; font-weight: normal; color: #00948D; height: 2rem; line-height: 2rem; background: #f2f2f2; font-size: 1.1rem; margin: 0 1rem; }
 .city-list h3 + ul { overflow: hidden; height: auto; margin: 0 1rem; }

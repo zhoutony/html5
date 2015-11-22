@@ -13,17 +13,34 @@ webpackJsonp([14,17],[
 
 	/* jshint ignore:end */
 	$(document).ready(function() { 
-		alert('请输入有效的手机号码！');
 		var TabNav     = $('.tabnav li'),
 			TabCon     = $(' .tabbox'),
 			TelBox     = $('#TelBox'),
 			CodeNumber = $('#CodeNumber'),
-			BtnLogin   = $('#BtnLogin'),
-		    telreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/ 
-		BtnLogin.on('click',function(evt){
-	 		 
-
+			BtnLogin   = $('#BtnLogin') 
+		    
+		// tab 切换
+		TabNav.on('click',function(){
+			$(this).addClass("curr").siblings().removeClass();
+			TabCon.eq(TabNav.index(this)).show().siblings().hide();
 		})
+
+		// 验证手机号
+		function VerMobile(str){
+			var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if(retel.test(str)){
+				 alert("正确");	
+			} else {
+				alert("错误");
+			}
+		}
+		// 登陆
+		BtnLogin.on('click',function(){
+			var value = TelBox.val();
+			 VerMobile(value);
+		})
+	 
+		 
 	}); //END of jquery documet.ready 
 
 /***/ },
@@ -4283,7 +4300,7 @@ webpackJsonp([14,17],[
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
 	        __webpack_require__(3),
-	        __webpack_require__(14),
+	        __webpack_require__(11),
 	        __webpack_require__(5),
 	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
@@ -4944,10 +4961,7 @@ webpackJsonp([14,17],[
 
 /***/ },
 /* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5127,6 +5141,9 @@ webpackJsonp([14,17],[
 
 
 /***/ },
+/* 12 */,
+/* 13 */,
+/* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
