@@ -9,7 +9,7 @@ webpackJsonp([5,17],[
 	var cache = __webpack_require__(4);
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
-	var widgets = __webpack_require__(8);
+	var widgets = __webpack_require__(7);
 
 	/* jshint ignore:end */
 	$(document).ready(function() {
@@ -4300,8 +4300,7 @@ webpackJsonp([5,17],[
 
 
 /***/ },
-/* 7 */,
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -4310,7 +4309,7 @@ webpackJsonp([5,17],[
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
 	        __webpack_require__(3),
-	        __webpack_require__(14),
+	        __webpack_require__(11),
 	        __webpack_require__(5),
 	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
@@ -4510,6 +4509,7 @@ webpackJsonp([5,17],[
 	;
 
 /***/ },
+/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -4971,10 +4971,7 @@ webpackJsonp([5,17],[
 
 /***/ },
 /* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5154,6 +5151,9 @@ webpackJsonp([5,17],[
 
 
 /***/ },
+/* 12 */,
+/* 13 */,
+/* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
