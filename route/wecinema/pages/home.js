@@ -24,7 +24,7 @@ app.get(['/', '/index.html'], function (req, res) {
     var options = {
         uri: my_api_addr,
         args: {
-            type: '1,2'
+            type: '1,2,3'
         }
     };
     render_data.data = {};
@@ -32,7 +32,8 @@ app.get(['/', '/index.html'], function (req, res) {
         reversion: global.reversion,
         staticBase: global.staticBase,
         firstAds: [],
-        secondAds: []
+        secondAds: [],
+        thirdAds: []
     }
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data.advertisements);
@@ -43,10 +44,15 @@ app.get(['/', '/index.html'], function (req, res) {
             for(var i = 0; i < _len; i++){
                 if(ads[i].advertisementType == 1){
                     render_data.data.firstAds.push(ads[i]);
-                }else{
+
+                }else if(ads[i].advertisementType == 2){
                     render_data.data.secondAds.push(ads[i]);
+
+                }else{
+                    render_data.data.thirdAds.push(ads[i]);
                 }
             }
+            render_data.data.baseData = data;
         }
         res.render("wecinema/index", render_data);
     });

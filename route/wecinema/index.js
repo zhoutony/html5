@@ -58,8 +58,11 @@ require('./pages/infotxt');
 //vipcard
 require('./pages/vipcard');
 
-//vipcard
+//login
 require('./pages/login');
+
+//city
+require('./pages/city');
 
 
 

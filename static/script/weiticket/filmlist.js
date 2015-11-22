@@ -13,7 +13,7 @@ $(document).ready(function() {
     function getCurrentPosition () {
         //this.$currentCity.html('正在定位...');
         widgets.getCurrentPosition(function (coords) {
-            alert(coords.longitude);
+            // alert(coords.longitude);
             $.get('/queryLocation/' + coords.longitude + '/' + coords.latitude, function(render_data){
                 if(render_data && render_data.location){
                     alert(render_data.location.nameCN);

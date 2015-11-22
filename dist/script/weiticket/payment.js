@@ -1,4 +1,4 @@
-webpackJsonp([13,17],[
+webpackJsonp([12,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,11 +6,11 @@ webpackJsonp([13,17],[
 	var $ = __webpack_require__(1);
 	var countdown = __webpack_require__(16);
 	var cache = __webpack_require__(4);
-	var modal = __webpack_require__(10);
+	var modal = __webpack_require__(11);
 	var iScroll = __webpack_require__(2);
 	var cookie = __webpack_require__(5);
 	var EcouponPayMent = __webpack_require__(17);
-	var widgets = __webpack_require__(11);
+	var widgets = __webpack_require__(8);
 	/* jshint ignore:end */
 
 	$(document).ready(function () {
@@ -2981,7 +2981,7 @@ webpackJsonp([13,17],[
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	  __webpack_require__(1),
 	  __webpack_require__(3),
-	  __webpack_require__(8)
+	  __webpack_require__(9)
 	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
 	  $, _, Deferred
 	) {
@@ -3171,6 +3171,215 @@ webpackJsonp([13,17],[
 /* 6 */,
 /* 7 */,
 /* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Created by gaowhen on 15/1/9.
+	 */
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	        __webpack_require__(1),
+	        __webpack_require__(3),
+	        __webpack_require__(11),
+	        __webpack_require__(5),
+	        __webpack_require__(18),
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
+	                 _,
+	                 Modal,
+	                 cookie,
+	                 director) {
+
+	        // 字符串长度限制, 最大长度默认为12
+	        function strShort(string, maxLength) {
+	            if (!string) return "";
+	            var len = 0,
+	                arr = string.split(""),
+	                result = [];
+	            maxLength = (maxLength || 12) * 2;
+
+	            var l = arr.length;
+	            for (var i = 0; i < l; ++i) {
+	                if (arr[i].charCodeAt(0) < 299) {
+	                    len++;
+	                } else {
+	                    len += 2;
+	                }
+	                result.push(arr[i]);
+
+	                //如果当前元素是倒数第二个，并且还剩余至少两个字节的长度
+	                if (i == l - 2 && len <= maxLength - 2) {
+	                    result.push(arr[i + 1]);
+	                    break;
+	                } else if (len > maxLength - 2) {
+	                    result.push('...');
+	                    break;
+	                }
+	            }
+	            return result.join('');
+	        }
+
+	        // 获取是否显示会员卡
+	        function getIsMembershipCard() {
+	            //公众号开关
+	            var hasPublicsignalshortMember = cookie.getItem("has_publicsignalshort_member");
+	            //影院开关
+	            var hasCinemaMember = cookie.getItem("has_cinema_member");
+	            if (hasPublicsignalshortMember === "1" && hasCinemaMember === "1") {
+	                return true;
+	            }
+	            return false;
+	        }
+
+	        // 获取是否显示代金券
+	        function getIsEcoupons() {
+	            //代金券公众号开关
+	            var hasPublicsignalshortEcoupons = cookie.getItem("has_publicsignalshort_ecoupons");
+	            //代金券影院开关
+	            var hasCinemaEcoupons = cookie.getItem("has_cinema_ecoupons");
+	            if (hasPublicsignalshortEcoupons === "1" && hasCinemaEcoupons === "1") {
+	                return true;
+	            }
+	            return false;
+	        }
+
+	        String.format = function () {
+	            if (arguments.length == 0)
+	                return null;
+	            var str = arguments[0];
+	            for (var i = 1; i < arguments.length; i++) {
+	                var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+	                str = str.replace(re, arguments[i]);
+	            }
+	            return str;
+	        }
+
+	        function physicsBack(callback,status) {
+	            var action="physicsBackAction";
+	            var isRepate=status==null?true:status;
+	            var router = new director.Router().init();
+
+	            router.setRoute(action);
+	            setTimeout(function () {
+	                router.setRoute(Math.random());
+	                router.on(action, function () {
+	                    if (callback) {
+	                        callback();
+	                        if (isRepate) {
+	                            router.setRoute(action);
+	                            router.setRoute(Math.random());
+	                        }
+	                    }
+	                });
+	            }, 200);
+	        }
+
+	        function physicsGoBack() {
+	            history.go(-2);
+	        }
+
+	        /**
+	        * 经纬度转换，可以在GPS，百度，谷歌之间转换
+	        *
+	        * @param from {Number} 值从app.constant里面取
+	        * @param to {Number} 值从app.constant里面取
+	        * @param coords {Object} 经纬度
+	        * @param coords.latitude {Number} 纬度
+	        * @param coords.longitude {Number} 经度
+	        * @param successCallback {Function} 转换成功后的回调
+	        * @param errorCallback {Function} 转换失败后的回调
+	        */
+	        function coordsConvert(from, to, coords, successCallback, errorCallback) {
+	            $.ajax('http://api.map.baidu.com/ag/coord/convert?from=' + from + '&to=' + to + '&x=' + coords.longitude + '&y=' + coords.latitude, {
+	                dataType: 'jsonp',
+	                success: function (res) {
+	                    if (!res.error) {
+	                        successCallback && successCallback({
+	                            longitude: decode64(res.x),
+	                            latitude: decode64(res.y)
+	                        });
+	                    } else {
+	                        error('convert coords error!');
+	                        errorCallback && errorCallback();
+	                    }
+	                }
+	            });
+	        }
+
+
+	        /**
+	        * 获取当前地理位置（已转换成Google坐标），并会将当前地理位置缓存到内存中
+	        * 如果不传递任何一个回调函数，就只返回缓存中的当前地理位置信息
+	        *
+	        * @param successCallback {Function} 获取成功的回调函数，
+	        * 会传入{latitude: latitude, longitude: longitude}结构的经纬度数据
+	        * @param errorCallback 获取失败的回调函数
+	        * @param notShowTip {Boolean} 不显示失败Tip
+	        */
+	        function getCurrentPosition(successCallback, errorCallback, notShowTip) {
+	            // var currentCoords = app.cache.get('currentCoords'); // 先尝试从缓存中获取之前定位的坐标
+
+	            // 只从缓存中获取地理位置，如果缓存中没有地理位置信息，就返回undefined
+	            if (_.isUndefined(successCallback) && _.isUndefined(errorCallback)) {
+	                return currentCoords;
+	            }
+
+	            successCallback = successCallback || emptyFunction;
+	            errorCallback = errorCallback || emptyFunction;
+
+	            // if (currentCoords) {
+	            //     log('current position:', currentCoords);
+	            //     successCallback(currentCoords);
+	            // } else {
+	                if ("geolocation" in navigator) {
+	                    // GPS定位
+	                    navigator.geolocation.getCurrentPosition(function (position) {
+	                        successCallback(position.coords);
+	                        // 将GPS的坐标转换为Google的坐标
+	                        // coordsConvert(0, 2, position.coords, function (coords) {
+	                        //     log('current position:', coords);
+	                        //     //app.cache.set('currentCoords', coords);
+	                        //     successCallback(coords);
+	                        // }, function () {
+	                        //     error('convert coords failed!');
+	                        //     errorCallback();
+	                        // });
+	                    }, function (error) {
+	                        if (!notShowTip) {
+	                            switch (error.code) {
+	                                case error.PERMISSION_DENIED:
+	                                    // dialogs.tip('定位未开启', app.constant.ERROR_TIP);
+	                                    break;
+	                                case error.POSITION_UNAVAILABLE:
+	                                    // dialogs.tip('定位失败，请稍后再试', app.constant.ERROR_TIP);
+	                                    break;
+	                                case error.TIMEOUT:
+	                                    // dialogs.tip('定位超时，请稍后再试', app.constant.ERROR_TIP);
+	                                    break;
+	                            }
+	                        }
+	                        errorCallback(error);
+	                    }, { timeout: 30e3 }); // 获取地址的超时为半分钟
+	                } else {
+	                    error('browser unsupport geolocation!');
+	                    errorCallback();
+	                }
+	            // }
+
+	            return null;
+	        }
+
+	        return {
+	            strShort: strShort,
+	            getIsMembershipCard: getIsMembershipCard,
+	            getIsEcoupons: getIsEcoupons,
+	            physicsBack: physicsBack,
+	            physicsGoBack: physicsGoBack,
+	            getCurrentPosition: getCurrentPosition
+	        };
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	;
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(root){
@@ -3630,8 +3839,8 @@ webpackJsonp([13,17],[
 	})(this);
 
 /***/ },
-/* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -3811,215 +4020,6 @@ webpackJsonp([13,17],[
 
 
 /***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
-	 * Created by gaowhen on 15/1/9.
-	 */
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	        __webpack_require__(1),
-	        __webpack_require__(3),
-	        __webpack_require__(10),
-	        __webpack_require__(5),
-	        __webpack_require__(18),
-	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
-	                 _,
-	                 Modal,
-	                 cookie,
-	                 director) {
-
-	        // 字符串长度限制, 最大长度默认为12
-	        function strShort(string, maxLength) {
-	            if (!string) return "";
-	            var len = 0,
-	                arr = string.split(""),
-	                result = [];
-	            maxLength = (maxLength || 12) * 2;
-
-	            var l = arr.length;
-	            for (var i = 0; i < l; ++i) {
-	                if (arr[i].charCodeAt(0) < 299) {
-	                    len++;
-	                } else {
-	                    len += 2;
-	                }
-	                result.push(arr[i]);
-
-	                //如果当前元素是倒数第二个，并且还剩余至少两个字节的长度
-	                if (i == l - 2 && len <= maxLength - 2) {
-	                    result.push(arr[i + 1]);
-	                    break;
-	                } else if (len > maxLength - 2) {
-	                    result.push('...');
-	                    break;
-	                }
-	            }
-	            return result.join('');
-	        }
-
-	        // 获取是否显示会员卡
-	        function getIsMembershipCard() {
-	            //公众号开关
-	            var hasPublicsignalshortMember = cookie.getItem("has_publicsignalshort_member");
-	            //影院开关
-	            var hasCinemaMember = cookie.getItem("has_cinema_member");
-	            if (hasPublicsignalshortMember === "1" && hasCinemaMember === "1") {
-	                return true;
-	            }
-	            return false;
-	        }
-
-	        // 获取是否显示代金券
-	        function getIsEcoupons() {
-	            //代金券公众号开关
-	            var hasPublicsignalshortEcoupons = cookie.getItem("has_publicsignalshort_ecoupons");
-	            //代金券影院开关
-	            var hasCinemaEcoupons = cookie.getItem("has_cinema_ecoupons");
-	            if (hasPublicsignalshortEcoupons === "1" && hasCinemaEcoupons === "1") {
-	                return true;
-	            }
-	            return false;
-	        }
-
-	        String.format = function () {
-	            if (arguments.length == 0)
-	                return null;
-	            var str = arguments[0];
-	            for (var i = 1; i < arguments.length; i++) {
-	                var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
-	                str = str.replace(re, arguments[i]);
-	            }
-	            return str;
-	        }
-
-	        function physicsBack(callback,status) {
-	            var action="physicsBackAction";
-	            var isRepate=status==null?true:status;
-	            var router = new director.Router().init();
-
-	            router.setRoute(action);
-	            setTimeout(function () {
-	                router.setRoute(Math.random());
-	                router.on(action, function () {
-	                    if (callback) {
-	                        callback();
-	                        if (isRepate) {
-	                            router.setRoute(action);
-	                            router.setRoute(Math.random());
-	                        }
-	                    }
-	                });
-	            }, 200);
-	        }
-
-	        function physicsGoBack() {
-	            history.go(-2);
-	        }
-
-	        /**
-	        * 经纬度转换，可以在GPS，百度，谷歌之间转换
-	        *
-	        * @param from {Number} 值从app.constant里面取
-	        * @param to {Number} 值从app.constant里面取
-	        * @param coords {Object} 经纬度
-	        * @param coords.latitude {Number} 纬度
-	        * @param coords.longitude {Number} 经度
-	        * @param successCallback {Function} 转换成功后的回调
-	        * @param errorCallback {Function} 转换失败后的回调
-	        */
-	        function coordsConvert(from, to, coords, successCallback, errorCallback) {
-	            $.ajax('http://api.map.baidu.com/ag/coord/convert?from=' + from + '&to=' + to + '&x=' + coords.longitude + '&y=' + coords.latitude, {
-	                dataType: 'jsonp',
-	                success: function (res) {
-	                    if (!res.error) {
-	                        successCallback && successCallback({
-	                            longitude: decode64(res.x),
-	                            latitude: decode64(res.y)
-	                        });
-	                    } else {
-	                        error('convert coords error!');
-	                        errorCallback && errorCallback();
-	                    }
-	                }
-	            });
-	        }
-
-
-	        /**
-	        * 获取当前地理位置（已转换成Google坐标），并会将当前地理位置缓存到内存中
-	        * 如果不传递任何一个回调函数，就只返回缓存中的当前地理位置信息
-	        *
-	        * @param successCallback {Function} 获取成功的回调函数，
-	        * 会传入{latitude: latitude, longitude: longitude}结构的经纬度数据
-	        * @param errorCallback 获取失败的回调函数
-	        * @param notShowTip {Boolean} 不显示失败Tip
-	        */
-	        function getCurrentPosition(successCallback, errorCallback, notShowTip) {
-	            // var currentCoords = app.cache.get('currentCoords'); // 先尝试从缓存中获取之前定位的坐标
-
-	            // 只从缓存中获取地理位置，如果缓存中没有地理位置信息，就返回undefined
-	            if (_.isUndefined(successCallback) && _.isUndefined(errorCallback)) {
-	                return currentCoords;
-	            }
-
-	            successCallback = successCallback || emptyFunction;
-	            errorCallback = errorCallback || emptyFunction;
-
-	            // if (currentCoords) {
-	            //     log('current position:', currentCoords);
-	            //     successCallback(currentCoords);
-	            // } else {
-	                if ("geolocation" in navigator) {
-	                    // GPS定位
-	                    navigator.geolocation.getCurrentPosition(function (position) {
-	                        successCallback(position.coords);
-	                        // 将GPS的坐标转换为Google的坐标
-	                        // coordsConvert(0, 2, position.coords, function (coords) {
-	                        //     log('current position:', coords);
-	                        //     //app.cache.set('currentCoords', coords);
-	                        //     successCallback(coords);
-	                        // }, function () {
-	                        //     error('convert coords failed!');
-	                        //     errorCallback();
-	                        // });
-	                    }, function (error) {
-	                        if (!notShowTip) {
-	                            switch (error.code) {
-	                                case error.PERMISSION_DENIED:
-	                                    // dialogs.tip('定位未开启', app.constant.ERROR_TIP);
-	                                    break;
-	                                case error.POSITION_UNAVAILABLE:
-	                                    // dialogs.tip('定位失败，请稍后再试', app.constant.ERROR_TIP);
-	                                    break;
-	                                case error.TIMEOUT:
-	                                    // dialogs.tip('定位超时，请稍后再试', app.constant.ERROR_TIP);
-	                                    break;
-	                            }
-	                        }
-	                        errorCallback(error);
-	                    }, { timeout: 30e3 }); // 获取地址的超时为半分钟
-	                } else {
-	                    error('browser unsupport geolocation!');
-	                    errorCallback();
-	                }
-	            // }
-
-	            return null;
-	        }
-
-	        return {
-	            strShort: strShort,
-	            getIsMembershipCard: getIsMembershipCard,
-	            getIsEcoupons: getIsEcoupons,
-	            physicsBack: physicsBack,
-	            physicsGoBack: physicsGoBack,
-	            getCurrentPosition: getCurrentPosition
-	        };
-	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
-	;
-
-/***/ },
 /* 12 */,
 /* 13 */,
 /* 14 */,
@@ -4089,7 +4089,7 @@ webpackJsonp([13,17],[
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Created by cdmatom on 2015/7/
 	 */
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1),__webpack_require__(3),__webpack_require__(10), __webpack_require__(5), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function($, _, Modal, cookie, iScroll) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1),__webpack_require__(3),__webpack_require__(11), __webpack_require__(5), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function($, _, Modal, cookie, iScroll) {
 	        "use strict";
 	        var ecoupon_payment = {},
 	        cardpaylist,

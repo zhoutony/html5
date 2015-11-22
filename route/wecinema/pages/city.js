@@ -8,7 +8,7 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/login"], function(req, res){
+app.get(["/city"], function(req, res){
     var render_data = {};
     var my_api_addr = "/room";
     var options = {
@@ -20,11 +20,5 @@ app.get(["/login"], function(req, res){
             pageSize:   10
         }
     };
-    render_data.data = {};
-    render_data.data = {
-        reversion: global.reversion,
-        staticBase: global.staticBase
-
-    }
-    res.render("wecinema/login", render_data);
+    res.render("wecinema/city");
 });

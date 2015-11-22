@@ -1,7 +1,7 @@
 extends ./layout
 
 block title
-        title 票友网
+        title 电影票友
 
 
 
@@ -57,8 +57,6 @@ block prepend body
 block prepend footer
 
 block prepend script
-    script
-        | var cinemas = !{JSON.stringify(data.cinemas)};
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/ticket.js?#{data.reversion}")
 

@@ -1,149 +1,31 @@
-webpackJsonp([4,17],{
-
-/***/ 0:
+webpackJsonp([14,17],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * Created by Qu Yizhi on 2015/3/27
-	 */
-
-	// openid 登陆
 
 	/* jshint ignore:start */
 	var $ = __webpack_require__(1);
-	var Cookie = __webpack_require__(5);
+	var iScroll = __webpack_require__(2);
 	var _ = __webpack_require__(3);
+	var cache = __webpack_require__(4);
+	var cookie = __webpack_require__(5);
+	var mui = __webpack_require__(6);
+	var widgets = __webpack_require__(8);
+
 	/* jshint ignore:end */
+	$(document).ready(function() {
+		var TabNav = $('.tabnav li');
+		var TabCon = $(' .tabbox')
+		TabNav.on('click',function(evt){
+			$(this).addClass("curr").siblings().removeClass();
+			TabCon.eq(TabNav.index(this)).show ().siblings ().hide (); 
+		})
+		  
+		 
 
-	// document http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html
-
-	//"a=b&c=d" => {a:'b', c:'d'}
-	function deparam(str) {
-	    return _.chain((str || '')
-	            .split(/([^\?#&]+?)[\?#&]/))
-	        .map(function(s) {
-	            return (s || '').split(/=/);
-	        }).filter(function(s) {
-	            return s && s.length === 2;
-	        }).object().value();
-	}
-
-	function notRedirected(data) {
-	    //alert('==== not redirected ====');
-	    //alert(JSON.stringify(data));
-	    //{
-	    //    "ret": 302,
-	    //    "sub": 302,
-	    //    "msg": "success",
-	    //    "redirectUrl": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx92cf60f7577e2d48&redirect_uri=http%3A%2F%2Fwx.wepiao.com&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
-	    //}
-	    //alert(data && data.ret == '302');
-	    if (data && data.ret == '302') {
-	        //alert(data.redirectUrl);
-	        location.href = data.redirectUrl;
-	        return false;
-	    }
-	    return true;
-	}
-
-	var thisURL = '';
-
-	var login = {
-	    ensure: function(url) {
-	        var dfd = new $.Deferred();
-
-	        if (!url) {
-	            dfd.reject();
-	        }
-	        thisURL = url;
-
-	        $.when(
-	            login.handleCode(thisURL)
-	        ).then(function(data) {
-	            if (notRedirected(data)) {
-	                dfd.resolve(true);
-	            }
-	        });
-
-	        return dfd.promise();
-	    },
-	    handleCode: function(param) {
-	        var self = this;
-	        var _param = deparam(param);
-
-	        console.log(_param);
-
-	        if (param.code) {
-	            return self.saveTokenToCGI(_param.code);
-	        } else {
-	            return self.checkLogin();
-	        }
-	    },
-	    checkLogin: function() {
-	        var dfd = new $.Deferred();
-
-	        //if (localStorage.debug_skipLogin) {
-	        //    dfd.resolve(true);
-	        //}
-
-	        var url = '';
-	        var o = {
-	            _client_redirect_: thisURL + '?_=' + new Date().getTime()
-	        };
-
-	        $.post(
-	            url,
-	            o,
-	            function(data) {
-	                //alert('==== check login ====');
-	                //alert(JSON.stringify(data));
-	                dfd.resolve(data);
-	            },
-	            'json'
-	        );
-
-	        return dfd.promise();
-	    },
-	    saveTokenToCGI: function(code) {
-	        var dfd = new $.Deferred();
-
-	        var url = '' + new Date().getTime();
-
-	        var o = {
-	            code: code
-	        };
-
-	        $.post(
-	            url,
-	            o,
-	            function(data) {
-	                //alert('==== save token to cgi ====');
-	                //alert(code);
-	                //alert(JSON.stringify(data));
-	                //alert('---- save token to cgi ---');
-	                dfd.resolve(data);
-	            },
-	            'json'
-	        );
-
-	        return dfd.promise();
-	    }
-	}
-
-	window.doLogin = function(url) {
-	    $.when(login.ensure(url)).then(function() {
-	        alert(1);
-	    }).fail(function() {
-	        // alert(2);
-	        console.log('error: no redirect url')
-	    });
-	}
-
-	window.doLogin(window.location.href);
+	}); //END of jquery documet.ready 
 
 /***/ },
-
-/***/ 1:
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Zepto v1.1.4 - zepto event ajax form ie - zeptojs.com/license */
@@ -387,8 +269,2018 @@ webpackJsonp([4,17],{
 	})(Zepto)
 
 /***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 3:
+	/*! iScroll v5.0.6 ~ (c) 2008-2013 Matteo Spinelli ~ http://cubiq.org/license */
+	var IScroll = (function (window, document, Math) {
+	var rAF = window.requestAnimationFrame  ||
+	    window.webkitRequestAnimationFrame  ||
+	    window.mozRequestAnimationFrame     ||
+	    window.oRequestAnimationFrame       ||
+	    window.msRequestAnimationFrame      ||
+	    function (callback) { window.setTimeout(callback, 1000 / 60); };
+	var utils = (function () {
+	    var me = {};
+
+	    var _elementStyle = document.createElement('div').style;
+	    var _vendor = (function () {
+	        var vendors = ['t', 'webkitT', 'MozT', 'msT', 'OT'],
+	            transform,
+	            i = 0,
+	            l = vendors.length;
+
+	        for ( ; i < l; i++ ) {
+	            transform = vendors[i] + 'ransform';
+	            if ( transform in _elementStyle ) return vendors[i].substr(0, vendors[i].length-1);
+	        }
+
+	        return false;
+	    })();
+
+	    function _prefixStyle (style) {
+	        if ( _vendor === false ) return false;
+	        if ( _vendor === '' ) return style;
+	        return _vendor + style.charAt(0).toUpperCase() + style.substr(1);
+	    }
+
+	    me.getTime = Date.now || function getTime () { return new Date().getTime(); };
+
+	    me.extend = function (target, obj) {
+	        for ( var i in obj ) {
+	            target[i] = obj[i];
+	        }
+	    };
+
+	    me.addEvent = function (el, type, fn, capture) {
+	        el.addEventListener(type, fn, !!capture);
+	    };
+
+	    me.removeEvent = function (el, type, fn, capture) {
+	        el.removeEventListener(type, fn, !!capture);
+	    };
+
+	    me.momentum = function (current, start, time, lowerMargin, wrapperSize) {
+	        var distance = current - start,
+	            speed = Math.abs(distance) / time,
+	            destination,
+	            duration,
+	            deceleration = 0.002;
+
+	        destination = current + ( speed * speed ) / ( 2 * deceleration ) * ( distance < 0 ? -1 : 1 );
+	        duration = speed / deceleration;
+
+	        if ( destination < lowerMargin ) {
+	            destination = wrapperSize ? lowerMargin - ( wrapperSize / 2.5 * ( speed / 8 ) ) : lowerMargin;
+	            distance = Math.abs(destination - current);
+	            duration = distance / speed;
+	        } else if ( destination > 0 ) {
+	            destination = wrapperSize ? wrapperSize / 2.5 * ( speed / 8 ) : 0;
+	            distance = Math.abs(current) + destination;
+	            duration = distance / speed;
+	        }
+
+	        return {
+	            destination: Math.round(destination),
+	            duration: duration
+	        };
+	    };
+
+	    var _transform = _prefixStyle('transform');
+
+	    me.extend(me, {
+	        hasTransform: _transform !== false,
+	        hasPerspective: _prefixStyle('perspective') in _elementStyle,
+	        hasTouch: 'ontouchstart' in window,
+	        hasPointer: navigator.msPointerEnabled,
+	        hasTransition: _prefixStyle('transition') in _elementStyle
+	    });
+
+	    me.isAndroidBrowser = /Android/.test(window.navigator.appVersion) && /Version\/\d/.test(window.navigator.appVersion);
+
+	    me.extend(me.style = {}, {
+	        transform: _transform,
+	        transitionTimingFunction: _prefixStyle('transitionTimingFunction'),
+	        transitionDuration: _prefixStyle('transitionDuration'),
+	        transformOrigin: _prefixStyle('transformOrigin')
+	    });
+
+	    me.hasClass = function (e, c) {
+	        var re = new RegExp("(^|\\s)" + c + "(\\s|$)");
+	        return re.test(e.className);
+	    };
+
+	    me.addClass = function (e, c) {
+	        if ( me.hasClass(e, c) ) {
+	            return;
+	        }
+
+	        var newclass = e.className.split(' ');
+	        newclass.push(c);
+	        e.className = newclass.join(' ');
+	    };
+
+	    me.removeClass = function (e, c) {
+	        if ( !me.hasClass(e, c) ) {
+	            return;
+	        }
+
+	        var re = new RegExp("(^|\\s)" + c + "(\\s|$)", 'g');
+	        e.className = e.className.replace(re, ' ');
+	    };
+
+	    me.offset = function (el) {
+	        var left = -el.offsetLeft,
+	            top = -el.offsetTop;
+
+	        // jshint -W084
+	        while (el = el.offsetParent) {
+	            left -= el.offsetLeft;
+	            top -= el.offsetTop;
+	        }
+	        // jshint +W084
+
+	        return {
+	            left: left,
+	            top: top
+	        };
+	    };
+
+	    me.preventDefaultException = function (el, exceptions) {
+	        for ( var i in exceptions ) {
+	            if ( exceptions[i].test(el[i]) ) {
+	                return true;
+	            }
+	        }
+
+	        return false;
+	    };
+
+	    me.extend(me.eventType = {}, {
+	        touchstart: 1,
+	        touchmove: 1,
+	        touchend: 1,
+
+	        mousedown: 2,
+	        mousemove: 2,
+	        mouseup: 2,
+
+	        MSPointerDown: 3,
+	        MSPointerMove: 3,
+	        MSPointerUp: 3
+	    });
+
+	    me.extend(me.ease = {}, {
+	        quadratic: {
+	            style: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+	            fn: function (k) {
+	                return k * ( 2 - k );
+	            }
+	        },
+	        circular: {
+	            style: 'cubic-bezier(0.1, 0.57, 0.1, 1)',   // Not properly "circular" but this looks better, it should be (0.075, 0.82, 0.165, 1)
+	            fn: function (k) {
+	                k--;
+	                return Math.sqrt( 1 - ( k * k ) );
+	            }
+	        },
+	        back: {
+	            style: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+	            fn: function (k) {
+	                var b = 4;
+	                return ( k = k - 1 ) * k * ( ( b + 1 ) * k + b ) + 1;
+	            }
+	        },
+	        bounce: {
+	            style: '',
+	            fn: function (k) {
+	                if ( ( k /= 1 ) < ( 1 / 2.75 ) ) {
+	                    return 7.5625 * k * k;
+	                } else if ( k < ( 2 / 2.75 ) ) {
+	                    return 7.5625 * ( k -= ( 1.5 / 2.75 ) ) * k + 0.75;
+	                } else if ( k < ( 2.5 / 2.75 ) ) {
+	                    return 7.5625 * ( k -= ( 2.25 / 2.75 ) ) * k + 0.9375;
+	                } else {
+	                    return 7.5625 * ( k -= ( 2.625 / 2.75 ) ) * k + 0.984375;
+	                }
+	            }
+	        },
+	        elastic: {
+	            style: '',
+	            fn: function (k) {
+	                var f = 0.22,
+	                    e = 0.4;
+
+	                if ( k === 0 ) { return 0; }
+	                if ( k == 1 ) { return 1; }
+
+	                return ( e * Math.pow( 2, - 10 * k ) * Math.sin( ( k - f / 4 ) * ( 2 * Math.PI ) / f ) + 1 );
+	            }
+	        }
+	    });
+
+	    me.tap = function (e, eventName) {
+	        var ev = document.createEvent('Event');
+	        ev.initEvent(eventName, true, true);
+	        ev.pageX = e.pageX;
+	        ev.pageY = e.pageY;
+	        e.target.dispatchEvent(ev);
+	    };
+
+	    me.click = function (e) {
+	        var target = e.target,
+	            ev;
+
+	        if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA') {
+	            ev = document.createEvent('MouseEvents');
+	            ev.initMouseEvent('click', true, true, e.view, 1,
+	                target.screenX, target.screenY, target.clientX, target.clientY,
+	                e.ctrlKey, e.altKey, e.shiftKey, e.metaKey,
+	                0, null);
+
+	            ev._constructed = true;
+	            target.dispatchEvent(ev);
+	        }
+	    };
+
+	    return me;
+	})();
+
+	function IScroll (el, options) {
+	    this.wrapper = typeof el == 'string' ? document.querySelector(el) : el;
+
+	    this.scroller = this.wrapper.children[0];
+	    this.scrollerStyle = this.scroller.style;       // cache style for better performance
+
+	    this.options = {
+
+	        zoomMin: 1,
+	        zoomMax: 4, startZoom: 1,
+
+	        resizeIndicator: true,
+
+	        mouseWheelSpeed: 20,
+
+	        snapThreshold: 0.334,
+
+	// INSERT POINT: OPTIONS 
+
+	        startX: 0,
+	        startY: 0,
+	        scrollY: true,
+	        directionLockThreshold: 5,
+	        momentum: true,
+
+	        bounce: true,
+	        bounceTime: 600,
+	        bounceEasing: '',
+
+	        preventDefault: true,
+	        preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ },
+
+	        HWCompositing: true,
+	        useTransition: true,
+	        useTransform: true
+	    };
+
+	    for ( var i in options ) {
+	        this.options[i] = options[i];
+	    }
+
+	    // Normalize options
+	    this.translateZ = this.options.HWCompositing && utils.hasPerspective ? ' translateZ(0)' : '';
+
+	    this.options.useTransition = utils.hasTransition && this.options.useTransition;
+	    this.options.useTransform = utils.hasTransform && this.options.useTransform;
+
+	    this.options.eventPassthrough = this.options.eventPassthrough === true ? 'vertical' : this.options.eventPassthrough;
+	    this.options.preventDefault = !this.options.eventPassthrough && this.options.preventDefault;
+
+	    // If you want eventPassthrough I have to lock one of the axes
+	    this.options.scrollY = this.options.eventPassthrough == 'vertical' ? false : this.options.scrollY;
+	    this.options.scrollX = this.options.eventPassthrough == 'horizontal' ? false : this.options.scrollX;
+
+	    // With eventPassthrough we also need lockDirection mechanism
+	    this.options.freeScroll = this.options.freeScroll && !this.options.eventPassthrough;
+	    this.options.directionLockThreshold = this.options.eventPassthrough ? 0 : this.options.directionLockThreshold;
+
+	    this.options.bounceEasing = typeof this.options.bounceEasing == 'string' ? utils.ease[this.options.bounceEasing] || utils.ease.circular : this.options.bounceEasing;
+
+	    this.options.resizePolling = this.options.resizePolling === undefined ? 60 : this.options.resizePolling;
+
+	    if ( this.options.tap === true ) {
+	        this.options.tap = 'tap';
+	    }
+
+	    this.options.invertWheelDirection = this.options.invertWheelDirection ? -1 : 1;
+
+	// INSERT POINT: NORMALIZATION
+
+	    // Some defaults    
+	    this.x = 0;
+	    this.y = 0;
+	    this.directionX = 0;
+	    this.directionY = 0;
+	    this._events = {};
+
+	    this.scale = Math.min(Math.max(this.options.startZoom, this.options.zoomMin), this.options.zoomMax);
+
+	// INSERT POINT: DEFAULTS
+
+	    this._init();
+	    this.refresh();
+
+	    this.scrollTo(this.options.startX, this.options.startY);
+	    this.enable();
+	}
+
+	IScroll.prototype = {
+	    version: '5.0.6',
+
+	    _init: function () {
+	        this._initEvents();
+
+	        if ( this.options.zoom ) {
+	            this._initZoom();
+	        }
+
+	        if ( this.options.scrollbars || this.options.indicators ) {
+	            this._initIndicators();
+	        }
+
+	        if ( this.options.mouseWheel ) {
+	            this._initWheel();
+	        }
+
+	        if ( this.options.snap ) {
+	            this._initSnap();
+	        }
+
+	        if ( this.options.keyBindings ) {
+	            this._initKeys();
+	        }
+
+	// INSERT POINT: _init
+
+	    },
+
+	    destroy: function () {
+	        this._initEvents(true);
+
+	        this._execEvent('destroy');
+	    },
+
+	    _transitionEnd: function (e) {
+	        if ( e.target != this.scroller ) {
+	            return;
+	        }
+
+	        this._transitionTime(0);
+	        if ( !this.resetPosition(this.options.bounceTime) ) {
+	            this._execEvent('scrollEnd');
+	        }
+	    },
+
+	    _start: function (e) {
+	        // React to left mouse button only
+	        if ( utils.eventType[e.type] != 1 ) {
+	            if ( e.button !== 0 ) {
+	                return;
+	            }
+	        }
+
+	        if ( !this.enabled || (this.initiated && utils.eventType[e.type] !== this.initiated) ) {
+	            return;
+	        }
+
+	        if ( this.options.preventDefault && !utils.isAndroidBrowser && !utils.preventDefaultException(e.target, this.options.preventDefaultException) ) {
+	            e.preventDefault();     // This seems to break default Android browser
+	        }
+
+	        var point = e.touches ? e.touches[0] : e,
+	            pos;
+
+	        this.initiated  = utils.eventType[e.type];
+	        this.moved      = false;
+	        this.distX      = 0;
+	        this.distY      = 0;
+	        this.directionX = 0;
+	        this.directionY = 0;
+	        this.directionLocked = 0;
+
+	        this._transitionTime();
+
+	        this.isAnimating = false;
+	        this.startTime = utils.getTime();
+
+	        if ( this.options.useTransition && this.isInTransition ) {
+	            pos = this.getComputedPosition();
+
+	            this._translate(Math.round(pos.x), Math.round(pos.y));
+	            this._execEvent('scrollEnd');
+	            this.isInTransition = false;
+	        }
+
+	        this.startX    = this.x;
+	        this.startY    = this.y;
+	        this.absStartX = this.x;
+	        this.absStartY = this.y;
+	        this.pointX    = point.pageX;
+	        this.pointY    = point.pageY;
+
+	        this._execEvent('beforeScrollStart');
+	    },
+
+	    _move: function (e) {
+	        if ( !this.enabled || utils.eventType[e.type] !== this.initiated ) {
+	            return;
+	        }
+
+	        if ( this.options.preventDefault ) {    // increases performance on Android? TODO: check!
+	            e.preventDefault();
+	        }
+
+	        var point       = e.touches ? e.touches[0] : e,
+	            deltaX      = point.pageX - this.pointX,
+	            deltaY      = point.pageY - this.pointY,
+	            timestamp   = utils.getTime(),
+	            newX, newY,
+	            absDistX, absDistY;
+
+	        this.pointX     = point.pageX;
+	        this.pointY     = point.pageY;
+
+	        this.distX      += deltaX;
+	        this.distY      += deltaY;
+	        absDistX        = Math.abs(this.distX);
+	        absDistY        = Math.abs(this.distY);
+
+	        // We need to move at least 10 pixels for the scrolling to initiate
+	        if ( timestamp - this.endTime > 300 && (absDistX < 10 && absDistY < 10) ) {
+	            return;
+	        }
+
+	        // If you are scrolling in one direction lock the other
+	        if ( !this.directionLocked && !this.options.freeScroll ) {
+	            if ( absDistX > absDistY + this.options.directionLockThreshold ) {
+	                this.directionLocked = 'h';     // lock horizontally
+	            } else if ( absDistY >= absDistX + this.options.directionLockThreshold ) {
+	                this.directionLocked = 'v';     // lock vertically
+	            } else {
+	                this.directionLocked = 'n';     // no lock
+	            }
+	        }
+
+	        if ( this.directionLocked == 'h' ) {
+	            if ( this.options.eventPassthrough == 'vertical' ) {
+	                e.preventDefault();
+	            } else if ( this.options.eventPassthrough == 'horizontal' ) {
+	                this.initiated = false;
+	                return;
+	            }
+
+	            deltaY = 0;
+	        } else if ( this.directionLocked == 'v' ) {
+	            if ( this.options.eventPassthrough == 'horizontal' ) {
+	                e.preventDefault();
+	            } else if ( this.options.eventPassthrough == 'vertical' ) {
+	                this.initiated = false;
+	                return;
+	            }
+
+	            deltaX = 0;
+	        }
+
+	        deltaX = this.hasHorizontalScroll ? deltaX : 0;
+	        deltaY = this.hasVerticalScroll ? deltaY : 0;
+
+	        newX = this.x + deltaX;
+	        newY = this.y + deltaY;
+
+	        // Slow down if outside of the boundaries
+	        if ( newX > 0 || newX < this.maxScrollX ) {
+	            newX = this.options.bounce ? this.x + deltaX / 3 : newX > 0 ? 0 : this.maxScrollX;
+	        }
+	        if ( newY > 0 || newY < this.maxScrollY ) {
+	            newY = this.options.bounce ? this.y + deltaY / 3 : newY > 0 ? 0 : this.maxScrollY;
+	        }
+
+	        this.directionX = deltaX > 0 ? -1 : deltaX < 0 ? 1 : 0;
+	        this.directionY = deltaY > 0 ? -1 : deltaY < 0 ? 1 : 0;
+
+	        if ( !this.moved ) {
+	            this._execEvent('scrollStart');
+	        }
+
+	        this.moved = true;
+
+	        this._translate(newX, newY);
+
+	/* REPLACE START: _move */
+
+	        if ( timestamp - this.startTime > 300 ) {
+	            this.startTime = timestamp;
+	            this.startX = this.x;
+	            this.startY = this.y;
+	        }
+
+	/* REPLACE END: _move */
+
+	    },
+
+	    _end: function (e) {
+	        if ( !this.enabled || utils.eventType[e.type] !== this.initiated ) {
+	            return;
+	        }
+
+	        if ( this.options.preventDefault && !utils.preventDefaultException(e.target, this.options.preventDefaultException) ) {
+	            e.preventDefault();
+	        }
+
+	        var point = e.changedTouches ? e.changedTouches[0] : e,
+	            momentumX,
+	            momentumY,
+	            duration = utils.getTime() - this.startTime,
+	            newX = Math.round(this.x),
+	            newY = Math.round(this.y),
+	            distanceX = Math.abs(newX - this.startX),
+	            distanceY = Math.abs(newY - this.startY),
+	            time = 0,
+	            easing = '';
+
+	        this.scrollTo(newX, newY);  // ensures that the last position is rounded
+
+	        this.isInTransition = 0;
+	        this.initiated = 0;
+	        this.endTime = utils.getTime();
+
+	        // reset if we are outside of the boundaries
+	        if ( this.resetPosition(this.options.bounceTime) ) {
+	            return;
+	        }
+
+	        // we scrolled less than 10 pixels
+	        if ( !this.moved ) {
+	            if ( this.options.tap ) {
+	                utils.tap(e, this.options.tap);
+	            }
+
+	            if ( this.options.click ) {
+	                utils.click(e);
+	            }
+
+	            return;
+	        }
+
+	        if ( this._events.flick && duration < 200 && distanceX < 100 && distanceY < 100 ) {
+	            this._execEvent('flick');
+	            return;
+	        }
+
+	        // start momentum animation if needed
+	        if ( this.options.momentum && duration < 300 ) {
+	            momentumX = this.hasHorizontalScroll ? utils.momentum(this.x, this.startX, duration, this.maxScrollX, this.options.bounce ? this.wrapperWidth : 0) : { destination: newX, duration: 0 };
+	            momentumY = this.hasVerticalScroll ? utils.momentum(this.y, this.startY, duration, this.maxScrollY, this.options.bounce ? this.wrapperHeight : 0) : { destination: newY, duration: 0 };
+	            newX = momentumX.destination;
+	            newY = momentumY.destination;
+	            time = Math.max(momentumX.duration, momentumY.duration);
+	            this.isInTransition = 1;
+	        }
+
+
+	        if ( this.options.snap ) {
+	            var snap = this._nearestSnap(newX, newY);
+	            this.currentPage = snap;
+	            time = this.options.snapSpeed || Math.max(
+	                    Math.max(
+	                        Math.min(Math.abs(newX - snap.x), 1000),
+	                        Math.min(Math.abs(newY - snap.y), 1000)
+	                    ), 300);
+	            newX = snap.x;
+	            newY = snap.y;
+
+	            this.directionX = 0;
+	            this.directionY = 0;
+	            easing = this.options.bounceEasing;
+	        }
+
+	// INSERT POINT: _end
+
+	        if ( newX != this.x || newY != this.y ) {
+	            // change easing function when scroller goes out of the boundaries
+	            if ( newX > 0 || newX < this.maxScrollX || newY > 0 || newY < this.maxScrollY ) {
+	                easing = utils.ease.quadratic;
+	            }
+
+	            this.scrollTo(newX, newY, time, easing);
+	            return;
+	        }
+
+	        this._execEvent('scrollEnd');
+	    },
+
+	    _resize: function () {
+	        var that = this;
+
+	        clearTimeout(this.resizeTimeout);
+
+	        this.resizeTimeout = setTimeout(function () {
+	            that.refresh();
+	        }, this.options.resizePolling);
+	    },
+
+	    resetPosition: function (time) {
+	        var x = this.x,
+	            y = this.y;
+
+	        time = time || 0;
+
+	        if ( !this.hasHorizontalScroll || this.x > 0 ) {
+	            x = 0;
+	        } else if ( this.x < this.maxScrollX ) {
+	            x = this.maxScrollX;
+	        }
+
+	        if ( !this.hasVerticalScroll || this.y > 0 ) {
+	            y = 0;
+	        } else if ( this.y < this.maxScrollY ) {
+	            y = this.maxScrollY;
+	        }
+
+	        if ( x == this.x && y == this.y ) {
+	            return false;
+	        }
+
+	        this.scrollTo(x, y, time, this.options.bounceEasing);
+
+	        return true;
+	    },
+
+	    disable: function () {
+	        this.enabled = false;
+	    },
+
+	    enable: function () {
+	        this.enabled = true;
+	    },
+
+	    refresh: function () {
+	        var rf = this.wrapper.offsetHeight;     // Force reflow
+
+	        this.wrapperWidth   = this.wrapper.clientWidth;
+	        this.wrapperHeight  = this.wrapper.clientHeight;
+
+	/* REPLACE START: refresh */
+	    this.scrollerWidth  = Math.round(this.scroller.offsetWidth * this.scale);
+	    this.scrollerHeight = Math.round(this.scroller.offsetHeight * this.scale);
+	/* REPLACE END: refresh */
+
+	        this.maxScrollX     = this.wrapperWidth - this.scrollerWidth;
+	        this.maxScrollY     = this.wrapperHeight - this.scrollerHeight;
+
+	        this.hasHorizontalScroll    = this.options.scrollX && this.maxScrollX < 0;
+	        this.hasVerticalScroll      = this.options.scrollY && this.maxScrollY < 0;
+
+	        if ( !this.hasHorizontalScroll ) {
+	            this.maxScrollX = 0;
+	            this.scrollerWidth = this.wrapperWidth;
+	        }
+
+	        if ( !this.hasVerticalScroll ) {
+	            this.maxScrollY = 0;
+	            this.scrollerHeight = this.wrapperHeight;
+	        }
+
+	        this.endTime = 0;
+	        this.directionX = 0;
+	        this.directionY = 0;
+
+	        this.wrapperOffset = utils.offset(this.wrapper);
+
+	        this._execEvent('refresh');
+
+	        this.resetPosition();
+
+	// INSERT POINT: _refresh
+
+	    },
+
+	    on: function (type, fn) {
+	        if ( !this._events[type] ) {
+	            this._events[type] = [];
+	        }
+
+	        this._events[type].push(fn);
+	    },
+
+	    _execEvent: function (type) {
+	        if ( !this._events[type] ) {
+	            return;
+	        }
+
+	        var i = 0,
+	            l = this._events[type].length;
+
+	        if ( !l ) {
+	            return;
+	        }
+
+	        for ( ; i < l; i++ ) {
+	            this._events[type][i].call(this);
+	        }
+	    },
+
+	    scrollBy: function (x, y, time, easing) {
+	        x = this.x + x;
+	        y = this.y + y;
+	        time = time || 0;
+
+	        this.scrollTo(x, y, time, easing);
+	    },
+
+	    scrollTo: function (x, y, time, easing) {
+	        easing = easing || utils.ease.circular;
+
+	        if ( !time || (this.options.useTransition && easing.style) ) {
+	            this._transitionTimingFunction(easing.style);
+	            this._transitionTime(time);
+	            this._translate(x, y);
+	        } else {
+	            this._animate(x, y, time, easing.fn);
+	        }
+	    },
+
+	    scrollToElement: function (el, time, offsetX, offsetY, easing) {
+	        el = el.nodeType ? el : this.scroller.querySelector(el);
+
+	        if ( !el ) {
+	            return;
+	        }
+
+	        var pos = utils.offset(el);
+
+	        pos.left -= this.wrapperOffset.left;
+	        pos.top  -= this.wrapperOffset.top;
+
+	        // if offsetX/Y are true we center the element to the screen
+	        if ( offsetX === true ) {
+	            offsetX = Math.round(el.offsetWidth / 2 - this.wrapper.offsetWidth / 2);
+	        }
+	        if ( offsetY === true ) {
+	            offsetY = Math.round(el.offsetHeight / 2 - this.wrapper.offsetHeight / 2);
+	        }
+
+	        pos.left -= offsetX || 0;
+	        pos.top  -= offsetY || 0;
+
+	        pos.left = pos.left > 0 ? 0 : pos.left < this.maxScrollX ? this.maxScrollX : pos.left;
+	        pos.top  = pos.top  > 0 ? 0 : pos.top  < this.maxScrollY ? this.maxScrollY : pos.top;
+
+	        time = time === undefined || time === null || time === 'auto' ? Math.max(Math.abs(this.x-pos.left), Math.abs(this.y-pos.top)) : time;
+
+	        this.scrollTo(pos.left, pos.top, time, easing);
+	    },
+
+	    _transitionTime: function (time) {
+	        time = time || 0;
+	        this.scrollerStyle[utils.style.transitionDuration] = time + 'ms';
+
+
+	        if ( this.indicators ) {
+	            for ( var i = this.indicators.length; i--; ) {
+	                this.indicators[i].transitionTime(time);
+	            }
+	        }
+
+
+	// INSERT POINT: _transitionTime
+
+	    },
+
+	    _transitionTimingFunction: function (easing) {
+	        this.scrollerStyle[utils.style.transitionTimingFunction] = easing;
+
+
+	        if ( this.indicators ) {
+	            for ( var i = this.indicators.length; i--; ) {
+	                this.indicators[i].transitionTimingFunction(easing);
+	            }
+	        }
+
+
+	// INSERT POINT: _transitionTimingFunction
+
+	    },
+
+	    _translate: function (x, y) {
+	        if ( this.options.useTransform ) {
+
+	/* REPLACE START: _translate */         this.scrollerStyle[utils.style.transform] = 'translate(' + x + 'px,' + y + 'px) scale(' + this.scale + ') ' + this.translateZ;/* REPLACE END: _translate */
+
+	        } else {
+	            x = Math.round(x);
+	            y = Math.round(y);
+	            this.scrollerStyle.left = x + 'px';
+	            this.scrollerStyle.top = y + 'px';
+	        }
+
+	        this.x = x;
+	        this.y = y;
+
+
+	    if ( this.indicators ) {
+	        for ( var i = this.indicators.length; i--; ) {
+	            this.indicators[i].updatePosition();
+	        }
+	    }
+
+	// INSERT POINT: _translate
+
+	    },
+
+	    _initEvents: function (remove) {
+	        var eventType = remove ? utils.removeEvent : utils.addEvent,
+	            target = this.options.bindToWrapper ? this.wrapper : window;
+
+	        eventType(window, 'orientationchange', this);
+	        eventType(window, 'resize', this);
+
+	        if ( this.options.click ) {
+	            eventType(this.wrapper, 'click', this, true);
+	        }
+
+	        if ( !this.options.disableMouse ) {
+	            eventType(this.wrapper, 'mousedown', this);
+	            eventType(target, 'mousemove', this);
+	            eventType(target, 'mousecancel', this);
+	            eventType(target, 'mouseup', this);
+	        }
+
+	        if ( utils.hasPointer && !this.options.disablePointer ) {
+	            eventType(this.wrapper, 'MSPointerDown', this);
+	            eventType(target, 'MSPointerMove', this);
+	            eventType(target, 'MSPointerCancel', this);
+	            eventType(target, 'MSPointerUp', this);
+	        }
+
+	        if ( utils.hasTouch && !this.options.disableTouch ) {
+	            eventType(this.wrapper, 'touchstart', this);
+	            eventType(target, 'touchmove', this);
+	            eventType(target, 'touchcancel', this);
+	            eventType(target, 'touchend', this);
+	        }
+
+	        eventType(this.scroller, 'transitionend', this);
+	        eventType(this.scroller, 'webkitTransitionEnd', this);
+	        eventType(this.scroller, 'oTransitionEnd', this);
+	        eventType(this.scroller, 'MSTransitionEnd', this);
+	    },
+
+	    getComputedPosition: function () {
+	        var matrix = window.getComputedStyle(this.scroller, null),
+	            x, y;
+
+	        if ( this.options.useTransform ) {
+	            matrix = matrix[utils.style.transform].split(')')[0].split(', ');
+	            x = +(matrix[12] || matrix[4]);
+	            y = +(matrix[13] || matrix[5]);
+	        } else {
+	            x = +matrix.left.replace(/[^-\d]/g, '');
+	            y = +matrix.top.replace(/[^-\d]/g, '');
+	        }
+
+	        return { x: x, y: y };
+	    },
+
+	    _initIndicators: function () {
+	        var interactive = this.options.interactiveScrollbars,
+	            defaultScrollbars = typeof this.options.scrollbars != 'object',
+	            customStyle = typeof this.options.scrollbars != 'string',
+	            indicators = [],
+	            indicator;
+
+	        this.indicators = [];
+
+	        if ( this.options.scrollbars ) {
+	            // Vertical scrollbar
+	            if ( this.options.scrollY ) {
+	                indicator = {
+	                    el: createDefaultScrollbar('v', interactive, this.options.scrollbars),
+	                    interactive: interactive,
+	                    defaultScrollbars: true,
+	                    customStyle: customStyle,
+	                    resize: this.options.resizeIndicator,
+	                    listenX: false
+	                };
+
+	                this.wrapper.appendChild(indicator.el);
+	                indicators.push(indicator);
+	            }
+
+	            // Horizontal scrollbar
+	            if ( this.options.scrollX ) {
+	                indicator = {
+	                    el: createDefaultScrollbar('h', interactive, this.options.scrollbars),
+	                    interactive: interactive,
+	                    defaultScrollbars: true,
+	                    customStyle: customStyle,
+	                    resize: this.options.resizeIndicator,
+	                    listenY: false
+	                };
+
+	                this.wrapper.appendChild(indicator.el);
+	                indicators.push(indicator);
+	            }
+	        }
+
+	        if ( this.options.indicators ) {
+	            // works fine for arrays and non-arrays
+	            indicators = indicators.concat(this.options.indicators);
+	        }
+
+	        for ( var i = indicators.length; i--; ) {
+	            this.indicators[i] = new Indicator(this, indicators[i]);
+	        }
+
+	        this.on('refresh', function () {
+	            if ( this.indicators ) {
+	                for ( var i = this.indicators.length; i--; ) {
+	                    this.indicators[i].refresh();
+	                }
+	            }
+	        });
+
+	        this.on('destroy', function () {
+	            if ( this.indicators ) {
+	                for ( var i = this.indicators.length; i--; ) {
+	                    this.indicators[i].destroy();
+	                }
+	            }
+
+	            delete this.indicators;
+	        });
+	    },
+
+	    _initZoom: function () {
+	        this.scrollerStyle[utils.style.transformOrigin] = '0 0';
+	    },
+
+	    _zoomStart: function (e) {
+	        var c1 = Math.abs( e.touches[0].pageX - e.touches[1].pageX ),
+	            c2 = Math.abs( e.touches[0].pageY - e.touches[1].pageY );
+
+	        this.touchesDistanceStart = Math.sqrt(c1 * c1 + c2 * c2);
+	        this.startScale = this.scale;
+
+	        this.originX = Math.abs(e.touches[0].pageX + e.touches[1].pageX) / 2 + this.wrapperOffset.left - this.x;
+	        this.originY = Math.abs(e.touches[0].pageY + e.touches[1].pageY) / 2 + this.wrapperOffset.top - this.y;
+
+	        this._execEvent('zoomStart');
+	    },
+
+	    _zoom: function (e) {
+	        if ( !this.enabled || utils.eventType[e.type] !== this.initiated ) {
+	            return;
+	        }
+
+	        if ( this.options.preventDefault ) {
+	            e.preventDefault();
+	        }
+
+	        var c1 = Math.abs( e.touches[0].pageX - e.touches[1].pageX ),
+	            c2 = Math.abs( e.touches[0].pageY - e.touches[1].pageY ),
+	            distance = Math.sqrt( c1 * c1 + c2 * c2 ),
+	            scale = 1 / this.touchesDistanceStart * distance * this.startScale,
+	            lastScale,
+	            x, y;
+
+	        this.scaled = true;
+
+	        if ( scale < this.options.zoomMin ) {
+	            scale = 0.5 * this.options.zoomMin * Math.pow(2.0, scale / this.options.zoomMin);
+	        } else if ( scale > this.options.zoomMax ) {
+	            scale = 2.0 * this.options.zoomMax * Math.pow(0.5, this.options.zoomMax / scale);
+	        }
+
+	        lastScale = scale / this.startScale;
+	        x = this.originX - this.originX * lastScale + this.startX;
+	        y = this.originY - this.originY * lastScale + this.startY;
+
+	        this.scale = scale;
+
+	        this.scrollTo(x, y, 0);
+	    },
+
+	    _zoomEnd: function (e) {
+	        if ( !this.enabled || utils.eventType[e.type] !== this.initiated ) {
+	            return;
+	        }
+
+	        if ( this.options.preventDefault ) {
+	            e.preventDefault();
+	        }
+
+	        var newX, newY,
+	            lastScale;
+
+	        this.isInTransition = 0;
+	        this.initiated = 0;
+
+	        if ( this.scale > this.options.zoomMax ) {
+	            this.scale = this.options.zoomMax;
+	        } else if ( this.scale < this.options.zoomMin ) {
+	            this.scale = this.options.zoomMin;
+	        }
+
+	        // Update boundaries
+	        this.refresh();
+
+	        lastScale = this.scale / this.startScale;
+
+	        newX = this.originX - this.originX * lastScale + this.startX;
+	        newY = this.originY - this.originY * lastScale + this.startY;
+
+	        if ( newX > 0 ) {
+	            newX = 0;
+	        } else if ( newX < this.maxScrollX ) {
+	            newX = this.maxScrollX;
+	        }
+
+	        if ( newY > 0 ) {
+	            newY = 0;
+	        } else if ( newY < this.maxScrollY ) {
+	            newY = this.maxScrollY;
+	        }
+
+	        if ( this.x != newX || this.y != newY ) {
+	            this.scrollTo(newX, newY, this.options.bounceTime);
+	        }
+
+	        this.scaled = false;
+
+	        this._execEvent('zoomEnd');
+	    },
+
+	    zoom: function (scale, x, y, time) {
+	        if ( scale < this.options.zoomMin ) {
+	            scale = this.options.zoomMin;
+	        } else if ( scale > this.options.zoomMax ) {
+	            scale = this.options.zoomMax;
+	        }
+
+	        if ( scale == this.scale ) {
+	            return;
+	        }
+
+	        var relScale = scale / this.scale;
+
+	        x = x === undefined ? this.wrapperWidth / 2 : x;
+	        y = y === undefined ? this.wrapperHeight / 2 : y;
+	        time = time === undefined ? 300 : time;
+
+	        x = x + this.wrapperOffset.left - this.x;
+	        y = y + this.wrapperOffset.top - this.y;
+
+	        x = x - x * relScale + this.x;
+	        y = y - y * relScale + this.y;
+
+	        this.scale = scale;
+
+	        this.refresh();     // update boundaries
+
+	        if ( x > 0 ) {
+	            x = 0;
+	        } else if ( x < this.maxScrollX ) {
+	            x = this.maxScrollX;
+	        }
+
+	        if ( y > 0 ) {
+	            y = 0;
+	        } else if ( y < this.maxScrollY ) {
+	            y = this.maxScrollY;
+	        }
+
+	        this.scrollTo(x, y, time);
+	    },
+
+	    _wheelZoom: function (e) {
+	        var wheelDeltaY,
+	            deltaScale,
+	            that = this;
+
+	        // Execute the zoomEnd event after 400ms the wheel stopped scrolling
+	        clearTimeout(this.wheelTimeout);
+	        this.wheelTimeout = setTimeout(function () {
+	            that._execEvent('zoomEnd');
+	        }, 400);
+
+	        if ('wheelDeltaX' in e) {
+	            wheelDeltaY = e.wheelDeltaY / Math.abs(e.wheelDeltaY);
+	        } else if('wheelDelta' in e) {
+	            wheelDeltaY = e.wheelDelta / Math.abs(e.wheelDelta);
+	        } else if ('detail' in e) {
+	            wheelDeltaY = -e.detail / Math.abs(e.wheelDelta);
+	        } else {
+	            return;
+	        }
+
+	        deltaScale = this.scale + wheelDeltaY / 5;
+
+	        this.zoom(deltaScale, e.pageX, e.pageY, 0);
+	    },
+
+	    _initWheel: function () {
+	        utils.addEvent(this.wrapper, 'mousewheel', this);
+	        utils.addEvent(this.wrapper, 'DOMMouseScroll', this);
+
+	        this.on('destroy', function () {
+	            utils.removeEvent(this.wrapper, 'mousewheel', this);
+	            utils.removeEvent(this.wrapper, 'DOMMouseScroll', this);
+	        });
+	    },
+
+	    _wheel: function (e) {
+	        if ( !this.enabled ) {
+	            return;
+	        }
+
+	        e.preventDefault();
+
+	        var wheelDeltaX, wheelDeltaY,
+	            newX, newY,
+	            that = this;
+
+	        // Execute the scrollEnd event after 400ms the wheel stopped scrolling
+	        clearTimeout(this.wheelTimeout);
+	        this.wheelTimeout = setTimeout(function () {
+	            that._execEvent('scrollEnd');
+	        }, 400);
+
+	        if ( 'wheelDeltaX' in e ) {
+	            wheelDeltaX = e.wheelDeltaX / 120;
+	            wheelDeltaY = e.wheelDeltaY / 120;
+	        } else if ( 'wheelDelta' in e ) {
+	            wheelDeltaX = wheelDeltaY = e.wheelDelta / 120;
+	        } else if ( 'detail' in e ) {
+	            wheelDeltaX = wheelDeltaY = -e.detail / 3;
+	        } else {
+	            return;
+	        }
+
+	        wheelDeltaX *= this.options.mouseWheelSpeed;
+	        wheelDeltaY *= this.options.mouseWheelSpeed;
+
+	        if ( !this.hasVerticalScroll ) {
+	            wheelDeltaX = wheelDeltaY;
+	            wheelDeltaY = 0;
+	        }
+
+	        if ( this.options.snap ) {
+	            newX = this.currentPage.pageX;
+	            newY = this.currentPage.pageY;
+
+	            if ( wheelDeltaX > 0 ) {
+	                newX--;
+	            } else if ( wheelDeltaX < 0 ) {
+	                newX++;
+	            }
+
+	            if ( wheelDeltaY > 0 ) {
+	                newY--;
+	            } else if ( wheelDeltaY < 0 ) {
+	                newY++;
+	            }
+
+	            this.goToPage(newX, newY);
+
+	            return;
+	        }
+
+	        newX = this.x + Math.round(this.hasHorizontalScroll ? wheelDeltaX * this.options.invertWheelDirection : 0);
+	        newY = this.y + Math.round(this.hasVerticalScroll ? wheelDeltaY * this.options.invertWheelDirection : 0);
+
+	        if ( newX > 0 ) {
+	            newX = 0;
+	        } else if ( newX < this.maxScrollX ) {
+	            newX = this.maxScrollX;
+	        }
+
+	        if ( newY > 0 ) {
+	            newY = 0;
+	        } else if ( newY < this.maxScrollY ) {
+	            newY = this.maxScrollY;
+	        }
+
+	        this.scrollTo(newX, newY, 0);
+
+	// INSERT POINT: _wheel
+	    },
+
+	    _initSnap: function () {
+	        this.currentPage = {};
+
+	        if ( typeof this.options.snap == 'string' ) {
+	            this.options.snap = this.scroller.querySelectorAll(this.options.snap);
+	        }
+
+	        this.on('refresh', function () {
+	            var i = 0, l,
+	                m = 0, n,
+	                cx, cy,
+	                x = 0, y,
+	                stepX = this.options.snapStepX || this.wrapperWidth,
+	                stepY = this.options.snapStepY || this.wrapperHeight,
+	                el;
+
+	            this.pages = [];
+
+	            if ( !this.wrapperWidth || !this.wrapperHeight || !this.scrollerWidth || !this.scrollerHeight ) {
+	                return;
+	            }
+
+	            if ( this.options.snap === true ) {
+	                cx = Math.round( stepX / 2 );
+	                cy = Math.round( stepY / 2 );
+
+	                while ( x > -this.scrollerWidth ) {
+	                    this.pages[i] = [];
+	                    l = 0;
+	                    y = 0;
+
+	                    while ( y > -this.scrollerHeight ) {
+	                        this.pages[i][l] = {
+	                            x: Math.max(x, this.maxScrollX),
+	                            y: Math.max(y, this.maxScrollY),
+	                            width: stepX,
+	                            height: stepY,
+	                            cx: x - cx,
+	                            cy: y - cy
+	                        };
+
+	                        y -= stepY;
+	                        l++;
+	                    }
+
+	                    x -= stepX;
+	                    i++;
+	                }
+	            } else {
+	                el = this.options.snap;
+	                l = el.length;
+	                n = -1;
+
+	                for ( ; i < l; i++ ) {
+	                    if ( i === 0 || el[i].offsetLeft <= el[i-1].offsetLeft ) {
+	                        m = 0;
+	                        n++;
+	                    }
+
+	                    if ( !this.pages[m] ) {
+	                        this.pages[m] = [];
+	                    }
+
+	                    x = Math.max(-el[i].offsetLeft, this.maxScrollX);
+	                    y = Math.max(-el[i].offsetTop, this.maxScrollY);
+	                    cx = x - Math.round(el[i].offsetWidth / 2);
+	                    cy = y - Math.round(el[i].offsetHeight / 2);
+
+	                    this.pages[m][n] = {
+	                        x: x,
+	                        y: y,
+	                        width: el[i].offsetWidth,
+	                        height: el[i].offsetHeight,
+	                        cx: cx,
+	                        cy: cy
+	                    };
+
+	                    if ( x > this.maxScrollX ) {
+	                        m++;
+	                    }
+	                }
+	            }
+
+	            this.goToPage(this.currentPage.pageX || 0, this.currentPage.pageY || 0, 0);
+
+	            // Update snap threshold if needed
+	            if ( this.options.snapThreshold % 1 === 0 ) {
+	                this.snapThresholdX = this.options.snapThreshold;
+	                this.snapThresholdY = this.options.snapThreshold;
+	            } else {
+	                this.snapThresholdX = Math.round(this.pages[this.currentPage.pageX][this.currentPage.pageY].width * this.options.snapThreshold);
+	                this.snapThresholdY = Math.round(this.pages[this.currentPage.pageX][this.currentPage.pageY].height * this.options.snapThreshold);
+	            }
+	        });
+
+	        this.on('flick', function () {
+	            var time = this.options.snapSpeed || Math.max(
+	                    Math.max(
+	                        Math.min(Math.abs(this.x - this.startX), 1000),
+	                        Math.min(Math.abs(this.y - this.startY), 1000)
+	                    ), 300);
+
+	            this.goToPage(
+	                this.currentPage.pageX + this.directionX,
+	                this.currentPage.pageY + this.directionY,
+	                time
+	            );
+	        });
+	    },
+
+	    _nearestSnap: function (x, y) {
+	        if ( !this.pages.length ) {
+	            return { x: 0, y: 0, pageX: 0, pageY: 0 };
+	        }
+
+	        var i = 0,
+	            l = this.pages.length,
+	            m = 0;
+
+	        // Check if we exceeded the snap threshold
+	        if ( Math.abs(x - this.absStartX) < this.snapThresholdX &&
+	            Math.abs(y - this.absStartY) < this.snapThresholdY ) {
+	            return this.currentPage;
+	        }
+
+	        if ( x > 0 ) {
+	            x = 0;
+	        } else if ( x < this.maxScrollX ) {
+	            x = this.maxScrollX;
+	        }
+
+	        if ( y > 0 ) {
+	            y = 0;
+	        } else if ( y < this.maxScrollY ) {
+	            y = this.maxScrollY;
+	        }
+
+	        for ( ; i < l; i++ ) {
+	            if ( x >= this.pages[i][0].cx ) {
+	                x = this.pages[i][0].x;
+	                break;
+	            }
+	        }
+
+	        l = this.pages[i].length;
+
+	        for ( ; m < l; m++ ) {
+	            if ( y >= this.pages[0][m].cy ) {
+	                y = this.pages[0][m].y;
+	                break;
+	            }
+	        }
+
+	        if ( i == this.currentPage.pageX ) {
+	            i += this.directionX;
+
+	            if ( i < 0 ) {
+	                i = 0;
+	            } else if ( i >= this.pages.length ) {
+	                i = this.pages.length - 1;
+	            }
+
+	            x = this.pages[i][0].x;
+	        }
+
+	        if ( m == this.currentPage.pageY ) {
+	            m += this.directionY;
+
+	            if ( m < 0 ) {
+	                m = 0;
+	            } else if ( m >= this.pages[0].length ) {
+	                m = this.pages[0].length - 1;
+	            }
+
+	            y = this.pages[0][m].y;
+	        }
+
+	        return {
+	            x: x,
+	            y: y,
+	            pageX: i,
+	            pageY: m
+	        };
+	    },
+
+	    goToPage: function (x, y, time, easing) {
+	        easing = easing || this.options.bounceEasing;
+
+	        if ( x >= this.pages.length ) {
+	            x = this.pages.length - 1;
+	        } else if ( x < 0 ) {
+	            x = 0;
+	        }
+
+	        if ( y >= this.pages[x].length ) {
+	            y = this.pages[x].length - 1;
+	        } else if ( y < 0 ) {
+	            y = 0;
+	        }
+
+	        var posX = this.pages[x][y].x,
+	            posY = this.pages[x][y].y;
+
+	        time = time === undefined ? this.options.snapSpeed || Math.max(
+	            Math.max(
+	                Math.min(Math.abs(posX - this.x), 1000),
+	                Math.min(Math.abs(posY - this.y), 1000)
+	            ), 300) : time;
+
+	        this.currentPage = {
+	            x: posX,
+	            y: posY,
+	            pageX: x,
+	            pageY: y
+	        };
+
+	        this.scrollTo(posX, posY, time, easing);
+	    },
+
+	    next: function (time, easing) {
+	        var x = this.currentPage.pageX,
+	            y = this.currentPage.pageY;
+
+	        x++;
+
+	        if ( x >= this.pages.length && this.hasVerticalScroll ) {
+	            x = 0;
+	            y++;
+	        }
+
+	        this.goToPage(x, y, time, easing);
+	    },
+
+	    prev: function (time, easing) {
+	        var x = this.currentPage.pageX,
+	            y = this.currentPage.pageY;
+
+	        x--;
+
+	        if ( x < 0 && this.hasVerticalScroll ) {
+	            x = 0;
+	            y--;
+	        }
+
+	        this.goToPage(x, y, time, easing);
+	    },
+
+	    _initKeys: function (e) {
+	        // default key bindings
+	        var keys = {
+	            pageUp: 33,
+	            pageDown: 34,
+	            end: 35,
+	            home: 36,
+	            left: 37,
+	            up: 38,
+	            right: 39,
+	            down: 40
+	        };
+	        var i;
+
+	        // if you give me characters I give you keycode
+	        if ( typeof this.options.keyBindings == 'object' ) {
+	            for ( i in this.options.keyBindings ) {
+	                if ( typeof this.options.keyBindings[i] == 'string' ) {
+	                    this.options.keyBindings[i] = this.options.keyBindings[i].toUpperCase().charCodeAt(0);
+	                }
+	            }
+	        } else {
+	            this.options.keyBindings = {};
+	        }
+
+	        for ( i in keys ) {
+	            this.options.keyBindings[i] = this.options.keyBindings[i] || keys[i];
+	        }
+
+	        utils.addEvent(window, 'keydown', this);
+
+	        this.on('destroy', function () {
+	            utils.removeEvent(window, 'keydown', this);
+	        });
+	    },
+
+	    _key: function (e) {
+	        if ( !this.enabled ) {
+	            return;
+	        }
+
+	        var snap = this.options.snap,   // we are using this alot, better to cache it
+	            newX = snap ? this.currentPage.pageX : this.x,
+	            newY = snap ? this.currentPage.pageY : this.y,
+	            now = utils.getTime(),
+	            prevTime = this.keyTime || 0,
+	            acceleration = 0.250,
+	            pos;
+
+	        if ( this.options.useTransition && this.isInTransition ) {
+	            pos = this.getComputedPosition();
+
+	            this._translate(Math.round(pos.x), Math.round(pos.y));
+	            this.isInTransition = false;
+	        }
+
+	        this.keyAcceleration = now - prevTime < 200 ? Math.min(this.keyAcceleration + acceleration, 50) : 0;
+
+	        switch ( e.keyCode ) {
+	            case this.options.keyBindings.pageUp:
+	                if ( this.hasHorizontalScroll && !this.hasVerticalScroll ) {
+	                    newX += snap ? 1 : this.wrapperWidth;
+	                } else {
+	                    newY += snap ? 1 : this.wrapperHeight;
+	                }
+	                break;
+	            case this.options.keyBindings.pageDown:
+	                if ( this.hasHorizontalScroll && !this.hasVerticalScroll ) {
+	                    newX -= snap ? 1 : this.wrapperWidth;
+	                } else {
+	                    newY -= snap ? 1 : this.wrapperHeight;
+	                }
+	                break;
+	            case this.options.keyBindings.end:
+	                newX = snap ? this.pages.length-1 : this.maxScrollX;
+	                newY = snap ? this.pages[0].length-1 : this.maxScrollY;
+	                break;
+	            case this.options.keyBindings.home:
+	                newX = 0;
+	                newY = 0;
+	                break;
+	            case this.options.keyBindings.left:
+	                newX += snap ? -1 : 5 + this.keyAcceleration>>0;
+	                break;
+	            case this.options.keyBindings.up:
+	                newY += snap ? 1 : 5 + this.keyAcceleration>>0;
+	                break;
+	            case this.options.keyBindings.right:
+	                newX -= snap ? -1 : 5 + this.keyAcceleration>>0;
+	                break;
+	            case this.options.keyBindings.down:
+	                newY -= snap ? 1 : 5 + this.keyAcceleration>>0;
+	                break;
+	            default:
+	                return;
+	        }
+
+	        if ( snap ) {
+	            this.goToPage(newX, newY);
+	            return;
+	        }
+
+	        if ( newX > 0 ) {
+	            newX = 0;
+	            this.keyAcceleration = 0;
+	        } else if ( newX < this.maxScrollX ) {
+	            newX = this.maxScrollX;
+	            this.keyAcceleration = 0;
+	        }
+
+	        if ( newY > 0 ) {
+	            newY = 0;
+	            this.keyAcceleration = 0;
+	        } else if ( newY < this.maxScrollY ) {
+	            newY = this.maxScrollY;
+	            this.keyAcceleration = 0;
+	        }
+
+	        this.scrollTo(newX, newY, 0);
+
+	        this.keyTime = now;
+	    },
+
+	    _animate: function (destX, destY, duration, easingFn) {
+	        var that = this,
+	            startX = this.x,
+	            startY = this.y,
+	            startTime = utils.getTime(),
+	            destTime = startTime + duration;
+
+	        function step () {
+	            var now = utils.getTime(),
+	                newX, newY,
+	                easing;
+
+	            if ( now >= destTime ) {
+	                that.isAnimating = false;
+	                that._translate(destX, destY);
+
+	                if ( !that.resetPosition(that.options.bounceTime) ) {
+	                    that._execEvent('scrollEnd');
+	                }
+
+	                return;
+	            }
+
+	            now = ( now - startTime ) / duration;
+	            easing = easingFn(now);
+	            newX = ( destX - startX ) * easing + startX;
+	            newY = ( destY - startY ) * easing + startY;
+	            that._translate(newX, newY);
+
+	            if ( that.isAnimating ) {
+	                rAF(step);
+	            }
+	        }
+
+	        this.isAnimating = true;
+	        step();
+	    },
+	    handleEvent: function (e) {
+	        switch ( e.type ) {
+	            case 'touchstart':
+	            case 'MSPointerDown':
+	            case 'mousedown':
+	                this._start(e);
+
+	                if ( this.options.zoom && e.touches && e.touches.length > 1 ) {
+	                    this._zoomStart(e);
+	                }
+	                break;
+	            case 'touchmove':
+	            case 'MSPointerMove':
+	            case 'mousemove':
+	                if ( this.options.zoom && e.touches && e.touches[1] ) {
+	                    this._zoom(e);
+	                    return;
+	                }
+	                this._move(e);
+	                break;
+	            case 'touchend':
+	            case 'MSPointerUp':
+	            case 'mouseup':
+	            case 'touchcancel':
+	            case 'MSPointerCancel':
+	            case 'mousecancel':
+	                if ( this.scaled ) {
+	                    this._zoomEnd(e);
+	                    return;
+	                }
+	                this._end(e);
+	                break;
+	            case 'orientationchange':
+	            case 'resize':
+	                this._resize();
+	                break;
+	            case 'transitionend':
+	            case 'webkitTransitionEnd':
+	            case 'oTransitionEnd':
+	            case 'MSTransitionEnd':
+	                this._transitionEnd(e);
+	                break;
+	            case 'DOMMouseScroll':
+	            case 'mousewheel':
+	                if ( this.options.wheelAction == 'zoom' ) {
+	                    this._wheelZoom(e);
+	                    return; 
+	                }
+	                this._wheel(e);
+	                break;
+	            case 'keydown':
+	                this._key(e);
+	                break;
+	        }
+	    }
+
+	};
+	function createDefaultScrollbar (direction, interactive, type) {
+	    var scrollbar = document.createElement('div'),
+	        indicator = document.createElement('div');
+
+	    if ( type === true ) {
+	        scrollbar.style.cssText = 'position:absolute;z-index:9999';
+	        indicator.style.cssText = '-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:absolute;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.9);border-radius:3px';
+	    }
+
+	    indicator.className = 'iScrollIndicator';
+
+	    if ( direction == 'h' ) {
+	        if ( type === true ) {
+	            scrollbar.style.cssText += ';height:7px;left:2px;right:2px;bottom:0';
+	            indicator.style.height = '100%';
+	        }
+	        scrollbar.className = 'iScrollHorizontalScrollbar';
+	    } else {
+	        if ( type === true ) {
+	            scrollbar.style.cssText += ';width:7px;bottom:2px;top:2px;right:1px';
+	            indicator.style.width = '100%';
+	        }
+	        scrollbar.className = 'iScrollVerticalScrollbar';
+	    }
+
+	    if ( !interactive ) {
+	        scrollbar.style.pointerEvents = 'none';
+	    }
+
+	    scrollbar.appendChild(indicator);
+
+	    return scrollbar;
+	}
+
+	function Indicator (scroller, options) {
+	    this.wrapper = typeof options.el == 'string' ? document.querySelector(options.el) : options.el;
+	    this.indicator = this.wrapper.children[0];
+	    this.indicatorStyle = this.indicator.style;
+	    this.scroller = scroller;
+
+	    this.options = {
+	        listenX: true,
+	        listenY: true,
+	        interactive: false,
+	        resize: true,
+	        defaultScrollbars: false,
+	        speedRatioX: 0,
+	        speedRatioY: 0
+	    };
+
+	    for ( var i in options ) {
+	        this.options[i] = options[i];
+	    }
+
+	    this.sizeRatioX = 1;
+	    this.sizeRatioY = 1;
+	    this.maxPosX = 0;
+	    this.maxPosY = 0;
+
+	    if ( this.options.interactive ) {
+	        if ( !this.options.disableTouch ) {
+	            utils.addEvent(this.indicator, 'touchstart', this);
+	            utils.addEvent(window, 'touchend', this);
+	        }
+	        if ( !this.options.disablePointer ) {
+	            utils.addEvent(this.indicator, 'MSPointerDown', this);
+	            utils.addEvent(window, 'MSPointerUp', this);
+	        }
+	        if ( !this.options.disableMouse ) {
+	            utils.addEvent(this.indicator, 'mousedown', this);
+	            utils.addEvent(window, 'mouseup', this);
+	        }
+	    }
+	}
+
+	Indicator.prototype = {
+	    handleEvent: function (e) {
+	        switch ( e.type ) {
+	            case 'touchstart':
+	            case 'MSPointerDown':
+	            case 'mousedown':
+	                this._start(e);
+	                break;
+	            case 'touchmove':
+	            case 'MSPointerMove':
+	            case 'mousemove':
+	                this._move(e);
+	                break;
+	            case 'touchend':
+	            case 'MSPointerUp':
+	            case 'mouseup':
+	            case 'touchcancel':
+	            case 'MSPointerCancel':
+	            case 'mousecancel':
+	                this._end(e);
+	                break;
+	        }
+	    },
+
+	    destroy: function () {
+	        if ( this.options.interactive ) {
+	            utils.removeEvent(this.indicator, 'touchstart', this);
+	            utils.removeEvent(this.indicator, 'MSPointerDown', this);
+	            utils.removeEvent(this.indicator, 'mousedown', this);
+
+	            utils.removeEvent(window, 'touchmove', this);
+	            utils.removeEvent(window, 'MSPointerMove', this);
+	            utils.removeEvent(window, 'mousemove', this);
+
+	            utils.removeEvent(window, 'touchend', this);
+	            utils.removeEvent(window, 'MSPointerUp', this);
+	            utils.removeEvent(window, 'mouseup', this);
+	        }
+
+	        if ( this.options.defaultScrollbars ) {
+	            this.wrapper.parentNode.removeChild(this.wrapper);
+	        }
+	    },
+
+	    _start: function (e) {
+	        var point = e.touches ? e.touches[0] : e;
+
+	        e.preventDefault();
+	        e.stopPropagation();
+
+	        this.transitionTime(0);
+
+	        this.initiated = true;
+	        this.moved = false;
+	        this.lastPointX = point.pageX;
+	        this.lastPointY = point.pageY;
+
+	        this.startTime  = utils.getTime();
+
+	        if ( !this.options.disableTouch ) {
+	            utils.addEvent(window, 'touchmove', this);
+	        }
+	        if ( !this.options.disablePointer ) {
+	            utils.addEvent(window, 'MSPointerMove', this);
+	        }
+	        if ( !this.options.disableMouse ) {
+	            utils.addEvent(window, 'mousemove', this);
+	        }
+
+	        this.scroller._execEvent('beforeScrollStart');
+	    },
+
+	    _move: function (e) {
+	        var point = e.touches ? e.touches[0] : e,
+	            deltaX, deltaY,
+	            newX, newY,
+	            timestamp = utils.getTime();
+
+	        if ( !this.moved ) {
+	            this.scroller._execEvent('scrollStart');
+	        }
+
+	        this.moved = true;
+
+	        deltaX = point.pageX - this.lastPointX;
+	        this.lastPointX = point.pageX;
+
+	        deltaY = point.pageY - this.lastPointY;
+	        this.lastPointY = point.pageY;
+
+	        newX = this.x + deltaX;
+	        newY = this.y + deltaY;
+
+	        this._pos(newX, newY);
+
+	        e.preventDefault();
+	        e.stopPropagation();
+	    },
+
+	    _end: function (e) {
+	        if ( !this.initiated ) {
+	            return;
+	        }
+
+	        this.initiated = false;
+
+	        e.preventDefault();
+	        e.stopPropagation();
+
+	        utils.removeEvent(window, 'touchmove', this);
+	        utils.removeEvent(window, 'MSPointerMove', this);
+	        utils.removeEvent(window, 'mousemove', this);
+
+	        if ( this.scroller.options.snap ) {
+	            var snap = this.scroller._nearestSnap(this.scroller.x, this.scroller.y);
+
+	            var time = this.options.snapSpeed || Math.max(
+	                    Math.max(
+	                        Math.min(Math.abs(this.scroller.x - snap.x), 1000),
+	                        Math.min(Math.abs(this.scroller.y - snap.y), 1000)
+	                    ), 300);
+
+	            if ( this.scroller.x != snap.x || this.scroller.y != snap.y ) {
+	                this.scroller.directionX = 0;
+	                this.scroller.directionY = 0;
+	                this.scroller.currentPage = snap;
+	                this.scroller.scrollTo(snap.x, snap.y, time, this.scroller.options.bounceEasing);
+	            }
+	        }
+
+	        if ( this.moved ) {
+	            this.scroller._execEvent('scrollEnd');
+	        }
+	    },
+
+	    transitionTime: function (time) {
+	        time = time || 0;
+	        this.indicatorStyle[utils.style.transitionDuration] = time + 'ms';
+	    },
+
+	    transitionTimingFunction: function (easing) {
+	        this.indicatorStyle[utils.style.transitionTimingFunction] = easing;
+	    },
+
+	    refresh: function () {
+	        this.transitionTime(0);
+
+	        if ( this.options.listenX && !this.options.listenY ) {
+	            this.indicatorStyle.display = this.scroller.hasHorizontalScroll ? 'block' : 'none';
+	        } else if ( this.options.listenY && !this.options.listenX ) {
+	            this.indicatorStyle.display = this.scroller.hasVerticalScroll ? 'block' : 'none';
+	        } else {
+	            this.indicatorStyle.display = this.scroller.hasHorizontalScroll || this.scroller.hasVerticalScroll ? 'block' : 'none';
+	        }
+
+	        if ( this.scroller.hasHorizontalScroll && this.scroller.hasVerticalScroll ) {
+	            utils.addClass(this.wrapper, 'iScrollBothScrollbars');
+	            utils.removeClass(this.wrapper, 'iScrollLoneScrollbar');
+
+	            if ( this.options.defaultScrollbars && this.options.customStyle ) {
+	                if ( this.options.listenX ) {
+	                    this.wrapper.style.right = '8px';
+	                } else {
+	                    this.wrapper.style.bottom = '8px';
+	                }
+	            }
+	        } else {
+	            utils.removeClass(this.wrapper, 'iScrollBothScrollbars');
+	            utils.addClass(this.wrapper, 'iScrollLoneScrollbar');
+
+	            if ( this.options.defaultScrollbars && this.options.customStyle ) {
+	                if ( this.options.listenX ) {
+	                    this.wrapper.style.right = '2px';
+	                } else {
+	                    this.wrapper.style.bottom = '2px';
+	                }
+	            }
+	        }
+
+	        var r = this.wrapper.offsetHeight;  // force refresh
+
+	        if ( this.options.listenX ) {
+	            this.wrapperWidth = this.wrapper.clientWidth;
+	            if ( this.options.resize ) {
+	                this.indicatorWidth = Math.max(Math.round(this.wrapperWidth * this.wrapperWidth / (this.scroller.scrollerWidth || this.wrapperWidth || 1)), 8);
+	                this.indicatorStyle.width = this.indicatorWidth + 'px';
+	            } else {
+	                this.indicatorWidth = this.indicator.clientWidth;
+	            }
+	            this.maxPosX = this.wrapperWidth - this.indicatorWidth;
+	            this.sizeRatioX = this.options.speedRatioX || (this.scroller.maxScrollX && (this.maxPosX / this.scroller.maxScrollX));  
+	        }
+
+	        if ( this.options.listenY ) {
+	            this.wrapperHeight = this.wrapper.clientHeight;
+	            if ( this.options.resize ) {
+	                this.indicatorHeight = Math.max(Math.round(this.wrapperHeight * this.wrapperHeight / (this.scroller.scrollerHeight || this.wrapperHeight || 1)), 8);
+	                this.indicatorStyle.height = this.indicatorHeight + 'px';
+	            } else {
+	                this.indicatorHeight = this.indicator.clientHeight;
+	            }
+
+	            this.maxPosY = this.wrapperHeight - this.indicatorHeight;
+	            this.sizeRatioY = this.options.speedRatioY || (this.scroller.maxScrollY && (this.maxPosY / this.scroller.maxScrollY));
+	        }
+
+	        this.updatePosition();
+	    },
+
+	    updatePosition: function () {
+	        var x = Math.round(this.sizeRatioX * this.scroller.x) || 0,
+	            y = Math.round(this.sizeRatioY * this.scroller.y) || 0;
+
+	        if ( !this.options.ignoreBoundaries ) {
+	            if ( x < 0 ) {
+	                x = 0;
+	            } else if ( x > this.maxPosX ) {
+	                x = this.maxPosX;
+	            }
+
+	            if ( y < 0 ) {
+	                y = 0;
+	            } else if ( y > this.maxPosY ) {
+	                y = this.maxPosY;
+	            }       
+	        }
+
+	        this.x = x;
+	        this.y = y;
+
+	        if ( this.scroller.options.useTransform ) {
+	            this.indicatorStyle[utils.style.transform] = 'translate(' + x + 'px,' + y + 'px)' + this.scroller.translateZ;
+	        } else {
+	            this.indicatorStyle.left = x + 'px';
+	            this.indicatorStyle.top = y + 'px';
+	        }
+	    },
+
+	    _pos: function (x, y) {
+	        if ( x < 0 ) {
+	            x = 0;
+	        } else if ( x > this.maxPosX ) {
+	            x = this.maxPosX;
+	        }
+
+	        if ( y < 0 ) {
+	            y = 0;
+	        } else if ( y > this.maxPosY ) {
+	            y = this.maxPosY;
+	        }
+
+	        x = this.options.listenX ? Math.round(x / this.sizeRatioX) : this.scroller.x;
+	        y = this.options.listenY ? Math.round(y / this.sizeRatioY) : this.scroller.y;
+
+	        this.scroller.scrollTo(x, y);
+	    }
+	};
+
+	IScroll.ease = utils.ease;
+	module.exports = IScroll;
+	return IScroll;
+
+	})(window, document, Math);
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.2
@@ -399,8 +2291,85 @@ webpackJsonp([4,17],{
 	//# sourceMappingURL=underscore-min.map
 
 /***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 5:
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	  __webpack_require__(1),
+	  __webpack_require__(3),
+	  __webpack_require__(9)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
+	  $, _, Deferred
+	) {
+
+	  // 参数增加公众号缩写publicsignalshort是因为站点内的所有路由均加了公众号
+	  //keyfn 获取seseion的值
+	  //urifn 获取路由地址
+	  //datafn 返回数据
+	  var initialize = function(keyfn, urifn, datafn) {
+	    return function(id, publicsignalshort) {
+	      var key = keyfn(id);
+	      var defer = new _.Deferred();
+	      var item = sessionStorage.getItem(key);
+	      if (item) {
+	        defer.resolve(JSON.parse(item));
+	        return defer.promise();
+	      } else {
+	        $.get(urifn(id, publicsignalshort), function(data) {
+	          item = datafn(data);
+	          sessionStorage.setItem(key, JSON.stringify(item));
+	          defer.resolve(item);
+	        });
+	      }
+	      return defer.promise();
+	    };
+	  };
+
+	  var movieCache = initialize(function(id) {
+	    return 'movie-' + id;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/movie_info/' + id + '/';
+	  }, function(data) {
+	    return data.data.movie;
+	  });
+
+	  var publicSignalCache = initialize(function(id) {
+	    return 'publicsignal-' + id;
+	  }, function(id) {
+	    return '/' + id + '/public_signal_info/';
+	  }, function(data) {
+	    return data;
+	  });
+
+	  var cinemaCache = initialize(function(id) {
+	    return 'cinema-' + id;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/cinema_info_html/' + id + '/';
+	  }, function(data) {
+	    if (data && data.data) {
+	      return data.data.cinema;
+	    }
+	  });
+
+	  //基本排期信息
+	  var scheduleInfoCache = initialize(function(mpid) {
+	    return 'movieScheduleInfo-' + mpid;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/movieScheduleInfo/' + id;
+	  }, function(data) {
+	    return data.data;
+	  });
+
+	  return {
+	    cinema: cinemaCache,
+	    movie: movieCache,
+	    publicSignal: publicSignalCache,
+	    scheduleInfo: scheduleInfoCache
+	  };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21)], __WEBPACK_AMD_DEFINE_RESULT__ = function(_) {
@@ -515,8 +2484,3380 @@ webpackJsonp([4,17],{
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 20:
+	 /*!
+	 * =====================================================
+	 * Mui v1.0.0 (https://github.com/dcloudio/mui)
+	 * =====================================================
+	 */
+	var mui = function(a, b) {
+	    var c = /complete|loaded|interactive/, d = /^#([\w-]*)$/, e = /^\.([\w-]+)$/, f = /^[\w-]+$/, g = /translate(?:3d)?\((.+?)\)/, h = /matrix(3d)?\((.+?)\)/, i = function(b, c) {
+	        if (c = c || a, !b)
+	            return j();
+	        if ("object" == typeof b)
+	            return j([b], null);
+	        if ("function" == typeof b)
+	            return i.ready(b);
+	        try {
+	            if (d.test(b)) {
+	                var e = a.getElementById(RegExp.$1);
+	                return j(e ? [e] : [])
+	            }
+	            return j(i.qsa(b, c), b)
+	        } catch (f) {
+	        }
+	        return j()
+	    }, j = function(a, b) {
+	        return a = a || [], Object.setPrototypeOf(a, i.fn), a.selector = b || "", a
+	    };
+	    i.uuid = 0, i.data = {}, i.extend = function(a, c, d) {
+	        a || (a = {}), c || (c = {});
+	        for (var e in c)
+	            c[e] !== b && (d && "object" == typeof a[e] ? i.extend(a[e], c[e], d) : a[e] = c[e]);
+	        return a
+	    }, i.noop = function() {
+	    }, i.slice = [].slice, i.type = function(a) {
+	        return null === a ? String(a) : k[{}.toString.call(a)] || "object"
+	    }, i.isArray = Array.isArray || function(a) {
+	        return a instanceof Array
+	    }, i.isWindow = function(a) {
+	        return null !== a && a === a.window
+	    }, i.isObject = function(a) {
+	        return "object" === i.type(a)
+	    }, i.isPlainObject = function(a) {
+	        return i.isObject(a) && !i.isWindow(a) && Object.getPrototypeOf(a) === Object.prototype
+	    }, i.isFunction = function(a) {
+	        return "function" === i.type(a)
+	    }, i.qsa = function(b, c) {
+	        return c = c || a, i.slice.call(e.test(b) ? c.getElementsByClassName(RegExp.$1) : f.test(b) ? c.getElementsByTagName(b) : c.querySelectorAll(b))
+	    }, i.ready = function(b) {
+	        return c.test(a.readyState) ? b(i) : a.addEventListener("DOMContentLoaded", function() {
+	            b(i)
+	        }, !1), this
+	    }, i.map = function(a, b) {
+	        var c, d, e, f = [];
+	        if ("number" == typeof a.length)
+	            for (d = 0, len = a.length; d < len; d++)
+	                c = b(a[d], d), null !== c && f.push(c);
+	        else
+	            for (e in a)
+	                c = b(a[e], e), null !== c && f.push(c);
+	        return f.length > 0 ? [].concat.apply([], f) : f
+	    }, i.each = function(a, b) {
+	        if ("number" == typeof a.length)
+	            [].every.call(a, function(a, c) {
+	                return b.call(a, c, a) !== !1
+	            });
+	        else
+	            for (var c in a)
+	                if (b.call(a[c], c, a[c]) === !1)
+	                    return a;
+	        return this
+	    }, i.focus = function(a) {
+	        i.os.ios ? setTimeout(function() {
+	            a.focus()
+	        }, 10) : a.focus()
+	    }, i.trigger = function(a, b, c) {
+	        return a.dispatchEvent(new CustomEvent(b, {detail: c,bubbles: !0,cancelable: !0})), this
+	    }, i.getStyles = function(a, b) {
+	        var c = a.ownerDocument.defaultView.getComputedStyle(a, null);
+	        return b ? c.getPropertyValue(b) || c[b] : c
+	    }, i.parseTranslate = function(a, b) {
+	        var c = a.match(g || "");
+	        return c && c[1] || (c = ["", "0,0,0"]), c = c[1].split(","), c = {x: parseFloat(c[0]),y: parseFloat(c[1]),z: parseFloat(c[2])}, b && c.hasOwnProperty(b) ? c[b] : c
+	    }, i.parseTranslateMatrix = function(a, b) {
+	        var c = a.match(h), d = c && c[1];
+	        c ? (c = c[2].split(","), "3d" === d ? c = c.slice(12, 15) : (c.push(0), c = c.slice(4, 7))) : c = [0, 0, 0];
+	        var e = {x: parseFloat(c[0]),y: parseFloat(c[1]),z: parseFloat(c[2])};
+	        return b && e.hasOwnProperty(b) ? e[b] : e
+	    }, i.regesterHandler = function(a, b) {
+	        var c = i[a];
+	        return c || (c = []), b.index = b.index || 1e3, c.push(b), c.sort(function(a, b) {
+	            return a.index - b.index
+	        }), i[a] = c, i[a]
+	    };
+	    var k = {};
+	    return i.each(["Boolean", "Number", "String", "Function", "Array", "Date", "RegExp", "Object", "Error"], function(a, b) {
+	        k["[object " + b + "]"] = b.toLowerCase()
+	    }), window.JSON && (i.parseJSON = JSON.parse), i.fn = {each: function(a) {
+	            return [].every.call(this, function(b, c) {
+	                return a.call(b, c, b) !== !1
+	            }), this
+	        }}, i
+	}(document);
+	!function(a, b) {
+	    function c(c) {
+	        this.os = {};
+	        var d = [function() {
+	                var a = c.match(/(Android);?[\s\/]+([\d.]+)?/);
+	                return a && (this.os.android = !0, this.os.version = a[2], this.os.isBadAndroid = !/Chrome\/\d/.test(b.navigator.appVersion)), this.os.android === !0
+	            }, function() {
+	                var a = c.match(/(iPhone\sOS)\s([\d_]+)/);
+	                if (a)
+	                    this.os.ios = this.os.iphone = !0, this.os.version = a[2].replace(/_/g, ".");
+	                else {
+	                    var b = c.match(/(iPad).*OS\s([\d_]+)/);
+	                    b && (this.os.ios = this.os.ipad = !0, this.os.version = b[2].replace(/_/g, "."))
+	                }
+	                return this.os.ios === !0
+	            }];
+	        [].every.call(d, function(b) {
+	            return !b.call(a)
+	        })
+	    }
+	    c.call(a, navigator.userAgent)
+	}(mui, window), function(a) {
+	    function b(a) {
+	        this.os = this.os || {};
+	        var b = a.match(/Html5Plus/i);
+	        b && (this.os.plus = !0)
+	    }
+	    b.call(a, navigator.userAgent)
+	}(mui), function(a, b, c) {
+	    a.targets = {}, a.targetHandles = [], a.registerTarget = function(b) {
+	        return b.index = b.index || 1e3, a.targetHandles.push(b), a.targetHandles.sort(function(a, b) {
+	            return a.index - b.index
+	        }), a.targetHandles
+	    }, b.addEventListener("touchstart", function(b) {
+	        for (var d = b.target, e = {}; d && d !== c; d = d.parentNode) {
+	            var f = !1;
+	            if (a.each(a.targetHandles, function(c, g) {
+	                var h = g.name;
+	                f || e[h] || !g.hasOwnProperty("handle") ? e[h] || g.isReset !== !1 && (a.targets[h] = !1) : (a.targets[h] = g.handle(b, d), a.targets[h] && (e[h] = !0, g.isContinue !== !0 && (f = !0)))
+	            }), f)
+	                break
+	        }
+	    })
+	}(mui, window, document), function(a) {
+	    String.prototype.trim === a && (String.prototype.trim = function() {
+	        return this.replace(/^\s+|\s+$/g, "")
+	    }), Object.setPrototypeOf = Object.setPrototypeOf || function(a, b) {
+	        return a.__proto__ = b, a
+	    }
+	}(), function() {
+	    function a(a, b) {
+	        b = b || {bubbles: !1,cancelable: !1,detail: void 0};
+	        var c = document.createEvent("Events"), d = !0;
+	        if (b)
+	            for (var e in b)
+	                "bubbles" === e ? d = !!b[e] : c[e] = b[e];
+	        return c.initEvent(a, d, !0), c
+	    }
+	    "undefined" == typeof window.CustomEvent && (a.prototype = window.Event.prototype, window.CustomEvent = a)
+	}(), function(a) {
+	    "classList" in a.documentElement || !Object.defineProperty || "undefined" == typeof HTMLElement || Object.defineProperty(HTMLElement.prototype, "classList", {get: function() {
+	            function a(a) {
+	                return function(c) {
+	                    var d = b.className.split(/\s+/), e = d.indexOf(c);
+	                    a(d, e, c), b.className = d.join(" ")
+	                }
+	            }
+	            var b = this, c = {add: a(function(a, b, c) {
+	                    ~b || a.push(c)
+	                }),remove: a(function(a, b) {
+	                    ~b && a.splice(b, 1)
+	                }),toggle: a(function(a, b, c) {
+	                    ~b ? a.splice(b, 1) : a.push(c)
+	                }),contains: function(a) {
+	                    return !!~b.className.split(/\s+/).indexOf(a)
+	                },item: function(a) {
+	                    return b.className.split(/\s+/)[a] || null
+	                }};
+	            return Object.defineProperty(c, "length", {get: function() {
+	                    return b.className.split(/\s+/).length
+	                }}), c
+	        }})
+	}(document), function(a) {
+	    var b = 0;
+	    a.requestAnimationFrame || (a.requestAnimationFrame = a.webkitRequestAnimationFrame, a.cancelAnimationFrame = a.webkitCancelAnimationFrame || a.webkitCancelRequestAnimationFrame), a.requestAnimationFrame || (a.requestAnimationFrame = function(c) {
+	        var d = (new Date).getTime(), e = Math.max(0, 16.7 - (d - b)), f = a.setTimeout(function() {
+	            c(d + e)
+	        }, e);
+	        return b = d + e, f
+	    }), a.cancelAnimationFrame || (a.cancelAnimationFrame = function(a) {
+	        clearTimeout(a)
+	    })
+	}(window), function(a, b, c) {
+	    if (!b.FastClick) {
+	        var d = function(a, b) {
+	            return !b.type || "radio" !== b.type && "checkbox" !== b.type ? !1 : b
+	        };
+	        a.registerTarget({name: c,index: 40,handle: d,target: !1});
+	        var e = function(c) {
+	            var d = a.targets.click;
+	            if (d) {
+	                var e, f;
+	                document.activeElement && document.activeElement !== d && document.activeElement.blur(), f = c.detail.gesture.changedTouches[0], e = document.createEvent("MouseEvents"), e.initMouseEvent("click", !0, !0, b, 1, f.screenX, f.screenY, f.clientX, f.clientY, !1, !1, !1, !1, 0, null), e.forwardedTouchEvent = !0, d.dispatchEvent(e)
+	            }
+	        };
+	        b.addEventListener("tap", e), b.addEventListener("doubletap", e), b.addEventListener("click", function(b) {
+	            return a.targets.click && !b.forwardedTouchEvent ? (b.stopImmediatePropagation ? b.stopImmediatePropagation() : b.propagationStopped = !0, b.stopPropagation(), b.preventDefault(), !1) : void 0
+	        }, !0)
+	    }
+	}(mui, window, "click"), function(a, b) {
+	    a(function() {
+	        if (a.os.ios) {
+	            var c = "mui-focusin", d = "mui-bar-tab", e = "mui-bar-footer", f = "mui-bar-footer-secondary", g = "mui-bar-footer-secondary-tab";
+	            b.addEventListener("focusin", function(a) {
+	                var h = a.target;
+	                if (!h.tagName || "INPUT" === h.tagName) {
+	                    b.body.classList.add(c);
+	                    for (var i = !1; h && h !== b; h = h.parentNode) {
+	                        var j = h.classList;
+	                        if (j && j.contains(d) || j.contains(e) || j.contains(f) || j.contains(g)) {
+	                            i = !0;
+	                            break
+	                        }
+	                    }
+	                    if (i) {
+	                        var k = b.body.scrollHeight, l = b.body.scrollLeft;
+	                        setTimeout(function() {
+	                            window.scrollTo(l, k)
+	                        }, 20)
+	                    }
+	                }
+	            }), b.addEventListener("focusout", function() {
+	                var a = b.body.classList;
+	                a.contains(c) && (a.remove(c), setTimeout(function() {
+	                    window.scrollTo(b.body.scrollLeft, b.body.scrollTop)
+	                }, 20))
+	            })
+	        }
+	    })
+	}(mui, document), function(a) {
+	    a.namespace = "mui", a.classNamePrefix = a.namespace + "-", a.classSelectorPrefix = "." + a.classNamePrefix, a.className = function(b) {
+	        return a.classNamePrefix + b
+	    }, a.classSelector = function(b) {
+	        return b.replace(/\./g, a.classSelectorPrefix)
+	    }, a.eventName = function(b, c) {
+	        return b + (a.namespace ? "." + a.namespace : "") + (c ? "." + c : "")
+	    }
+	}(mui), function(a, b) {
+	    a.EVENT_START = "touchstart", a.EVENT_MOVE = "touchmove", a.EVENT_END = "touchend", a.EVENT_CANCEL = "touchcancel", a.EVENT_CLICK = "click", a.preventDefault = function(a) {
+	        a.preventDefault()
+	    }, a.stopPropagation = function(a) {
+	        a.stopPropagation()
+	    }, a.registerGesture = function(b) {
+	        return a.regesterHandler("gestures", b)
+	    };
+	    var c = function(a, b) {
+	        var c = b.x - a.x, d = b.y - a.y;
+	        return Math.sqrt(c * c + d * d)
+	    }, d = function(a, b) {
+	        return 180 * Math.atan2(b.y - a.y, b.x - a.x) / Math.PI
+	    }, e = function(a) {
+	        return -45 > a && a > -135 ? "up" : a >= 45 && 135 > a ? "down" : a >= 135 || -135 >= a ? "left" : a >= -45 && 45 >= a ? "right" : null
+	    }, f = function(b, c) {
+	        a.gestures.stoped || a.each(a.gestures, function(d, e) {
+	            a.gestures.stoped || a.options.gestureConfig[e.name] !== !1 && e.handle(b, c)
+	        })
+	    }, g = {}, h = function(b) {
+	        a.gestures.stoped = !1;
+	        var c = Date.now(), d = b.touches ? b.touches[0] : b;
+	        g = {target: b.target,lastTarget: g.lastTarget ? g.lastTarget : null,startTime: c,touchTime: 0,flickStartTime: c,lastTapTime: g.lastTapTime ? g.lastTapTime : 0,start: {x: d.pageX,y: d.pageY},flickStart: {x: d.pageX,y: d.pageY},flickDistanceX: 0,flickDistanceY: 0,move: {x: 0,y: 0},deltaX: 0,deltaY: 0,lastDeltaX: 0,lastDeltaY: 0,angle: "",direction: "",distance: 0,drag: !1,swipe: !1,gesture: b}, f(b, g)
+	    }, i = function(b) {
+	        if (!a.gestures.stoped && b.target == g.target) {
+	            var h = Date.now(), i = b.touches ? b.touches[0] : b;
+	            g.touchTime = h - g.startTime, g.move = {x: i.pageX,y: i.pageY}, h - g.flickStartTime > 300 && (g.flickStartTime = h, g.flickStart = g.move), g.distance = c(g.start, g.move), g.angle = d(g.start, g.move), g.direction = e(g.angle), g.lastDeltaX = g.deltaX, g.lastDeltaY = g.deltaY, g.deltaX = g.move.x - g.start.x, g.deltaY = g.move.y - g.start.y, g.gesture = b, f(b, g)
+	        }
+	    }, j = function(b) {
+	        if (!a.gestures.stoped && b.target == g.target) {
+	            var c = Date.now();
+	            g.touchTime = c - g.startTime, g.flickTime = c - g.flickStartTime, g.flickDistanceX = g.move.x - g.flickStart.x, g.flickDistanceY = g.move.y - g.flickStart.y, g.gesture = b, f(b, g)
+	        }
+	    };
+	    b.addEventListener(a.EVENT_START, h), b.addEventListener(a.EVENT_MOVE, i), b.addEventListener(a.EVENT_END, j), b.addEventListener(a.EVENT_CANCEL, j), b.addEventListener(a.EVENT_CLICK, function(b) {
+	        (a.targets.popover && b.target === a.targets.popover || a.targets.tab && a.targets.tab.hash && b.target === a.targets.tab || a.targets.offcanvas || a.targets.modal) && b.preventDefault()
+	    }), a.fn.on = function(b, c, d) {
+	        this.each(function() {
+	            var e = this;
+	            e.addEventListener(b, function(b) {
+	                var f = a.qsa(c, e), g = b.target;
+	                if (f && f.length > 0)
+	                    for (; g && g !== document && g !== e; g = g.parentNode)
+	                        g && ~f.indexOf(g) && (b.detail ? b.detail.currentTarget = g : b.detail = {currentTarget: g}, d.call(g, b))
+	            }), e.removeEventListener(a.EVENT_CLICK, k), e.addEventListener(a.EVENT_CLICK, k)
+	        })
+	    };
+	    var k = function(a) {
+	        a.target && "INPUT" !== a.target.tagName && a.preventDefault()
+	    }
+	}(mui, window), function(a, b) {
+	    var c = function(c, d) {
+	        if (c.type === a.EVENT_END || c.type === a.EVENT_CANCEL) {
+	            var e = this.options;
+	            d.direction && e.flickMaxTime > d.flickTime && d.distance > e.flickMinDistince && (d.flick = !0, a.trigger(c.target, b, d), a.trigger(c.target, b + d.direction, d))
+	        }
+	    };
+	    a.registerGesture({name: b,index: 5,handle: c,options: {flickMaxTime: 200,flickMinDistince: 10}})
+	}(mui, "flick"), function(a, b) {
+	    var c = function(c, d) {
+	        if (c.type === a.EVENT_END || c.type === a.EVENT_CANCEL) {
+	            var e = this.options;
+	            d.direction && e.swipeMaxTime > d.touchTime && d.distance > e.swipeMinDistince && (d.swipe = !0, a.trigger(c.target, b + d.direction, d))
+	        }
+	    };
+	    a.registerGesture({name: b,index: 10,handle: c,options: {swipeMaxTime: 300,swipeMinDistince: 18}})
+	}(mui, "swipe"), function(a, b) {
+	    var c = !1, d = function(d, e) {
+	        switch (d.type) {
+	            case a.EVENT_MOVE:
+	                e.direction && (c ? c && c !== e.direction && (e.direction = "up" === c || "down" === c ? e.deltaY < 0 ? "up" : "down" : e.deltaX < 0 ? "left" : "right") : c = e.direction, e.drag || (e.drag = !0, a.trigger(d.target, b + "start", e)), a.trigger(d.target, b, e), a.trigger(d.target, b + e.direction, e));
+	                break;
+	            case a.EVENT_END:
+	            case a.EVENT_CANCEL:
+	                e.drag && a.trigger(d.target, b + "end", e), c = !1
+	        }
+	    };
+	    a.registerGesture({name: b,index: 20,handle: d,options: {}})
+	}(mui, "drag"), function(a, b) {
+	    var c = function(c, d) {
+	        if (c.type === a.EVENT_END) {
+	            var e = this.options;
+	            if (d.distance < e.tapMaxDistance && d.touchTime < e.tapMaxTime) {
+	                if (a.options.gestureConfig.doubletap && d.lastTarget && d.lastTarget === c.target && d.lastTapTime && d.startTime - d.lastTapTime < e.tapMaxInterval)
+	                    return a.trigger(c.target, "doubletap", d), d.lastTapTime = Date.now(), void (d.lastTarget = c.target);
+	                a.trigger(c.target, b, d), d.lastTapTime = Date.now(), d.lastTarget = c.target
+	            }
+	        }
+	    };
+	    a.registerGesture({name: b,index: 30,handle: c,options: {tapMaxInterval: 300,tapMaxDistance: 5,tapMaxTime: 250}})
+	}(mui, "tap"), function(a, b) {
+	    var c, d = function(d, e) {
+	        var f = this.options;
+	        switch (d.type) {
+	            case a.EVENT_START:
+	                clearTimeout(c), c = setTimeout(function() {
+	                    e.drag || a.trigger(d.target, b, e)
+	                }, f.holdTimeout);
+	                break;
+	            case a.EVENT_MOVE:
+	                e.distance > f.holdThreshold && clearTimeout(c);
+	                break;
+	            case a.EVENT_END:
+	            case a.EVENT_CANCEL:
+	                clearTimeout(c)
+	        }
+	    };
+	    a.registerGesture({name: b,index: 10,handle: d,options: {holdTimeout: 500,holdThreshold: 2}})
+	}(mui, "longtap"), function(a) {
+	    a.global = a.options = {gestureConfig: {tap: !0,doubletap: !1,longtap: !1,flick: !0,swipe: !0,drag: !0}}, a.initGlobal = function(b) {
+	        return a.options = a.extend(a.global, b, !0), this
+	    };
+	    var b = {}, c = !1;
+	    a.init = function(d) {
+	        return c = !0, a.options = a.extend(a.global, d || {}, !0), a.ready(function() {
+	            a.each(a.inits, function(c, d) {
+	                var e = !(b[d.name] && !d.repeat);
+	                e && (d.handle.call(a), b[d.name] = !0)
+	            })
+	        }), this
+	    }, a.registerInit = function(b) {
+	        return a.regesterHandler("inits", b)
+	    }, a(function() {
+	        a.os.ios ? document.body.classList.add("mui-ios") : a.os.android && document.body.classList.add("mui-android")
+	    })
+	}(mui), function(a) {
+	    var b = {swipeBack: !1,preloadPages: [],preloadLimit: 10,keyEventBind: {backbutton: !0,menubutton: !0}}, c = {autoShow: !0,duration: a.os.ios ? 200 : 100,aniShow: "slide-in-right"};
+	    a.options.show && (c = a.extend(c, a.options.show, !0)), a.currentWebview = null, a.isHomePage = !1, a.extend(a.global, b, !0), a.extend(a.options, b, !0), a.waitingOptions = function(b) {
+	        return a.extend({autoShow: !0,title: ""}, b)
+	    }, a.showOptions = function(b) {
+	        return a.extend(c, b)
+	    }, a.windowOptions = function(b) {
+	        return a.extend({scalable: !1,bounce: ""}, b)
+	    }, a.plusReady = function(a) {
+	        return window.plus ? a() : document.addEventListener("plusready", function() {
+	            a()
+	        }, !1), this
+	    }, a.fire = function(a, b, c) {
+	        a && a.evalJS("mui&&mui.receive('" + b + "','" + JSON.stringify(c || {}) + "')")
+	    }, a.receive = function(b, c) {
+	        b && (c = JSON.parse(c), a.trigger(document, b, c))
+	    };
+	    var d = function(b) {
+	        if (!b.preloaded) {
+	            a.fire(b, "preload");
+	            for (var c = b.children(), d = 0; d < c.length; d++)
+	                a.fire(c[d], "preload");
+	            b.preloaded = !0
+	        }
+	    }, e = function(b, c, d) {
+	        if (d) {
+	            if (!b[c + "ed"]) {
+	                a.fire(b, c);
+	                for (var e = b.children(), f = 0; f < e.length; f++)
+	                    a.fire(e[f], c);
+	                b[c + "ed"] = !0
+	            }
+	        } else {
+	            a.fire(b, c);
+	            for (var e = b.children(), f = 0; f < e.length; f++)
+	                a.fire(e[f], c)
+	        }
+	    };
+	    a.openWindow = function(b, c, f) {
+	        if (window.plus) {
+	            "object" == typeof b ? (f = b, b = f.url, c = f.id || b) : "object" == typeof c ? (f = c, c = b) : c = c || b, f = f || {};
+	            var g, h, i, j = f.params || {};
+	            if (a.webviews[c]) {
+	                var k = a.webviews[c];
+	                return g = k.webview, g && g.getURL() || (f = a.extend(f, {id: c,url: b,preload: !0}, !0), g = a.createWindow(f)), h = k.show, h = f.show ? a.extend(h, f.show) : h, g.show(h.aniShow, h.duration, function() {
+	                    d(g), e(g, "pagebeforeshow", !1)
+	                }), k.afterShowMethodName && g.evalJS(k.afterShowMethodName + "('" + JSON.stringify(j) + "')"), g
+	            }
+	            var l = a.waitingOptions(f.waiting);
+	            return l.autoShow && (i = plus.nativeUI.showWaiting(l.title, l.options)), f = a.extend(f, {id: c,url: b}), g = a.createWindow(f), h = a.showOptions(f.show), h.autoShow && g.addEventListener("loaded", function() {
+	                i && i.close(), g.show(h.aniShow, h.duration, function() {
+	                    d(g), e(g, "pagebeforeshow", !1)
+	                }), g.showed = !0, f.afterShowMethodName && g.evalJS(f.afterShowMethodName + "('" + JSON.stringify(j) + "')")
+	            }, !1), g
+	        }
+	    }, a.createWindow = function(b, c) {
+	        if (window.plus) {
+	            var d, e = b.id || b.url;
+	            if (b.preload) {
+	                a.webviews[e] && a.webviews[e].webview.getURL() ? d = a.webviews[e].webview : (d = plus.webview.create(b.url, e, a.windowOptions(b.styles), a.extend({preload: !0}, b.extras)), b.subpages && a.each(b.subpages, function(b, c) {
+	                    var e = plus.webview.create(c.url, c.id || c.url, a.windowOptions(c.styles), a.extend({preload: !0}, c.extras));
+	                    d.append(e)
+	                })), a.webviews[e] = {webview: d,preload: !0,show: a.showOptions(b.show),afterShowMethodName: b.afterShowMethodName};
+	                var f = a.data.preloads, g = f.indexOf(e);
+	                if (~g && f.splice(g, 1), f.push(e), f.length > a.options.preloadLimit) {
+	                    var h = a.data.preloads.shift(), i = a.webviews[h];
+	                    i && i.webview && a.closeAll(i.webview), delete a.webviews[h]
+	                }
+	            } else
+	                c !== !1 && (d = plus.webview.create(b.url, e, a.windowOptions(b.styles), b.extras), b.subpages && a.each(b.subpages, function(b, c) {
+	                    var e = plus.webview.create(c.url, c.id || c.url, a.windowOptions(c.styles), c.extras);
+	                    d.append(e)
+	                }));
+	            return d
+	        }
+	    }, a.preload = function(b) {
+	        return b.preload || (b.preload = !0), a.createWindow(b)
+	    }, a.closeOpened = function(b) {
+	        var c = b.opened();
+	        if (c)
+	            for (var d = 0, e = c.length; e > d; d++) {
+	                var f = c[d], g = f.opened();
+	                g && g.length > 0 ? a.closeOpened(f) : f.parent() !== b && f.close("none")
+	            }
+	    }, a.closeAll = function(b, c) {
+	        a.closeOpened(b), c ? b.close(c) : b.close()
+	    }, a.createWindows = function(b) {
+	        a.each(b, function(b, c) {
+	            a.createWindow(c, !1)
+	        })
+	    }, a.appendWebview = function(b) {
+	        if (window.plus) {
+	            var c, d = b.id || b.url;
+	            return a.webviews[d] || (c = plus.webview.create(b.url, d, b.styles, b.extras), c.addEventListener("loaded", function() {
+	                a.currentWebview.append(c)
+	            }), a.webviews[d] = b), c
+	        }
+	    }, a.webviews = {}, a.data.preloads = [], a.plusReady(function() {
+	        a.currentWebview = plus.webview.currentWebview()
+	    }), a.registerInit({name: "5+",index: 100,handle: function() {
+	            var b = a.options, c = b.subpages || [];
+	            if (a.os.plus)
+	                a.plusReady(function() {
+	                    a.each(c, function(b, c) {
+	                        a.appendWebview(c)
+	                    }), a.currentWebview === plus.webview.getWebviewById(plus.runtime.appid) && (a.isHomePage = !0, setTimeout(function() {
+	                        d(a.currentWebview)
+	                    }, 300)), a.os.ios && a.options.statusBarBackground && plus.navigator.setStatusBarBackground(a.options.statusBarBackground)
+	                });
+	            else if (c.length > 0) {
+	                var e = document.createElement("div");
+	                e.className = "mui-error";
+	                var f = document.createElement("span");
+	                f.innerHTML = "在该浏览器下，不支持创建子页面，具体参考", e.appendChild(f);
+	                var g = document.createElement("a");
+	                g.innerHTML = '"mui框架适用场景"', g.href = "http://ask.dcloud.net.cn/article/113", e.appendChild(g), document.body.appendChild(e), console.log("在该浏览器下，不支持创建子页面")
+	            }
+	        }}), window.addEventListener("preload", function() {
+	        var b = a.options.preloadPages || [];
+	        a.plusReady(function() {
+	            a.each(b, function(b, c) {
+	                a.createWindow(a.extend(c, {preload: !0}))
+	            })
+	        })
+	    })
+	}(mui), function(a, b) {
+	    a.registerBack = function(b) {
+	        return a.regesterHandler("backs", b)
+	    }, a.registerBack({name: "browser",index: 100,handle: function() {
+	            return b.history.length > 1 ? (b.history.back(), !0) : !1
+	        }}), a.back = function() {
+	        ("function" != typeof a.options.back || a.options.back() !== !1) && a.each(a.backs, function(a, b) {
+	            return !b.handle()
+	        })
+	    }, b.addEventListener("tap", function() {
+	        var b = a.targets.action;
+	        b && b.classList.contains("mui-action-back") && a.back()
+	    }), b.addEventListener("swiperight", function(b) {
+	        var c = b.detail;
+	        a.options.swipeBack === !0 && Math.abs(c.angle) < 3 && a.back()
+	    })
+	}(mui, window), function(a, b) {
+	    a.os.plus && a.os.android && a.registerBack({name: "mui",index: 5,handle: function() {
+	            if (a.targets._popover)
+	                return a(a.targets._popover).popover("hide"), !0;
+	            var b = document.querySelector(".mui-off-canvas-wrap.mui-active");
+	            return b ? (a(b).offCanvas("close"), !0) : void 0
+	        }}), a.registerBack({name: "5+",index: 10,handle: function() {
+	            if (!b.plus)
+	                return !1;
+	            var c = a.currentWebview, d = c.parent();
+	            return d ? d.evalJS("mui.back();") : c.canBack(function(d) {
+	                if (d.canBack)
+	                    b.history.back();
+	                else {
+	                    var e = c.opener();
+	                    e && (c.preload ? c.hide("auto") : a.closeAll(c))
+	                }
+	            }), !0
+	        }}), a.menu = function() {
+	        var c = document.querySelector(".mui-action-menu");
+	        if (c)
+	            a.trigger(c, "touchstart"), a.trigger(c, "tap");
+	        else if (b.plus) {
+	            var d = a.currentWebview, e = d.parent();
+	            e && e.evalJS("mui&&mui.menu();")
+	        }
+	    }, a.registerInit({name: "keyEventBind",index: 1e3,handle: function() {
+	            a.plusReady(function() {
+	                a.options.keyEventBind.backbutton && plus.key.addEventListener("backbutton", a.back, !1), a.options.keyEventBind.menubutton && plus.key.addEventListener("menubutton", a.menu, !1)
+	            })
+	        }})
+	}(mui, window), function(a) {
+	    a.registerInit({name: "pullrefresh",index: 1e3,handle: function() {
+	            var b = a.options, c = b.pullRefresh || {}, d = c.down && c.down.hasOwnProperty("callback"), e = c.up && c.up.hasOwnProperty("callback");
+	            if (d || e) {
+	                var f = c.container;
+	                if (f) {
+	                    var g = a(f);
+	                    1 === g.length && (a.os.plus && a.os.android ? a.plusReady(function() {
+	                        var b = plus.webview.currentWebview();
+	                        if (e) {
+	                            var f = {};
+	                            f.up = c.up, f.webviewId = b.id || b.getURL(), g.pullRefresh(f)
+	                        }
+	                        if (d) {
+	                            var h = b.parent(), i = b.id || b.getURL();
+	                            if (h) {
+	                                e || g.pullRefresh({webviewId: i});
+	                                var j = {webviewId: i};
+	                                j.down = a.extend({}, c.down), j.down.callback = "_CALLBACK", h.evalJS("mui(document.querySelector('.mui-content')).pullRefresh('" + JSON.stringify(j) + "')")
+	                            }
+	                        }
+	                    }) : g.pullRefresh(c))
+	                }
+	            }
+	        }})
+	}(mui), function(a, b, c) {
+	    var d = "application/json", e = "text/html", f = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, g = /^(?:text|application)\/javascript/i, h = /^(?:text|application)\/xml/i, i = /^\s*$/;
+	    a.ajaxSettings = {type: "GET",success: a.noop,error: a.noop,complete: a.noop,context: null,xhr: function() {
+	            return new b.XMLHttpRequest
+	        },accepts: {script: "text/javascript, application/javascript, application/x-javascript",json: d,xml: "application/xml, text/xml",html: e,text: "text/plain"},timeout: 0,processData: !0,cache: !0};
+	    var j = function(a, b, c) {
+	        c.success.call(c.context, a, "success", b), l("success", b, c)
+	    }, k = function(a, b, c, d) {
+	        d.error.call(d.context, c, b, a), l(b, c, d)
+	    }, l = function(a, b, c) {
+	        c.complete.call(c.context, b, a)
+	    }, m = function(b, c, d, e) {
+	        var f, g = a.isArray(c), h = a.isPlainObject(c);
+	        a.each(c, function(c, i) {
+	            f = a.type(i), e && (c = d ? e : e + "[" + (h || "object" === f || "array" === f ? c : "") + "]"), !e && g ? b.add(i.name, i.value) : "array" === f || !d && "object" === f ? m(b, i, d, c) : b.add(c, i)
+	        })
+	    }, n = function(b) {
+	        b.processData && b.data && "string" != typeof b.data && (b.data = a.param(b.data, b.traditional)), !b.data || b.type && "GET" !== b.type.toUpperCase() || (b.url = o(b.url, b.data), b.data = c)
+	    }, o = function(a, b) {
+	        return "" === b ? a : (a + "&" + b).replace(/[&?]{1,2}/, "?")
+	    }, p = function(a) {
+	        return a && (a = a.split(";", 2)[0]), a && (a === e ? "html" : a === d ? "json" : g.test(a) ? "script" : h.test(a) && "xml") || "text"
+	    }, q = function(b, d, e, f) {
+	        return a.isFunction(d) && (f = e, e = d, d = c), a.isFunction(e) || (f = e, e = c), {url: b,data: d,success: e,dataType: f}
+	    };
+	    a.ajax = function(d, e) {
+	        "object" == typeof d && (e = d, d = c);
+	        var f = e || {};
+	        f.url = d || f.url;
+	        for (key in a.ajaxSettings)
+	            f[key] === c && (f[key] = a.ajaxSettings[key]);
+	        n(f);
+	        var g = f.dataType;
+	        f.cache !== !1 && (e && e.cache === !0 || "script" !== g) || (f.url = o(f.url, "_=" + Date.now()));
+	        var h, l = f.accepts[g], m = {}, q = function(a, b) {
+	            m[a.toLowerCase()] = [a, b]
+	        }, r = /^([\w-]+:)\/\//.test(f.url) ? RegExp.$1 : b.location.protocol, s = f.xhr(), t = s.setRequestHeader;
+	        if (q("X-Requested-With", "XMLHttpRequest"), q("Accept", l || "*/*"), (l = f.mimeType || l) && (l.indexOf(",") > -1 && (l = l.split(",", 2)[0]), s.overrideMimeType && s.overrideMimeType(l)), (f.contentType || f.contentType !== !1 && f.data && "GET" !== f.type.toUpperCase()) && q("Content-Type", f.contentType || "application/x-www-form-urlencoded"), f.headers)
+	            for (name in f.headers)
+	                q(name, f.headers[name]);
+	        if (s.setRequestHeader = q, s.onreadystatechange = function() {
+	            if (4 === s.readyState) {
+	                s.onreadystatechange = a.noop, clearTimeout(h);
+	                var b, c = !1;
+	                if (s.status >= 200 && s.status < 300 || 304 === s.status || 0 === s.status && "file:" === r) {
+	                    g = g || p(f.mimeType || s.getResponseHeader("content-type")), b = s.responseText;
+	                    try {
+	                        "script" === g ? (1, eval)(b) : "xml" === g ? b = s.responseXML : "json" === g && (b = i.test(b) ? null : a.parseJSON(b))
+	                    } catch (d) {
+	                        c = d
+	                    }
+	                    c ? k(c, "parsererror", s, f) : j(b, s, f)
+	                } else
+	                    k(s.statusText || null, s.status ? "error" : "abort", s, f)
+	            }
+	        }, f.xhrFields)
+	            for (name in f.xhrFields)
+	                s[name] = f.xhrFields[name];
+	        var u = "async" in f ? f.async : !0;
+	        s.open(f.type, f.url, u, f.username, f.password);
+	        for (name in m)
+	            t.apply(s, m[name]);
+	        return f.timeout > 0 && (h = setTimeout(function() {
+	            s.onreadystatechange = a.noop, s.abort(), k(null, "timeout", s, f)
+	        }, f.timeout)), s.send(f.data ? f.data : null), s
+	    }, a.param = function(a, b) {
+	        var c = [];
+	        return c.add = function(a, b) {
+	            this.push(encodeURIComponent(a) + "=" + encodeURIComponent(b))
+	        }, m(c, a, b), c.join("&").replace(/%20/g, "+")
+	    }, a.get = function() {
+	        return a.ajax(q.apply(null, arguments))
+	    }, a.post = function() {
+	        var b = q.apply(null, arguments);
+	        return b.type = "POST", a.ajax(b)
+	    }, a.getJSON = function() {
+	        var b = q.apply(null, arguments);
+	        return b.dataType = "json", a.ajax(b)
+	    }, a.fn.load = function(b, c, d) {
+	        if (!this.length)
+	            return this;
+	        var e, g = this, h = b.split(/\s/), i = q(b, c, d), j = i.success;
+	        return h.length > 1 && (i.url = h[0], e = h[1]), i.success = function(a) {
+	            if (e) {
+	                var b = document.createElement("div");
+	                b.innerHTML = a.replace(f, "");
+	                var c = document.createElement("div"), d = b.querySelectorAll(e);
+	                if (d && d.length > 0)
+	                    for (var h = 0, i = d.length; i > h; h++)
+	                        c.appendChild(d[h]);
+	                g[0].innerHTML = c.innerHTML
+	            } else
+	                g[0].innerHTML = a;
+	            j && j.apply(g, arguments)
+	        }, a.ajax(i), this
+	    }
+	}(mui, window), function(a) {
+	    a.plusReady(function() {
+	        a.ajaxSettings = a.extend(a.ajaxSettings, {xhr: function() {
+	                return new plus.net.XMLHttpRequest
+	            }})
+	    })
+	}(mui), function(a, b, c) {
+	    a.offset = function(a) {
+	        var d = {top: 0,left: 0};
+	        return typeof a.getBoundingClientRect !== c && (d = a.getBoundingClientRect()), {top: d.top + b.pageYOffset - a.clientTop,left: d.left + b.pageXOffset - a.clientLeft}
+	    }
+	}(mui, window), function(a, b) {
+	    a.scrollTo = function(a, c, d) {
+	        c = c || 1e3;
+	        var e = function(c) {
+	            if (0 >= c)
+	                return void (d && d());
+	            var f = a - b.scrollY;
+	            setTimeout(function() {
+	                b.scrollTo(0, b.scrollY + f / c * 10), e(c - 10)
+	            }, 16.7)
+	        };
+	        e(c)
+	    }, a.animationFrame = function(a) {
+	        var b, c, d;
+	        return function() {
+	            b = arguments, d = this, c || (c = !0, requestAnimationFrame(function() {
+	                a.apply(d, b), c = !1
+	            }))
+	        }
+	    }
+	}(mui, window), function(a) {
+	    var b = !1, c = /xyz/.test(function() {
+	        xyz
+	    }) ? /\b_super\b/ : /.*/, d = function() {
+	    };
+	    d.extend = function(a) {
+	        function d() {
+	            !b && this.init && this.init.apply(this, arguments)
+	        }
+	        var e = this.prototype;
+	        b = !0;
+	        var f = new this;
+	        b = !1;
+	        for (var g in a)
+	            f[g] = "function" == typeof a[g] && "function" == typeof e[g] && c.test(a[g]) ? function(a, b) {
+	                return function() {
+	                    var c = this._super;
+	                    this._super = e[a];
+	                    var d = b.apply(this, arguments);
+	                    return this._super = c, d
+	                }
+	            }(g, a[g]) : a[g];
+	        return d.prototype = f, d.prototype.constructor = d, d.extend = arguments.callee, d
+	    }, a.Class = d
+	}(mui), function(a, b) {
+	    var c = "mui-pull-top-pocket", d = "mui-pull-bottom-pocket", e = "mui-pull", f = "mui-pull-loading", g = "mui-pull-caption", h = "mui-icon", i = "mui-spinner", j = "mui-icon-pulldown", k = "mui-in", l = "mui-block", m = "mui-visibility", n = f + " " + h + " " + j, o = f + " " + h + " " + j, p = f + " " + h + " " + i, q = ['<div class="' + e + '">', '<div class="{icon}"></div>', '<div class="' + g + '">{contentrefresh}</div>', "</div>"].join(""), r = {init: function(b, c) {
+	            this._super(b, a.extend({scrollY: !0,scrollX: !1,indicators: !0,down: {height: 50,contentdown: "下拉可以刷新",contentover: "释放立即刷新",contentrefresh: "正在刷新..."},up: {height: 50,contentdown: "上拉显示更多",contentrefresh: "正在加载...",contentnomore: "没有更多数据了",duration: 300}}, c, !0))
+	        },_init: function() {
+	            this._super(), this._initPocket()
+	        },_initPulldownRefresh: function() {
+	            this.pulldown = !0, this.pullPocket = this.topPocket, this.pullPocket.classList.add(l), this.pullPocket.classList.add(m), this.pullCaption = this.topCaption, this.pullLoading = this.topLoading
+	        },_initPullupRefresh: function() {
+	            this.pulldown = !1, this.pullPocket = this.bottomPocket, this.pullPocket.classList.add(l), this.pullPocket.classList.add(m), this.pullCaption = this.bottomCaption, this.pullLoading = this.bottomLoading
+	        },_initPocket: function() {
+	            var a = this.options;
+	            a.down && a.down.hasOwnProperty("callback") && (this.topPocket = this.scroller.querySelector("." + c), this.topPocket || (this.topPocket = this._createPocket(c, a.down, o), this.wrapper.insertBefore(this.topPocket, this.wrapper.firstChild)), this.topLoading = this.topPocket.querySelector("." + f), this.topCaption = this.topPocket.querySelector("." + g)), a.up && a.up.hasOwnProperty("callback") && (this.bottomPocket = this.scroller.querySelector("." + d), this.bottomPocket || (this.bottomPocket = this._createPocket(d, a.up, p), this.scroller.appendChild(this.bottomPocket)), this.bottomLoading = this.bottomPocket.querySelector("." + f), this.bottomCaption = this.bottomPocket.querySelector("." + g), this.wrapper.addEventListener("scrollbottom", this))
+	        },_createPocket: function(a, c, d) {
+	            var e = b.createElement("div");
+	            return e.className = a, e.innerHTML = q.replace("{contentrefresh}", c.contentrefresh).replace("{icon}", d), e
+	        },_resetPullDownLoading: function() {
+	            var a = this.pullLoading;
+	            a && (this.pullCaption.innerHTML = this.options.down.contentdown, a.style.webkitTransition = "", a.style.webkitTransform = "", a.style.webkitAnimation = "", a.className = o)
+	        },_setCaption: function(a, b) {
+	            if (!this.loading) {
+	                var c = this.options, d = this.pullPocket, e = this.pullCaption, f = this.pullLoading, g = this.pulldown;
+	                d && (b ? setTimeout(function() {
+	                    e.innerHTML = a, f.className = g ? o : p, f.style.webkitAnimation = "", f.style.webkitTransition = "", f.style.webkitTransform = ""
+	                }, 100) : a !== this.lastTitle && (e.innerHTML = a, g ? a === c.down.contentrefresh ? (f.className = p, f.style.webkitAnimation = "spinner-spin 1s step-end infinite") : a === c.down.contentover ? (f.className = n, f.style.webkitTransition = "-webkit-transform 0.3s ease-in", f.style.webkitTransform = "rotate(180deg)") : a === c.down.contentdown && (f.className = o, f.style.webkitTransition = "-webkit-transform 0.3s ease-in", f.style.webkitTransform = "rotate(0deg)") : f.className = a === c.up.contentrefresh ? p + " " + k : p, this.lastTitle = a))
+	            }
+	        }};
+	    a.PullRefresh = r
+	}(mui, document), function(a, b, c, d) {
+	    var e = "mui-scrollbar", f = "mui-scrollbar-indicator", g = e + "-vertical", h = e + "-horizontal", i = {quadratic: {style: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",fn: function(a) {
+	                return a * (2 - a)
+	            }},circular: {style: "cubic-bezier(0.1, 0.57, 0.1, 1)",fn: function(a) {
+	                return Math.sqrt(1 - --a * a)
+	            }}}, j = a.Class.extend({init: function(b, c) {
+	            this.wrapper = this.element = b, this.scroller = this.wrapper.children[0], this.scrollerStyle = this.scroller.style, this.stopped = !1, this.options = a.extend({scrollY: !0,scrollX: !1,startX: 0,startY: 0,indicators: !0,stopPropagation: !1,hardwareAccelerated: !0,fixedBadAndorid: !1,preventDefaultException: {tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/},momentum: !0,bounce: !0,bounceTime: 300,bounceEasing: i.circular.style,directionLockThreshold: 5}, c, !0), this.x = 0, this.y = 0, this.translateZ = this.options.hardwareAccelerated ? " translateZ(0)" : "", this._init(), this.scroller && (this.refresh(), this.scrollTo(this.options.startX, this.options.startY))
+	        },_init: function() {
+	            this._initIndicators(), this._initEvent()
+	        },_initIndicators: function() {
+	            var a = this;
+	            if (a.indicators = [], this.options.indicators) {
+	                var b, c = [];
+	                a.options.scrollY && (b = {el: this._createScrollBar(g),listenX: !1}, this.wrapper.appendChild(b.el), c.push(b)), this.options.scrollX && (b = {el: this._createScrollBar(h),listenY: !1}, this.wrapper.appendChild(b.el), c.push(b));
+	                for (var d = c.length; d--; )
+	                    this.indicators.push(new k(this, c[d]));
+	                this.wrapper.addEventListener("scrollend", function() {
+	                    a.indicators.map(function(a) {
+	                        a.fade()
+	                    })
+	                }), this.wrapper.addEventListener("scrollstart", function() {
+	                    a.indicators.map(function(a) {
+	                        a.fade(1)
+	                    })
+	                }), this.wrapper.addEventListener("refresh", function() {
+	                    a.indicators.map(function(a) {
+	                        a.refresh()
+	                    })
+	                })
+	            }
+	        },_initEvent: function() {
+	            b.addEventListener("orientationchange", this), b.addEventListener("resize", this), this.scroller.addEventListener("webkitTransitionEnd", this), this.wrapper.addEventListener("touchstart", this), this.wrapper.addEventListener("touchcancel", this), this.wrapper.addEventListener("touchend", this), this.wrapper.addEventListener("drag", this), this.wrapper.addEventListener("dragend", this), this.wrapper.addEventListener("flick", this), this.wrapper.addEventListener("scrollend", this), this.options.scrollX && this.wrapper.addEventListener("swiperight", this)
+	        },handleEvent: function(a) {
+	            if (this.stopped)
+	                return void this.resetPosition();
+	            switch (a.type) {
+	                case "touchstart":
+	                    this._start(a);
+	                    break;
+	                case "drag":
+	                    this.options.stopPropagation && a.stopPropagation(), this._drag(a);
+	                    break;
+	                case "dragend":
+	                case "flick":
+	                    this.options.stopPropagation && a.stopPropagation(), this._flick(a);
+	                    break;
+	                case "touchcancel":
+	                case "touchend":
+	                    this._end(a);
+	                    break;
+	                case "webkitTransitionEnd":
+	                    this._transitionEnd(a);
+	                    break;
+	                case "scrollend":
+	                    this._scrollend(a);
+	                    break;
+	                case "orientationchange":
+	                case "resize":
+	                    this._resize();
+	                    break;
+	                case "swiperight":
+	                    a.stopPropagation()
+	            }
+	        },_start: function(b) {
+	            if (this.moved = this.needReset = !1, this._transitionTime(), this.isInTransition) {
+	                this.needReset = !0, this.isInTransition = !1;
+	                var c = a.parseTranslateMatrix(a.getStyles(this.scroller, "webkitTransform"));
+	                this.setTranslate(Math.round(c.x), Math.round(c.y)), this.resetPosition(), a.trigger(this.wrapper, "scrollend", this), b.preventDefault()
+	            }
+	            this.reLayout(), a.trigger(this.wrapper, "beforescrollstart", this)
+	        },_drag: function(c) {
+	            var d = c.detail;
+	            if (a.os.ios && parseFloat(a.os.version) >= 8 && d.gesture.touches[0].clientY + 10 > b.innerHeight)
+	                return void this.resetPosition(this.options.bounceTime);
+	            var e = isReturn = !1;
+	            if ("left" === d.direction || "right" === d.direction ? this.options.scrollX ? e = !0 : this.options.scrollY && !this.moved && (isReturn = !0) : ("up" === d.direction || "down" === d.direction) && (this.options.scrollY ? e = !0 : this.options.scrollX && !this.moved && (isReturn = !0)), e && (c.stopPropagation(), d.gesture && d.gesture.preventDefault()), !isReturn) {
+	                this.moved ? c.stopPropagation() : a.trigger(this.wrapper, "scrollstart", this);
+	                var f = d.deltaX - d.lastDeltaX, g = d.deltaY - d.lastDeltaY, h = Math.abs(d.deltaX), i = Math.abs(d.deltaY);
+	                h > i + this.options.directionLockThreshold ? g = 0 : i >= h + this.options.directionLockThreshold && (f = 0), f = this.hasHorizontalScroll ? f : 0, g = this.hasVerticalScroll ? g : 0;
+	                var j = this.x + f, k = this.y + g;
+	                (j > 0 || j < this.maxScrollX) && (j = this.options.bounce ? this.x + f / 3 : j > 0 ? 0 : this.maxScrollX), (k > 0 || k < this.maxScrollY) && (k = this.options.bounce ? this.y + g / 3 : k > 0 ? 0 : this.maxScrollY), this.requestAnimationFrame || this._updateTranslate(), this.moved = !0, this.x = j, this.y = k
+	            }
+	        },_flick: function(b) {
+	            if (this.moved) {
+	                var c = b.detail;
+	                if (this._clearRequestAnimationFrame(), "dragend" !== b.type || !c.flick) {
+	                    var d = Math.round(this.x), e = Math.round(this.y);
+	                    if (this.isInTransition = !1, !this.resetPosition(this.options.bounceTime)) {
+	                        if (this.scrollTo(d, e), "dragend" === b.type)
+	                            return void a.trigger(this.wrapper, "scrollend", this);
+	                        var f = 0, g = "";
+	                        if (this.options.momentum && c.flickTime < 300 && (momentumX = this.hasHorizontalScroll ? this._momentum(this.x, c.flickDistanceX, c.flickTime, this.maxScrollX, this.options.bounce ? this.wrapperWidth : 0, this.options.deceleration) : {destination: d,duration: 0}, momentumY = this.hasVerticalScroll ? this._momentum(this.y, c.flickDistanceY, c.flickTime, this.maxScrollY, this.options.bounce ? this.wrapperHeight : 0, this.options.deceleration) : {destination: e,duration: 0}, d = momentumX.destination, e = momentumY.destination, f = Math.max(momentumX.duration, momentumY.duration), this.isInTransition = !0), d != this.x || e != this.y)
+	                            return (d > 0 || d < this.maxScrollX || e > 0 || e < this.maxScrollY) && (g = i.quadratic), void this.scrollTo(d, e, f, g);
+	                        a.trigger(this.wrapper, "scrollend", this), b.stopPropagation()
+	                    }
+	                }
+	            }
+	        },_end: function(a) {
+	            this.needReset = !1, (!this.moved && this.needReset || "touchcancel" === a.type) && this.resetPosition()
+	        },_transitionEnd: function(b) {
+	            b.target == this.scroller && this.isInTransition && (this._transitionTime(), this.resetPosition(this.options.bounceTime) || (this.isInTransition = !1, a.trigger(this.wrapper, "scrollend", this)))
+	        },_scrollend: function() {
+	            Math.abs(this.y) > 0 && this.y <= this.maxScrollY && a.trigger(this.wrapper, "scrollbottom", this)
+	        },_resize: function() {
+	            var a = this;
+	            clearTimeout(a.resizeTimeout), a.resizeTimeout = setTimeout(function() {
+	                a.refresh()
+	            }, a.options.resizePolling)
+	        },_transitionTime: function(b) {
+	            if (b = b || 0, this.scrollerStyle.webkitTransitionDuration = b + "ms", this.options.fixedBadAndorid && !b && a.os.isBadAndroid && (this.scrollerStyle.webkitTransitionDuration = "0.001s"), this.indicators)
+	                for (var c = this.indicators.length; c--; )
+	                    this.indicators[c].transitionTime(b)
+	        },_transitionTimingFunction: function(a) {
+	            if (this.scrollerStyle.webkitTransitionTimingFunction = a, this.indicators)
+	                for (var b = this.indicators.length; b--; )
+	                    this.indicators[b].transitionTimingFunction(a)
+	        },_translate: function(a, b) {
+	            this.x = a, this.y = b
+	        },_clearRequestAnimationFrame: function() {
+	            this.requestAnimationFrame && (cancelAnimationFrame(this.requestAnimationFrame), this.requestAnimationFrame = null)
+	        },_updateTranslate: function() {
+	            var a = this;
+	            (a.x !== a.lastX || a.y !== a.lastY) && a.setTranslate(a.x, a.y), a.requestAnimationFrame = requestAnimationFrame(function() {
+	                a._updateTranslate()
+	            })
+	        },_createScrollBar: function(a) {
+	            var b = c.createElement("div"), d = c.createElement("div");
+	            return b.className = e + " " + a, d.className = f, b.appendChild(d), a === g ? (this.scrollbarY = b, this.scrollbarIndicatorY = d) : a === h && (this.scrollbarX = b, this.scrollbarIndicatorX = d), this.wrapper.appendChild(b), b
+	        },_preventDefaultException: function(a, b) {
+	            for (var c in b)
+	                if (b[c].test(a[c]))
+	                    return !0;
+	            return !1
+	        },_reLayout: function() {
+	            this.hasHorizontalScroll || (this.maxScrollX = 0, this.scrollerWidth = this.wrapperWidth), this.hasVerticalScroll || (this.maxScrollY = 0, this.scrollerHeight = this.wrapperHeight), this.indicators.map(function(a) {
+	                a.refresh()
+	            })
+	        },_momentum: function(a, b, c, e, f, g) {
+	            var h, i, j = parseFloat(Math.abs(b) / c);
+	            return g = g === d ? 6e-4 : g, h = a + j * j / (2 * g) * (0 > b ? -1 : 1), i = j / g, e > h ? (h = f ? e - f / 2.5 * (j / 8) : e, b = Math.abs(h - a), i = b / j) : h > 0 && (h = f ? f / 2.5 * (j / 8) : 0, b = Math.abs(a) + h, i = b / j), {destination: Math.round(h),duration: i}
+	        },setStopped: function(a) {
+	            this.stopped = !!a
+	        },setTranslate: function(a, b) {
+	            if (this.x = a, this.y = b, this.scrollerStyle.webkitTransform = "translate3d(" + a + "px," + b + "px,0px)" + this.translateZ, this.indicators)
+	                for (var c = this.indicators.length; c--; )
+	                    this.indicators[c].updatePosition();
+	            this.lastX = this.x, this.lastY = this.y
+	        },reLayout: function() {
+	            this.wrapper.offsetHeight;
+	            var b = parseFloat(a.getStyles(this.wrapper, "padding-left")) || 0, c = parseFloat(a.getStyles(this.wrapper, "padding-right")) || 0, d = parseFloat(a.getStyles(this.wrapper, "padding-top")) || 0, e = parseFloat(a.getStyles(this.wrapper, "padding-bottom")) || 0, f = this.wrapper.clientWidth, g = this.wrapper.clientHeight;
+	            this.scrollerWidth = this.scroller.offsetWidth, this.scrollerHeight = this.scroller.offsetHeight, this.wrapperWidth = f - b - c, this.wrapperHeight = g - d - e, this.maxScrollX = Math.min(this.wrapperWidth - this.scrollerWidth, 0), this.maxScrollY = Math.min(this.wrapperHeight - this.scrollerHeight, 0), this.hasHorizontalScroll = this.options.scrollX && this.maxScrollX < 0, this.hasVerticalScroll = this.options.scrollY && this.maxScrollY < 0, this._reLayout()
+	        },resetPosition: function(a) {
+	            var b = this.x, c = this.y;
+	            return a = a || 0, !this.hasHorizontalScroll || this.x > 0 ? b = 0 : this.x < this.maxScrollX && (b = this.maxScrollX), !this.hasVerticalScroll || this.y > 0 ? c = 0 : this.y < this.maxScrollY && (c = this.maxScrollY), b == this.x && c == this.y ? !1 : (this.scrollTo(b, c, a, this.options.bounceEasing), !0)
+	        },refresh: function() {
+	            this.reLayout(), a.trigger(this.wrapper, "refresh", this), this.resetPosition()
+	        },scrollTo: function(a, b, c, d) {
+	            var d = d || i.circular;
+	            this.isInTransition = c > 0 && (this.lastX != a || this.lastY != b), this.isInTransition ? (this._clearRequestAnimationFrame(), this._transitionTimingFunction(d.style), this._transitionTime(c), this.setTranslate(a, b)) : this.setTranslate(a, b)
+	        },scrollToBottom: function(a, b) {
+	            a = a || this.options.bounceTime, this.scrollTo(0, this.maxScrollY, a, b)
+	        }}), k = function(b, d) {
+	        this.wrapper = "string" == typeof d.el ? c.querySelector(d.el) : d.el, this.wrapperStyle = this.wrapper.style, this.indicator = this.wrapper.children[0], this.indicatorStyle = this.indicator.style, this.scroller = b, this.options = a.extend({listenX: !0,listenY: !0,fade: !1,speedRatioX: 0,speedRatioY: 0}, d), this.sizeRatioX = 1, this.sizeRatioY = 1, this.maxPosX = 0, this.maxPosY = 0, this.options.fade && (this.wrapperStyle.webkitTransform = this.scroller.translateZ, this.wrapperStyle.webkitTransitionDuration = this.options.fixedBadAndorid && a.os.isBadAndroid ? "0.001s" : "0ms", this.wrapperStyle.opacity = "0")
+	    };
+	    k.prototype = {handleEvent: function() {
+	        },transitionTime: function(b) {
+	            b = b || 0, this.indicatorStyle.webkitTransitionDuration = b + "ms", this.scroller.options.fixedBadAndorid && !b && a.os.isBadAndroid && (this.indicatorStyle.webkitTransitionDuration = "0.001s")
+	        },transitionTimingFunction: function(a) {
+	            this.indicatorStyle.webkitTransitionTimingFunction = a
+	        },refresh: function() {
+	            this.transitionTime(), this.indicatorStyle.display = this.options.listenX && !this.options.listenY ? this.scroller.hasHorizontalScroll ? "block" : "none" : this.options.listenY && !this.options.listenX ? this.scroller.hasVerticalScroll ? "block" : "none" : this.scroller.hasHorizontalScroll || this.scroller.hasVerticalScroll ? "block" : "none", this.wrapper.offsetHeight, this.options.listenX && (this.wrapperWidth = this.wrapper.clientWidth, this.indicatorWidth = Math.max(Math.round(this.wrapperWidth * this.wrapperWidth / (this.scroller.scrollerWidth || this.wrapperWidth || 1)), 8), this.indicatorStyle.width = this.indicatorWidth + "px", this.maxPosX = this.wrapperWidth - this.indicatorWidth, this.minBoundaryX = 0, this.maxBoundaryX = this.maxPosX, this.sizeRatioX = this.options.speedRatioX || this.scroller.maxScrollX && this.maxPosX / this.scroller.maxScrollX), this.options.listenY && (this.wrapperHeight = this.wrapper.clientHeight, this.indicatorHeight = Math.max(Math.round(this.wrapperHeight * this.wrapperHeight / (this.scroller.scrollerHeight || this.wrapperHeight || 1)), 8), this.indicatorStyle.height = this.indicatorHeight + "px", this.maxPosY = this.wrapperHeight - this.indicatorHeight, this.minBoundaryY = 0, this.maxBoundaryY = this.maxPosY, this.sizeRatioY = this.options.speedRatioY || this.scroller.maxScrollY && this.maxPosY / this.scroller.maxScrollY), this.updatePosition()
+	        },updatePosition: function() {
+	            var a = this.options.listenX && Math.round(this.sizeRatioX * this.scroller.x) || 0, b = this.options.listenY && Math.round(this.sizeRatioY * this.scroller.y) || 0;
+	            a < this.minBoundaryX ? (this.width = Math.max(this.indicatorWidth + a, 8), this.indicatorStyle.width = this.width + "px", a = this.minBoundaryX) : a > this.maxBoundaryX ? (this.width = Math.max(this.indicatorWidth - (a - this.maxPosX), 8), this.indicatorStyle.width = this.width + "px", a = this.maxPosX + this.indicatorWidth - this.width) : this.width != this.indicatorWidth && (this.width = this.indicatorWidth, this.indicatorStyle.width = this.width + "px"), b < this.minBoundaryY ? (this.height = Math.max(this.indicatorHeight + 3 * b, 8), this.indicatorStyle.height = this.height + "px", b = this.minBoundaryY) : b > this.maxBoundaryY ? (this.height = Math.max(this.indicatorHeight - 3 * (b - this.maxPosY), 8), this.indicatorStyle.height = this.height + "px", b = this.maxPosY + this.indicatorHeight - this.height) : this.height != this.indicatorHeight && (this.height = this.indicatorHeight, this.indicatorStyle.height = this.height + "px"), this.x = a, this.y = b, this.indicatorStyle.webkitTransform = "translate3d(" + a + "px," + b + "px,0px)" + this.scroller.translateZ
+	        },fade: function(a, b) {
+	            if (!b || this.visible) {
+	                clearTimeout(this.fadeTimeout), this.fadeTimeout = null;
+	                var c = a ? 250 : 500, d = a ? 0 : 300;
+	                a = a ? "1" : "0", this.wrapperStyle.webkitTransitionDuration = c + "ms", this.fadeTimeout = setTimeout(function(a) {
+	                    this.wrapperStyle.opacity = a, this.visible = +a
+	                }.bind(this, a), d)
+	            }
+	        }}, a.Scroll = j, a.fn.scroll = function(b) {
+	        var c = [];
+	        return this.each(function() {
+	            var d = null, e = this, f = e.getAttribute("data-scroll");
+	            f ? d = a.data[f] : (f = ++a.uuid, a.data[f] = d = new j(e, b), e.setAttribute("data-scroll", f)), c.push(d)
+	        }), 1 === c.length ? c[0] : c
+	    }
+	}(mui, window, document), function(a) {
+	    var b = "mui-visibility", c = a.Scroll.extend(a.extend({handleEvent: function(a) {
+	            this._super(a), "scrollbottom" === a.type && this._scrollbottom()
+	        },_scrollbottom: function() {
+	            this.pulldown || this.loading || (this.pulldown = !1, this._initPullupRefresh(), this.pullupLoading())
+	        },_start: function(a) {
+	            this.loading || (this.pulldown = this.pullPocket = this.pullCaption = this.pullLoading = !1), this._super(a)
+	        },_drag: function(a) {
+	            this._super(a), !this.pulldown && !this.loading && this.topPocket && "down" === a.detail.direction && this.y >= 0 && this._initPulldownRefresh(), this.pulldown && this._setCaption(this.y > this.options.down.height ? this.options.down.contentover : this.options.down.contentdown)
+	        },_reLayout: function() {
+	            this.hasVerticalScroll = !0, this._super()
+	        },resetPosition: function(a) {
+	            return this.pulldown && this.y >= this.options.down.height ? (this.pulldownLoading(0, a || 0), !0) : this._super(a)
+	        },pulldownLoading: function(a, b) {
+	            if (a = a || 0, this.scrollTo(a, this.options.down.height, b, this.options.bounceEasing), !this.loading) {
+	                this.pulldown || this._initPulldownRefresh(), this._setCaption(this.options.down.contentrefresh), this.loading = !0, this.indicators.map(function(a) {
+	                    a.fade(0)
+	                });
+	                var c = this.options.down.callback;
+	                c && c.call(this)
+	            }
+	        },endPulldownToRefresh: function() {
+	            var a = this;
+	            a.topPocket && (a.scrollTo(0, 0, a.options.bounceTime, a.options.bounceEasing), a.loading = !1, a._setCaption(a.options.down.contentdown, !0), setTimeout(function() {
+	                a.loading || a.topPocket.classList.remove(b)
+	            }, 350))
+	        },pullupLoading: function(a, b) {
+	            if (a = a || 0, this.scrollTo(a, this.maxScrollY, b, this.options.bounceEasing), !this.loading) {
+	                this._initPullupRefresh(), this._setCaption(this.options.up.contentrefresh), this.indicators.map(function(a) {
+	                    a.fade(0)
+	                }), this.loading = !0;
+	                var c = this.options.up.callback;
+	                c && c.call(this)
+	            }
+	        },endPullupToRefresh: function(a) {
+	            var c = this;
+	            c.bottomPocket && (c.loading = !1, a ? (c._setCaption(c.options.up.contentnomore), c.wrapper.removeEventListener("scrollbottom", c)) : (c._setCaption(c.options.up.contentdown), setTimeout(function() {
+	                c.loading || c.bottomPocket.classList.remove(b)
+	            }, 350)))
+	        },refresh: function(a) {
+	            a && this.wrapper.addEventListener("scrollbottom", this), this._super()
+	        }}, a.PullRefresh));
+	    a.fn.pullRefresh = function(b) {
+	        if (1 === this.length) {
+	            var d = this[0], e = null, f = d.getAttribute("data-pullrefresh");
+	            return f ? e = a.data[f] : (f = ++a.uuid, a.data[f] = e = new c(d, b), d.setAttribute("data-pullrefresh", f)), e
+	        }
+	    }
+	}(mui, window, document), function(a, b) {
+	    var c = "mui-slider", d = "mui-slider-group", e = "mui-slider-loop", f = "mui-slider-indicator", g = "mui-action-previous", h = "mui-action-next", i = "mui-slider-item", j = "mui-active", k = "." + i, l = "." + f, m = ".mui-slider-progress-bar", n = a.Scroll.extend({init: function(b, c) {
+	            this._super(b, a.extend({interval: 0,scrollY: !1,scrollX: !0,indicators: !1,bounceTime: 200,startX: !1}, c, !0)), this.options.startX && a.trigger(this.wrapper, "scrollend", this)
+	        },_init: function() {
+	            this.scroller = this.wrapper.querySelector("." + d), this.scroller && (this.scrollerStyle = this.scroller.style, this.progressBar = this.wrapper.querySelector(m), this.progressBar && (this.progressBarWidth = this.progressBar.offsetWidth, this.progressBarStyle = this.progressBar.style), this._super(), this._initTimer())
+	        },_initEvent: function() {
+	            var b = this;
+	            b._super(), b.wrapper.addEventListener("swiperight", a.stopPropagation), b.wrapper.addEventListener("scrollend", function() {
+	                b.isInTransition = !1, b.slideNumber = b._getSlideNumber();
+	                var c = b.slideNumber;
+	                b.loop && (0 === b.slideNumber ? (b.slideNumber = b.itemLength - 2, b.setTranslate(-b.wrapperWidth * (b.itemLength - 2), 0)) : b.slideNumber === b.itemLength - 1 && (b.slideNumber = 1, b.setTranslate(-b.wrapperWidth, 0)), c = b.slideNumber - 1), a.trigger(b.wrapper, "slide", {slideNumber: c})
+	            }), b.wrapper.addEventListener("slide", function(a) {
+	                if (a.target === b.wrapper) {
+	                    var c = a.detail;
+	                    c.slideNumber = c.slideNumber || 0;
+	                    var d = b.wrapper.querySelectorAll(k), e = c.slideNumber;
+	                    b.loop && (e += 1);
+	                    for (var f = 0, g = d.length; g > f; f++) {
+	                        var h = d[f];
+	                        h.parentNode === b.scroller && (f === e ? h.classList.add(j) : h.classList.remove(j))
+	                    }
+	                    var i = b.wrapper.querySelector(".mui-slider-indicator");
+	                    if (i) {
+	                        var l = i.querySelectorAll(".mui-indicator");
+	                        if (l.length > 0)
+	                            for (var f = 0, g = l.length; g > f; f++)
+	                                l[f].classList[f === c.slideNumber ? "add" : "remove"](j);
+	                        else {
+	                            var m = i.querySelector(".mui-number span");
+	                            if (m)
+	                                m.innerText = c.slideNumber + 1;
+	                            else
+	                                for (var n = b.wrapper.querySelectorAll(".mui-control-item"), f = 0, g = n.length; g > f; f++)
+	                                    n[f].classList[f === c.slideNumber ? "add" : "remove"](j)
+	                        }
+	                    }
+	                    a.stopPropagation()
+	                }
+	            }), b.wrapper.addEventListener(a.eventName("shown", "tab"), function(a) {
+	                b.gotoItem(a.detail.tabNumber || 0, b.options.bounceTime)
+	            });
+	            var c = b.wrapper.querySelector(l);
+	            c && c.addEventListener("tap", function(a) {
+	                var c = a.target;
+	                (c.classList.contains(g) || c.classList.contains(h)) && (b[c.classList.contains(g) ? "prevItem" : "nextItem"](), a.stopPropagation())
+	            })
+	        },_drag: function(a) {
+	            this._super(a);
+	            var b = a.detail.direction;
+	            ("left" === b || "right" === b) && a.stopPropagation()
+	        },_initTimer: function() {
+	            var a = this, c = a.wrapper, d = a.options.interval, e = c.getAttribute("data-slidershowTimer");
+	            e && b.clearTimeout(e), d && (e = b.setTimeout(function() {
+	                c && ((c.offsetWidth || c.offsetHeight) && a.nextItem(!0), a._initTimer())
+	            }, d), c.setAttribute("data-slidershowTimer", e))
+	        },_reLayout: function() {
+	            this.hasHorizontalScroll = !0, this.loop = this.scroller.classList.contains(e);
+	            var a = this.scroller.querySelectorAll(k);
+	            this.itemLength = 0;
+	            for (var b = 0, c = 0, d = a.length; d > c; c++)
+	                a[c].parentNode === this.scroller && (a[c].classList.contains(j) && (b = this.itemLength), this.itemLength++);
+	            b = 0 === b ? this.loop ? 1 : 0 : b, this.options.startX = b ? -this.scrollerWidth * b : 0, this.scrollerWidth = this.itemLength * this.scrollerWidth, this.maxScrollX = Math.min(this.wrapperWidth - this.scrollerWidth, 0), this.slideNumber = this._getSlideNumber(), this._super()
+	        },_getScroll: function() {
+	            var b = a.parseTranslateMatrix(a.getStyles(this.scroller, "webkitTransform"));
+	            return b ? b.x : 0
+	        },_getSlideNumber: function() {
+	            return Math.abs(Math.round(Math.abs(this.x) / this.wrapperWidth))
+	        },_transitionEnd: function(b) {
+	            b.target === this.scroller && this.isInTransition && (this._transitionTime(), this.isInTransition = !1, a.trigger(this.wrapper, "scrollend", this))
+	        },_flick: function(a) {
+	            var b = a.detail, c = b.direction;
+	            return this._clearRequestAnimationFrame(), this.isInTransition = !0, "up" === c || "down" === c ? void this.resetPosition(this.options.bounceTime) : ("flick" === a.type ? (b.touchTime < 200 && (this.x = -(this.slideNumber + ("left" === c ? 1 : -1)) * this.wrapperWidth), this.resetPosition(this.options.bounceTime)) : "dragend" !== a.type || b.flick || this.resetPosition(this.options.bounceTime), void a.stopPropagation())
+	        },_gotoItem: function(b, c) {
+	            this.scrollTo(-b * this.wrapperWidth, 0, c, this.options.bounceEasing), 0 === c && a.trigger(this.wrapper, "scrollend", this), this._initTimer()
+	        },_fixedSlideNumber: function(a) {
+	            return this.loop || (0 > a ? a = 0 : a >= this.itemLength && (a = this.itemLength - 1)), a
+	        },setTranslate: function(a, b) {
+	            this._super(a, b);
+	            var c = this.progressBar;
+	            c && (this.progressBarStyle.webkitTransform = "translate3d(" + -a * (this.progressBarWidth / this.wrapperWidth) + "px,0,0)")
+	        },resetPosition: function(a) {
+	            return a = a || 0, this.x > 0 ? this.x = 0 : this.x < this.maxScrollX && (this.x = this.maxScrollX), this._gotoItem(this._getSlideNumber(), a), !0
+	        },gotoItem: function(a, b) {
+	            this._gotoItem(this._fixedSlideNumber(this.loop ? a + 1 : a), b || this.options.bounceEasing)
+	        },nextItem: function(a) {
+	            var b = this._fixedSlideNumber(this.slideNumber + 1), c = 800;
+	            a && !this.loop && this.slideNumber + 1 >= this.itemLength && (c = b = 0), this._gotoItem(b, c)
+	        },prevItem: function() {
+	            this._gotoItem(this._fixedSlideNumber(this.slideNumber - 1), this.options.bounceTime)
+	        },refresh: function(b) {
+	            b ? (a.extend(this.options, b), this._super(), this._gotoItem(this._getSlideNumber() + 1, this.options.bounceTime)) : this._super()
+	        }});
+	    a.fn.slider = function(b) {
+	        var d = null;
+	        return this.each(function() {
+	            var e = this;
+	            if (this.classList.contains(c) || (e = this.querySelector("." + c)), e) {
+	                var f = e.getAttribute("data-slider");
+	                f ? (d = a.data[f], d && b && d.refresh(b)) : (f = ++a.uuid, a.data[f] = d = new n(e, b), e.setAttribute("data-slider", f))
+	            }
+	        }), d
+	    }, a.ready(function() {
+	        a(".mui-slider").slider()
+	    })
+	}(mui, window), function(a, b) {
+	    if (a.os.plus && a.os.android) {
+	        var c = "mui-plus-pullrefresh", d = "mui-in", e = "mui-block", f = a.Class.extend({init: function(a, b) {
+	                this.element = a, this.options = b, this.wrapper = this.scroller = a, this._init(), this._initPulldownRefreshEvent()
+	            },_init: function() {
+	                window.addEventListener("dragup", this)
+	            },_initPulldownRefreshEvent: function() {
+	                var b = this;
+	                b.topPocket && b.options.webviewId && a.plusReady(function() {
+	                    var a = plus.webview.getWebviewById(b.options.webviewId);
+	                    if (a) {
+	                        b.options.webview = a;
+	                        var c = b.options.down, d = c.height;
+	                        a.addEventListener("dragBounce", function(d) {
+	                            switch (b.pulldown ? b.pullPocket.classList.add(e) : b._initPulldownRefresh(), d.status) {
+	                                case "beforeChangeOffset":
+	                                    b._setCaption(c.contentdown);
+	                                    break;
+	                                case "afterChangeOffset":
+	                                    b._setCaption(c.contentover);
+	                                    break;
+	                                case "dragEndAfterChangeOffset":
+	                                    a.evalJS("mui.options.pullRefresh.down.callback()"), b._setCaption(c.contentrefresh)
+	                            }
+	                        }, !1), a.setBounce({position: {top: 2 * d + "px"},changeoffset: {top: d + "px"}})
+	                    }
+	                })
+	            },handleEvent: function(a) {
+	                var c = this;
+	                if (!c.stopped) {
+	                    var d = !1;
+	                    setInterval(function() {
+	                        d && window.pageYOffset + window.innerHeight + 10 >= b.documentElement.scrollHeight && (d = !1, c.bottomPocket && c.pullupLoading())
+	                    }, 100), "dragup" === a.type && (d = !0)
+	                }
+	            }}).extend(a.extend({setStopped: function(a) {
+	                this.stopped = !!a;
+	                var b = plus.webview.currentWebview();
+	                if (this.stopped)
+	                    b.setStyle({bounce: "none"}), b.setBounce({position: {top: "none"}});
+	                else {
+	                    var c = this.options.down.height;
+	                    b.setStyle({bounce: "vertical"}), b.setBounce({position: {top: 2 * c + "px"},changeoffset: {top: c + "px"}})
+	                }
+	            },pulldownLoading: function() {
+	                throw new Error("暂不支持")
+	            },endPulldownToRefresh: function() {
+	                var a = plus.webview.currentWebview();
+	                a.parent().evalJS("mui(document.querySelector('.mui-content')).pullRefresh('" + JSON.stringify({webviewId: a.id}) + "')._endPulldownToRefresh()")
+	            },_endPulldownToRefresh: function() {
+	                var a = this;
+	                a.topPocket && a.options.webview && (a.options.webview.endPullToRefresh(), a.loading = !1, a._setCaption(a.options.down.contentdown, !0), setTimeout(function() {
+	                    a.loading || a.topPocket.classList.remove(e)
+	                }, 350))
+	            },pullupLoading: function() {
+	                var a = this;
+	                a.isLoading || (a.isLoading = !0, a.pulldown !== !1 ? a._initPullupRefresh() : this.pullPocket.classList.add(e), setTimeout(function() {
+	                    a.pullLoading.classList.add(d), a.pullCaption.innerHTML = "", a.pullCaption.innerHTML = a.options.up.contentrefresh;
+	                    var b = a.options.up.callback;
+	                    b && b.call(a)
+	                }, 300))
+	            },endPullupToRefresh: function(a) {
+	                var b = this;
+	                b.pullLoading && (b.pullLoading.classList.remove(d), b.isLoading = !1, a ? (b.pullCaption.innerHTML = b.options.up.contentnomore, window.removeEventListener("dragup", b)) : b.pullCaption.innerHTML = b.options.up.contentdown)
+	            },refresh: function(a) {
+	                a && window.addEventListener("dragup", this)
+	            }}, a.PullRefresh));
+	        a.fn.pullRefresh = function(d) {
+	            var e;
+	            0 === this.length ? (e = b.createElement("div"), e.className = "mui-content", b.body.appendChild(e)) : e = this[0], d = d || {webviewId: plus.webview.currentWebview().id || plus.webview.currentWebview().getURL()}, "string" == typeof d && (d = a.parseJSON(d));
+	            var g = null, h = e.getAttribute("data-pullrefresh-plus-" + d.webviewId);
+	            return h ? g = a.data[h] : (h = ++a.uuid, e.setAttribute("data-pullrefresh-plus-" + d.webviewId, h), b.body.classList.add(c), a.data[h] = g = new f(e, d)), g
+	        }
+	    }
+	}(mui, document), function(a, b, c, d) {
+	    var e = "mui-off-canvas-left", f = "mui-off-canvas-right", g = "mui-off-canvas-backdrop", h = "mui-off-canvas-wrap", i = "mui-slide-in", j = "mui-active", k = "mui-transitioning", l = ".mui-inner-wrap", m = a.Class.extend({init: function(b, d) {
+	            this.wrapper = this.element = b, this.scroller = this.wrapper.querySelector(l), this.classList = this.wrapper.classList, this.scroller && (this.options = a.extend({dragThresholdX: 10}, d, !0), c.body.classList.add("mui-fullscreen"), this.refresh(), this.initEvent())
+	        },refresh: function() {
+	            this.classList.remove(j), this.slideIn = this.classList.contains(i), this.scroller = this.wrapper.querySelector(l), this.scroller.classList.remove(k), this.scroller.setAttribute("style", ""), this.offCanvasRight = this.wrapper.querySelector("." + f), this.offCanvasLeft = this.wrapper.querySelector("." + e), this.offCanvasRightWidth = this.offCanvasLeftWidth = 0, this.offCanvasLeftSlideIn = this.offCanvasRightSlideIn = !1, this.offCanvasRight && (this.offCanvasRightWidth = this.offCanvasRight.offsetWidth, this.offCanvasRightSlideIn = this.slideIn && this.offCanvasRight.parentNode === this.wrapper, this.offCanvasRight.classList.remove(k), this.offCanvasRight.classList.remove(j), this.offCanvasRight.setAttribute("style", "")), this.offCanvasLeft && (this.offCanvasLeftWidth = this.offCanvasLeft.offsetWidth, this.offCanvasLeftSlideIn = this.slideIn && this.offCanvasLeft.parentNode === this.wrapper, this.offCanvasLeft.classList.remove(k), this.offCanvasLeft.classList.remove(j), this.offCanvasLeft.setAttribute("style", "")), this.backdrop = this.scroller.querySelector("." + g), this.options.dragThresholdX = this.options.dragThresholdX || 10, this.visible = !1, this.startX = null, this.lastX = null, this.offsetX = null, this.lastTranslateX = null
+	        },handleEvent: function(a) {
+	            switch (a.type) {
+	                case "touchstart":
+	                    a.preventDefault();
+	                    break;
+	                case "webkitTransitionEnd":
+	                    a.target === this.scroller && this._dispatchEvent();
+	                    break;
+	                case "drag":
+	                    var b = a.detail;
+	                    this.startX ? this.lastX = b.move.x : (this.startX = b.move.x, this.lastX = this.startX), !this.isDragging && Math.abs(this.lastX - this.startX) > this.options.dragThresholdX && ("left" === b.direction || "right" === b.direction) && (this.slideIn && (this.scroller = this.classList.contains(j) ? this.offCanvasRight && this.offCanvasRight.classList.contains(j) ? this.offCanvasRight : this.offCanvasLeft : "left" === b.direction && this.offCanvasRight ? this.offCanvasRight : "right" === b.direction && this.offCanvasLeft ? this.offCanvasLeft : null), this.scroller && (this.startX = this.lastX, this.isDragging = !0, this.scroller.classList.remove(k), this.offsetX = this.getTranslateX(), this._initOffCanvasVisible())), this.isDragging && (this.updateTranslate(this.offsetX + (this.lastX - this.startX)), b.gesture.preventDefault(), a.stopPropagation());
+	                    break;
+	                case "dragend":
+	                    if (this.isDragging) {
+	                        var b = a.detail, c = b.direction;
+	                        this.isDragging = !1, this.scroller.classList.add(k);
+	                        var d = 0, e = this.getTranslateX();
+	                        if (this.slideIn) {
+	                            if (d = e >= 0 ? this.offCanvasRightWidth && e / this.offCanvasRightWidth || 0 : this.offCanvasLeftWidth && e / this.offCanvasLeftWidth || 0, this.openPercentage(d >= .5 && "left" === c ? 0 : d > 0 && .5 >= d && "left" === c ? -100 : d >= .5 && "right" === c ? 0 : d >= -.5 && 0 > d && "left" === c ? 100 : d > 0 && .5 >= d && "right" === c ? -100 : -.5 >= d && "right" === c ? 0 : d >= -.5 && "right" === c ? 100 : -.5 >= d && "left" === c ? 0 : d >= -.5 && "left" === c ? -100 : 0), 1 === d || -1 === d || 0 === d)
+	                                return void this._dispatchEvent()
+	                        } else {
+	                            if (d = e >= 0 ? this.offCanvasLeftWidth && e / this.offCanvasLeftWidth || 0 : this.offCanvasRightWidth && e / this.offCanvasRightWidth || 0, 0 === d)
+	                                return this.openPercentage(0), void this._dispatchEvent();
+	                            this.openPercentage(d > 0 && .5 > d && "right" === c ? 0 : d > .5 && "left" === c ? 100 : 0 > d && d > -.5 && "left" === c ? 0 : "right" === c && 0 > d && d > -.5 ? 0 : .5 > d && "right" === c ? -100 : "right" === c && d >= 0 && (d >= .5 || b.flick) ? 100 : "left" === c && 0 >= d && (-.5 >= d || b.flick) ? -100 : 0), (1 === d || -1 === d) && this._dispatchEvent()
+	                        }
+	                    }
+	            }
+	        },_dispatchEvent: function() {
+	            this.classList.contains(j) ? a.trigger(this.wrapper, "shown", this) : a.trigger(this.wrapper, "hidden", this)
+	        },_initOffCanvasVisible: function() {
+	            this.visible || (this.visible = !0, this.offCanvasLeft && (this.offCanvasLeft.style.visibility = "visible"), this.offCanvasRight && (this.offCanvasRight.style.visibility = "visible"))
+	        },initEvent: function() {
+	            var a = this;
+	            a.backdrop && a.backdrop.addEventListener("tap", function(b) {
+	                a.close(), b.detail.gesture.preventDefault()
+	            }), this.classList.contains("mui-draggable") && (this.wrapper.addEventListener("touchstart", this), this.wrapper.addEventListener("drag", this), this.wrapper.addEventListener("dragend", this)), this.wrapper.addEventListener("webkitTransitionEnd", this)
+	        },openPercentage: function(a) {
+	            var b = a / 100;
+	            this.slideIn ? (this.offCanvasLeft && a >= 0 ? (b = 0 === b ? -1 : 0, this.updateTranslate(this.offCanvasLeftWidth * b), this.offCanvasLeft.classList[0 !== a ? "add" : "remove"](j)) : this.offCanvasRight && 0 >= a && (b = 0 === b ? 1 : 0, this.updateTranslate(this.offCanvasRightWidth * b), this.offCanvasRight.classList[0 !== a ? "add" : "remove"](j)), this.classList[0 !== a ? "add" : "remove"](j)) : (this.offCanvasLeft && a >= 0 ? (this.updateTranslate(this.offCanvasLeftWidth * b), this.offCanvasLeft.classList[0 !== b ? "add" : "remove"](j)) : this.offCanvasRight && 0 >= a && (this.updateTranslate(this.offCanvasRightWidth * b), this.offCanvasRight.classList[0 !== b ? "add" : "remove"](j)), this.classList[0 !== b ? "add" : "remove"](j))
+	        },updateTranslate: function(a) {
+	            if (a !== this.lastTranslateX) {
+	                if (this.slideIn) {
+	                    if (this.scroller.classList.contains(f)) {
+	                        if (0 > a)
+	                            return void this.setTranslateX(0);
+	                        if (a > this.offCanvasRightWidth)
+	                            return void this.setTranslateX(this.offCanvasRightWidth)
+	                    } else {
+	                        if (a > 0)
+	                            return void this.setTranslateX(0);
+	                        if (a < -this.offCanvasLeftWidth)
+	                            return void this.setTranslateX(-this.offCanvasLeftWidth)
+	                    }
+	                    this.setTranslateX(a)
+	                } else {
+	                    if (!this.offCanvasLeft && a > 0 || !this.offCanvasRight && 0 > a)
+	                        return void this.setTranslateX(0);
+	                    if (this.leftShowing && a > this.offCanvasLeftWidth)
+	                        return void this.setTranslateX(this.offCanvasLeftWidth);
+	                    if (this.rightShowing && a < -this.offCanvasRightWidth)
+	                        return void this.setTranslateX(-this.offCanvasRightWidth);
+	                    this.setTranslateX(a), a >= 0 ? (this.leftShowing = !0, this.rightShowing = !1, a > 0 && (this.offCanvasLeft && (this.offCanvasLeft.style.zIndex = 0), this.offCanvasRight && (this.offCanvasRight.style.zIndex = -1))) : (this.rightShowing = !0, this.leftShowing = !1, this.offCanvasRight && (this.offCanvasRight.style.zIndex = 0), this.offCanvasLeft && (this.offCanvasLeft.style.zIndex = -1))
+	                }
+	                this.lastTranslateX = a
+	            }
+	        },setTranslateX: a.animationFrame(function(a) {
+	            this.scroller && (this.scroller.style.webkitTransform = "translate3d(" + a + "px,0,0)")
+	        }),getTranslateX: function() {
+	            if (this.scroller) {
+	                var b = a.parseTranslateMatrix(a.getStyles(this.scroller, "webkitTransform"));
+	                return b && b.x || 0
+	            }
+	            return 0
+	        },isShown: function(a) {
+	            var b = !1;
+	            if (this.slideIn)
+	                b = "left" === a ? this.offCanvasLeft && this.offCanvasLeft.classList.contains(j) : "right" === a ? this.offCanvasRight && this.offCanvasRight.classList.contains(j) : this.offCanvasLeft && this.offCanvasLeft.classList.contains(j) || this.offCanvasRight && this.offCanvasRight.classList.contains(j);
+	            else {
+	                var c = this.getTranslateX();
+	                b = "right" === a ? this.classList.contains(j) && 0 > c : "left" === a ? this.classList.contains(j) && c > 0 : this.classList.contains(j) && 0 !== c
+	            }
+	            return b
+	        },close: function() {
+	            this._initOffCanvasVisible(), this.slideIn && (this.scroller = this.offCanvasRight && this.offCanvasRight.classList.contains(j) ? this.offCanvasRight : this.offCanvasLeft), this.scroller && (this.scroller.classList.add(k), this.openPercentage(0))
+	        },show: function(a) {
+	            this._initOffCanvasVisible(), this.isShown(a) || (a || (a = this.wrapper.querySelector("." + f) ? "right" : "left"), this.slideIn && (this.scroller = "right" === a ? this.offCanvasRight : this.offCanvasLeft), this.scroller && (this.scroller.classList.add(k), this.openPercentage("left" === a ? 100 : -100)))
+	        },toggle: function(a) {
+	            this.isShown(a) ? this.close() : this.show(a)
+	        }}), n = function(a) {
+	        if (parentNode = a.parentNode, parentNode) {
+	            if (parentNode.classList.contains(h))
+	                return parentNode;
+	            if (parentNode = parentNode.parentNode, parentNode.classList.contains(h))
+	                return parentNode
+	        }
+	    }, o = function(b, d) {
+	        if ("A" === d.tagName && d.hash) {
+	            var e = c.getElementById(d.hash.replace("#", ""));
+	            if (e) {
+	                var f = n(e);
+	                if (f)
+	                    return a.targets._container = f, b.preventDefault(), e
+	            }
+	        }
+	        return !1
+	    };
+	    a.registerTarget({name: d,index: 60,handle: o,target: !1,isReset: !1,isContinue: !0}), b.addEventListener("tap", function(b) {
+	        if (a.targets.offcanvas)
+	            for (var d = b.target; d && d !== c; d = d.parentNode)
+	                if ("A" === d.tagName && d.hash && d.hash === "#" + a.targets.offcanvas.id) {
+	                    a(a.targets._container).offCanvas("toggle"), a.targets.offcanvas = a.targets._container = null;
+	                    break
+	                }
+	    }), a.fn.offCanvas = function(b) {
+	        var c = [];
+	        return this.each(function() {
+	            var d = null, e = this;
+	            e.classList.contains(h) || (e = n(e));
+	            var f = e.getAttribute("data-offCanvas");
+	            f ? d = a.data[f] : (f = ++a.uuid, a.data[f] = d = new m(e, b), e.setAttribute("data-offCanvas", f)), ("show" === b || "close" === b || "toggle" === b) && d.toggle(), c.push(d)
+	        }), 1 === c.length ? c[0] : c
+	    }, a.ready(function() {
+	        a(".mui-off-canvas-wrap").offCanvas()
+	    })
+	}(mui, window, document, "offcanvas"), function(a, b) {
+	    var c = "mui-action", d = function(a, b) {
+	        return b.className && ~b.className.indexOf(c) ? (a.preventDefault(), b) : !1
+	    };
+	    a.registerTarget({name: b,index: 50,handle: d,target: !1,isContinue: !0})
+	}(mui, "action"), function(a, b, c, d) {
+	    var e = "mui-modal", f = function(a, b) {
+	        if ("A" === b.tagName && b.hash) {
+	            var d = c.getElementById(b.hash.replace("#", ""));
+	            if (d && d.classList.contains(e))
+	                return a.preventDefault(), d
+	        }
+	        return !1
+	    };
+	    a.registerTarget({name: d,index: 50,handle: f,target: !1,isReset: !1,isContinue: !0}), b.addEventListener("tap", function() {
+	        a.targets.modal && a.targets.modal.classList.toggle("mui-active")
+	    })
+	}(mui, window, document, "modal"), function(a, b, c, d) {
+	    var e = "mui-popover", f = "mui-popover-arrow", g = "mui-popover-action", h = "mui-backdrop", i = "mui-bar-popover", j = "mui-bar-backdrop", k = "mui-backdrop-action", l = "mui-active", m = "mui-bottom", n = function(b, d) {
+	        if ("A" === d.tagName && d.hash) {
+	            if (a.targets._popover = c.getElementById(d.hash.replace("#", "")), a.targets._popover && a.targets._popover.classList.contains(e))
+	                return b.preventDefault(), d;
+	            a.targets._popover = null
+	        }
+	        return !1
+	    };
+	    a.registerTarget({name: d,index: 60,handle: n,target: !1,isReset: !1,isContinue: !0});
+	    var o = function() {
+	    }, p = function() {
+	        this.removeEventListener("webkitTransitionEnd", p), this.addEventListener("touchmove", a.preventDefault), a.trigger(this, "shown", this)
+	    }, q = function() {
+	        this.setAttribute("style", ""), this.removeEventListener("webkitTransitionEnd", q), this.removeEventListener("touchmove", a.preventDefault), o(!1), a.trigger(this, "hidden", this)
+	    }, r = function() {
+	        var b = c.createElement("div");
+	        return b.classList.add(h), b.addEventListener("touchmove", a.preventDefault), b.addEventListener("tap", function() {
+	            var b = a.targets._popover;
+	            b && (b.addEventListener("webkitTransitionEnd", q), b.classList.remove(l), s(b), c.body.setAttribute("style", ""))
+	        }), b
+	    }(), s = function(b) {
+	        r.setAttribute("style", "opacity:0"), a.targets.popover = a.targets._popover = null, setTimeout(function() {
+	            !b.classList.contains(l) && r.parentNode && r.parentNode === c.body && c.body.removeChild(r)
+	        }, 350)
+	    };
+	    b.addEventListener("tap", function(b) {
+	        if (a.targets.popover) {
+	            for (var d = !1, e = b.target; e && e !== c; e = e.parentNode)
+	                e === a.targets.popover && (d = !0);
+	            d && t(a.targets._popover, a.targets.popover)
+	        }
+	    });
+	    var t = function(a, b) {
+	        r.classList.remove(j), r.classList.remove(k);
+	        var d = c.querySelector(".mui-popover.mui-active");
+	        if (d && (d.addEventListener("webkitTransitionEnd", q), d.classList.remove(l), a === d))
+	            return void s(d);
+	        var e = !1;
+	        (a.classList.contains(i) || a.classList.contains(g)) && (a.classList.contains(g) ? (e = !0, r.classList.add(k)) : r.classList.add(j)), a.setAttribute("style", "display:block"), a.offsetHeight, a.classList.add(l), r.setAttribute("style", ""), c.body.appendChild(r), o(!0), u(a, b, e), r.classList.add(l), a.addEventListener("webkitTransitionEnd", p)
+	    }, u = function(d, e, h) {
+	        if (d && e) {
+	            var i = b.innerWidth, j = b.innerHeight, k = d.offsetWidth, l = d.offsetHeight;
+	            if (h)
+	                return void d.setAttribute("style", "display:block;top:" + (j - l + b.pageYOffset) + "px;left:" + (i - k) / 2 + "px;");
+	            var n = e.offsetWidth, o = e.offsetHeight, p = a.offset(e), q = d.querySelector("." + f);
+	            q || (q = c.createElement("div"), q.className = f, d.appendChild(q));
+	            var r = q && q.offsetWidth / 2 || 0, s = 0, t = 0, u = 0, v = 0, w = d.classList.contains(g) ? 0 : 5, x = "top";
+	            l + r < p.top - b.pageYOffset ? s = p.top - l - r : l + r < j - (p.top - b.pageYOffset) - o ? (x = "bottom", s = p.top + o + r) : (x = "middle", s = Math.max((j - l) / 2 + b.pageYOffset, 0), t = Math.max((i - k) / 2 + b.pageXOffset, 0)), "top" === x || "bottom" === x ? (t = n / 2 + p.left - k / 2, u = t, w > t && (t = w), t + k > i && (t = i - k - w), q && ("top" === x ? q.classList.add(m) : q.classList.remove(m), u -= t, v = k / 2 - r / 2 + u, v = Math.max(Math.min(v, k - 2 * r - 6), 6), q.setAttribute("style", "left:" + v + "px"))) : "middle" === x && q.setAttribute("style", "display:none"), d.setAttribute("style", "display:block;top:" + s + "px;left:" + t + "px;")
+	        }
+	    };
+	    a.createMask = function(b) {
+	        var d = c.createElement("div");
+	        d.classList.add(h), d.addEventListener("touchmove", a.preventDefault), d.addEventListener("tap", function() {
+	            b && b(), e.close()
+	        });
+	        var e = [d];
+	        return e._show = !1, e.show = function() {
+	            return this._show = !0, d.setAttribute("style", "opacity:1"), c.body.appendChild(d), this
+	        }, e._remove = function() {
+	            return this._show && (this._show = !1, d.setAttribute("style", "opacity:0"), setTimeout(function() {
+	                c.body.removeChild(d)
+	            }, 350)), this
+	        }, e.close = function() {
+	            return this._remove()
+	        }, e
+	    }, a.fn.popover = function() {
+	        var b = arguments;
+	        this.each(function() {
+	            a.targets._popover = this, ("show" === b[0] || "hide" === b[0] || "toggle" === b[0]) && t(this, b[1])
+	        })
+	    }
+	}(mui, window, document, "popover"), function(a, b, c, d) {
+	    var e = "mui-control-item", f = "mui-control-content", g = "mui-tab-item", h = function(a, b) {
+	        return b.classList && (b.classList.contains(e) || b.classList.contains(g)) ? b : !1
+	    };
+	    a.registerTarget({name: d,index: 80,handle: h,target: !1}), b.addEventListener("tap", function(b) {
+	        var e = a.targets.tab;
+	        if (e) {
+	            var g, h, i, j = "mui-active", k = "." + j;
+	            g = e.parentNode.querySelector(k), g && g.classList.remove(j);
+	            var l = e === g;
+	            if (e && e.classList.add(j), e.hash && (i = c.getElementById(e.hash.replace("#", "")))) {
+	                if (!i.classList.contains(f))
+	                    return void e.classList[l ? "remove" : "add"](j);
+	                if (!l) {
+	                    var m = i.parentNode;
+	                    h = m.querySelectorAll("." + f + k);
+	                    for (var n = 0; n < h.length; n++) {
+	                        var o = h[n];
+	                        o.parentNode === m && o.classList.remove(j)
+	                    }
+	                    i.classList.add(j);
+	                    var p = i.parentNode.querySelectorAll("." + f);
+	                    a.trigger(i, a.eventName("shown", d), {tabNumber: Array.prototype.indexOf.call(p, i)}), b.detail.gesture.preventDefault()
+	                }
+	            }
+	        }
+	    })
+	}(mui, window, document, "tab"), function(a, b, c) {
+	    var d = "mui-switch", e = "mui-switch-handle", f = "mui-active", g = "mui-dragging", h = "." + e, i = function(a, b) {
+	        return b.classList && b.classList.contains(d) ? b : !1
+	    };
+	    a.registerTarget({name: c,index: 100,handle: i,target: !1});
+	    var j = function(a) {
+	        this.element = a, this.classList = this.element.classList, this.handle = this.element.querySelector(h), this.toggleWidth = this.element.offsetWidth, this.handleWidth = this.handle.offsetWidth, this.handleX = this.toggleWidth - this.handleWidth - 3, this.initEvent()
+	    };
+	    j.prototype.initEvent = function() {
+	        this.element.addEventListener("touchstart", this), this.element.addEventListener("drag", this), this.element.addEventListener("swiperight", this), this.element.addEventListener("touchend", this), this.element.addEventListener("touchcancel", this)
+	    }, j.prototype.handleEvent = function(a) {
+	        switch (a.type) {
+	            case "touchstart":
+	                this.start(a);
+	                break;
+	            case "drag":
+	                this.drag(a);
+	                break;
+	            case "swiperight":
+	                this.swiperight();
+	                break;
+	            case "touchend":
+	            case "touchcancel":
+	                this.end(a)
+	        }
+	    }, j.prototype.start = function() {
+	        this.classList.add(g)
+	    }, j.prototype.drag = function(a) {
+	        var b = a.detail;
+	        this.isDragging || ("left" === b.direction || "right" === b.direction) && (this.isDragging = !0, this.lastChanged = void 0, this.initialState = this.classList.contains(f)), this.isDragging && (this.setTranslateX(b.deltaX), a.stopPropagation(), b.gesture.preventDefault())
+	    }, j.prototype.swiperight = function(a) {
+	        this.isDragging && a.stopPropagation()
+	    }, j.prototype.end = function(b) {
+	        this.classList.remove(g), this.isDragging ? (this.isDragging = !1, b.stopPropagation(), a.trigger(this.element, "toggle", {isActive: this.classList.contains(f)})) : this.toggle()
+	    }, j.prototype.toggle = function() {
+	        var b = this.classList;
+	        b.contains(f) ? (b.remove(f), this.handle.style.webkitTransform = "translate3d(0,0,0)") : (b.add(f), this.handle.style.webkitTransform = "translate3d(" + this.handleX + "px,0,0)"), a.trigger(this.element, "toggle", {isActive: this.classList.contains(f)})
+	    }, j.prototype.setTranslateX = a.animationFrame(function(a) {
+	        if (this.isDragging) {
+	            var b = !1;
+	            (this.initialState && -a > this.handleX / 2 || !this.initialState && a > this.handleX / 2) && (b = !0), this.lastChanged !== b && (b ? (this.handle.style.webkitTransform = "translate3d(" + (this.initialState ? 0 : this.handleX) + "px,0,0)", this.classList[this.initialState ? "remove" : "add"](f)) : (this.handle.style.webkitTransform = "translate3d(" + (this.initialState ? this.handleX : 0) + "px,0,0)", this.classList[this.initialState ? "add" : "remove"](f)), this.lastChanged = b)
+	        }
+	    }), a.fn["switch"] = function() {
+	        var b = [];
+	        return this.each(function() {
+	            var c = null, d = this.getAttribute("data-switch");
+	            d ? c = a.data[d] : (d = ++a.uuid, a.data[d] = new j(this), this.setAttribute("data-switch", d)), b.push(c)
+	        }), b.length > 1 ? b : b[0]
+	    }, a.ready(function() {
+	        a("." + d)["switch"]()
+	    })
+	}(mui, window, "toggle"), function(a, b, c) {
+	    function d(a, b) {
+	        var c = b ? "removeEventListener" : "addEventListener";
+	        a[c]("drag", E), a[c]("dragend", E), a[c]("swiperight", E), a[c]("swipeleft", E), a[c]("flick", E)
+	    }
+	    var e, f, g = "mui-active", h = "mui-selected", i = "mui-grid-view", j = "mui-table-view-cell", k = "mui-collapse-content", l = "mui-disabled", m = "mui-switch", n = "mui-btn", o = "mui-slider-handle", p = "mui-slider-left", q = "mui-slider-right", r = "mui-transitioning", s = "." + o, t = "." + p, u = "." + q, v = "." + h, w = "." + n, x = .8, y = isOpened = openedActions = progress = !1, z = sliderActionLeft = sliderActionRight = buttonsLeft = buttonsRight = sliderDirection = sliderRequestAnimationFrame = !1, A = lastTranslateX = sliderActionLeftWidth = sliderActionRightWidth = 0, B = function(a) {
+	        a ? f ? f.classList.add(g) : e && e.classList.add(g) : f ? f.classList.remove(g) : e && e.classList.remove(g)
+	    }, C = function() {
+	        if (A !== lastTranslateX) {
+	            if (buttonsRight && buttonsRight.length > 0) {
+	                progress = A / sliderActionRightWidth, A < -sliderActionRightWidth && (A = -sliderActionRightWidth - Math.pow(-A - sliderActionRightWidth, x));
+	                for (var a = 0, b = buttonsRight.length; b > a; a++) {
+	                    var c = buttonsRight[a];
+	                    "undefined" == typeof c._buttonOffset && (c._buttonOffset = c.offsetLeft), buttonOffset = c._buttonOffset, D(c, A - buttonOffset * (1 + Math.max(progress, -1)))
+	                }
+	            }
+	            if (buttonsLeft && buttonsLeft.length > 0)
+	                for (progress = A / sliderActionLeftWidth, A > sliderActionLeftWidth && (A = sliderActionLeftWidth + Math.pow(A - sliderActionLeftWidth, x)), a = 0, b = buttonsLeft.length; b > a; a++) {
+	                    var d = buttonsLeft[a];
+	                    "undefined" == typeof d._buttonOffset && (d._buttonOffset = sliderActionLeftWidth - d.offsetLeft - d.offsetWidth), buttonOffset = d._buttonOffset, buttonsLeft.length > 1 && (d.style.zIndex = buttonsLeft.length - a), D(d, A + buttonOffset * (1 - Math.min(progress, 1)))
+	                }
+	            D(z, A), lastTranslateX = A
+	        }
+	        sliderRequestAnimationFrame = requestAnimationFrame(function() {
+	            C()
+	        })
+	    }, D = function(a, b) {
+	        a && (a.style.webkitTransform = "translate3d(" + b + "px,0,0)")
+	    };
+	    b.addEventListener("touchstart", function(b) {
+	        e && B(!1), e = f = !1, y = isOpened = openedActions = !1;
+	        for (var g = b.target, h = !1; g && g !== c; g = g.parentNode)
+	            if (g.classList) {
+	                var o = g.classList;
+	                if (("INPUT" === g.tagName && "radio" !== g.type && "checkbox" !== g.type || "BUTTON" === g.tagName || o.contains(m) || o.contains(n) || o.contains(l)) && (h = !0), o.contains(k))
+	                    break;
+	                if (o.contains(j)) {
+	                    e = g;
+	                    var p = e.parentNode.querySelector(v);
+	                    if (p && p !== e)
+	                        return a.swipeoutClose(p), void (e = h = !1);
+	                    if (!e.parentNode.classList.contains(i)) {
+	                        var q = e.querySelector("a");
+	                        q && q.parentNode === e && (f = q)
+	                    }
+	                    e.querySelector(s) && (d(e), b.stopPropagation()), h || e.querySelector("input") || e.querySelector(w) || e.querySelector("." + m) || B(!0);
+	                    break
+	                }
+	            }
+	    }), b.addEventListener("touchmove", function() {
+	        B(!1)
+	    });
+	    var E = {handleEvent: function(a) {
+	            switch (a.type) {
+	                case "drag":
+	                    this.drag(a);
+	                    break;
+	                case "dragend":
+	                    this.dragend(a);
+	                    break;
+	                case "flick":
+	                    this.flick(a);
+	                    break;
+	                case "swiperight":
+	                    this.swiperight(a);
+	                    break;
+	                case "swipeleft":
+	                    this.swipeleft(a)
+	            }
+	        },drag: function(a) {
+	            if (e) {
+	                y || (z = sliderActionLeft = sliderActionRight = buttonsLeft = buttonsRight = sliderDirection = sliderRequestAnimationFrame = !1, z = e.querySelector(s), z && (sliderActionLeft = e.querySelector(t), sliderActionRight = e.querySelector(u), sliderActionLeft && (sliderActionLeftWidth = sliderActionLeft.offsetWidth, buttonsLeft = sliderActionLeft.querySelectorAll(w)), sliderActionRight && (sliderActionRightWidth = sliderActionRight.offsetWidth, buttonsRight = sliderActionRight.querySelectorAll(w)), e.classList.remove(r), isOpened = e.classList.contains(h), isOpened && (openedActions = e.querySelector(t + v) ? "left" : "right")));
+	                var b = a.detail, c = b.direction, d = b.angle;
+	                if ("left" === c && (d > 150 || -150 > d) ? (buttonsRight || buttonsLeft && isOpened) && (y = !0) : "right" === c && d > -30 && 30 > d && (buttonsLeft || buttonsRight && isOpened) && (y = !0), y) {
+	                    a.stopPropagation(), a.detail.gesture.preventDefault();
+	                    var f = a.detail.deltaX;
+	                    if (isOpened && ("right" === openedActions ? f -= sliderActionRightWidth : f += sliderActionLeftWidth), f > 0 && !buttonsLeft || 0 > f && !buttonsRight) {
+	                        if (!isOpened)
+	                            return;
+	                        f = 0
+	                    }
+	                    0 > f ? sliderDirection = "toLeft" : f > 0 ? sliderDirection = "toRight" : sliderDirection || (sliderDirection = "toLeft"), sliderRequestAnimationFrame || C(), A = f
+	                }
+	            }
+	        },flick: function(a) {
+	            y && a.stopPropagation()
+	        },swipeleft: function(a) {
+	            y && a.stopPropagation()
+	        },swiperight: function(a) {
+	            y && a.stopPropagation()
+	        },dragend: function(b) {
+	            if (y) {
+	                b.stopPropagation(), sliderRequestAnimationFrame && (cancelAnimationFrame(sliderRequestAnimationFrame), sliderRequestAnimationFrame = null);
+	                var c = b.detail;
+	                y = !1;
+	                var d = "close", f = "toLeft" === sliderDirection ? sliderActionRightWidth : sliderActionLeftWidth, g = c.swipe || Math.abs(A) > f / 2;
+	                g && (isOpened ? "left" === c.direction && "right" === openedActions ? d = "open" : "right" === c.direction && "left" === openedActions && (d = "open") : d = "open"), e.classList.add(r);
+	                var i;
+	                if ("open" === d) {
+	                    var j = "toLeft" === sliderDirection ? -f : f;
+	                    if (D(z, j), i = "toLeft" === sliderDirection ? buttonsRight : buttonsLeft, "undefined" != typeof i) {
+	                        var k = null;
+	                        for (m = 0; m < i.length; m++)
+	                            k = i[m], D(k, j);
+	                        k.parentNode.classList.add(h), e.classList.add(h), isOpened || a.trigger(e, "toLeft" === sliderDirection ? "slideleft" : "slideright")
+	                    }
+	                } else
+	                    D(z, 0), sliderActionLeft && sliderActionLeft.classList.remove(h), sliderActionRight && sliderActionRight.classList.remove(h), e.classList.remove(h);
+	                var l;
+	                if (buttonsLeft && buttonsLeft.length > 0 && buttonsLeft !== i)
+	                    for (var m = 0, n = buttonsLeft.length; n > m; m++) {
+	                        var o = buttonsLeft[m];
+	                        l = o._buttonOffset, "undefined" == typeof l && (o._buttonOffset = sliderActionLeftWidth - o.offsetLeft - o.offsetWidth), D(o, l)
+	                    }
+	                if (buttonsRight && buttonsRight.length > 0 && buttonsRight !== i)
+	                    for (var m = 0, n = buttonsRight.length; n > m; m++) {
+	                        var p = buttonsRight[m];
+	                        l = p._buttonOffset, "undefined" == typeof l && (p._buttonOffset = p.offsetLeft), D(p, -l)
+	                    }
+	            }
+	        }};
+	    a.swipeoutOpen = function(b, c) {
+	        if (b) {
+	            var d = b.classList;
+	            if (!d.contains(h)) {
+	                c || (c = b.querySelector(u) ? "right" : "left");
+	                var e = b.querySelector(a.classSelector(".slider-" + c));
+	                if (e) {
+	                    e.classList.add(h), d.add(h), d.remove(r);
+	                    for (var f, g = e.querySelectorAll(w), i = e.offsetWidth, j = "right" === c ? -i : i, k = g.length, l = 0; k > l; l++)
+	                        f = g[l], "right" === c ? D(f, -f.offsetLeft) : D(f, i - f.offsetWidth - f.offsetLeft);
+	                    d.add(r);
+	                    for (var l = 0; k > l; l++)
+	                        D(g[l], j);
+	                    D(b.querySelector(s), j)
+	                }
+	            }
+	        }
+	    }, a.swipeoutClose = function(b) {
+	        if (b) {
+	            var c = b.classList;
+	            if (c.contains(h)) {
+	                var d = b.querySelector(u + v) ? "right" : "left", e = b.querySelector(a.classSelector(".slider-" + d));
+	                if (e) {
+	                    e.classList.remove(h), c.remove(h), c.add(r);
+	                    var f, g = e.querySelectorAll(w), i = e.offsetWidth, j = g.length;
+	                    D(b.querySelector(s), 0);
+	                    for (var k = 0; j > k; k++)
+	                        f = g[k], "right" === d ? D(f, -f.offsetLeft) : D(f, i - f.offsetWidth - f.offsetLeft)
+	                }
+	            }
+	        }
+	    }, b.addEventListener("touchend", function() {
+	        e && (B(!1), z && d(e, !0))
+	    }), b.addEventListener("touchcancel", function() {
+	        e && (B(!1), z && d(e, !0))
+	    });
+	    var F = function() {
+	        var a = e.classList;
+	        if (a.contains("mui-radio")) {
+	            var b = e.querySelector("input[type=radio]");
+	            b && b.click()
+	        } else if (a.contains("mui-checkbox")) {
+	            var b = e.querySelector("input[type=checkbox]");
+	            b && b.click()
+	        }
+	    };
+	    b.addEventListener(a.EVENT_CLICK, function(a) {
+	        e && e.classList.contains("mui-collapse") && a.preventDefault()
+	    }), b.addEventListener("doubletap", function() {
+	        e && F()
+	    }), b.addEventListener("tap", function(b) {
+	        if (e) {
+	            var c = !1, d = e.classList;
+	            if (d.contains("mui-collapse") && !e.parentNode.classList.contains("mui-unfold")) {
+	                if (b.detail.gesture.preventDefault(), !d.contains(g)) {
+	                    var f = e.parentNode.querySelector(".mui-collapse.mui-active");
+	                    f && f.classList.remove(g), c = !0
+	                }
+	                d.toggle(g), c && a.trigger(e, "expand")
+	            }
+	            F()
+	        }
+	    })
+	}(mui, window, document), function(a, b) {
+	    a.alert = function(c, d, e, f) {
+	        if (a.os.plus) {
+	            if (void 0 === typeof c)
+	                return;
+	            "function" == typeof d ? (f = d, d = null, e = "确定") : "function" == typeof e && (f = e, e = null), plus.nativeUI.alert(c, f, d, e)
+	        } else
+	            b.alert(c)
+	    }
+	}(mui, window), function(a, b) {
+	    a.confirm = function(c, d, e, f) {
+	        if (a.os.plus) {
+	            if (void 0 === typeof c)
+	                return;
+	            "function" == typeof d ? (f = d, d = null, e = null) : "function" == typeof e && (f = e, e = null), plus.nativeUI.confirm(c, f, d, e)
+	        } else
+	            b.confirm(c)
+	    }
+	}(mui, window), function(a, b) {
+	    a.prompt = function(c, d, e, f, g) {
+	        if (a.os.plus) {
+	            if (void 0 === typeof message)
+	                return;
+	            "function" == typeof d ? (g = d, d = null, e = null, f = null) : "function" == typeof e ? (g = e, e = null, f = null) : "function" == typeof f && (g = f, f = null), plus.nativeUI.prompt(c, g, e, d, f)
+	        } else
+	            b.prompt(c)
+	    }
+	}(mui, window), function(a) {
+	    a.toast = function(b) {
+	        if (a.os.plus && a.os.android)
+	            plus.nativeUI.toast(b, {verticalAlign: "bottom"});
+	        else {
+	            var c = document.createElement("div");
+	            c.classList.add("mui-toast-container"), c.innerHTML = '<div class="mui-toast-message">' + b + "</div>", document.body.appendChild(c), setTimeout(function() {
+	                document.body.removeChild(c)
+	            }, 2e3)
+	        }
+	    }
+	}(mui, window), function(a, b, c) {
+	    var d = "mui-icon", e = "mui-icon-clear", f = "mui-icon-speech", g = "mui-icon-search", h = "mui-input-row", i = "mui-placeholder", j = "mui-tooltip", k = "mui-hidden", l = "mui-focusin", m = "." + e, n = "." + f, o = "." + i, p = "." + j, q = function(a) {
+	        for (; a && a !== c; a = a.parentNode)
+	            if (a.classList && a.classList.contains(h))
+	                return a;
+	        return null
+	    }, r = function(a, b) {
+	        this.element = a, this.options = b || {actions: "clear"}, ~this.options.actions.indexOf("slider") ? (this.sliderActionClass = j + " " + k, this.sliderActionSelector = p) : (~this.options.actions.indexOf("clear") && (this.clearActionClass = d + " " + e + (a.value ? "" : " " + k), this.clearActionSelector = m), ~this.options.actions.indexOf("speech") && (this.speechActionClass = d + " " + f, this.speechActionSelector = n), ~this.options.actions.indexOf("search") && (this.searchActionClass = i, this.searchActionSelector = o)), this.init()
+	    };
+	    r.prototype.init = function() {
+	        this.initAction(), this.initElementEvent()
+	    }, r.prototype.initAction = function() {
+	        var b = this, c = b.element.parentNode;
+	        c && (b.sliderActionClass ? b.sliderAction = b.createAction(c, b.sliderActionClass, b.sliderActionSelector) : (b.searchActionClass && (b.searchAction = b.createAction(c, b.searchActionClass, b.searchActionSelector), b.searchAction.addEventListener("tap", function(c) {
+	            a.focus(b.element), c.stopPropagation()
+	        })), b.speechActionClass && (b.speechAction = b.createAction(c, b.speechActionClass, b.speechActionSelector), b.speechAction.addEventListener("click", a.stopPropagation), b.speechAction.addEventListener("tap", function(a) {
+	            b.speechActionClick(a)
+	        })), b.clearActionClass && (b.clearAction = b.createAction(c, b.clearActionClass, b.clearActionSelector), b.clearAction.addEventListener("tap", function(a) {
+	            b.clearActionClick(a)
+	        }))))
+	    }, r.prototype.createAction = function(a, b, e) {
+	        var f = a.querySelector(e);
+	        if (!f) {
+	            var f = c.createElement("span");
+	            f.className = b, b === this.searchActionClass && (f.innerHTML = '<span class="' + d + " " + g + '"></span>' + this.element.getAttribute("placeholder"), this.element.setAttribute("placeholder", "")), a.insertBefore(f, this.element.nextSibling)
+	        }
+	        return f
+	    }, r.prototype.initElementEvent = function() {
+	        var b = this.element;
+	        if (this.sliderActionClass) {
+	            var c = this.sliderAction, d = b.offsetLeft, e = b.offsetWidth - 28, f = c.offsetWidth, g = Math.abs(b.max - b.min), h = null, i = function() {
+	                c.classList.remove(k), f = f || c.offsetWidth;
+	                var a = Math.abs(b.value) / g * e;
+	                c.style.left = 14 + d + a - f / 2 + "px", c.innerText = b.value, h && clearTimeout(h), h = setTimeout(function() {
+	                    c.classList.add(k)
+	                }, 1e3)
+	            };
+	            b.addEventListener("input", i), b.addEventListener("tap", i), b.addEventListener("touchmove", function(a) {
+	                a.stopPropagation()
+	            })
+	        } else {
+	            if (this.clearActionClass) {
+	                var j = this.clearAction;
+	                if (!j)
+	                    return;
+	                a.each(["keyup", "change", "input", "focus", "blur", "cut", "paste"], function(a, c) {
+	                    !function(a) {
+	                        b.addEventListener(a, function() {
+	                            j.classList[b.value.trim() ? "remove" : "add"](k)
+	                        })
+	                    }(c)
+	                })
+	            }
+	            this.searchActionClass && (b.addEventListener("focus", function() {
+	                b.parentNode.classList.add("mui-active")
+	            }), b.addEventListener("blur", function() {
+	                b.value.trim() || b.parentNode.classList.remove("mui-active")
+	            }))
+	        }
+	    }, r.prototype.clearActionClick = function(b) {
+	        var c = this;
+	        c.element.value = "", a.focus(c.element), c.clearAction.classList.add(k), b.preventDefault()
+	    }, r.prototype.speechActionClick = function(d) {
+	        if (b.plus) {
+	            var e = this;
+	            e.element.value = "", c.body.classList.add(l), plus.speech.startRecognize({engine: "iFly"}, function(b) {
+	                e.element.value += b, a.focus(e.element), plus.speech.stopRecognize(), a.trigger(e.element, "recognized", {value: e.element.value})
+	            }, function() {
+	                c.body.classList.remove(l)
+	            })
+	        } else
+	            alert("only for 5+");
+	        d.preventDefault()
+	    }, a.fn.input = function() {
+	        this.each(function() {
+	            var b = [], c = q(this.parentNode), d = c.querySelector("label");
+	            if (d) {
+	                var e = this;
+	                d.addEventListener("tap", function() {
+	                    "text" === e.type || e.click()
+	                })
+	            }
+	            if ("range" === this.type && c.classList.contains("mui-input-range"))
+	                b.push("slider");
+	            else {
+	                var f = this.classList;
+	                f.contains("mui-input-clear") && b.push("clear"), f.contains("mui-input-speech") && b.push("speech"), "search" === this.type && c.classList.contains("mui-search") && b.push("search")
+	            }
+	            var g = this.getAttribute("data-input-" + b[0]);
+	            if (!g) {
+	                g = ++a.uuid, a.data[g] = new r(this, {actions: b.join(",")});
+	                for (var h = 0, i = b.length; i > h; h++)
+	                    this.setAttribute("data-input-" + b[h], g)
+	            }
+	        })
+	    }, a.ready(function() {
+	        a(".mui-input-row input").input()
+	    })
+	    module.exports = mui;
+	    return mui;
+	}(mui, window, document);
+
+
+/***/ },
+/* 7 */,
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Created by gaowhen on 15/1/9.
+	 */
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	        __webpack_require__(1),
+	        __webpack_require__(3),
+	        __webpack_require__(11),
+	        __webpack_require__(5),
+	        __webpack_require__(18),
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
+	                 _,
+	                 Modal,
+	                 cookie,
+	                 director) {
+
+	        // 字符串长度限制, 最大长度默认为12
+	        function strShort(string, maxLength) {
+	            if (!string) return "";
+	            var len = 0,
+	                arr = string.split(""),
+	                result = [];
+	            maxLength = (maxLength || 12) * 2;
+
+	            var l = arr.length;
+	            for (var i = 0; i < l; ++i) {
+	                if (arr[i].charCodeAt(0) < 299) {
+	                    len++;
+	                } else {
+	                    len += 2;
+	                }
+	                result.push(arr[i]);
+
+	                //如果当前元素是倒数第二个，并且还剩余至少两个字节的长度
+	                if (i == l - 2 && len <= maxLength - 2) {
+	                    result.push(arr[i + 1]);
+	                    break;
+	                } else if (len > maxLength - 2) {
+	                    result.push('...');
+	                    break;
+	                }
+	            }
+	            return result.join('');
+	        }
+
+	        // 获取是否显示会员卡
+	        function getIsMembershipCard() {
+	            //公众号开关
+	            var hasPublicsignalshortMember = cookie.getItem("has_publicsignalshort_member");
+	            //影院开关
+	            var hasCinemaMember = cookie.getItem("has_cinema_member");
+	            if (hasPublicsignalshortMember === "1" && hasCinemaMember === "1") {
+	                return true;
+	            }
+	            return false;
+	        }
+
+	        // 获取是否显示代金券
+	        function getIsEcoupons() {
+	            //代金券公众号开关
+	            var hasPublicsignalshortEcoupons = cookie.getItem("has_publicsignalshort_ecoupons");
+	            //代金券影院开关
+	            var hasCinemaEcoupons = cookie.getItem("has_cinema_ecoupons");
+	            if (hasPublicsignalshortEcoupons === "1" && hasCinemaEcoupons === "1") {
+	                return true;
+	            }
+	            return false;
+	        }
+
+	        String.format = function () {
+	            if (arguments.length == 0)
+	                return null;
+	            var str = arguments[0];
+	            for (var i = 1; i < arguments.length; i++) {
+	                var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+	                str = str.replace(re, arguments[i]);
+	            }
+	            return str;
+	        }
+
+	        function physicsBack(callback,status) {
+	            var action="physicsBackAction";
+	            var isRepate=status==null?true:status;
+	            var router = new director.Router().init();
+
+	            router.setRoute(action);
+	            setTimeout(function () {
+	                router.setRoute(Math.random());
+	                router.on(action, function () {
+	                    if (callback) {
+	                        callback();
+	                        if (isRepate) {
+	                            router.setRoute(action);
+	                            router.setRoute(Math.random());
+	                        }
+	                    }
+	                });
+	            }, 200);
+	        }
+
+	        function physicsGoBack() {
+	            history.go(-2);
+	        }
+
+	        /**
+	        * 经纬度转换，可以在GPS，百度，谷歌之间转换
+	        *
+	        * @param from {Number} 值从app.constant里面取
+	        * @param to {Number} 值从app.constant里面取
+	        * @param coords {Object} 经纬度
+	        * @param coords.latitude {Number} 纬度
+	        * @param coords.longitude {Number} 经度
+	        * @param successCallback {Function} 转换成功后的回调
+	        * @param errorCallback {Function} 转换失败后的回调
+	        */
+	        function coordsConvert(from, to, coords, successCallback, errorCallback) {
+	            $.ajax('http://api.map.baidu.com/ag/coord/convert?from=' + from + '&to=' + to + '&x=' + coords.longitude + '&y=' + coords.latitude, {
+	                dataType: 'jsonp',
+	                success: function (res) {
+	                    if (!res.error) {
+	                        successCallback && successCallback({
+	                            longitude: decode64(res.x),
+	                            latitude: decode64(res.y)
+	                        });
+	                    } else {
+	                        error('convert coords error!');
+	                        errorCallback && errorCallback();
+	                    }
+	                }
+	            });
+	        }
+
+
+	        /**
+	        * 获取当前地理位置（已转换成Google坐标），并会将当前地理位置缓存到内存中
+	        * 如果不传递任何一个回调函数，就只返回缓存中的当前地理位置信息
+	        *
+	        * @param successCallback {Function} 获取成功的回调函数，
+	        * 会传入{latitude: latitude, longitude: longitude}结构的经纬度数据
+	        * @param errorCallback 获取失败的回调函数
+	        * @param notShowTip {Boolean} 不显示失败Tip
+	        */
+	        function getCurrentPosition(successCallback, errorCallback, notShowTip) {
+	            // var currentCoords = app.cache.get('currentCoords'); // 先尝试从缓存中获取之前定位的坐标
+
+	            // 只从缓存中获取地理位置，如果缓存中没有地理位置信息，就返回undefined
+	            if (_.isUndefined(successCallback) && _.isUndefined(errorCallback)) {
+	                return currentCoords;
+	            }
+
+	            successCallback = successCallback || emptyFunction;
+	            errorCallback = errorCallback || emptyFunction;
+
+	            // if (currentCoords) {
+	            //     log('current position:', currentCoords);
+	            //     successCallback(currentCoords);
+	            // } else {
+	                if ("geolocation" in navigator) {
+	                    // GPS定位
+	                    navigator.geolocation.getCurrentPosition(function (position) {
+	                        successCallback(position.coords);
+	                        // 将GPS的坐标转换为Google的坐标
+	                        // coordsConvert(0, 2, position.coords, function (coords) {
+	                        //     log('current position:', coords);
+	                        //     //app.cache.set('currentCoords', coords);
+	                        //     successCallback(coords);
+	                        // }, function () {
+	                        //     error('convert coords failed!');
+	                        //     errorCallback();
+	                        // });
+	                    }, function (error) {
+	                        if (!notShowTip) {
+	                            switch (error.code) {
+	                                case error.PERMISSION_DENIED:
+	                                    // dialogs.tip('定位未开启', app.constant.ERROR_TIP);
+	                                    break;
+	                                case error.POSITION_UNAVAILABLE:
+	                                    // dialogs.tip('定位失败，请稍后再试', app.constant.ERROR_TIP);
+	                                    break;
+	                                case error.TIMEOUT:
+	                                    // dialogs.tip('定位超时，请稍后再试', app.constant.ERROR_TIP);
+	                                    break;
+	                            }
+	                        }
+	                        errorCallback(error);
+	                    }, { timeout: 30e3 }); // 获取地址的超时为半分钟
+	                } else {
+	                    error('browser unsupport geolocation!');
+	                    errorCallback();
+	                }
+	            // }
+
+	            return null;
+	        }
+
+	        return {
+	            strShort: strShort,
+	            getIsMembershipCard: getIsMembershipCard,
+	            getIsEcoupons: getIsEcoupons,
+	            physicsBack: physicsBack,
+	            physicsGoBack: physicsGoBack,
+	            getCurrentPosition: getCurrentPosition
+	        };
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	;
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function(root){
+	  var _ = __webpack_require__(3);
+	  // Let's borrow a couple of things from Underscore that we'll need
+
+	  // _.each
+	  var breaker = {},
+	      AP = Array.prototype,
+	      OP = Object.prototype,
+
+	      hasOwn = OP.hasOwnProperty,
+	      toString = OP.toString,
+	      forEach = AP.forEach,
+	      indexOf = AP.indexOf,
+	      slice = AP.slice;
+
+	  var _each = function( obj, iterator, context ) {
+	    var key, i, l;
+
+	    if ( !obj ) {
+	      return;
+	    }
+	    if ( forEach && obj.forEach === forEach ) {
+	      obj.forEach( iterator, context );
+	    } else if ( obj.length === +obj.length ) {
+	      for ( i = 0, l = obj.length; i < l; i++ ) {
+	        if ( i in obj && iterator.call( context, obj[i], i, obj ) === breaker ) {
+	          return;
+	        }
+	      }
+	    } else {
+	      for ( key in obj ) {
+	        if ( hasOwn.call( obj, key ) ) {
+	          if ( iterator.call( context, obj[key], key, obj) === breaker ) {
+	            return;
+	          }
+	        }
+	      }
+	    }
+	  };
+
+	  // _.isFunction
+	  var _isFunction = function( obj ) {
+	    return !!(obj && obj.constructor && obj.call && obj.apply);
+	  };
+
+	  // _.extend
+	  var _extend = function( obj ) {
+
+	    _each( slice.call( arguments, 1), function( source ) {
+	      var prop;
+
+	      for ( prop in source ) {
+	        if ( source[prop] !== void 0 ) {
+	          obj[ prop ] = source[ prop ];
+	        }
+	      }
+	    });
+	    return obj;
+	  };
+
+	  // $.inArray
+	  var _inArray = function( elem, arr, i ) {
+	    var len;
+
+	    if ( arr ) {
+	      if ( indexOf ) {
+	        return indexOf.call( arr, elem, i );
+	      }
+
+	      len = arr.length;
+	      i = i ? i < 0 ? Math.max( 0, len + i ) : i : 0;
+
+	      for ( ; i < len; i++ ) {
+	        // Skip accessing in sparse arrays
+	        if ( i in arr && arr[ i ] === elem ) {
+	          return i;
+	        }
+	      }
+	    }
+
+	    return -1;
+	  };
+
+	  // And some jQuery specific helpers
+
+	  var class2type = {};
+
+	  // Populate the class2type map
+	  _each("Boolean Number String Function Array Date RegExp Object".split(" "), function(name, i) {
+	    class2type[ "[object " + name + "]" ] = name.toLowerCase();
+	  });
+
+	  var _type = function( obj ) {
+	    return obj == null ?
+	      String( obj ) :
+	      class2type[ toString.call(obj) ] || "object";
+	  };
+
+	  // Now start the jQuery-cum-Underscore implementation. Some very
+	  // minor changes to the jQuery source to get this working.
+
+	  // Internal Deferred namespace
+	  var _d = {};
+	  // String to Object options format cache
+	  var optionsCache = {};
+
+	  // Convert String-formatted options into Object-formatted ones and store in cache
+	  function createOptions( options ) {
+	    var object = optionsCache[ options ] = {};
+	    _each( options.split( /\s+/ ), function( flag ) {
+	      object[ flag ] = true;
+	    });
+	    return object;
+	  }
+
+	  _d.Callbacks = function( options ) {
+
+	    // Convert options from String-formatted to Object-formatted if needed
+	    // (we check in cache first)
+	    options = typeof options === "string" ?
+	      ( optionsCache[ options ] || createOptions( options ) ) :
+	      _extend( {}, options );
+
+	    var // Last fire value (for non-forgettable lists)
+	      memory,
+	      // Flag to know if list was already fired
+	      fired,
+	      // Flag to know if list is currently firing
+	      firing,
+	      // First callback to fire (used internally by add and fireWith)
+	      firingStart,
+	      // End of the loop when firing
+	      firingLength,
+	      // Index of currently firing callback (modified by remove if needed)
+	      firingIndex,
+	      // Actual callback list
+	      list = [],
+	      // Stack of fire calls for repeatable lists
+	      stack = !options.once && [],
+	      // Fire callbacks
+	      fire = function( data ) {
+	        memory = options.memory && data;
+	        fired = true;
+	        firingIndex = firingStart || 0;
+	        firingStart = 0;
+	        firingLength = list.length;
+	        firing = true;
+	        for ( ; list && firingIndex < firingLength; firingIndex++ ) {
+	          if ( list[ firingIndex ].apply( data[ 0 ], data[ 1 ] ) === false && options.stopOnFalse ) {
+	            memory = false; // To prevent further calls using add
+	            break;
+	          }
+	        }
+	        firing = false;
+	        if ( list ) {
+	          if ( stack ) {
+	            if ( stack.length ) {
+	              fire( stack.shift() );
+	            }
+	          } else if ( memory ) {
+	            list = [];
+	          } else {
+	            self.disable();
+	          }
+	        }
+	      },
+	      // Actual Callbacks object
+	      self = {
+	        // Add a callback or a collection of callbacks to the list
+	        add: function() {
+	          if ( list ) {
+	            // First, we save the current length
+	            var start = list.length;
+	            (function add( args ) {
+	              _each( args, function( arg ) {
+	                var type = _type( arg );
+	                if ( type === "function" ) {
+	                  if ( !options.unique || !self.has( arg ) ) {
+	                    list.push( arg );
+	                  }
+	                } else if ( arg && arg.length && type !== "string" ) {
+	                  // Inspect recursively
+	                  add( arg );
+	                }
+	              });
+	            })( arguments );
+	            // Do we need to add the callbacks to the
+	            // current firing batch?
+	            if ( firing ) {
+	              firingLength = list.length;
+	            // With memory, if we're not firing then
+	            // we should call right away
+	            } else if ( memory ) {
+	              firingStart = start;
+	              fire( memory );
+	            }
+	          }
+	          return this;
+	        },
+	        // Remove a callback from the list
+	        remove: function() {
+	          if ( list ) {
+	            _each( arguments, function( arg ) {
+	              var index;
+	              while( ( index = _inArray( arg, list, index ) ) > -1 ) {
+	                list.splice( index, 1 );
+	                // Handle firing indexes
+	                if ( firing ) {
+	                  if ( index <= firingLength ) {
+	                    firingLength--;
+	                  }
+	                  if ( index <= firingIndex ) {
+	                    firingIndex--;
+	                  }
+	                }
+	              }
+	            });
+	          }
+	          return this;
+	        },
+	        // Control if a given callback is in the list
+	        has: function( fn ) {
+	          return _inArray( fn, list ) > -1;
+	        },
+	        // Remove all callbacks from the list
+	        empty: function() {
+	          list = [];
+	          return this;
+	        },
+	        // Have the list do nothing anymore
+	        disable: function() {
+	          list = stack = memory = undefined;
+	          return this;
+	        },
+	        // Is it disabled?
+	        disabled: function() {
+	          return !list;
+	        },
+	        // Lock the list in its current state
+	        lock: function() {
+	          stack = undefined;
+	          if ( !memory ) {
+	            self.disable();
+	          }
+	          return this;
+	        },
+	        // Is it locked?
+	        locked: function() {
+	          return !stack;
+	        },
+	        // Call all callbacks with the given context and arguments
+	        fireWith: function( context, args ) {
+	          args = args || [];
+	          args = [ context, args.slice ? args.slice() : args ];
+	          if ( list && ( !fired || stack ) ) {
+	            if ( firing ) {
+	              stack.push( args );
+	            } else {
+	              fire( args );
+	            }
+	          }
+	          return this;
+	        },
+	        // Call all the callbacks with the given arguments
+	        fire: function() {
+	          self.fireWith( this, arguments );
+	          return this;
+	        },
+	        // To know if the callbacks have already been called at least once
+	        fired: function() {
+	          return !!fired;
+	        }
+	      };
+
+	    return self;
+	  };
+
+	  _d.Deferred = function( func ) {
+
+	    var tuples = [
+	        // action, add listener, listener list, final state
+	        [ "resolve", "done", _d.Callbacks("once memory"), "resolved" ],
+	        [ "reject", "fail", _d.Callbacks("once memory"), "rejected" ],
+	        [ "notify", "progress", _d.Callbacks("memory") ]
+	      ],
+	      state = "pending",
+	      promise = {
+	        state: function() {
+	          return state;
+	        },
+	        always: function() {
+	          deferred.done( arguments ).fail( arguments );
+	          return this;
+	        },
+	        then: function( /* fnDone, fnFail, fnProgress */ ) {
+	          var fns = arguments;
+
+	          return _d.Deferred(function( newDefer ) {
+
+	            _each( tuples, function( tuple, i ) {
+	              var action = tuple[ 0 ],
+	                fn = fns[ i ];
+
+	              // deferred[ done | fail | progress ] for forwarding actions to newDefer
+	              deferred[ tuple[1] ]( _isFunction( fn ) ?
+
+	                function() {
+	                  var returned;
+	                  try { returned = fn.apply( this, arguments ); } catch(e){
+	                    newDefer.reject(e);
+	                    return;
+	                  }
+
+	                  if ( returned && _isFunction( returned.promise ) ) {
+	                    returned.promise()
+	                      .done( newDefer.resolve )
+	                      .fail( newDefer.reject )
+	                      .progress( newDefer.notify );
+	                  } else {
+	                    newDefer[ action !== "notify" ? 'resolveWith' : action + 'With']( this === deferred ? newDefer : this, [ returned ] );
+	                  }
+	                } :
+
+	                newDefer[ action ]
+	              );
+	            });
+
+	            fns = null;
+
+	          }).promise();
+
+	        },
+	        // Get a promise for this deferred
+	        // If obj is provided, the promise aspect is added to the object
+	        promise: function( obj ) {
+	          return obj != null ? _extend( obj, promise ) : promise;
+	        }
+	      },
+	      deferred = {};
+
+	    // Keep pipe for back-compat
+	    promise.pipe = promise.then;
+
+	    // Add list-specific methods
+	    _each( tuples, function( tuple, i ) {
+	      var list = tuple[ 2 ],
+	        stateString = tuple[ 3 ];
+
+	      // promise[ done | fail | progress ] = list.add
+	      promise[ tuple[1] ] = list.add;
+
+	      // Handle state
+	      if ( stateString ) {
+	        list.add(function() {
+	          // state = [ resolved | rejected ]
+	          state = stateString;
+
+	        // [ reject_list | resolve_list ].disable; progress_list.lock
+	        }, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
+	      }
+
+	      // deferred[ resolve | reject | notify ] = list.fire
+	      deferred[ tuple[0] ] = list.fire;
+	      deferred[ tuple[0] + "With" ] = list.fireWith;
+	    });
+
+	    // Make the deferred a promise
+	    promise.promise( deferred );
+
+	    // Call given func if any
+	    if ( func ) {
+	      func.call( deferred, deferred );
+	    }
+
+	    // All done!
+	    return deferred;
+	  };
+
+	  // Deferred helper
+	  _d.when = function( subordinate /* , ..., subordinateN */ ) { 
+
+	    var i = 0,
+	      resolveValues = ( _type(subordinate) === 'array' && arguments.length === 1 ) ? subordinate : slice.call( arguments ),
+	      length = resolveValues.length;
+
+	      if ( _type(subordinate) === 'array' && subordinate.length === 1 ) {
+	        subordinate = subordinate[ 0 ];
+	      }
+
+	      // the count of uncompleted subordinates
+	      var remaining = length !== 1 || ( subordinate && _isFunction( subordinate.promise ) ) ? length : 0,
+
+	      // the master Deferred. If resolveValues consist of only a single Deferred, just use that.
+	      deferred = remaining === 1 ? subordinate : _d.Deferred(),
+
+	      // Update function for both resolve and progress values
+	      updateFunc = function( i, contexts, values ) {
+	        return function( value ) {
+	          contexts[ i ] = this;
+	          values[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
+	          if( values === progressValues ) {
+	            deferred.notifyWith( contexts, values );
+	          } else if ( !( --remaining ) ) {
+	            deferred.resolveWith( contexts, values );
+	          }
+	        };
+	      },
+
+	      progressValues, progressContexts, resolveContexts;
+
+	    // add listeners to Deferred subordinates; treat others as resolved
+	    if ( length > 1 ) {
+	      progressValues = new Array( length );
+	      progressContexts = new Array( length );
+	      resolveContexts = new Array( length );
+	      for ( ; i < length; i++ ) {
+	        if ( resolveValues[ i ] && _isFunction( resolveValues[ i ].promise ) ) {
+	          resolveValues[ i ].promise()
+	            .done( updateFunc( i, resolveContexts, resolveValues ) )
+	            .fail( deferred.reject )
+	            .progress( updateFunc( i, progressContexts, progressValues ) );
+	        } else {
+	          --remaining;
+	        }
+	      }
+	    }
+
+	    // if we're not waiting on anything, resolve the master
+	    if ( !remaining ) {
+	      deferred.resolveWith( resolveContexts, resolveValues );
+	    }
+
+	    return deferred.promise();
+	  };
+
+	  // Try exporting as a Common.js Module
+	  if ( typeof module !== "undefined" && module.exports ) {
+
+
+	    module.exports = _d;
+	    _.mixin(_d); //黑科技
+
+	  // Or mixin to Underscore.js
+	  } else if ( typeof root._ !== "undefined" ) {
+
+	    root._.mixin(_d);
+
+	  // Or assign it to window._
+	  } else {
+
+	    root._ = _d;
+
+	  }
+
+	})(this);
+
+/***/ },
+/* 10 */,
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Created by gaowhen on 14/11/27.
+	 */
+
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	    __webpack_require__(1),
+	    __webpack_require__(3)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
+	    $,
+	    _
+	) {
+	    var toastModal = {
+	        method: function (modal) {
+	            modal.$modal.addClass('modal').removeClass('m-modal m-modal-m').html(modal.setting.body);
+	            setTimeout(function () {
+	                modal.hide();
+	            }, 2000);
+	        }
+	    };
+
+	    var alertModal = {
+	        btn: '<a href="#" class="btn btn-cancel">返回</a>',
+	        method: function(modal) {
+	            modal.hide();
+	        }
+	    };
+
+	    var confirmModal = {
+	        confirm: {
+	            btn: '<a href="#" class="btn btn-confirm">确认</a>',
+	            method: function(modal) {
+	                modal.hide();
+	            }
+	        },
+	        cancel: {
+	            btn: '<a href="#" class="btn gray btn-cancel">取消</a>',
+	            method: function(modal) {
+	                modal.hide();
+	            }
+	        }
+	    };
+
+	    var defaults = {
+	        isShowHead: false,
+	        head: 'should be text or dom',
+	        body: 'text or dom',
+	        type: 'alert', // confirm
+	        foot: alertModal
+	    };
+
+	    function Modal() {
+	        this.init();
+	    }
+
+	    _.extend(Modal.prototype, {
+	        init: function() {
+	            this.$overlay = $('<div class="full-screen"></div>');
+	            this.$modal = $('' +
+	                '<div class="m-modal m-modal-m">' +
+	                '<div class="m-m-header"></div>' +
+	                '<div class="m-m-body" style="text-align: center;"></div>' +
+	                '<div class="m-m-footer"><div class="btn-box"></div></div>' +
+	                '</div>');
+
+	            this.$head = this.$modal.find('.m-m-header');
+	            this.$body = this.$modal.find('.m-m-body');
+	            this.$foot = this.$modal.find('.m-m-footer');
+	            this.$btn = this.$foot.find('.btn-box');
+
+	            this.$overlay.hide();
+	            this.$modal.hide();
+
+	            this.speed = 150;
+
+	            var $body = $('body');
+	            $body.append(this.$overlay);
+	            $body.append(this.$modal);
+
+	            this.$overlay.on('click', function(e) {
+	                if (e.preventDefault) {
+	                    e.preventDefault();
+	                }
+	                // that.hide();
+	            });
+	        },
+	        setHead: function(head) {
+	            this.$head.removeClass('empty').html(head);
+	        },
+	        setContent: function(content) {
+	            this.$body.html(content);
+	        },
+	        show: function(opt) {
+	            var that = this;
+
+	            opt = _.extend(defaults, opt);
+
+	            that.$overlay.show(that.speed);
+
+	            if (opt.isShowHead) {
+	                that.$head.removeClass('empty');
+	                that.setHead(opt.head);
+	            } else {
+	                that.$head.addClass('empty');
+	            }
+
+	            switch (opt.type) {
+	                case 'alert':
+	                    if (opt.foot && (opt.foot.btn || opt.foot.method)) {
+	                        alertModal = _.extend(alertModal, opt.foot);
+	                    }
+
+	                    that.$modal.empty().addClass('m-modal m-modal-m').removeClass('modal')
+	                        .append(that.$head).append(that.$body).append(that.$foot);
+
+	                    that.$body.html(opt.body);
+
+	                    that.$btn.empty().append(alertModal.btn);
+
+	                    that.$modal.on('click', '.btn-cancel', function(e) {
+	                        e.preventDefault();
+	                        alertModal.method(that);
+	                        that.hide();
+	                    });
+	                    break;
+	                case 'confirm':
+	                    if (opt.foot && (opt.foot.confirm || opt.foot.cancel)) {
+	                        confirmModal = _.extend(confirmModal, opt.foot);
+	                    }
+
+	                    that.$modal.empty().addClass('m-modal m-modal-m').removeClass('modal')
+	                        .append(that.$head).append(that.$body).append(that.$foot);
+
+	                    that.$body.html(opt.body);
+	                    that.$btn.empty().append(confirmModal.cancel.btn).append(confirmModal.confirm.btn);
+
+	                    that.$modal.on('click', '.btn-cancel', function(e) {
+	                        e.preventDefault();
+
+	                        that.hide();
+	                        confirmModal.cancel.method(that);
+	                    });
+
+	                    that.$modal.on('click', '.btn-confirm', function(e) {
+	                        e.preventDefault();
+
+	                        that.hide();
+	                        confirmModal.confirm.method(that);
+	                    });
+	                    break;
+	                case 'tip':
+	                    that.$modal.addClass('modal').removeClass('m-modal m-modal-m').html(opt.body);
+	                    break;
+	                case 'toast':
+	                    that.setting = opt;
+	                    toastModal.method(that);
+	                    break;
+	                default:
+	            }
+
+	            if (opt.klas === 'full') {
+	                this.$modal.removeClass('m-modal-m').addClass('m-modal-full');
+	            }
+
+	            that.$modal.show(that.speed);
+	        },
+	        hide: function() {
+	            this.$overlay.remove();
+	            this.$modal.remove();
+	        }
+	    });
+
+	    return Modal;
+
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ },
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	//
+	// Generated on Tue Dec 16 2014 12:13:47 GMT+0100 (CET) by Charlie Robbins, Paolo Fragomeni & the Contributors (Using Codesurgeon).
+	// Version 1.2.6
+	//
+
+	(function (exports) {
+
+	/*
+	 * browser.js: Browser specific functionality for director.
+	 *
+	 * (C) 2011, Charlie Robbins, Paolo Fragomeni, & the Contributors.
+	 * MIT LICENSE
+	 *
+	 */
+
+	var dloc = document.location;
+
+	function dlocHashEmpty() {
+	  // Non-IE browsers return '' when the address bar shows '#'; Director's logic
+	  // assumes both mean empty.
+	  return dloc.hash === '' || dloc.hash === '#';
+	}
+
+	var listener = {
+	  mode: 'modern',
+	  hash: dloc.hash,
+	  history: false,
+
+	  check: function () {
+	    var h = dloc.hash;
+	    if (h != this.hash) {
+	      this.hash = h;
+	      this.onHashChanged();
+	    }
+	  },
+
+	  fire: function () {
+	    if (this.mode === 'modern') {
+	      this.history === true ? window.onpopstate() : window.onhashchange();
+	    }
+	    else {
+	      this.onHashChanged();
+	    }
+	  },
+
+	  init: function (fn, history) {
+	    var self = this;
+	    this.history = history;
+
+	    if (!Router.listeners) {
+	      Router.listeners = [];
+	    }
+
+	    function onchange(onChangeEvent) {
+	      for (var i = 0, l = Router.listeners.length; i < l; i++) {
+	        Router.listeners[i](onChangeEvent);
+	      }
+	    }
+
+	    //note IE8 is being counted as 'modern' because it has the hashchange event
+	    if ('onhashchange' in window && (document.documentMode === undefined
+	      || document.documentMode > 7)) {
+	      // At least for now HTML5 history is available for 'modern' browsers only
+	      if (this.history === true) {
+	        // There is an old bug in Chrome that causes onpopstate to fire even
+	        // upon initial page load. Since the handler is run manually in init(),
+	        // this would cause Chrome to run it twise. Currently the only
+	        // workaround seems to be to set the handler after the initial page load
+	        // http://code.google.com/p/chromium/issues/detail?id=63040
+	        setTimeout(function() {
+	          window.onpopstate = onchange;
+	        }, 500);
+	      }
+	      else {
+	        window.onhashchange = onchange;
+	      }
+	      this.mode = 'modern';
+	    }
+	    else {
+	      //
+	      // IE support, based on a concept by Erik Arvidson ...
+	      //
+	      var frame = document.createElement('iframe');
+	      frame.id = 'state-frame';
+	      frame.style.display = 'none';
+	      document.body.appendChild(frame);
+	      this.writeFrame('');
+
+	      if ('onpropertychange' in document && 'attachEvent' in document) {
+	        document.attachEvent('onpropertychange', function () {
+	          if (event.propertyName === 'location') {
+	            self.check();
+	          }
+	        });
+	      }
+
+	      window.setInterval(function () { self.check(); }, 50);
+
+	      this.onHashChanged = onchange;
+	      this.mode = 'legacy';
+	    }
+
+	    Router.listeners.push(fn);
+
+	    return this.mode;
+	  },
+
+	  destroy: function (fn) {
+	    if (!Router || !Router.listeners) {
+	      return;
+	    }
+
+	    var listeners = Router.listeners;
+
+	    for (var i = listeners.length - 1; i >= 0; i--) {
+	      if (listeners[i] === fn) {
+	        listeners.splice(i, 1);
+	      }
+	    }
+	  },
+
+	  setHash: function (s) {
+	    // Mozilla always adds an entry to the history
+	    if (this.mode === 'legacy') {
+	      this.writeFrame(s);
+	    }
+
+	    if (this.history === true) {
+	      window.history.pushState({}, document.title, s);
+	      // Fire an onpopstate event manually since pushing does not obviously
+	      // trigger the pop event.
+	      this.fire();
+	    } else {
+	      dloc.hash = (s[0] === '/') ? s : '/' + s;
+	    }
+	    return this;
+	  },
+
+	  writeFrame: function (s) {
+	    // IE support...
+	    var f = document.getElementById('state-frame');
+	    var d = f.contentDocument || f.contentWindow.document;
+	    d.open();
+	    d.write("<script>_hash = '" + s + "'; onload = parent.listener.syncHash;<script>");
+	    d.close();
+	  },
+
+	  syncHash: function () {
+	    // IE support...
+	    var s = this._hash;
+	    if (s != dloc.hash) {
+	      dloc.hash = s;
+	    }
+	    return this;
+	  },
+
+	  onHashChanged: function () {}
+	};
+
+	var Router = exports.Router = function (routes) {
+	  if (!(this instanceof Router)) return new Router(routes);
+
+	  this.params   = {};
+	  this.routes   = {};
+	  this.methods  = ['on', 'once', 'after', 'before'];
+	  this.scope    = [];
+	  this._methods = {};
+
+	  this._insert = this.insert;
+	  this.insert = this.insertEx;
+
+	  this.historySupport = (window.history != null ? window.history.pushState : null) != null
+
+	  this.configure();
+	  this.mount(routes || {});
+	};
+
+	Router.prototype.init = function (r) {
+	  var self = this
+	    , routeTo;
+	  this.handler = function(onChangeEvent) {
+	    var newURL = onChangeEvent && onChangeEvent.newURL || window.location.hash;
+	    var url = self.history === true ? self.getPath() : newURL.replace(/.*#/, '');
+	    self.dispatch('on', url.charAt(0) === '/' ? url : '/' + url);
+	  };
+
+	  listener.init(this.handler, this.history);
+
+	  if (this.history === false) {
+	    if (dlocHashEmpty() && r) {
+	      dloc.hash = r;
+	    } else if (!dlocHashEmpty()) {
+	      self.dispatch('on', '/' + dloc.hash.replace(/^(#\/|#|\/)/, ''));
+	    }
+	  }
+	  else {
+	    if (this.convert_hash_in_init) {
+	      // Use hash as route
+	      routeTo = dlocHashEmpty() && r ? r : !dlocHashEmpty() ? dloc.hash.replace(/^#/, '') : null;
+	      if (routeTo) {
+	        window.history.replaceState({}, document.title, routeTo);
+	      }
+	    }
+	    else {
+	      // Use canonical url
+	      routeTo = this.getPath();
+	    }
+
+	    // Router has been initialized, but due to the chrome bug it will not
+	    // yet actually route HTML5 history state changes. Thus, decide if should route.
+	    if (routeTo || this.run_in_init === true) {
+	      this.handler();
+	    }
+	  }
+
+	  return this;
+	};
+
+	Router.prototype.explode = function () {
+	  var v = this.history === true ? this.getPath() : dloc.hash;
+	  if (v.charAt(1) === '/') { v=v.slice(1) }
+	  return v.slice(1, v.length).split("/");
+	};
+
+	Router.prototype.setRoute = function (i, v, val) {
+	  var url = this.explode();
+
+	  if (typeof i === 'number' && typeof v === 'string') {
+	    url[i] = v;
+	  }
+	  else if (typeof val === 'string') {
+	    url.splice(i, v, s);
+	  }
+	  else {
+	    url = [i];
+	  }
+
+	  listener.setHash(url.join('/'));
+	  return url;
+	};
+
+	//
+	// ### function insertEx(method, path, route, parent)
+	// #### @method {string} Method to insert the specific `route`.
+	// #### @path {Array} Parsed path to insert the `route` at.
+	// #### @route {Array|function} Route handlers to insert.
+	// #### @parent {Object} **Optional** Parent "routes" to insert into.
+	// insert a callback that will only occur once per the matched route.
+	//
+	Router.prototype.insertEx = function(method, path, route, parent) {
+	  if (method === "once") {
+	    method = "on";
+	    route = function(route) {
+	      var once = false;
+	      return function() {
+	        if (once) return;
+	        once = true;
+	        return route.apply(this, arguments);
+	      };
+	    }(route);
+	  }
+	  return this._insert(method, path, route, parent);
+	};
+
+	Router.prototype.getRoute = function (v) {
+	  var ret = v;
+
+	  if (typeof v === "number") {
+	    ret = this.explode()[v];
+	  }
+	  else if (typeof v === "string"){
+	    var h = this.explode();
+	    ret = h.indexOf(v);
+	  }
+	  else {
+	    ret = this.explode();
+	  }
+
+	  return ret;
+	};
+
+	Router.prototype.destroy = function () {
+	  listener.destroy(this.handler);
+	  return this;
+	};
+
+	Router.prototype.getPath = function () {
+	  var path = window.location.pathname;
+	  if (path.substr(0, 1) !== '/') {
+	    path = '/' + path;
+	  }
+	  return path;
+	};
+	function _every(arr, iterator) {
+	  for (var i = 0; i < arr.length; i += 1) {
+	    if (iterator(arr[i], i, arr) === false) {
+	      return;
+	    }
+	  }
+	}
+
+	function _flatten(arr) {
+	  var flat = [];
+	  for (var i = 0, n = arr.length; i < n; i++) {
+	    flat = flat.concat(arr[i]);
+	  }
+	  return flat;
+	}
+
+	function _asyncEverySeries(arr, iterator, callback) {
+	  if (!arr.length) {
+	    return callback();
+	  }
+	  var completed = 0;
+	  (function iterate() {
+	    iterator(arr[completed], function(err) {
+	      if (err || err === false) {
+	        callback(err);
+	        callback = function() {};
+	      } else {
+	        completed += 1;
+	        if (completed === arr.length) {
+	          callback();
+	        } else {
+	          iterate();
+	        }
+	      }
+	    });
+	  })();
+	}
+
+	function paramifyString(str, params, mod) {
+	  mod = str;
+	  for (var param in params) {
+	    if (params.hasOwnProperty(param)) {
+	      mod = params[param](str);
+	      if (mod !== str) {
+	        break;
+	      }
+	    }
+	  }
+	  return mod === str ? "([._a-zA-Z0-9-%()]+)" : mod;
+	}
+
+	function regifyString(str, params) {
+	  var matches, last = 0, out = "";
+	  while (matches = str.substr(last).match(/[^\w\d\- %@&]*\*[^\w\d\- %@&]*/)) {
+	    last = matches.index + matches[0].length;
+	    matches[0] = matches[0].replace(/^\*/, "([_.()!\\ %@&a-zA-Z0-9-]+)");
+	    out += str.substr(0, matches.index) + matches[0];
+	  }
+	  str = out += str.substr(last);
+	  var captures = str.match(/:([^\/]+)/ig), capture, length;
+	  if (captures) {
+	    length = captures.length;
+	    for (var i = 0; i < length; i++) {
+	      capture = captures[i];
+	      if (capture.slice(0, 2) === "::") {
+	        str = capture.slice(1);
+	      } else {
+	        str = str.replace(capture, paramifyString(capture, params));
+	      }
+	    }
+	  }
+	  return str;
+	}
+
+	function terminator(routes, delimiter, start, stop) {
+	  var last = 0, left = 0, right = 0, start = (start || "(").toString(), stop = (stop || ")").toString(), i;
+	  for (i = 0; i < routes.length; i++) {
+	    var chunk = routes[i];
+	    if (chunk.indexOf(start, last) > chunk.indexOf(stop, last) || ~chunk.indexOf(start, last) && !~chunk.indexOf(stop, last) || !~chunk.indexOf(start, last) && ~chunk.indexOf(stop, last)) {
+	      left = chunk.indexOf(start, last);
+	      right = chunk.indexOf(stop, last);
+	      if (~left && !~right || !~left && ~right) {
+	        var tmp = routes.slice(0, (i || 1) + 1).join(delimiter);
+	        routes = [ tmp ].concat(routes.slice((i || 1) + 1));
+	      }
+	      last = (right > left ? right : left) + 1;
+	      i = 0;
+	    } else {
+	      last = 0;
+	    }
+	  }
+	  return routes;
+	}
+
+	var QUERY_SEPARATOR = /\?.*/;
+
+	Router.prototype.configure = function(options) {
+	  options = options || {};
+	  for (var i = 0; i < this.methods.length; i++) {
+	    this._methods[this.methods[i]] = true;
+	  }
+	  this.recurse = options.recurse || this.recurse || false;
+	  this.async = options.async || false;
+	  this.delimiter = options.delimiter || "/";
+	  this.strict = typeof options.strict === "undefined" ? true : options.strict;
+	  this.notfound = options.notfound;
+	  this.resource = options.resource;
+	  this.history = options.html5history && this.historySupport || false;
+	  this.run_in_init = this.history === true && options.run_handler_in_init !== false;
+	  this.convert_hash_in_init = this.history === true && options.convert_hash_in_init !== false;
+	  this.every = {
+	    after: options.after || null,
+	    before: options.before || null,
+	    on: options.on || null
+	  };
+	  return this;
+	};
+
+	Router.prototype.param = function(token, matcher) {
+	  if (token[0] !== ":") {
+	    token = ":" + token;
+	  }
+	  var compiled = new RegExp(token, "g");
+	  this.params[token] = function(str) {
+	    return str.replace(compiled, matcher.source || matcher);
+	  };
+	  return this;
+	};
+
+	Router.prototype.on = Router.prototype.route = function(method, path, route) {
+	  var self = this;
+	  if (!route && typeof path == "function") {
+	    route = path;
+	    path = method;
+	    method = "on";
+	  }
+	  if (Array.isArray(path)) {
+	    return path.forEach(function(p) {
+	      self.on(method, p, route);
+	    });
+	  }
+	  if (path.source) {
+	    path = path.source.replace(/\\\//ig, "/");
+	  }
+	  if (Array.isArray(method)) {
+	    return method.forEach(function(m) {
+	      self.on(m.toLowerCase(), path, route);
+	    });
+	  }
+	  path = path.split(new RegExp(this.delimiter));
+	  path = terminator(path, this.delimiter);
+	  this.insert(method, this.scope.concat(path), route);
+	};
+
+	Router.prototype.path = function(path, routesFn) {
+	  var self = this, length = this.scope.length;
+	  if (path.source) {
+	    path = path.source.replace(/\\\//ig, "/");
+	  }
+	  path = path.split(new RegExp(this.delimiter));
+	  path = terminator(path, this.delimiter);
+	  this.scope = this.scope.concat(path);
+	  routesFn.call(this, this);
+	  this.scope.splice(length, path.length);
+	};
+
+	Router.prototype.dispatch = function(method, path, callback) {
+	  var self = this, fns = this.traverse(method, path.replace(QUERY_SEPARATOR, ""), this.routes, ""), invoked = this._invoked, after;
+	  this._invoked = true;
+	  if (!fns || fns.length === 0) {
+	    this.last = [];
+	    if (typeof this.notfound === "function") {
+	      this.invoke([ this.notfound ], {
+	        method: method,
+	        path: path
+	      }, callback);
+	    }
+	    return false;
+	  }
+	  if (this.recurse === "forward") {
+	    fns = fns.reverse();
+	  }
+	  function updateAndInvoke() {
+	    self.last = fns.after;
+	    self.invoke(self.runlist(fns), self, callback);
+	  }
+	  after = this.every && this.every.after ? [ this.every.after ].concat(this.last) : [ this.last ];
+	  if (after && after.length > 0 && invoked) {
+	    if (this.async) {
+	      this.invoke(after, this, updateAndInvoke);
+	    } else {
+	      this.invoke(after, this);
+	      updateAndInvoke();
+	    }
+	    return true;
+	  }
+	  updateAndInvoke();
+	  return true;
+	};
+
+	Router.prototype.invoke = function(fns, thisArg, callback) {
+	  var self = this;
+	  var apply;
+	  if (this.async) {
+	    apply = function(fn, next) {
+	      if (Array.isArray(fn)) {
+	        return _asyncEverySeries(fn, apply, next);
+	      } else if (typeof fn == "function") {
+	        fn.apply(thisArg, (fns.captures || []).concat(next));
+	      }
+	    };
+	    _asyncEverySeries(fns, apply, function() {
+	      if (callback) {
+	        callback.apply(thisArg, arguments);
+	      }
+	    });
+	  } else {
+	    apply = function(fn) {
+	      if (Array.isArray(fn)) {
+	        return _every(fn, apply);
+	      } else if (typeof fn === "function") {
+	        return fn.apply(thisArg, fns.captures || []);
+	      } else if (typeof fn === "string" && self.resource) {
+	        self.resource[fn].apply(thisArg, fns.captures || []);
+	      }
+	    };
+	    _every(fns, apply);
+	  }
+	};
+
+	Router.prototype.traverse = function(method, path, routes, regexp, filter) {
+	  var fns = [], current, exact, match, next, that;
+	  function filterRoutes(routes) {
+	    if (!filter) {
+	      return routes;
+	    }
+	    function deepCopy(source) {
+	      var result = [];
+	      for (var i = 0; i < source.length; i++) {
+	        result[i] = Array.isArray(source[i]) ? deepCopy(source[i]) : source[i];
+	      }
+	      return result;
+	    }
+	    function applyFilter(fns) {
+	      for (var i = fns.length - 1; i >= 0; i--) {
+	        if (Array.isArray(fns[i])) {
+	          applyFilter(fns[i]);
+	          if (fns[i].length === 0) {
+	            fns.splice(i, 1);
+	          }
+	        } else {
+	          if (!filter(fns[i])) {
+	            fns.splice(i, 1);
+	          }
+	        }
+	      }
+	    }
+	    var newRoutes = deepCopy(routes);
+	    newRoutes.matched = routes.matched;
+	    newRoutes.captures = routes.captures;
+	    newRoutes.after = routes.after.filter(filter);
+	    applyFilter(newRoutes);
+	    return newRoutes;
+	  }
+	  if (path === this.delimiter && routes[method]) {
+	    next = [ [ routes.before, routes[method] ].filter(Boolean) ];
+	    next.after = [ routes.after ].filter(Boolean);
+	    next.matched = true;
+	    next.captures = [];
+	    return filterRoutes(next);
+	  }
+	  for (var r in routes) {
+	    if (routes.hasOwnProperty(r) && (!this._methods[r] || this._methods[r] && typeof routes[r] === "object" && !Array.isArray(routes[r]))) {
+	      current = exact = regexp + this.delimiter + r;
+	      if (!this.strict) {
+	        exact += "[" + this.delimiter + "]?";
+	      }
+	      match = path.match(new RegExp("^" + exact));
+	      if (!match) {
+	        continue;
+	      }
+	      if (match[0] && match[0] == path && routes[r][method]) {
+	        next = [ [ routes[r].before, routes[r][method] ].filter(Boolean) ];
+	        next.after = [ routes[r].after ].filter(Boolean);
+	        next.matched = true;
+	        next.captures = match.slice(1);
+	        if (this.recurse && routes === this.routes) {
+	          next.push([ routes.before, routes.on ].filter(Boolean));
+	          next.after = next.after.concat([ routes.after ].filter(Boolean));
+	        }
+	        return filterRoutes(next);
+	      }
+	      next = this.traverse(method, path, routes[r], current);
+	      if (next.matched) {
+	        if (next.length > 0) {
+	          fns = fns.concat(next);
+	        }
+	        if (this.recurse) {
+	          fns.push([ routes[r].before, routes[r].on ].filter(Boolean));
+	          next.after = next.after.concat([ routes[r].after ].filter(Boolean));
+	          if (routes === this.routes) {
+	            fns.push([ routes["before"], routes["on"] ].filter(Boolean));
+	            next.after = next.after.concat([ routes["after"] ].filter(Boolean));
+	          }
+	        }
+	        fns.matched = true;
+	        fns.captures = next.captures;
+	        fns.after = next.after;
+	        return filterRoutes(fns);
+	      }
+	    }
+	  }
+	  return false;
+	};
+
+	Router.prototype.insert = function(method, path, route, parent) {
+	  var methodType, parentType, isArray, nested, part;
+	  path = path.filter(function(p) {
+	    return p && p.length > 0;
+	  });
+	  parent = parent || this.routes;
+	  part = path.shift();
+	  if (/\:|\*/.test(part) && !/\\d|\\w/.test(part)) {
+	    part = regifyString(part, this.params);
+	  }
+	  if (path.length > 0) {
+	    parent[part] = parent[part] || {};
+	    return this.insert(method, path, route, parent[part]);
+	  }
+	  if (!part && !path.length && parent === this.routes) {
+	    methodType = typeof parent[method];
+	    switch (methodType) {
+	     case "function":
+	      parent[method] = [ parent[method], route ];
+	      return;
+	     case "object":
+	      parent[method].push(route);
+	      return;
+	     case "undefined":
+	      parent[method] = route;
+	      return;
+	    }
+	    return;
+	  }
+	  parentType = typeof parent[part];
+	  isArray = Array.isArray(parent[part]);
+	  if (parent[part] && !isArray && parentType == "object") {
+	    methodType = typeof parent[part][method];
+	    switch (methodType) {
+	     case "function":
+	      parent[part][method] = [ parent[part][method], route ];
+	      return;
+	     case "object":
+	      parent[part][method].push(route);
+	      return;
+	     case "undefined":
+	      parent[part][method] = route;
+	      return;
+	    }
+	  } else if (parentType == "undefined") {
+	    nested = {};
+	    nested[method] = route;
+	    parent[part] = nested;
+	    return;
+	  }
+	  throw new Error("Invalid route context: " + parentType);
+	};
+
+
+
+	Router.prototype.extend = function(methods) {
+	  var self = this, len = methods.length, i;
+	  function extend(method) {
+	    self._methods[method] = true;
+	    self[method] = function() {
+	      var extra = arguments.length === 1 ? [ method, "" ] : [ method ];
+	      self.on.apply(self, extra.concat(Array.prototype.slice.call(arguments)));
+	    };
+	  }
+	  for (i = 0; i < len; i++) {
+	    extend(methods[i]);
+	  }
+	};
+
+	Router.prototype.runlist = function(fns) {
+	  var runlist = this.every && this.every.before ? [ this.every.before ].concat(_flatten(fns)) : _flatten(fns);
+	  if (this.every && this.every.on) {
+	    runlist.push(this.every.on);
+	  }
+	  runlist.captures = fns.captures;
+	  runlist.source = fns.source;
+	  return runlist;
+	};
+
+	Router.prototype.mount = function(routes, path) {
+	  if (!routes || typeof routes !== "object" || Array.isArray(routes)) {
+	    return;
+	  }
+	  var self = this;
+	  path = path || [];
+	  if (!Array.isArray(path)) {
+	    path = path.split(self.delimiter);
+	  }
+	  function insertOrMount(route, local) {
+	    var rename = route, parts = route.split(self.delimiter), routeType = typeof routes[route], isRoute = parts[0] === "" || !self._methods[parts[0]], event = isRoute ? "on" : rename;
+	    if (isRoute) {
+	      rename = rename.slice((rename.match(new RegExp("^" + self.delimiter)) || [ "" ])[0].length);
+	      parts.shift();
+	    }
+	    if (isRoute && routeType === "object" && !Array.isArray(routes[route])) {
+	      local = local.concat(parts);
+	      self.mount(routes[route], local);
+	      return;
+	    }
+	    if (isRoute) {
+	      local = local.concat(rename.split(self.delimiter));
+	      local = terminator(local, self.delimiter);
+	    }
+	    self.insert(event, local, routes[route]);
+	  }
+	  for (var route in routes) {
+	    if (routes.hasOwnProperty(route)) {
+	      insertOrMount(route, path.slice(0));
+	    }
+	  }
+	};
+
+
+
+	}(true ? exports : window));
+
+/***/ },
+/* 19 */,
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -524,8 +5865,7 @@ webpackJsonp([4,17],{
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-
-/***/ 21:
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -2079,5 +7419,4 @@ webpackJsonp([4,17],{
 
 
 /***/ }
-
-});
+]);

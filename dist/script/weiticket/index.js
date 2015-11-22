@@ -17,17 +17,12 @@ webpackJsonp([16,17],[
 	    window.dialogs = dialogs;
 	    //加载 头条电影列表
 	    $.get('/movienews/0', function(data) {
-	        $('.hotmovie').html(data)
+	        var _el = $('.hotmovie').html(data)
 	        //console.log(data);
+	        appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
 	    });
 
-	    //顶部轮播
-	    // var indicator = $('.mui-indicator');
-	    // $(indicator[0]).addClass('mui-active');
-	    // var gallery = mui('.mui-slider');
-	    // gallery.slider({
-	    //     interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
-	    // });
+	    
 	    var _txtbox = $('.txtbox');
 	    document.querySelector('.scrollpic').addEventListener('slide', function(event) {
 	        console.log(event.detail.slideNumber);
@@ -35,6 +30,22 @@ webpackJsonp([16,17],[
 	        _txtbox.addClass('m-hide');
 	        $(_txtbox[_i]).removeClass('m-hide').addClass('m-show');
 	    });
+
+	    function appendThirdAds(el, _index){
+	        var _sections = el.find('section'),
+	            _section = $(_sections[_index]);
+
+	        _section.after($('._thirdads').removeClass('m-hide'));
+	        // var _mui_slider = $('._thirdads').find('._mui-slider');
+	        // $(_mui_slider).removeClass('_mui-slider').addClass('mui-slider');
+	        //顶部轮播
+	        // var indicator = $(_mui_slider);
+	        // $(indicator[0]).addClass('mui-active');
+	        var gallery = mui('_mui-slider');
+	        gallery.slider({
+	            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+	        });
+	    }
 
 	}); //END of jquery documet.ready 
 
@@ -2311,7 +2322,7 @@ webpackJsonp([16,17],[
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	  __webpack_require__(1),
 	  __webpack_require__(3),
-	  __webpack_require__(8)
+	  __webpack_require__(9)
 	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
 	  $, _, Deferred
 	) {
@@ -4302,7 +4313,7 @@ webpackJsonp([16,17],[
 
 	var $ = __webpack_require__(1);
 	var _ = __webpack_require__(3);
-	var Deferred = __webpack_require__(8);
+	var Deferred = __webpack_require__(9);
 
 	$(document).ready(function() {
 		var body = document.body,
@@ -4454,7 +4465,8 @@ webpackJsonp([16,17],[
 
 
 /***/ },
-/* 8 */
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(root){
@@ -4914,7 +4926,6 @@ webpackJsonp([16,17],[
 	})(this);
 
 /***/ },
-/* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */,
