@@ -32,15 +32,14 @@ $(document).ready(function() {
             _section = $(_sections[_index]);
 
         _section.after($('._thirdads').removeClass('m-hide'));
-        // var _mui_slider = $('._thirdads').find('._mui-slider');
-        // $(_mui_slider).removeClass('_mui-slider').addClass('mui-slider');
+        
         //顶部轮播
         // var indicator = $(_mui_slider);
         // $(indicator[0]).addClass('mui-active');
-        var gallery = mui('_mui-slider');
-        gallery.slider({
-            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
-        });
+        // var gallery = mui('_mui-slider');
+        // gallery.slider({
+        //     interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+        // });
     }
 
 }); //END of jquery documet.ready 
