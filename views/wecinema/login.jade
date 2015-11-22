@@ -28,7 +28,7 @@ block prepend body
                         ul.registbox
                             li.flexbox_v_c
                                 label(for="") 手机号
-                                input(type="text",placeholder="请添写注册手机号").flex.biginput
+                                input(type="text",placeholder="请添写注册手机号").flex.biginput#TelBox
                                 a(href="")
                                     i.icon-cancel-circled
                                 a(href="")
@@ -36,10 +36,10 @@ block prepend body
 
                             li.flexbox_v_c
                                 label(for="") 验证码
-                                input(type="number",placeholder="请输入验证码").flex
+                                input(type="number",placeholder="请输入验证码").flex#CodeNumber
                                 input(type="button",value="发送验证码").btn_code
                         div.flexbox
-                            input(type="button",value="登录").btn_regist.flex
+                            input(type="button",value="登录").btn_regist.flex#BtnLogin
                     div.tabbox.hide
                         // 票友会员登录
                         ul.registbox
