@@ -1,4 +1,4 @@
-webpackJsonp([5,17],[
+webpackJsonp([3,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20,7 +20,7 @@ webpackJsonp([5,17],[
 	            // alert(coords.longitude);
 	            $.get('/queryLocation/' + coords.longitude + '/' + coords.latitude, function(render_data){
 	                if(render_data && render_data.location){
-	                    //alert(render_data.location.nameCN);
+	                    alert(render_data.location.nameCN);
 	                }
 	            })
 	            // ajax.get('/GetCityByLongitudelatitude.api?longitude=' + coords.longitude + '&latitude=' + coords.latitude, _.bind(function (city) {
@@ -4296,7 +4296,7 @@ webpackJsonp([5,17],[
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
 	        __webpack_require__(3),
-	        __webpack_require__(14),
+	        __webpack_require__(11),
 	        __webpack_require__(5),
 	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
@@ -4957,10 +4957,7 @@ webpackJsonp([5,17],[
 
 /***/ },
 /* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5140,6 +5137,9 @@ webpackJsonp([5,17],[
 
 
 /***/ },
+/* 12 */,
+/* 13 */,
+/* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,

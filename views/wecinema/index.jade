@@ -70,7 +70,31 @@ block prepend body
                         div.mui-slider-item.mui-slider-item-duplicate
                             a(href="#{_ad_secondList.url}")
                                 img(src="#{_ad_secondList.imageUrl}")
+
+        div.scrollpic1._thirdads.m-hide
+            if(data && data.thirdAds)
+                div._mui-slider.mui-slider
+                    div.mui-slider-group.mui-slider-loop
+                        - var _ad_secondList = data.thirdAds[0];
+                        - var _ad_secondLen = data.thirdAds.length;
+                        - var _ad_secondlastList = data.thirdAds[_ad_secondLen - 1];
+                        div.addimg.mui-slider-item.mui-slider-item-duplicate
+                            h2 
+                                span 
+                            a(href="#").btn_share
+                            a(href="#{_ad_secondlastList.url}")
+                                img(src="#{_ad_secondlastList.imageUrl}")
                             
+                        each secondAd, index in data.thirdAds
+                            div.addimg.mui-slider-item
+                                h2 
+                                    span 
+                                a(href="#").btn_share
+                                a(href="#{secondAd.url}")
+                                    img(src="#{secondAd.imageUrl}")
+                        div.mui-slider-item.mui-slider-item-duplicate
+                            a(href="#{_ad_secondList.url}")
+                                img(src="#{_ad_secondList.imageUrl}")                    
 
         div.hotmovie
             
@@ -100,6 +124,9 @@ block prepend body
 block prepend footer
 
 block prepend script
+    script
+        | var data = !{JSON.stringify(data)};
+        | var thirdIndex = !{data.baseData.thirdIndex};
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
 
