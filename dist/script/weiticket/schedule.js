@@ -1,16 +1,16 @@
-webpackJsonp([10,16],[
+webpackJsonp([13,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
-	        __webpack_require__(5),
-	        __webpack_require__(8),
+	        __webpack_require__(3),
+	        __webpack_require__(9),
 	        __webpack_require__(10),
 	        __webpack_require__(11),
-	        __webpack_require__(2),
 	        __webpack_require__(4),
-	        __webpack_require__(3)
+	        __webpack_require__(2),
+	        __webpack_require__(5)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function(
 	        $,
 	        _,
@@ -528,199 +528,6 @@ webpackJsonp([10,16],[
 
 /***/ },
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	  __webpack_require__(1),
-	  __webpack_require__(5),
-	  __webpack_require__(8)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
-	  $, _, Deferred
-	) {
-
-	  // 参数增加公众号缩写publicsignalshort是因为站点内的所有路由均加了公众号
-	  //keyfn 获取seseion的值
-	  //urifn 获取路由地址
-	  //datafn 返回数据
-	  var initialize = function(keyfn, urifn, datafn) {
-	    return function(id, publicsignalshort) {
-	      var key = keyfn(id);
-	      var defer = new _.Deferred();
-	      var item = sessionStorage.getItem(key);
-	      if (item) {
-	        defer.resolve(JSON.parse(item));
-	        return defer.promise();
-	      } else {
-	        $.get(urifn(id, publicsignalshort), function(data) {
-	          item = datafn(data);
-	          sessionStorage.setItem(key, JSON.stringify(item));
-	          defer.resolve(item);
-	        });
-	      }
-	      return defer.promise();
-	    };
-	  };
-
-	  var movieCache = initialize(function(id) {
-	    return 'movie-' + id;
-	  }, function(id, publicsignalshort) {
-	    return '/' + publicsignalshort + '/movie_info/' + id + '/';
-	  }, function(data) {
-	    return data.data.movie;
-	  });
-
-	  var publicSignalCache = initialize(function(id) {
-	    return 'publicsignal-' + id;
-	  }, function(id) {
-	    return '/' + id + '/public_signal_info/';
-	  }, function(data) {
-	    return data;
-	  });
-
-	  var cinemaCache = initialize(function(id) {
-	    return 'cinema-' + id;
-	  }, function(id, publicsignalshort) {
-	    return '/' + publicsignalshort + '/cinema_info_html/' + id + '/';
-	  }, function(data) {
-	    if (data && data.data) {
-	      return data.data.cinema;
-	    }
-	  });
-
-	  //基本排期信息
-	  var scheduleInfoCache = initialize(function(mpid) {
-	    return 'movieScheduleInfo-' + mpid;
-	  }, function(id, publicsignalshort) {
-	    return '/' + publicsignalshort + '/movieScheduleInfo/' + id;
-	  }, function(data) {
-	    return data.data;
-	  });
-
-	  return {
-	    cinema: cinemaCache,
-	    movie: movieCache,
-	    publicSignal: publicSignalCache,
-	    scheduleInfo: scheduleInfoCache
-	  };
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21)], __WEBPACK_AMD_DEFINE_RESULT__ = function(_) {
-
-	    // var pluses = /\+/g;
-
-	    // function raw(s) {
-	    //     return s;
-	    // }
-
-	    // function decoded(s) {
-	    //     return decodeURIComponent(s.replace(pluses, ' '));
-	    // }
-
-	    // var cookie = function cookie(key, value, options) {
-
-	    //     // write
-	    //     if (value !== undefined) {
-	    //         options = _.extend({}, cookie.defaults, options);
-
-	    //         if (value === null) {
-	    //             options.expires = -1;
-	    //         }
-
-	    //         if (typeof options.expires === 'number') {
-	    //             var days = options.expires,
-	    //                 t = options.expires = new Date();
-	    //             t.setDate(t.getDate() + days);
-	    //         }
-
-	    //         value = cookie.json ? JSON.stringify(value) : String(value);
-
-	    //         return (document.cookie = [
-	    //             encodeURIComponent(key), '=', cookie.raw ? value : encodeURIComponent(value),
-	    //             options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-	    //             options.path ? '; path=' + options.path : '',
-	    //             options.domain ? '; domain=' + options.domain : '',
-	    //             options.secure ? '; secure' : ''
-	    //         ].join(''));
-	    //     }
-
-	    //     // read
-	    //     var decode = cookie.raw ? raw : decoded;
-	    //     var cookies = document.cookie.split('; ');
-	    //     for (var i = 0, l = cookies.length; i < l; i++) {
-	    //         var parts = cookies[i].split('=');
-	    //         if (decode(parts.shift()) === key) {
-	    //             var c = decode(parts.join('='));
-	    //             return cookie.json ? JSON.parse(c) : c;
-	    //         }
-	    //     }
-
-	    //     return null;
-	    // };
-
-	    // cookie.defaults = {};
-
-	    // function removeCookie(key, options) {
-	    //     if (cookie(key) !== null) {
-	    //         cookie(key, null, options);
-	    //         return true;
-	    //     }
-	    //     return false;
-	    // };
-
-	    // cookie.remove = removeCookie;
-
-	    // return cookie;
-
-	    var docCookies = {
-	      getItem: function (sKey) {
-	        if (!sKey) { return null; }
-	        return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
-	      },
-	      setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
-	        if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
-	        var sExpires = "";
-	        if (vEnd) {
-	          switch (vEnd.constructor) {
-	            case Number:
-	              sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
-	              break;
-	            case String:
-	              sExpires = "; expires=" + vEnd;
-	              break;
-	            case Date:
-	              sExpires = "; expires=" + vEnd.toUTCString();
-	              break;
-	          }
-	        }
-	        document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
-	        return true;
-	      },
-	      removeItem: function (sKey, sPath, sDomain) {
-	        if (!this.hasItem(sKey)) { return false; }
-	        document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
-	        return true;
-	      },
-	      hasItem: function (sKey) {
-	        if (!sKey) { return false; }
-	        return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
-	      },
-	      keys: function () {
-	        var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
-	        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
-	        return aKeys;
-	      }
-	    };
-
-	    return docCookies;
-
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*! iScroll v5.0.6 ~ (c) 2008-2013 Matteo Spinelli ~ http://cubiq.org/license */
@@ -2731,7 +2538,7 @@ webpackJsonp([10,16],[
 	})(window, document, Math);
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.2
@@ -2742,13 +2549,207 @@ webpackJsonp([10,16],[
 	//# sourceMappingURL=underscore-min.map
 
 /***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	  __webpack_require__(1),
+	  __webpack_require__(3),
+	  __webpack_require__(9)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
+	  $, _, Deferred
+	) {
+
+	  // 参数增加公众号缩写publicsignalshort是因为站点内的所有路由均加了公众号
+	  //keyfn 获取seseion的值
+	  //urifn 获取路由地址
+	  //datafn 返回数据
+	  var initialize = function(keyfn, urifn, datafn) {
+	    return function(id, publicsignalshort) {
+	      var key = keyfn(id);
+	      var defer = new _.Deferred();
+	      var item = sessionStorage.getItem(key);
+	      if (item) {
+	        defer.resolve(JSON.parse(item));
+	        return defer.promise();
+	      } else {
+	        $.get(urifn(id, publicsignalshort), function(data) {
+	          item = datafn(data);
+	          sessionStorage.setItem(key, JSON.stringify(item));
+	          defer.resolve(item);
+	        });
+	      }
+	      return defer.promise();
+	    };
+	  };
+
+	  var movieCache = initialize(function(id) {
+	    return 'movie-' + id;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/movie_info/' + id + '/';
+	  }, function(data) {
+	    return data.data.movie;
+	  });
+
+	  var publicSignalCache = initialize(function(id) {
+	    return 'publicsignal-' + id;
+	  }, function(id) {
+	    return '/' + id + '/public_signal_info/';
+	  }, function(data) {
+	    return data;
+	  });
+
+	  var cinemaCache = initialize(function(id) {
+	    return 'cinema-' + id;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/cinema_info_html/' + id + '/';
+	  }, function(data) {
+	    if (data && data.data) {
+	      return data.data.cinema;
+	    }
+	  });
+
+	  //基本排期信息
+	  var scheduleInfoCache = initialize(function(mpid) {
+	    return 'movieScheduleInfo-' + mpid;
+	  }, function(id, publicsignalshort) {
+	    return '/' + publicsignalshort + '/movieScheduleInfo/' + id;
+	  }, function(data) {
+	    return data.data;
+	  });
+
+	  return {
+	    cinema: cinemaCache,
+	    movie: movieCache,
+	    publicSignal: publicSignalCache,
+	    scheduleInfo: scheduleInfoCache
+	  };
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(21)], __WEBPACK_AMD_DEFINE_RESULT__ = function(_) {
+
+	    // var pluses = /\+/g;
+
+	    // function raw(s) {
+	    //     return s;
+	    // }
+
+	    // function decoded(s) {
+	    //     return decodeURIComponent(s.replace(pluses, ' '));
+	    // }
+
+	    // var cookie = function cookie(key, value, options) {
+
+	    //     // write
+	    //     if (value !== undefined) {
+	    //         options = _.extend({}, cookie.defaults, options);
+
+	    //         if (value === null) {
+	    //             options.expires = -1;
+	    //         }
+
+	    //         if (typeof options.expires === 'number') {
+	    //             var days = options.expires,
+	    //                 t = options.expires = new Date();
+	    //             t.setDate(t.getDate() + days);
+	    //         }
+
+	    //         value = cookie.json ? JSON.stringify(value) : String(value);
+
+	    //         return (document.cookie = [
+	    //             encodeURIComponent(key), '=', cookie.raw ? value : encodeURIComponent(value),
+	    //             options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+	    //             options.path ? '; path=' + options.path : '',
+	    //             options.domain ? '; domain=' + options.domain : '',
+	    //             options.secure ? '; secure' : ''
+	    //         ].join(''));
+	    //     }
+
+	    //     // read
+	    //     var decode = cookie.raw ? raw : decoded;
+	    //     var cookies = document.cookie.split('; ');
+	    //     for (var i = 0, l = cookies.length; i < l; i++) {
+	    //         var parts = cookies[i].split('=');
+	    //         if (decode(parts.shift()) === key) {
+	    //             var c = decode(parts.join('='));
+	    //             return cookie.json ? JSON.parse(c) : c;
+	    //         }
+	    //     }
+
+	    //     return null;
+	    // };
+
+	    // cookie.defaults = {};
+
+	    // function removeCookie(key, options) {
+	    //     if (cookie(key) !== null) {
+	    //         cookie(key, null, options);
+	    //         return true;
+	    //     }
+	    //     return false;
+	    // };
+
+	    // cookie.remove = removeCookie;
+
+	    // return cookie;
+
+	    var docCookies = {
+	      getItem: function (sKey) {
+	        if (!sKey) { return null; }
+	        return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+	      },
+	      setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+	        if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
+	        var sExpires = "";
+	        if (vEnd) {
+	          switch (vEnd.constructor) {
+	            case Number:
+	              sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
+	              break;
+	            case String:
+	              sExpires = "; expires=" + vEnd;
+	              break;
+	            case Date:
+	              sExpires = "; expires=" + vEnd.toUTCString();
+	              break;
+	          }
+	        }
+	        document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+	        return true;
+	      },
+	      removeItem: function (sKey, sPath, sDomain) {
+	        if (!this.hasItem(sKey)) { return false; }
+	        document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+	        return true;
+	      },
+	      hasItem: function (sKey) {
+	        if (!sKey) { return false; }
+	        return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+	      },
+	      keys: function () {
+	        var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+	        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
+	        return aKeys;
+	      }
+	    };
+
+	    return docCookies;
+
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ },
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(root){
-	  var _ = __webpack_require__(5);
+	  var _ = __webpack_require__(3);
 	  // Let's borrow a couple of things from Underscore that we'll need
 
 	  // _.each
@@ -3204,7 +3205,6 @@ webpackJsonp([10,16],[
 	})(this);
 
 /***/ },
-/* 9 */,
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3216,7 +3216,7 @@ webpackJsonp([10,16],[
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	    __webpack_require__(1),
-	    __webpack_require__(5)
+	    __webpack_require__(3)
 	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
 	    $,
 	    _
@@ -3243,7 +3243,7 @@ webpackJsonp([10,16],[
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	    __webpack_require__(1),
-	    __webpack_require__(5)
+	    __webpack_require__(3)
 	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
 	    $,
 	    _
