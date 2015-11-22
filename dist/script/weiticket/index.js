@@ -25,7 +25,7 @@ webpackJsonp([16,17],[
 	    
 	    var _txtbox = $('.txtbox');
 	    document.querySelector('.scrollpic').addEventListener('slide', function(event) {
-	        console.log(event.detail.slideNumber);
+	        // console.log(event.detail.slideNumber);
 	        var _i = event.detail.slideNumber;
 	        _txtbox.addClass('m-hide');
 	        $(_txtbox[_i]).removeClass('m-hide').addClass('m-show');
