@@ -30,7 +30,7 @@
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
-/******/ 		16:0
+/******/ 		17:0
 /******/ 	};
 
 /******/ 	// The require function
@@ -75,7 +75,7 @@
 /******/ 			script.type = 'text/javascript';
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"event","1":"cinema_list","2":"setcookie","3":"filmlist","4":"ticket","5":"result","6":"mycards","7":"bindingcard","8":"checkbincard","9":"myecoupons","10":"schedule","11":"payment","12":"room","13":"mine","14":"index","15":"choose_cinema"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"event","1":"cinema_list","2":"choose_cinema","3":"setcookie","4":"filmlist","5":"ticket","6":"mine","7":"result","8":"mycards","9":"bindingcard","10":"checkbincard","11":"myecoupons","12":"payment","13":"schedule","14":"login","15":"room","16":"index"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
