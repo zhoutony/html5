@@ -127,7 +127,7 @@ global.logger 			= require("./log").logger("server");
 
 //git版本
 <<<<<<< HEAD
-global.reversion = "2cc61f0";
+global.reversion = "4e30e9a";
 =======
 global.reversion = "18fc606";
 >>>>>>> 239c5499ca620f4c578cf8e28870f61fec39d46d

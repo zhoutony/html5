@@ -8,6 +8,7 @@ var minify = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 
 function compile() {
+	console.log(minify)
     gulp.src(config.dist.css + '/*.css')
         .pipe(minify())
         .pipe(gulp.dest(config.dist.css));
