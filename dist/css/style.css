@@ -225,7 +225,7 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .arrow { font-size: 2rem; margin-top: -3rem; }
 .movielist .toolmid { width: auto; }
 /**film**/
- .fmaddimg{height:auto;}
+ .fmaddimg ,.fmaddimg img{height:12.29rem!important;}
 .closetit { display: none; background: #00968e; color: #fff; }
 .closetit h2 { text-align: center; height: 2rem; font-size: 1.4rem; line-height: 2rem; }
 .closetit .close { position: absolute; left: 0; top: 0; width: 4rem; height: 2rem; text-align: center; color: #fff; line-height: 2rem; font-size: 1.3rem; }

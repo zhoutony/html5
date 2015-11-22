@@ -1,4 +1,4 @@
-webpackJsonp([16,17],[
+webpackJsonp([12,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,7 +10,7 @@ webpackJsonp([16,17],[
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
 
-	var dialogs = __webpack_require__(7);
+	var dialogs = __webpack_require__(8);
 
 	/* jshint ignore:end */
 	$(document).ready(function() {
@@ -25,7 +25,7 @@ webpackJsonp([16,17],[
 	    
 	    var _txtbox = $('.txtbox');
 	    document.querySelector('.scrollpic').addEventListener('slide', function(event) {
-	        console.log(event.detail.slideNumber);
+	        // console.log(event.detail.slideNumber);
 	        var _i = event.detail.slideNumber;
 	        _txtbox.addClass('m-hide');
 	        $(_txtbox[_i]).removeClass('m-hide').addClass('m-show');
@@ -4295,7 +4295,8 @@ webpackJsonp([16,17],[
 
 
 /***/ },
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -4464,7 +4465,6 @@ webpackJsonp([16,17],[
 
 
 /***/ },
-/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 

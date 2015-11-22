@@ -1,4 +1,4 @@
-webpackJsonp([3,17],[
+webpackJsonp([4,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -9,7 +9,7 @@ webpackJsonp([3,17],[
 	var cache = __webpack_require__(4);
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
-	var widgets = __webpack_require__(8);
+	var widgets = __webpack_require__(7);
 
 	/* jshint ignore:end */
 	$(document).ready(function() {
@@ -4298,8 +4298,7 @@ webpackJsonp([3,17],[
 
 
 /***/ },
-/* 7 */,
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -4508,6 +4507,7 @@ webpackJsonp([3,17],[
 	;
 
 /***/ },
+/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 

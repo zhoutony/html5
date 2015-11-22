@@ -1,4 +1,4 @@
-webpackJsonp([12,17],[
+webpackJsonp([14,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,7 +10,7 @@ webpackJsonp([12,17],[
 	var iScroll = __webpack_require__(2);
 	var cookie = __webpack_require__(5);
 	var EcouponPayMent = __webpack_require__(17);
-	var widgets = __webpack_require__(8);
+	var widgets = __webpack_require__(7);
 	/* jshint ignore:end */
 
 	$(document).ready(function () {
@@ -3169,8 +3169,7 @@ webpackJsonp([12,17],[
 
 /***/ },
 /* 6 */,
-/* 7 */,
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -3379,6 +3378,7 @@ webpackJsonp([12,17],[
 	;
 
 /***/ },
+/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
