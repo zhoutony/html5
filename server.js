@@ -126,7 +126,7 @@ global.app				= express();
 global.logger 			= require("./log").logger("server");
 
 //git版本
-global.reversion = "a0da7f8";
+global.reversion = "de40b81";
 
 global.staticBase = "";//http://smart-static.wepiao.com/";
 

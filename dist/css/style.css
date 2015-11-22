@@ -234,14 +234,14 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .filminfo h2 { font-size: 1.1rem; color: #333; line-height: 1.8; }
 .filminfo p { font-size: 0.9rem; }
 .filminfo .btnbar { position: inherit; }
-.filmscroll { overflow: hidden; padding: 1rem 0 0; }
+.filmscroll { overflow: hidden; padding: 0.5rem 0 0; }
 .filmscroll ul { width: 1200px; }
 .filmscroll li { width: 6rem; height: 8.75rem; margin-left: 1rem; position: relative; text-align: center; }
 .filmscroll li .icon-up-micro { display: none; font-size: 1.6rem; color: #00968d; }
 .filmscroll li:after { content: ''; display: none; border: 2px solid #00968d; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
 .filmscroll li img { border: 1px solid #b3aba8; }
 .filmscroll li.curr:after, .filmscroll li.curr .icon-up-micro { display: block; }
-.filmtxt { padding: 1rem 1rem 0.5rem; font-size: 1.4rem; }
+.filmtxt { padding: 1rem 1rem 0.5rem; font-size: 1.1rem; }
 .filmtxt .filmbtn { color: #00968d; }
 .tabstime { position: relative; }
 .tabstime:before, .tabstime:after { position: absolute; left: 0; content: ''; width: 100%; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
@@ -249,7 +249,7 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .tabstime:after { bottom: 0; }
 .tabstime li { padding: 1rem 0 1rem 1rem; }
 .filmlist .tabstime li:after { display: none; }
-.tabstime li span { font-size: 1.2rem; padding: 0.2rem 0.4rem; display: inlne-block; vertical-align: middle; background: #fff; }
+.tabstime li span { font-size: 1.1rem; padding: 0.2rem 0.4rem; display: inlne-block; vertical-align: middle; background: #fff; }
 .tabstime li.curr span { background: #00968e; color: #FFF; }
 .timebox li { position: relative; padding: 1rem 0; }
 .timebox li:after { content: ''; display: block; height: 1px; overflow: hidden; background: #d8d8d8; position: absolute; bottom: 0; left: 0; right: 0; -webkit-transform: scaleY(.6); transform: scaleY(.6); }
@@ -609,3 +609,6 @@ color:#fff;
 .city-list h3 + ul.area-list li { float: none; width: 100%; border-bottom: 1px solid #f3f3f3; }
 .city-list h3 + ul.area-list li span { display: inline-block; width: 3rem; text-align: left; padding-left: 1rem; border: none; }
 .city-list h3 + ul.area-list li mark { font-size: 1rem; color: #9d9d9d; margin-left: 10px; }
+
+.registbox input.eorrinput{background:red;}
+.regist .onbox{background:red;}
