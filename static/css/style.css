@@ -424,7 +424,7 @@ body { }
 .citybox .citylist dt.hot { color: #000; position: inherit; }
 .citybox .citylist li { height: 3.2rem; line-height: 3.2rem; font-size: 1.2rem; color: #898989; position: relative; }
 .citybox .citylist li a { display: block; padding: 0 2.5rem; color: #898989; }
-.citybox .citylist li:after { content: ''; display: block; height: 1px; overflow: hidden; background: #d8d8d8; position: absolute; bottom: 0; left: 0; right: 0; -webkit-transform: scaleY(.6); transform: scaleY(.6); }
+.citybox .citylist li:after { content: ''; display: block; height: 1px; overflow: hidden; background: #f3f3f3; position: absolute; bottom: 0; left: 0; right: 0; -webkit-transform: scaleY(.6); transform: scaleY(.6); }
 .citybox .citylist li:last-child:after { display: none; }
 .citytool { background: rgba(0,150,141,.6); position: fixed; top: 1rem; bottom: 1.5rem; right: 2rem; border-radius: 10rem; padding: 0.5rem 0; }
 .citytool li { width: 1.4rem; text-align: center; font-size: 0.6rem; color: #fff; padding: 0.45rem 0; }
@@ -604,5 +604,69 @@ body { }
 .vipcard .cardmid  .piaoyou{background:  url(../images/vipcardico.png) no-repeat left center;background-size:auto 100%;margin-left:2rem;}
 .vipcard .cardmid  .piaoyou .cardlay:after{display:none;}
 .vipcard .cardmid  .piaoyou .cardend{border:none;}
+/**城市列表**/
+.city-list {padding:1rem 0;}
+.city-list h3 {
+    position: relative;
+    margin: -1px 0 0 0;
+    padding: 0 1rem;
+    font-weight: normal;
+    color: #00948D;
+    height: 2rem;
+    line-height: 2rem;
+    background: #f2f2f2;
+    font-size:1.1rem;
+    margin:0 1rem;
+}
+
+.city-list h3 + ul {
+    overflow: hidden;
+    height: auto;
+    margin:0 1rem;
+}
+
+.city-list h3 + ul li {
+    float: left;
+    width: 25%;
+    color:#333;
+    font-size:1rem;
+}
+
+.city-list h3 + ul li span {
+    display: block;
+    height:3.3rem;
+    line-height: 3.3rem;
+     
+    border-bottom: 1px solid #f3f3f3;
+    text-align: center;
+}
+
+.city-list h3 + ul li span.no-bottom {
+    border-bottom: none;
+}
+
+.city-list h3 + ul li.current {
+    color: #0779f9;
+}
+
+.city-list h3 + ul.area-list li {
+    float: none;
+    width: 100%;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.city-list h3 + ul.area-list li span {
+    display: inline-block;
+    width: 3rem;
+    text-align: left;
+    padding-left: 1rem;
+    border: none;
+}
+
+.city-list h3 + ul.area-list li mark {
+    font-size: 1rem;
+    color: #9d9d9d;
+    margin-left: 10px;
+}
  
  
