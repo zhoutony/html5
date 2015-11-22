@@ -272,22 +272,22 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .orderbox li.new { color: #fff; background: #00968d url(../images/orderbox01.png) no-repeat bottom left; background-size: auto 0.75rem; position: relative; }
 .orderbox li.new:after { background: #ea5513; position: absolute; right: 0; top: 0; content: ''; display: block; width: 2rem; height: 2rem; z-index: 0; }
 .orderbox li.new strong { color: #ea5513; z-index: 1 }
-.paybox { padding: 0.6rem 2.5rem 1.5rem; }
+.paybox { padding: 0.6rem 2rem 1.5rem; }
 .paybox h2 { font-size: 1.4rem; line-height: 1.4; }
 .paybox p { color: #707070; font-size: 1rem; line-height: 1.4; }
-.paybox .btnbox a { display: block; background: #00968d; color: #fff; width: 6.5rem; height: 2rem; line-height: 2rem; font-size: 1.2rem; border-radius: 4rem; text-align: center; }
-.paylist li { padding: 1rem 2.5rem; position: relative; }
+.paybox .btnbox a { display: block; background: #00968d; color: #fff; width: 6.5rem; height: 2rem; line-height: 2rem; font-size: 1.1rem; border-radius: 4rem; text-align: center; }
+.paylist li { padding: 1rem 2rem; position: relative; }
 .paylist li:after { content: ''; display: block; height: 1px; overflow: hidden; background: #d8d8d8; position: absolute; top: 0; left: 0; right: 0; -webkit-transform: scaleY(.6); transform: scaleY(.6); }
-.paylist li.txtflex { padding: 0.5rem 2.5rem; border-top: 1px dotted #d8d8d8; border-bottom: 1px dotted #d8d8d8; }
-.paylist li.redbox { padding-left: 1rem; padding-right: 1rem; }
-.paylist li.telbox { padding-left: 0rem; padding-right: 0rem; }
+.paylist li.txtflex { padding: 1rem 2rem 0;  border-top: 1px dotted #d8d8d8;  }
+.paylist li.redbox { padding-left: 0rem; padding-bottom:0;padding-right: 0rem; }
+.paylist li.telbox { padding-left: 0rem;padding-top:0; padding-right: 0rem; }
 .paylist li.txtflex:after, .paylist li.redbox:after { display: none; }
 .paylist li .priceaside { margin: -0.5rem 0; font-size: 2rem; line-height: 1.2; color: #f69601; }
-.paylist li .paymid { padding: 0.3rem 1rem; border: 1px dotted #bababa; border-radius: 3rem; font-size: 1.4rem; color: #00968d; }
-.paylist .main { font-size: 0.9rem; color: #707070; }
-.paylist li .paymid:last-child { margin-top: 1rem; }
+.paylist li .paymid { padding: 1.25rem 2rem;border-top: 1px dotted #bababa;   font-size: 1.1rem; color: #00968d; }
+.paylist .main { font-size: 1rem; color: #b3b3b3; }
+.paylist li .paymid:last-child {   }
 .paylist li .paymid .notlink { color: #c8c8c8; }
-.payinfo, .payend { padding: 1rem 2.5rem; font-size: 1.2rem; }
+.payinfo, .payend { padding: 0.5rem 2rem; font-size: 1.1rem; }
 .payinfo label, .payinfo input { display: block; }
 .payinfo label { margin-right: 1rem; }
 .payinfo input { border: none; font-size: 1.2rem; padding: 0.5rem 0.3rem; }
@@ -297,13 +297,13 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .payend { border-top: 1px dotted #bababa; }
 .payend .payprice { text-align: right; }
 .payend .payprice b { color: #e60115; font-weight: normal; font-size: 1.8rem; line-height: 1.4; }
-.payend .payprice p { font-size: 1.2rem; color: #727272; }
+.payend .payprice p { font-size: 1rem; color: #727272; }
 .payinfo label, .payend .flex { color: #00968d; font-size: 1.2rem; }
-.paytool p { text-align: center; font-size: 1.2rem; color: #c62c2a; padding: 0 0 1rem 0; }
+.paytool p { text-align: center; font-size: 1rem; color: #c62c2a; padding: 0 0 1rem 0; }
 .paytool p i:last-child { margin-left: 2rem; }
 .payend { position: relative; }
 .payend:after { content: ''; display: block; height: 1px; overflow: hidden; background: #d8d8d8; position: absolute; bottom: 0; left: 0; right: 0; -webkit-transform: scaleY(.6); transform: scaleY(.6); }
-.paytool { padding: 1rem 3.5rem; }
+.paytool { padding: 0rem 3rem 1rem; }
 .paytool li { margin-bottom: 0.3rem; }
 .paytool li a { display: block; color: #fff; text-align: center; background: #00968d; height: 3rem; line-height: 3rem; font-size: 1.4rem; display: block; }
 .paytool li:last-child { margin-top: 1.5rem; }
