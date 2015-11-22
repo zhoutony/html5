@@ -16,7 +16,7 @@ $(document).ready(function() {
             alert(coords.longitude);
             $.get('/queryLocation/' + coords.longitude + '/' + coords.latitude, function(render_data){
                 if(render_data && render_data.location){
-                    //alert(render_data.location.nameCN);
+                    alert(render_data.location.nameCN);
                 }
             })
             // ajax.get('/GetCityByLongitudelatitude.api?longitude=' + coords.longitude + '&latitude=' + coords.latitude, _.bind(function (city) {
