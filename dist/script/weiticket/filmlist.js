@@ -13,6 +13,18 @@ webpackJsonp([3,17],[
 
 	/* jshint ignore:end */
 	$(document).ready(function() {
+	    $.get('/get/queryadvertisements', function(adsHtml){
+	        var _addimg = $('.addimg').html(adsHtml);
+
+
+	        //顶部轮播
+	        var indicator = $('.mui-slider');
+	        $(indicator[0]).addClass('mui-active');
+	        var gallery = mui('.mui-slider');
+	        gallery.slider({
+	            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
+	        });
+	    })
 	    //定位城市
 	    function getCurrentPosition () {
 	        //this.$currentCity.html('正在定位...');
