@@ -622,8 +622,9 @@ color:#fff;
 
 /**分享弹出**/
 .sharepop{ position:fixed;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,.8)}
-.sharebtn a{display:block;font-size:1.1rem;color:#fff;height:2rem;line-height:2rem;text-align:center;background:#00948D;}
-.sharecon{background:#fff;padding:2.2rem;}
+ 
+.sharebtn a{display:block;font-size:1.1rem;color:#fff;height:3rem;line-height:3rem;text-align:center;background:#00948D;}
+.sharecon{background:#fff;padding:2.2rem 1.6rem;}
 .sharecon li{padding:1.5rem 0; position:relative;}
 .sharecon li a{display:inline-block; vertical-align:middle;overflow:hidden;width:5.5rem;height:5.5rem;margin-left:1.5rem ;}
 .sharecon li:after{position: absolute; bottom: 0; left: 0; content: ''; width: 100%; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
@@ -644,3 +645,22 @@ color:#fff;
 .imgtxt  li p span{margin-right:0.5rem;font-size:0.5rem;display:inline-block; vertical-align:middle;}
 .imgtxt  li p .ico_edit_top{width:1.8rem;height:0.8rem;line-height:0.8rem;}
 .imgtxt  li img{width: 9.8rem;}
+/**skippop**/
+.skippop{position:fixed;top:0;left:0;bottom:0;right:0;background:rgba(255,255,255,.6)}
+.skipbtn{height:3rem;line-height:3.4rem;text-align:center;background:rgba(0,148,141,.6);}
+.skipbtn i{font-size:1.6rem;color:#fff;}
+.skipcont header,
+.skipcont h2{text-align:center;line-height:1;}
+.skipcont header{font-size:3.8rem;padding:9rem 0 3rem  ;color:#00948D;}
+.skipcont h2{font-size:3rem;color:#888;margin-bottom:4rem;}
+.skipcont ul{ }
+.skipcont li{margin:0 1.5rem; }
+.skipcont li a{display:block;margin:auto;}
+.skipcont li i{display:block;width:7rem;height:7rem; }
+.skipcont li p{text-align:center;color:#9E9E9F;font-size:0.9rem;line-height:2.4;}
+.skipcont li .skip01{background:url(../images/skip01.png) no-repeat center center;background-size:cover;}
+.skipcont li .skip02{background:url(../images/skip02.png) no-repeat center center;background-size:cover;}
+.skipcont li .skip03{background:url(../images/skip03.png) no-repeat center center;background-size:cover;}
+.skipcont li .skip04{background:url(../images/skip04.png) no-repeat center center;background-size:cover;}
+.skipcont li .skip05{background:url(../images/skip05.png) no-repeat center center;background-size:cover;}
+.skipcont li .skip06{background:url(../images/skip06.png) no-repeat center center;background-size:cover;}
