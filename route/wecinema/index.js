@@ -64,6 +64,11 @@ require('./pages/login');
 //city
 require('./pages/city');
 
+//skippop
+require('./pages/skippop');
+
+//sharepop
+require('./pages/sharepop');
 
 
 

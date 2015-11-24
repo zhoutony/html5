@@ -1,166 +1,33 @@
-[2015-11-22 15:12:58.135] [INFO] console - Listening on port 80
-[2015-11-22 15:13:02.987] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 875 ms
-[2015-11-22 15:13:02.988] [INFO] console - true
-[2015-11-22 15:13:02.989] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:13:02.989] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:13:02.989] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:13:02.989] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '77c77180-90e8-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:13:02.991] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 15:13:04.287] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 776 ms
-[2015-11-22 15:13:04.288] [INFO] console - true
-[2015-11-22 15:13:04.288] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:13:04.288] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:13:04.288] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:13:04.288] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '789dd450-90e8-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:13:04.289] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 15:13:09.556] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 1449 ms
-[2015-11-22 15:13:09.557] [INFO] console - true
-[2015-11-22 15:13:09.557] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:13:09.557] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:13:09.557] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:13:09.557] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
+[2015-11-23 22:43:10.730] [ERROR] console - Error caught in uncaughtException event: { [Error: listen EACCES 0.0.0.0:80]
+  code: 'EACCES',
+  errno: 'EACCES',
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 80 }
+Error: listen EACCES 0.0.0.0:80
+    at Object.exports._errnoException (util.js:874:11)
+    at exports._exceptionWithHostPort (util.js:897:20)
+    at Server._listen2 (net.js:1221:19)
+    at listen (net.js:1270:10)
+    at Server.listen (net.js:1366:5)
+    at EventEmitter.app.listen (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:595:24)
+    at Object.<anonymous> (/Users/mapollo06/Documents/movikr-work/html5/dev.js:52:18)
+    at Module._compile (module.js:435:26)
+    at Object.Module._extensions..js (module.js:442:10)
+    at Module.load (module.js:356:32)
+[2015-11-23 22:45:24.491] [INFO] console - Listening on port 80
+[2015-11-23 22:45:30.778] [INFO] console - Mapollo06deMacBook-Pro.local:1615 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 248 ms
+[2015-11-23 22:45:30.779] [INFO] console - true
+[2015-11-23 22:45:30.779] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 I am in first level if....
+[2015-11-23 22:45:30.780] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 ====get res from module  model.js=====
+[2015-11-23 22:45:30.780] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 it's request....
+[2015-11-23 22:45:30.781] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { time: true,
   timeout: 20000,
   uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
   json: false,
   formData: { type: '1,2,3' },
-  req_id: '7b5b1f90-90e8-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:13:09.558] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { advertisements: 
+  req_id: 'd7e8b980-91f0-11e5-bfc0-39fbc5577429' }
+[2015-11-23 22:45:30.783] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { advertisements: 
    [ { advertisementID: 0,
        advertisementName: '首页广告',
        advertisementType: 1,
@@ -267,18 +134,18 @@
        movieID: 0,
        movie: null } ],
   thirdIndex: 2 }
-[2015-11-22 15:13:10.444] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 487 ms
-[2015-11-22 15:13:10.444] [INFO] console - true
-[2015-11-22 15:13:10.444] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:13:10.444] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:13:10.445] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:13:10.445] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
+[2015-11-23 22:45:31.548] [INFO] console - Mapollo06deMacBook-Pro.local:1615 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 53 ms
+[2015-11-23 22:45:31.549] [INFO] console - true
+[2015-11-23 22:45:31.549] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 I am in first level if....
+[2015-11-23 22:45:31.549] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 ====get res from module  model.js=====
+[2015-11-23 22:45:31.549] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 it's request....
+[2015-11-23 22:45:31.549] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { time: true,
   timeout: 20000,
   uri: 'http://weiticket.com:8088/queryTopLineMovieNews.aspx',
   json: false,
   formData: { type: '-1', pageIndex: '0', pageSize: 5 },
-  req_id: '7c754220-90e8-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:13:10.445] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { movieNews: 
+  req_id: 'd87c9510-91f0-11e5-bfc0-39fbc5577429' }
+[2015-11-23 22:45:31.550] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { movieNews: 
    [ { movieNewID: 1,
        title: '票友推荐|这10部全程无尿点的高分暴力电影0',
        image1: 'http://p2.pstatp.com/list/8829/1537147500',
@@ -286,7 +153,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: true,
        readCount: 12121,
-       publishtime: '2015-11-22 15:11:50',
+       publishtime: '2015-11-23 22:44:10',
        weMediaName: '电影票有友' },
      { movieNewID: 2,
        title: '票友推荐|这10部全程无尿点的高分暴力电影1',
@@ -295,7 +162,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12122,
-       publishtime: '2015-11-22 15:11:50',
+       publishtime: '2015-11-23 22:44:10',
        weMediaName: '电影票有友' },
      { movieNewID: 3,
        title: '票友推荐|这10部全程无尿点的高分暴力电影2',
@@ -304,7 +171,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12123,
-       publishtime: '2015-11-22 15:11:50',
+       publishtime: '2015-11-23 22:44:10',
        weMediaName: '电影票有友' },
      { movieNewID: 4,
        title: '票友推荐|这10部全程无尿点的高分暴力电影3',
@@ -313,7 +180,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12124,
-       publishtime: '2015-11-22 15:11:50',
+       publishtime: '2015-11-23 22:44:10',
        weMediaName: '电影票有友' },
      { movieNewID: 5,
        title: '票友推荐|这10部全程无尿点的高分暴力电影4',
@@ -322,170 +189,20 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12125,
-       publishtime: '2015-11-22 15:11:50',
+       publishtime: '2015-11-23 22:44:10',
        weMediaName: '电影票有友' } ] }
-[2015-11-22 15:13:23.984] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 43 ms
-[2015-11-22 15:13:23.985] [INFO] console - true
-[2015-11-22 15:13:23.985] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:13:23.985] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:13:23.985] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:13:23.986] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '84cb0c20-90e8-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:13:23.986] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 15:13:24.597] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 290 ms
-[2015-11-22 15:13:24.597] [INFO] console - true
-[2015-11-22 15:13:24.597] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:13:24.597] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:13:24.597] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:13:24.598] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '8502e500-90e8-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:13:24.598] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 15:17:50.129] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 86 ms
-[2015-11-22 15:17:50.130] [INFO] console - true
-[2015-11-22 15:17:50.130] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:17:50.130] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:17:50.131] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:17:50.131] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
+[2015-11-23 22:45:36.623] [INFO] console - Mapollo06deMacBook-Pro.local:1615 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 30 ms
+[2015-11-23 22:45:36.623] [INFO] console - true
+[2015-11-23 22:45:36.623] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 I am in first level if....
+[2015-11-23 22:45:36.623] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 ====get res from module  model.js=====
+[2015-11-23 22:45:36.624] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 it's request....
+[2015-11-23 22:45:36.624] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { time: true,
   timeout: 20000,
   uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
   json: false,
   formData: { type: '1,2,3' },
-  req_id: '23674ba0-90e9-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:17:50.131] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { advertisements: 
+  req_id: 'db8652a0-91f0-11e5-bfc0-39fbc5577429' }
+[2015-11-23 22:45:36.625] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { advertisements: 
    [ { advertisementID: 0,
        advertisementName: '首页广告',
        advertisementType: 1,
@@ -592,18 +309,18 @@
        movieID: 0,
        movie: null } ],
   thirdIndex: 2 }
-[2015-11-22 15:17:50.644] [INFO] console - cdmatomdeMacBook-Pro.local:1771 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 125 ms
-[2015-11-22 15:17:50.644] [INFO] console - true
-[2015-11-22 15:17:50.645] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 I am in first level if....
-[2015-11-22 15:17:50.646] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 ====get res from module  model.js=====
-[2015-11-22 15:17:50.646] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 it's request....
-[2015-11-22 15:17:50.646] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { time: true,
+[2015-11-23 22:45:37.067] [INFO] console - Mapollo06deMacBook-Pro.local:1615 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 30 ms
+[2015-11-23 22:45:37.068] [INFO] console - true
+[2015-11-23 22:45:37.068] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 I am in first level if....
+[2015-11-23 22:45:37.068] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 ====get res from module  model.js=====
+[2015-11-23 22:45:37.068] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 it's request....
+[2015-11-23 22:45:37.069] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { time: true,
   timeout: 20000,
   uri: 'http://weiticket.com:8088/queryTopLineMovieNews.aspx',
   json: false,
   formData: { type: '-1', pageIndex: '0', pageSize: 5 },
-  req_id: '23afed60-90e9-11e5-b1dd-bbf9fe330f26' }
-[2015-11-22 15:17:50.646] [DEBUG] console - cdmatomdeMacBook-Pro.local:1771 { movieNews: 
+  req_id: 'dbca3970-91f0-11e5-bfc0-39fbc5577429' }
+[2015-11-23 22:45:37.069] [DEBUG] console - Mapollo06deMacBook-Pro.local:1615 { movieNews: 
    [ { movieNewID: 1,
        title: '票友推荐|这10部全程无尿点的高分暴力电影0',
        image1: 'http://p2.pstatp.com/list/8829/1537147500',
@@ -611,7 +328,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: true,
        readCount: 12121,
-       publishtime: '2015-11-22 15:16:30',
+       publishtime: '2015-11-23 22:44:15',
        weMediaName: '电影票有友' },
      { movieNewID: 2,
        title: '票友推荐|这10部全程无尿点的高分暴力电影1',
@@ -620,7 +337,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12122,
-       publishtime: '2015-11-22 15:16:30',
+       publishtime: '2015-11-23 22:44:15',
        weMediaName: '电影票有友' },
      { movieNewID: 3,
        title: '票友推荐|这10部全程无尿点的高分暴力电影2',
@@ -629,7 +346,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12123,
-       publishtime: '2015-11-22 15:16:30',
+       publishtime: '2015-11-23 22:44:15',
        weMediaName: '电影票有友' },
      { movieNewID: 4,
        title: '票友推荐|这10部全程无尿点的高分暴力电影3',
@@ -638,7 +355,7 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12124,
-       publishtime: '2015-11-22 15:16:30',
+       publishtime: '2015-11-23 22:44:15',
        weMediaName: '电影票有友' },
      { movieNewID: 5,
        title: '票友推荐|这10部全程无尿点的高分暴力电影4',
@@ -647,2674 +364,371 @@
        image3: 'http://p3.pstatp.com/list/8831/870283997',
        isTop: false,
        readCount: 12125,
-       publishtime: '2015-11-22 15:16:30',
+       publishtime: '2015-11-23 22:44:15',
        weMediaName: '电影票有友' } ] }
-[2015-11-22 16:21:05.280] [INFO] console - Listening on port 80
-[2015-11-22 16:21:07.902] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 365 ms
-[2015-11-22 16:21:07.903] [INFO] console - true
-[2015-11-22 16:21:07.904] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:21:07.904] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:21:07.905] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:21:07.905] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: 'fae13750-90f1-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:21:07.907] [DEBUG] console - bogon:5054 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 16:21:08.517] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 34 ms
-[2015-11-22 16:21:08.518] [INFO] console - true
-[2015-11-22 16:21:08.519] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:21:08.519] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:21:08.519] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:21:08.519] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: 'fb72c8f0-90f1-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:21:08.520] [DEBUG] console - bogon:5054 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:22:46.018] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 28 ms
-[2015-11-22 16:22:46.018] [INFO] console - true
-[2015-11-22 16:22:46.018] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:22:46.018] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:22:46.019] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:22:46.019] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '35912c20-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:22:46.020] [DEBUG] console - bogon:5054 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 16:22:46.447] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 31 ms
-[2015-11-22 16:22:46.448] [INFO] console - true
-[2015-11-22 16:22:46.448] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:22:46.448] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:22:46.448] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:22:46.449] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '35d0f440-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:22:46.449] [DEBUG] console - bogon:5054 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:22:48.514] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 107 ms
-[2015-11-22 16:22:48.516] [INFO] console - true
-[2015-11-22 16:22:48.516] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:22:48.516] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:22:48.517] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:22:48.517] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '37024850-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:22:48.517] [DEBUG] console - bogon:5054 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 16:22:49.123] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 407 ms
-[2015-11-22 16:22:49.123] [INFO] console - true
-[2015-11-22 16:22:49.124] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:22:49.124] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:22:49.124] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:22:49.124] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '37314790-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:22:49.125] [DEBUG] console - bogon:5054 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:22:49.811] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 133 ms
-[2015-11-22 16:22:49.811] [INFO] console - true
-[2015-11-22 16:22:49.812] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:22:49.812] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:22:49.812] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:22:49.812] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '37c438c0-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:22:49.812] [DEBUG] console - bogon:5054 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 16:22:50.026] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 26 ms
-[2015-11-22 16:22:50.027] [INFO] console - true
-[2015-11-22 16:22:50.027] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:22:50.027] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:22:50.027] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:22:50.029] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '37f55ae0-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:22:50.029] [DEBUG] console - bogon:5054 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:23:17.989] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 80 ms
-[2015-11-22 16:23:17.989] [INFO] console - true
-[2015-11-22 16:23:17.990] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:23:17.990] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:23:17.990] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:23:17.991] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '48981540-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:23:17.993] [DEBUG] console - bogon:5054 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 16:23:18.266] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 53 ms
-[2015-11-22 16:23:18.267] [INFO] console - true
-[2015-11-22 16:23:18.269] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:23:18.269] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:23:18.269] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:23:18.269] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '48c65130-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:23:18.272] [DEBUG] console - bogon:5054 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:23:49.205] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 36 ms
-[2015-11-22 16:23:49.206] [INFO] console - true
-[2015-11-22 16:23:49.206] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:23:49.206] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:23:49.206] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:23:49.206] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '5b39fb00-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:23:49.210] [DEBUG] console - bogon:5054 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 16:23:49.469] [INFO] console - bogon:5054 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 23 ms
-[2015-11-22 16:23:49.471] [INFO] console - true
-[2015-11-22 16:23:49.471] [DEBUG] console - bogon:5054 I am in first level if....
-[2015-11-22 16:23:49.471] [DEBUG] console - bogon:5054 ====get res from module  model.js=====
-[2015-11-22 16:23:49.471] [DEBUG] console - bogon:5054 it's request....
-[2015-11-22 16:23:49.471] [DEBUG] console - bogon:5054 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '5b643f50-90f2-11e5-b19d-3d671cae628f' }
-[2015-11-22 16:23:49.472] [DEBUG] console - bogon:5054 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:35:06.452] [INFO] console - Listening on port 80
-[2015-11-22 16:38:50.389] [INFO] console - Listening on port 80
-[2015-11-22 16:55:58.416] [INFO] console - bogon:5213 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 412 ms
-[2015-11-22 16:55:58.418] [INFO] console - true
-[2015-11-22 16:55:58.419] [DEBUG] console - bogon:5213 I am in first level if....
-[2015-11-22 16:55:58.420] [DEBUG] console - bogon:5213 ====get res from module  model.js=====
-[2015-11-22 16:55:58.420] [DEBUG] console - bogon:5213 it's request....
-[2015-11-22 16:55:58.420] [DEBUG] console - bogon:5213 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '1,2,3' },
-  req_id: 'd8e48e40-90f6-11e5-8bf2-b9d7251ba437' }
-[2015-11-22 16:55:58.422] [DEBUG] console - bogon:5213 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao1.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao2.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao3.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao4.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao5.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie1.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie2.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie3.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie4.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie5.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 16:55:58.889] [INFO] console - bogon:5213 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 24 ms
-[2015-11-22 16:55:58.890] [INFO] console - true
-[2015-11-22 16:55:58.890] [DEBUG] console - bogon:5213 I am in first level if....
-[2015-11-22 16:55:58.890] [DEBUG] console - bogon:5213 ====get res from module  model.js=====
-[2015-11-22 16:55:58.891] [DEBUG] console - bogon:5213 it's request....
-[2015-11-22 16:55:58.891] [DEBUG] console - bogon:5213 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryTopLineMovieNews.aspx',
-  json: false,
-  formData: { type: '-1', pageIndex: '0', pageSize: 5 },
-  req_id: 'd969eae0-90f6-11e5-8bf2-b9d7251ba437' }
-[2015-11-22 16:55:58.892] [DEBUG] console - bogon:5213 { movieNews: 
-   [ { movieNewID: 1,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影0',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: true,
-       readCount: 12121,
-       publishtime: '2015-11-22 16:54:39',
-       weMediaName: '电影票有友' },
-     { movieNewID: 2,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影1',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12122,
-       publishtime: '2015-11-22 16:54:39',
-       weMediaName: '电影票有友' },
-     { movieNewID: 3,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影2',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12123,
-       publishtime: '2015-11-22 16:54:39',
-       weMediaName: '电影票有友' },
-     { movieNewID: 4,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影3',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12124,
-       publishtime: '2015-11-22 16:54:39',
-       weMediaName: '电影票有友' },
-     { movieNewID: 5,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影4',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12125,
-       publishtime: '2015-11-22 16:54:39',
-       weMediaName: '电影票有友' } ] }
-[2015-11-22 16:56:01.234] [INFO] console - bogon:5213 request uri: http://weiticket.com:8088/queryCinemas.aspx elapsedTime: 47 ms
-[2015-11-22 16:56:01.234] [INFO] console - true
-[2015-11-22 16:56:01.234] [DEBUG] console - bogon:5213 I am in first level if....
-[2015-11-22 16:56:01.235] [DEBUG] console - bogon:5213 ====get res from module  model.js=====
-[2015-11-22 16:56:01.235] [DEBUG] console - bogon:5213 it's request....
-[2015-11-22 16:56:01.235] [DEBUG] console - bogon:5213 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryCinemas.aspx',
-  json: false,
-  formData: 
-   { locationID: '110000',
-     movieID: '10034',
-     pageIndex: 1,
-     pageSize: 100 },
-  req_id: 'dacc12f0-90f6-11e5-8bf2-b9d7251ba437' }
-[2015-11-22 16:56:01.236] [DEBUG] console - bogon:5213 { cinemas: 
-   [ { cinemaID: 102,
-       cinemaName: '通州区电影院0',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '附近影院',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院1',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '附近影院',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院0',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '通州区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院1',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '通州区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院2',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '通州区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院3',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '通州区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院4',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '通州区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院0',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院1',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院2',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院3',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院4',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院5',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院6',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院7',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院8',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true },
-     { cinemaID: 102,
-       cinemaName: '通州区电影院9',
-       cinemaAddress: '北京市通州区西海子西塔胡同1号',
-       provinceID: 12321,
-       cityID: 102102,
-       districtID: 2112,
-       provinceName: '北京市',
-       cityName: '北京',
-       districtName: '朝阳区',
-       showTimeCount: '今天暂无剩余场次',
-       voucherNote: '心迷宫立减10元',
-       retailPrice: '￥51',
-       limitPrice: '￥19.9',
-       latitude: 112121,
-       longitude: 23423424,
-       isTicket: true } ],
-  movie: 
-   { director: '郑保瑞',
-     actors: '托尼·贾  吴京   张晋   林嘉华   蔡瀚亿',
-     releaseTime: '2015年上映',
-     filmLength: '120分钟',
-     movieID: 1000,
-     movieNameCN: '杀破狼2',
-     movieNameEN: 'shapolang2',
-     movieImage: 'http://moviefan.com.cn/tempimages/196285.jpg',
-     movieVersions: '2D,3D,IMAX',
-     intro: '',
-     isBuyTicket: true,
-     isFriendsPay: true,
-     isMoneyPacket: true } }
-[2015-11-22 16:56:01.247] [INFO] console - { director: '郑保瑞',
-  actors: '托尼·贾  吴京   张晋   林嘉华   蔡瀚亿',
-  releaseTime: '2015年上映',
-  filmLength: '120分钟',
-  movieID: 1000,
-  movieNameCN: '杀破狼2',
-  movieNameEN: 'shapolang2',
-  movieImage: 'http://moviefan.com.cn/tempimages/196285.jpg',
-  movieVersions: '2D,3D,IMAX',
-  intro: '',
-  isBuyTicket: true,
-  isFriendsPay: true,
-  isMoneyPacket: true }
-[2015-11-22 17:04:49.237] [INFO] console - Listening on port 80
-[2015-11-22 17:05:14.278] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 33 ms
-[2015-11-22 17:05:14.279] [INFO] console - true
-[2015-11-22 17:05:14.280] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:05:14.280] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:05:14.280] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:05:14.280] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '1,2,3' },
-  req_id: '2470a780-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:05:14.282] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao1.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao2.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao3.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao4.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao5.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie1.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie2.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie3.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie4.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie5.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:05:15.016] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 41 ms
-[2015-11-22 17:05:15.016] [INFO] console - true
-[2015-11-22 17:05:15.017] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:05:15.017] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:05:15.017] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:05:15.017] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryTopLineMovieNews.aspx',
-  json: false,
-  formData: { type: '-1', pageIndex: '0', pageSize: 5 },
-  req_id: '24e143a0-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:05:15.018] [DEBUG] console - bogon:5424 { movieNews: 
-   [ { movieNewID: 1,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影0',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: true,
-       readCount: 12121,
-       publishtime: '2015-11-22 17:03:55',
-       weMediaName: '电影票有友' },
-     { movieNewID: 2,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影1',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12122,
-       publishtime: '2015-11-22 17:03:55',
-       weMediaName: '电影票有友' },
-     { movieNewID: 3,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影2',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12123,
-       publishtime: '2015-11-22 17:03:55',
-       weMediaName: '电影票有友' },
-     { movieNewID: 4,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影3',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12124,
-       publishtime: '2015-11-22 17:03:55',
-       weMediaName: '电影票有友' },
-     { movieNewID: 5,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影4',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12125,
-       publishtime: '2015-11-22 17:03:55',
-       weMediaName: '电影票有友' } ] }
-[2015-11-22 17:05:36.937] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 38 ms
-[2015-11-22 17:05:36.938] [INFO] console - true
-[2015-11-22 17:05:36.939] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:05:36.939] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:05:36.940] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:05:36.940] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '31f2e800-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:05:36.941] [DEBUG] console - bogon:5424 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 17:05:37.340] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 37 ms
-[2015-11-22 17:05:37.341] [INFO] console - true
-[2015-11-22 17:05:37.341] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:05:37.341] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:05:37.341] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:05:37.341] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '322fc9f0-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:05:37.343] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:07:27.258] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 198 ms
-[2015-11-22 17:07:27.258] [INFO] console - true
-[2015-11-22 17:07:27.259] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:07:27.259] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:07:27.259] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:07:27.260] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '739c2410-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:07:27.260] [DEBUG] console - bogon:5424 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 17:07:27.593] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 103 ms
-[2015-11-22 17:07:27.594] [INFO] console - true
-[2015-11-22 17:07:27.594] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:07:27.594] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:07:27.594] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:07:27.594] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '73dde800-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:07:27.595] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:08:51.982] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 24 ms
-[2015-11-22 17:08:51.983] [INFO] console - true
-[2015-11-22 17:08:51.983] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:08:51.983] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:08:51.983] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:08:51.983] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: 'a636b340-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:08:51.984] [DEBUG] console - bogon:5424 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 17:08:52.268] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 24 ms
-[2015-11-22 17:08:52.269] [INFO] console - true
-[2015-11-22 17:08:52.269] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:08:52.270] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:08:52.270] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:08:52.271] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: 'a6627e30-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:08:52.272] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:09:12.962] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 35 ms
-[2015-11-22 17:09:12.963] [INFO] console - true
-[2015-11-22 17:09:12.963] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:09:12.963] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:09:12.964] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:09:12.964] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '1,2,3' },
-  req_id: 'b2b677e0-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:09:12.964] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao1.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao2.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao3.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao4.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao5.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie1.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie2.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie3.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie4.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie5.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:09:13.613] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 33 ms
-[2015-11-22 17:09:13.614] [INFO] console - true
-[2015-11-22 17:09:13.617] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:09:13.617] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:09:13.617] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:09:13.617] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryTopLineMovieNews.aspx',
-  json: false,
-  formData: { type: '-1', pageIndex: '0', pageSize: 5 },
-  req_id: 'b319cd90-90f8-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:09:13.618] [DEBUG] console - bogon:5424 { movieNews: 
-   [ { movieNewID: 1,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影0',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: true,
-       readCount: 12121,
-       publishtime: '2015-11-22 17:07:53',
-       weMediaName: '电影票有友' },
-     { movieNewID: 2,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影1',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12122,
-       publishtime: '2015-11-22 17:07:53',
-       weMediaName: '电影票有友' },
-     { movieNewID: 3,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影2',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12123,
-       publishtime: '2015-11-22 17:07:53',
-       weMediaName: '电影票有友' },
-     { movieNewID: 4,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影3',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12124,
-       publishtime: '2015-11-22 17:07:53',
-       weMediaName: '电影票有友' },
-     { movieNewID: 5,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影4',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12125,
-       publishtime: '2015-11-22 17:07:53',
-       weMediaName: '电影票有友' } ] }
-[2015-11-22 17:12:46.374] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 29 ms
-[2015-11-22 17:12:46.375] [INFO] console - true
-[2015-11-22 17:12:46.375] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:12:46.375] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:12:46.375] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:12:46.376] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '31eb5170-90f9-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:12:46.377] [DEBUG] console - bogon:5424 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 17:12:46.687] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 19 ms
-[2015-11-22 17:12:46.687] [INFO] console - true
-[2015-11-22 17:12:46.687] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:12:46.687] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:12:46.688] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:12:46.688] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '321c7390-90f9-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:12:46.688] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:22:23.716] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryMovies.aspx elapsedTime: 812 ms
-[2015-11-22 17:22:23.717] [INFO] console - true
-[2015-11-22 17:22:23.717] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:22:23.718] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:22:23.718] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:22:23.719] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryMovies.aspx',
-  json: false,
-  formData: { locationID: '11000', type: 1, pageIndex: 1, pageSize: 10 },
-  req_id: '89936470-90fa-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:22:23.719] [DEBUG] console - bogon:5424 { movies: 
-   [ { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true },
-     { movieID: 100,
-       movieNameCN: '杀破狼2',
-       movieNameEN: 'sha po liang 2',
-       movieImage: 'http://moviefan.com.cn/tempimages/120175.jpg',
-       movieVersions: '2D,3D,IMAX',
-       intro: '不要成为无聊的大人',
-       isBuyTicket: true,
-       isFriendsPay: true,
-       isMoneyPacket: true } ] }
-[2015-11-22 17:22:23.938] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 25 ms
-[2015-11-22 17:22:23.939] [INFO] console - true
-[2015-11-22 17:22:23.940] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:22:23.941] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:22:23.941] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:22:23.942] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '4' },
-  req_id: '8a2d3370-90fa-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:22:23.943] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 4,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:22:28.484] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryAdvertisements.aspx elapsedTime: 27 ms
-[2015-11-22 17:22:28.484] [INFO] console - true
-[2015-11-22 17:22:28.484] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:22:28.485] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:22:28.485] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:22:28.485] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryAdvertisements.aspx',
-  json: false,
-  formData: { type: '1,2,3' },
-  req_id: '8ce28f70-90fa-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:22:28.485] [DEBUG] console - bogon:5424 { advertisements: 
-   [ { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao1.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao2.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao3.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao4.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 1,
-       imageUrl: 'http://weiticket.com:8080/Images/movie.toutiao5.jpg',
-       url: '',
-       movieID: 0,
-       movie: [Object] },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie1.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie2.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie3.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie4.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 2,
-       imageUrl: 'http://weiticket.com:8080/Images/movie5.pic.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 0,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 1,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 2,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 3,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null },
-     { advertisementID: 4,
-       advertisementName: '首页广告',
-       advertisementType: 3,
-       imageUrl: 'http://moviefan.com.cn/tempimages/00.jpg',
-       url: '',
-       movieID: 0,
-       movie: null } ],
-  thirdIndex: 2 }
-[2015-11-22 17:22:28.836] [INFO] console - bogon:5424 request uri: http://weiticket.com:8088/queryTopLineMovieNews.aspx elapsedTime: 26 ms
-[2015-11-22 17:22:28.836] [INFO] console - true
-[2015-11-22 17:22:28.836] [DEBUG] console - bogon:5424 I am in first level if....
-[2015-11-22 17:22:28.836] [DEBUG] console - bogon:5424 ====get res from module  model.js=====
-[2015-11-22 17:22:28.836] [DEBUG] console - bogon:5424 it's request....
-[2015-11-22 17:22:28.836] [DEBUG] console - bogon:5424 { time: true,
-  timeout: 20000,
-  uri: 'http://weiticket.com:8088/queryTopLineMovieNews.aspx',
-  json: false,
-  formData: { type: '-1', pageIndex: '0', pageSize: 5 },
-  req_id: '8d186c80-90fa-11e5-9b09-4572341d49c9' }
-[2015-11-22 17:22:28.838] [DEBUG] console - bogon:5424 { movieNews: 
-   [ { movieNewID: 1,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影0',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: true,
-       readCount: 12121,
-       publishtime: '2015-11-22 17:21:09',
-       weMediaName: '电影票有友' },
-     { movieNewID: 2,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影1',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12122,
-       publishtime: '2015-11-22 17:21:09',
-       weMediaName: '电影票有友' },
-     { movieNewID: 3,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影2',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12123,
-       publishtime: '2015-11-22 17:21:09',
-       weMediaName: '电影票有友' },
-     { movieNewID: 4,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影3',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12124,
-       publishtime: '2015-11-22 17:21:09',
-       weMediaName: '电影票有友' },
-     { movieNewID: 5,
-       title: '票友推荐|这10部全程无尿点的高分暴力电影4',
-       image1: 'http://p2.pstatp.com/list/8829/1537147500',
-       image2: 'http://p3.pstatp.com/list/8825/3458363958',
-       image3: 'http://p3.pstatp.com/list/8831/870283997',
-       isTop: false,
-       readCount: 12125,
-       publishtime: '2015-11-22 17:21:09',
-       weMediaName: '电影票有友' } ] }
+[2015-11-23 22:51:45.817] [INFO] console - Listening on port 80
+[2015-11-23 22:51:55.500] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:12
+    10|     //skippop
+    11|     div.skippop.flexbox_v
+  > 12|     	div.skipcont
+    13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 22:52:09.213] [INFO] console - Listening on port 80
+[2015-11-23 22:52:11.894] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:12
+    10|     //skippop
+    11|     div.skippop.flexbox_v
+  > 12|     	div.skipcont
+    13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 22:52:36.122] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|       div.skipcont
+  > 13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+    16|     		h2 我们即将出发
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 22:52:43.027] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|       div.skipcont
+  > 13|     		
+    14| 
+    15| 
+    16| 
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 22:52:48.739] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|        
+  > 13|     		
+    14| 
+    15| 
+    16| 
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.blank (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:176:19)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:896:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+[2015-11-23 22:52:57.807] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|      
+    12|        
+  > 13|     		
+    14| 
+    15| 
+    16| 
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:704:30)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:215:21)
+    at Parser.parse (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:122:25)
+    at parse (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:104:21)
+[2015-11-23 22:53:29.952] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|       div.skipcont
+  > 13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+    16|     		h2 我们即将出发
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 22:53:39.432] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|         div.skipcont
+  > 13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+    16|     		h2 我们即将出发
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 22:53:39.975] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|         div.skipcont
+  > 13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+    16|     		h2 我们即将出发
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 22:53:58.018] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|         div.skipcont
+  > 13|     		header
+    14|                 p 在电影的时光
+    15|                 p 读懂自已。
+    16|     		h2 我们即将出发
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 22:54:08.312] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/skippop.jade:13
+    11|     div.skippop.flexbox_v
+    12|         div.skipcont
+  > 13|     		
+    14| 
+    15| 
+    16| 
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:817:24)
+[2015-11-23 23:42:20.092] [INFO] console - Listening on port 80
+[2015-11-23 23:47:46.221] [INFO] console - Listening on port 80
+[2015-11-23 23:47:52.751] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:12
+    10|     //sharepop
+    11|     div.sharepop.flexbox_v
+  > 12|     	div.sharehd.flex
+    13|     	div.sharecon.flex
+    14|     		ul
+    15|     			li
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:16.589] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	div.sharehd.flex
+    10|     	div.sharecon.flex
+    11|     		ul
+    12|     			li
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:17.451] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	div.sharehd.flex
+    10|     	div.sharecon.flex
+    11|     		ul
+    12|     			li
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:17.699] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	div.sharehd.flex
+    10|     	div.sharecon.flex
+    11|     		ul
+    12|     			li
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:30.225] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	div.sharehd.flex
+    10|         div.sharecon.flex
+    11|     		ul
+    12|     			li
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:30.656] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	div.sharehd.flex
+    10|         div.sharecon.flex
+    11|     		ul
+    12|     			li
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:37.159] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	
+    10| block prepend footer
+    11| 
+    12| block prepend script
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:48:37.760] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/sharepop.jade:9
+    7|     //sharepop
+    8|     div.sharepop.flexbox_v
+  > 9|     	
+    10| block prepend footer
+    11| 
+    12| block prepend script
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseBlock (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:514:14)
+[2015-11-23 23:52:55.645] [INFO] console - Listening on port 80

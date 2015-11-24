@@ -1,0 +1,30 @@
+extends ./layout
+
+block title
+        title 电影票友
+block prepend body
+    div.sharepop.flexbox_v
+        div.sharehd.flex
+        div.sharecon 
+            ul
+                li
+                    a(href="",title="微信").share_weixin
+                    a(href="",title="朋友圈").share_friend
+                    a(href="",title="新浪微博").share_sina
+                    a(href="",title="QQ").share_oicq
+                li
+                    a(href="",title="腾讯空间").share_qq
+                    a(href="",title="腾讯微博").share_qqweibo
+                    a(href="",title="豆瓣").share_dou
+                    a(href="",title="邮件").share_email   
+
+        div.sharebtn
+            a(href="#") 取消分享
+
+block prepend footer
+
+block prepend script
+    script
+        
+
+

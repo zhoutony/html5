@@ -34,6 +34,24 @@ $(document).ready(function() {
 	BtnLogin.on('click',function(){
 		var value = TelBox.val();
 		 VerMobile(value);
+
+		
+		// ajax 请求
+		$.ajax({
+			type:'post',
+			utr:'',
+			data: {TelNember : TelBox.val(),
+				  MessPwd   : CodeNumber.val()
+			},
+			success:function(data,status){
+
+			},
+			error:function(){
+				alert("用户名密码不正确！")
+			}
+
+
+		});	 
 	})
  
 	 

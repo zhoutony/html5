@@ -38,6 +38,24 @@ webpackJsonp([16,17],[
 		BtnLogin.on('click',function(){
 			var value = TelBox.val();
 			 VerMobile(value);
+
+			
+			// ajax 请求
+			$.ajax({
+				type:'post',
+				utr:'',
+				data: {TelNember : TelBox.val(),
+					  MessPwd   : CodeNumber.val()
+				},
+				success:function(data,status){
+
+				},
+				error:function(){
+					alert("用户名密码不正确！")
+				}
+
+
+			});	 
 		})
 	 
 		 
@@ -4299,7 +4317,7 @@ webpackJsonp([16,17],[
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
 	        __webpack_require__(3),
-	        __webpack_require__(11),
+	        __webpack_require__(14),
 	        __webpack_require__(5),
 	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
@@ -4961,7 +4979,10 @@ webpackJsonp([16,17],[
 
 /***/ },
 /* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -5141,9 +5162,6 @@ webpackJsonp([16,17],[
 
 
 /***/ },
-/* 12 */,
-/* 13 */,
-/* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
