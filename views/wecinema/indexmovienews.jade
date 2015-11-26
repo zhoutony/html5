@@ -48,18 +48,13 @@ if data && data.movieNews
 					ul.flexbox_v_c
 						li.flex
 							h2 #{movieNew.title}
-							p
-								span.ico_edit_top 推广
-								span.n_name 票友君
 						li
 							a(href="#")
 								img(src="#{movieNew.image1}")
 					footer.flexbox
-						div.main.flex 置顶
+						div.main.flex  
+							span.ico_edit_top 推广
 							span.n_name 票友君
-							span.num
-								b #{movieNew.readCount} 
-							time #{_time}分钟前
 			else
 				section.first
 					div.flexbox_v_c
