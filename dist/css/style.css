@@ -155,11 +155,13 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .hotmovie section:last-child { padding-bottom: 1rem; }
 .hotmovie header { height: 2.4rem; line-height: 2.4rem; color: #fff; background: #00968f; text-align: center; font-size: 1.6rem; }
 .hotmovie h2 { font-size: 1.1rem; color: #333; line-height: 2.4; position: relative; color: #221814; }
-.hotmovie section:after, .hotmovie .imgtxt:before, .hotmovie .imgtxt footer:after,.hotmovie .imgtxt footer:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
-.hotmovie .imgtxt:befor1e { bottom: 0; top: auto; }
+.hotmovie section:after, .hotmovie .imgtxt:before, .hotmovie .imgtxt footer:after, .hotmovie .imgtxt footer:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
+.hotmovie .imgtxt:befor1e {
+bottom: 0;
+top: auto;
+}
 .hotmovie .imgtxt footer { position: relative; margin: 0.5rem 0 0.2rem; }
 .hotmovie .imgtxt footer:after { left: -1rem; right: -1rem; }
- 
 .hotmovie ul { }
 .hotmovie section li { width: 16.5rem; }
 .hotmovie section li:first-child { margin-right: 3px; }
@@ -212,12 +214,11 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .tabs li:last-child:after { display: none; }
 /**movelist **/
 .btn_buy { padding: 1rem; }
-.btn_buy span, .btnbar span { display: block; width: 5rem; height: 1.6rem; line-height: 1.4rem; font-size: 1rem; text-align: center; color: #00a19b; border: 1px solid #00a19b; border-radius: 1rem; }
+.btn_buy span, .btnbar span { display: block; width: 3.6rem; height: 1.6rem; line-height: 1.4; font-size: 1rem; text-align: center; color: #00a19b; border: 1px solid #00a19b; border-radius: 0.3rem; }
 .btnbar { position: absolute; right: 1rem; bottom: 0; }
-.btnbar span { display: inline-block; vertical-align: middle; border: none; width: auto; padding: 0 0.2rem; font-size: 1rem; color: #00948D; }
-.btnbar a { display: inline-block; vertical-align: middle; padding: 1rem 0rem; }
-.btnbar a:first-child { padding-right: 1rem; position: relative; }
-.btnbar a:first-child:after { content: ''; display: block; width: 1px; position: absolute; right: 0.4rem; top: 1.2rem; bottom: 1.2rem; overflow: hidden; background: #00948D; -webkit-transform: scaleX(.6); transform: scaleX(.6); }
+.btnbar i { display: block; margin: 0 auto 0.1rem; }
+.btnbar span { display: inline-block; vertical-align: middle; border: none; width: auto; padding: 0 0.2rem; font-size: 0.6rem; color: #00948D; }
+.btnbar a { display: inline-block; vertical-align: middle; padding: 1rem 0rem 0; }
 .movielist li { position: relative; position: relative; padding: 0.5rem 0; }
 .movielist li:last-child { border-bottom: none; }
 .movielist .picmid { width: 6rem; height: 8.8rem; margin-right: 1rem; margin-left: 1rem; overflow: hidden; }
@@ -230,7 +231,7 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .arrow { font-size: 2rem; margin-top: -3rem; }
 .movielist .toolmid { width: auto; }
 /**film**/
-.fmaddimg, .fmaddimg img,  .fmaddimg .scrollpic, .fmaddimg .scrollpic img { height: 12.29rem!important; }
+.fmaddimg, .fmaddimg img, .fmaddimg .scrollpic, .fmaddimg .scrollpic img { height: 12.29rem!important; }
 .closetit { display: none; background: #00968e; color: #fff; }
 .closetit h2 { text-align: center; height: 2rem; font-size: 1.4rem; line-height: 2rem; }
 .closetit .close { position: absolute; left: 0; top: 0; width: 4rem; height: 2rem; text-align: center; color: #fff; line-height: 2rem; font-size: 1.3rem; }

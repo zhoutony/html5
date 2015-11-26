@@ -1,4 +1,4 @@
-webpackJsonp([14,17],[
+webpackJsonp([12,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6,11 +6,11 @@ webpackJsonp([14,17],[
 	var $ = __webpack_require__(1);
 	var countdown = __webpack_require__(16);
 	var cache = __webpack_require__(4);
-	var modal = __webpack_require__(14);
+	var modal = __webpack_require__(11);
 	var iScroll = __webpack_require__(2);
 	var cookie = __webpack_require__(5);
 	var EcouponPayMent = __webpack_require__(17);
-	var widgets = __webpack_require__(7);
+	var widgets = __webpack_require__(8);
 	/* jshint ignore:end */
 
 	$(document).ready(function () {
@@ -3169,7 +3169,8 @@ webpackJsonp([14,17],[
 
 /***/ },
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -3178,7 +3179,7 @@ webpackJsonp([14,17],[
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 	        __webpack_require__(1),
 	        __webpack_require__(3),
-	        __webpack_require__(14),
+	        __webpack_require__(11),
 	        __webpack_require__(5),
 	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
@@ -3378,7 +3379,6 @@ webpackJsonp([14,17],[
 	;
 
 /***/ },
-/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3840,10 +3840,7 @@ webpackJsonp([14,17],[
 
 /***/ },
 /* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -4023,6 +4020,9 @@ webpackJsonp([14,17],[
 
 
 /***/ },
+/* 12 */,
+/* 13 */,
+/* 14 */,
 /* 15 */,
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
@@ -4089,7 +4089,7 @@ webpackJsonp([14,17],[
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 	 * Created by cdmatom on 2015/7/
 	 */
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1),__webpack_require__(3),__webpack_require__(14), __webpack_require__(5), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function($, _, Modal, cookie, iScroll) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1),__webpack_require__(3),__webpack_require__(11), __webpack_require__(5), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function($, _, Modal, cookie, iScroll) {
 	        "use strict";
 	        var ecoupon_payment = {},
 	        cardpaylist,
