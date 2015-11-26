@@ -91,6 +91,59 @@ body { }
 .mui-slider-indicator .mui-number { display: inline-block; width: 58px; line-height: 32px; }
 .mui-slider-indicator .mui-number span { color: #ff5053; }
 .mui-slider-progress-bar { z-index: 1; height: 2px; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-backface-visibility: hidden; }
+/*下拉加载动画*/
+.mui-spinner:after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox=\'0 0 120 120\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\'><defs><line id=\'l\' x1=\'60\' x2=\'60\' y1=\'7\' y2=\'27\' stroke=\'%236c6c6c\' stroke-width=\'11\' stroke-linecap=\'round\'/></defs><g><use xlink:href=\'%23l\' opacity=\'.27\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(30 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(60 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(90 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(120 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.27\' transform=\'rotate(150 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.37\' transform=\'rotate(180 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.46\' transform=\'rotate(210 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.56\' transform=\'rotate(240 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.66\' transform=\'rotate(270 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.75\' transform=\'rotate(300 60,60)\'/><use xlink:href=\'%23l\' opacity=\'.85\' transform=\'rotate(330 60,60)\'/></g></svg>');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100%
+}
+.mui-pull {
+    font-weight: 700;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    text-align: center;
+    color: #777
+}
+
+.mui-pull-loading {
+    margin-right: 10px;
+    -webkit-transition: -webkit-transform .4s;
+    transition: transform .4s;
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
+    vertical-align: middle;
+    -webkit-backface-visibility: hidden
+}
+
+.mui-pull-loading.mui-reverse {
+    -webkit-transform: rotate(180deg) translateZ(0);
+    transform: rotate(180deg) translateZ(0)
+}
+
+.mui-pull-caption {
+    font-size: 15px;
+    line-height: 24px;
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    margin-top: 0;
+    vertical-align: middle
+}
+
+.mui-pull-caption span {
+    display: none
+}
+
+.mui-pull-caption span.mui-in {
+    display: inline
+}
 .mallpic.mui-slider { min-height: 25.5rem; }
 .mallpic .mui-slider-item { text-align: center; width: 100%; overflow: hidden; }
 .mallpic .mui-slider-item a { width: 27.5rem; height: 27.5rem; display: block; overflow: hidden; margin: auto; display: -webkit-box!important; display: box!important; -webkit-box-align: center; -moz-box-align: center; box-align: center; -webkit-box-pack: center; -moz-box-pack: center; box-pack: center; }

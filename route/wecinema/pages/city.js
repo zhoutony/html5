@@ -8,9 +8,9 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/city"], function(req, res){
+app.get(["/get/citys"], function(req, res){
     var render_data = {};
-    var my_api_addr = "/room";
+    var my_api_addr = "/queryLocations.aspx";
     var options = {
         uri: my_api_addr,
         args: {
@@ -20,5 +20,14 @@ app.get(["/city"], function(req, res){
             pageSize:   10
         }
     };
-    res.render("wecinema/city");
+    render_data.data = {}
+    model.getDataFromPhp(options, function (err, data) {
+        console.log(data);
+        render_data.data.err = err;
+        if (!err && data) {
+            res.send(data)
+        }
+        //res.render("wecinema/city");
+    });
+    
 });

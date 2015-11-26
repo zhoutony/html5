@@ -1,4 +1,4 @@
-webpackJsonp([12,17],[
+webpackJsonp([16,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,7 +10,7 @@ webpackJsonp([12,17],[
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
 
-	var dialogs = __webpack_require__(8);
+	var dialogs = __webpack_require__(7);
 
 	/* jshint ignore:end */
 	$(document).ready(function() {
@@ -4295,8 +4295,7 @@ webpackJsonp([12,17],[
 
 
 /***/ },
-/* 7 */,
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -4465,6 +4464,7 @@ webpackJsonp([12,17],[
 
 
 /***/ },
+/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
