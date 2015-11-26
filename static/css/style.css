@@ -155,10 +155,11 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .hotmovie section:last-child { padding-bottom: 1rem; }
 .hotmovie header { height: 2.4rem; line-height: 2.4rem; color: #fff; background: #00968f; text-align: center; font-size: 1.6rem; }
 .hotmovie h2 { font-size: 1.1rem; color: #333; line-height: 2.4; position: relative; color: #221814; }
-.hotmovie section:after, .hotmovie .imgtxt:before, .hotmovie .imgtxt footer:after { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
-.hotmovie .imgtxt:before { bottom: 0; top: auto; }
-.hotmovie .imgtxt footer { position: relative; margin: 0.5rem 0 0; }
+.hotmovie section:after, .hotmovie .imgtxt:before, .hotmovie .imgtxt footer:after,.hotmovie .imgtxt footer:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
+.hotmovie .imgtxt:befor1e { bottom: 0; top: auto; }
+.hotmovie .imgtxt footer { position: relative; margin: 0.5rem 0 0.2rem; }
 .hotmovie .imgtxt footer:after { left: -1rem; right: -1rem; }
+ 
 .hotmovie ul { }
 .hotmovie section li { width: 16.5rem; }
 .hotmovie section li:first-child { margin-right: 3px; }
