@@ -59,6 +59,9 @@ flexbox_v_c 垂直居中
 flexbox_vh_c 横向纵向居中
 **/
 .flexbox, .flexbox_v, .flexbox_v_c, .flexbox_vh_c { width: 100%; display: -webkit-box; display: -moz-box; display: box; }
+.flexbox {
+    padding: 0;
+}
 .flexbox_v { -webkit-box-orient: vertical; -moz-box-orient: vertical; box-orient: vertical; }
 .flexbox_v_c { -webkit-box-align: center; -moz-box-align: center; box-align: center; }
 .flexbox_vh_c { -webkit-box-align: center; -moz-box-align: center; box-align: center; -webkit-box-pack: center; -moz-box-pack: center; box-pack: center; }
@@ -293,8 +296,8 @@ top: auto;
 .filminfo h2 { font-size: 1.1rem; color: #333; line-height: 1.8; }
 .filminfo p { font-size: 0.9rem; }
 .filminfo .btnbar { position: inherit; }
-.filmscroll { overflow: hidden; padding: 0.5rem 0 0; }
-.filmscroll ul { width: 1200px; }
+.filmscroll { overflow: hidden; padding: 0.5rem 0 0;  position: relative;}
+/*.filmscroll ul { width: 1200px; }*/
 .filmscroll li { width: 6rem; height: 8.75rem; margin-left: 1rem; position: relative; text-align: center; }
 .filmscroll li .icon-up-micro { display: none; font-size: 1.6rem; color: #00968d; }
 .filmscroll li:after { content: ''; display: none; border: 2px solid #00968d; position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
@@ -302,7 +305,7 @@ top: auto;
 .filmscroll li.curr:after, .filmscroll li.curr .icon-up-micro { display: block; }
 .filmtxt { padding: 1rem 1rem 0.5rem; font-size: 1.1rem; }
 .filmtxt .filmbtn { color: #00968d; }
-.tabstime { position: relative; }
+.tabstime { position: relative; overflow: hidden;}
 .tabstime:before, .tabstime:after { position: absolute; left: 0; content: ''; width: 100%; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .tabstime:before { top: 0; }
 .tabstime:after { bottom: 0; }
@@ -719,3 +722,12 @@ color:#fff;
 .skipcont li .skip06 { background: url(../images/skip06.png) no-repeat center center; background-size: cover; }
 ._thirdads { margin: 0.5rem 1rem; overflow: hidden; width: auto; }
 ._thirdads, ._thirdads img { height: 7.9rem!important; }
+.inner{
+    overflow: hidden;
+    width: 100%;
+}
+.scroll{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
