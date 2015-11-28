@@ -134,11 +134,11 @@ var getDataFromPhp = function(options, callback) {
             body = JSON.parse(body);
             console.log(body.success);
             if (body.success) {
-                console.debug(my_name,"I am in first level if....");
-                console.debug(my_name,"====get res from module  model.js=====");
-                console.debug(my_name,"it's request....");
+                // console.debug(my_name,"I am in first level if....");
+                // console.debug(my_name,"====get res from module  model.js=====");
+                // console.debug(my_name,"it's request....");
                 console.debug(my_name,options_for_requst);
-                console.debug(my_name,body.data);
+                // console.debug(my_name,body.data);
                 
                 // console.log(body.data);
                 callback(null,body.data);
@@ -148,31 +148,31 @@ var getDataFromPhp = function(options, callback) {
                 //http://island205.com/2015/03/31/the-problem-of-callback/
                 var hasError = false;
                 var err      = null;
-                    console.debug(my_name,"I am in second level if....");
-                    console.debug(my_name,"body");
-                    console.debug(my_name,body);
+                    // console.debug(my_name,"I am in second level if....");
+                    // console.debug(my_name,"body");
+                    // console.debug(my_name,body);
                 try {
                   body        = washbody(body);
                   return_data = JSON.parse(body);
                 } catch (e) {
                   err = e;
                   hasError = true;
-                  console.error(my_name,"====error from module model.js json parser error");
-                  console.debug(my_name,"it's request....");
-                  console.debug(my_name,options_for_requst);
-                  console.error(my_name,e);
+                  // console.error(my_name,"====error from module model.js json parser error");
+                  // console.debug(my_name,"it's request....");
+                  // console.debug(my_name,options_for_requst);
+                  // console.error(my_name,e);
                 }
                 if (hasError) {
-                    console.error(my_name,err);
+                    // console.error(my_name,err);
                     callback(err);
                     return;
                 } else {
-                  console.debug(my_name,"====get res from module  model.js=====");
-                  console.debug(my_name,"it's request....");
-                  console.debug(my_name,options_for_requst);
-                  console.debug(my_name,return_data);
+                  // console.debug(my_name,"====get res from module  model.js=====");
+                  // console.debug(my_name,"it's request....");
+                  // console.debug(my_name,options_for_requst);
+                  // console.debug(my_name,return_data);
                   if(return_data.ret === 0 || return_data.ret ==='0'){
-                      console.debug(my_name,"return data with no exception");
+                      // console.debug(my_name,"return data with no exception");
                       callback(null, return_data.data);
                       return;
                   }else{
@@ -185,10 +185,10 @@ var getDataFromPhp = function(options, callback) {
 
             //res.render('wecinema/home', body);
         } else {
-            console.error(my_name,"====error from module model.js request http error");
-            console.debug(my_name,"it's request....");
-            console.debug(my_name,options_for_requst);
-            console.error(my_name,error);
+            // console.error(my_name,"====error from module model.js request http error");
+            // console.debug(my_name,"it's request....");
+            // console.debug(my_name,options_for_requst);
+            // console.error(my_name,error);
             callback(error);
             return;
         }

@@ -6,127 +6,76 @@ block title
 
 
 block prepend body
-    
-    //wrap
-    div.wrap
-        div.filminfo.flexbox_v_c
-            div.flex
-                h2 昌平保利影剧院
-                p 北京市昌平区鼓楼南街佳莲时代广场四层
-                div.btnbar
-                    a(href="#")
-                        i.ico_firend
-                        span 好友买单
-                    a(href="#")
-                        i.ico_redbag
-                        span 邀红包 
-            div.arrow
-                i.demo-icon.icon-angle-right
-        div.filmscroll
-            ul.flexbox
-                li
-                    a(href="/")
-                        img(src="/tempimages/120175.jpg")
-                        i.demo-icon.icon-up-micro
-                li.curr
-                    a(href="/")
-                        img(src="/tempimages/120175_1.jpg")
-                        i.demo-icon.icon-up-micro
-                li
-                    a(href="/")
-                        img(src="/tempimages/120175.jpg")
-                        i.demo-icon.icon-up-micro
-                li
-                    a(href="/")
-                        img(src="/tempimages/120175_1.jpg")
-                        i.demo-icon.icon-up-micro
-                li
-                    a(href="/")
-                        img(src="/tempimages/120175.jpg")
-                        i.demo-icon.icon-up-micro
-            div.flexbox.filmtxt
-                p.flex 蚁人
-        div.filmlist
-            div.tabstime
-                ul.flexbox
-                    li.curr
-                        span 今天 06-18
-                    li
-                        span 明天 06-19
-                    li
-                        span 后天 06-20
-            div.tabscont
-                div.timebox
-                    ul
-                        li
-                            a.flexbox_v_c
-                                div.toolmid
-                                    i.demo-icon.icon-sun
-                                div.timemid
-                                    h2 13:50
-                                    p 15:44结束
-                                div.vermid.flex
-                                    h2 国语 数字3D
-                                    p 2号影厅
-                                div.pricemid
-                                    p 已关闭订票
-                        li
-                            a.flexbox_v_c
-                                div.toolmid
-                                    i.demo-icon.icon-sun
-                                div.timemid
-                                    h2 13:50
-                                    p 15:44结束
-                                div.vermid.flex
-                                    h2 国语 数字3D
-                                    p 2号影厅
-                                div.pricemid
-                                    p 已关闭订票
-                        li
-                            a.flexbox_v_c(href="/room/1002895")
-                                div.toolmid
-                                    i.demo-icon.icon-sun
-                                div.timemid
-                                    h2 13:50
-                                    p 15:44结束
-                                div.vermid.flex
-                                    h2 国语 数字3D
-                                    p 2号影厅
-                                div.pricemid
-                                    p.pricetxt ￥51
-                        li
-                            a.flexbox_v_c(href="/room/1002895")
-                                div.toolmid
-                                    i.demo-icon.icon-sun
-                                div.timemid
-                                    h2 13:50
-                                    p 15:44结束
-                                div.vermid.flex
-                                    h2 国语 数字3D
-                                    p 2号影厅
-                                div.pricemid
-                                    p.pricetxt ￥51
-                        li
-                            a.flexbox_v_c(href="/room/1002895")
-                                div.toolmid
-                                    i.demo-icon.icon-sun
-                                div.timemid
-                                    h2 13:50
-                                    p 15:44结束
-                                div.vermid.flex
-                                    h2 国语 数字3D
-                                    p 2号影厅
-                                div.pricemid
-                                    p.pricetxt ￥51
-        footer.footer
-            h2 客服电话：4008-188-188
-            p 电影票友服务由北京亚视联合在线科技有限公司提供
+    if data && !data.err
+        //wrap
+        div.wrap
+            if data.cinema
+                div.filminfo.flexbox_v_c(data-cinemaid="#{data.cinema.cinemaID}")
+                    div.flex
+                        h2 #{data.cinema.cinemaName}
+                        p #{data.cinema.cinemaAddress}
+                        div.btnbar
+                            a(href="")
+                                i.ico_firend
+                                span 好友买单
+                            a(href="#")
+                                i.ico_redbag
+                                span 邀红包 
+                    div.arrow
+                        i.demo-icon.icon-angle-right
+            if data.movies
+                div.filmscroll
+                    ul.flexbox.moviescroll
+                        each movie, index in data.movies
+                            li(data-movieid="#{movie.movieID}" id="movie-#{movie.movieID}" data-intro="#{movie.intro}")
+                                a
+                                    img(src="#{movie.movieImage}")
+                                    i.demo-icon.icon-up-micro
+                    div.flexbox.filmtxt
+                        p.flex 
+            if data.shows
+                div.filmlist
+                    div.tabstime
+                        ul.flexbox#date_container
+                            each schedule, index in data.shows
+                                li(class=index == 0 ? "curr" : "", data-index="#{index}")
+                                    span #{schedule.Date}
+                    div.tabscont
+                        each schedule1, index in data.shows
+                            div(data-index="#{index}", class= index == 0 ? "timebox" : "timebox m-hide")
+                                ul
+                                    each one_schedule in schedule1.shows
+                                        li
+                                            a.flexbox_v_c(href= one_schedule.stopSellTime ? "/room/#{one_schedule.showtimeID}" : "")
+                                                div.toolmid
+                                                    i.demo-icon.icon-sun
+                                                div.timemid
+                                                    h2 #{one_schedule.ticketStartTime}
+                                                    p #{one_schedule.ticketEndTime}
+                                                div.vermid.flex
+                                                    h2 #{one_schedule.language} #{one_schedule.version}
+                                                    p #{one_schedule.hallName}
+                                                div.pricemid
+                                                    if one_schedule.stopSellTime
+                                                        p.pricetxt #{one_schedule.price}
+                                                    else
+                                                        p 已关闭订票
+                                        
+                footer.footer
+                    h2 客服电话：4008-188-188
+                    p 电影票友服务由北京亚视联合在线科技有限公司提供
 
 
 block prepend footer
 
 block prepend script
     script
+        | var movieId = "#{data.movieId}";
+        | var shows = !{JSON.stringify(data.shows)};
+        | var movies = !{JSON.stringify(data.movies)};
+        | var cinema = !{JSON.stringify(data.cinema)};
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/schedule.js?#{data.reversion}")
         
 
 

@@ -12,30 +12,36 @@ var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 /* jshint ignore:end */
 $(document).ready(function() {
     window.dialogs = dialogs;
-    var movienewsPageindex = 0;
+    var movienewsPageindex = 1;
     var hotmovie = $('.hotmovie');
+    var lock = false;
     //加载 头条电影列表
     function getMovieNews(){
         var _url = '/movienews/' + movienewsPageindex;
         $.get(_url, function(data) {
             var _el = $('<div></div>').html(data).appendTo(hotmovie);
-            if(movienewsPageindex == 0){
+            if(movienewsPageindex == 1){
                 appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
             }
+            if(!lock){
+                lock = true;
+                ScrollBottomPlus.render({
+                    el: '.hotmovie',
+                    app_el: '.wrap',
+                    footer: '.navtool',
+                    callback: function(){
+                        movienewsPageindex++;
+                        getMovieNews();
+                        ScrollBottomPlus.gotoBottomShowed = false;
+                    }
+                })
+            }
         });
+
     }
     getMovieNews();
 
-    ScrollBottomPlus.render({
-        el: '.hotmovie',
-        app_el: '.wrap',
-        footer: '.navtool',
-        callback: function(){
-            movienewsPageindex++;
-            getMovieNews();
-            ScrollBottomPlus.gotoBottomShowed = false;
-        }
-    })
+        
     
     var _txtbox = $('.txtbox');
     document.querySelector('.scrollpic').addEventListener('slide', function(event) {
