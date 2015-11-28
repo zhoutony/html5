@@ -72,9 +72,8 @@ if data && data.movieNews
 								img(src="#{movieNew.image3}")
 					footer.flexbox 
 						div.main.flex
-							if movieNew.isTop
-								span.ico_edit_top 置顶
-								span.n_name 票友君
-								span.num 阅读 
-									b #{movieNew.readCount} 
-								time #{_time}分钟前
+							span.ico_edit_top 置顶
+							span.n_name 票友君
+							span.num 阅读 
+								b #{movieNew.readCount} 
+							time #{_time}分钟前

@@ -138,7 +138,7 @@ var getDataFromPhp = function(options, callback) {
                 // console.debug(my_name,"====get res from module  model.js=====");
                 // console.debug(my_name,"it's request....");
                 console.debug(my_name,options_for_requst);
-                // console.debug(my_name,body.data);
+                console.debug(my_name,body.data);
                 
                 // console.log(body.data);
                 callback(null,body.data);
