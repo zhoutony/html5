@@ -54,8 +54,8 @@ var ScrollBottomPlus = {
     remove: function(){
         this.clientHeight = null;
         this.footerHeight = null;
-        app.els.$document.unbind("scroll", this.checkScrollHandler);
-        $(this.options.moreTipDiv).html('貌似没有更多了 >.<');
+        $(document).$document.unbind("scroll", this.checkScrollHandler);
+        // $(this.options.moreTipDiv).html('貌似没有更多了 >.<');
     }
 
 	

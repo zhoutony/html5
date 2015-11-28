@@ -39,5 +39,5 @@ module.exports = {
         path: config.dist.js + '/weiticket',
         filename: '[name].js'
     },
-    plugins: [commonsPlugin, minifyPlugin]
+    plugins: [commonsPlugin, uglifyJsPlugin]
 };

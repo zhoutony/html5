@@ -19,6 +19,10 @@ $(document).ready(function() {
     function getMovieNews(){
         var _url = '/movienews/' + movienewsPageindex;
         $.get(_url, function(data) {
+            if(data == ""){
+                ScrollBottomPlus.remove();
+                return;
+            }
             var _el = $('<div></div>').html(data).appendTo(hotmovie);
             if(movienewsPageindex == 1){
                 appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
