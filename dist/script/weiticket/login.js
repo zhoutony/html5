@@ -1,4 +1,4 @@
-webpackJsonp([16,18],[
+webpackJsonp([18,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17,7 +17,8 @@ webpackJsonp([16,18],[
 			TabCon     = $(' .tabbox'),
 			TelBox     = $('#TelBox'),
 			CodeNumber = $('#CodeNumber'),
-			BtnLogin   = $('#BtnLogin') 
+			BtnLogin   = $('#BtnLogin')
+
 		    
 		// tab 切换
 		TabNav.on('click',function(){
@@ -28,18 +29,42 @@ webpackJsonp([16,18],[
 		// 验证手机号
 		function VerMobile(str){
 			var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-			if(retel.test(str)){
-				 alert("正确");	
+			if(retel.test(str) && $('#TelBox').val() == '1'){
+				var _el = $(TelBox.parentElement);
+				_el.addClass('focus');
+				 alert('正确');
 			} else {
-				alert("错误");
+				 var _el = $(TelBox.parentElement);
+			     _el.addClass('eorr');
+			     alert('请输入正确的手机号码！');
 			}
-		}
+		};
+		//手机号
+		TelBox.focus(function(){
+			 var _el = $(this.parentElement);
+			 _el.addClass('focus');
+			  
+		})
+		//手机号
+		TelBox.blur(function(){
+			 var _el = $(this.parentElement);
+			 var TelBoxvalue = TelBox.val();
+			 _el.removeClass('focus');
+			 VerMobile(TelBoxvalue);
+			  
+		})
+		//验证码
+		CodeNumber.focus(function(){
+			  var _el = $(this.parentElement);
+			 _el.addClass('focus');
+			  
+		})
 		// 登陆
 		BtnLogin.on('click',function(){
-			var value = TelBox.val();
-			 VerMobile(value);
-
-			
+			var TelBoxvalue = TelBox.val();
+			VerMobile(TelBoxvalue);
+			 
+			 
 			// ajax 请求
 			$.ajax({
 				type:'post',
@@ -51,14 +76,12 @@ webpackJsonp([16,18],[
 
 				},
 				error:function(){
-					alert("用户名密码不正确！")
+					 
 				}
-
-
-			});	 
-		})
+	  
+			})
 	 
-		 
+		})
 	}); //END of jquery documet.ready 
 
 /***/ },

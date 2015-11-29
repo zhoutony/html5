@@ -116,6 +116,7 @@ block prepend footer
 block prepend script
     script
         | var newscontent = !{JSON.stringify(data.newsInfo.content)};
+        | var title = "#{data.newsInfo.title}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")
 

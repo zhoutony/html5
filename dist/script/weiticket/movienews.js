@@ -1,4 +1,4 @@
-webpackJsonp([3,18],{
+webpackJsonp([3,17],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
@@ -12,6 +12,10 @@ webpackJsonp([3,18],{
 	$(document).ready(function() {
 	    if(newscontent){
 	        $('._txt').html(newscontent);
+	    }
+
+	    if(title){
+	    	$('.infotit').html('<div>'+title+'</div>');
 	    }
 
 	}); //END of jquery documet.ready 
