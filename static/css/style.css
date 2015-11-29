@@ -633,14 +633,15 @@ color:#fff;
 .transition10 { -webkit-transition: .10s all; -moz-transition: .10s all; -o-transition: .10s all; -ms-transition: .10s all; transition: .10s all }
 /**内容页**/
 .infotxt { padding: 0rem 0rem 1rem; }
+.infotxt .infocon img:first-child{margin-top:1rem;}
 .infotxt .infocon  img{max-width:100%;}
 .infotxt .infocon h3 { font-size: 1.1rem; line-height: 1; color: #333; position: relative; }
 .infotxt .infocon h3 span { padding: 0 1rem 0 0; background: #fff; position: relative; z-index: 1; }
 .infotxt .infocon h3:after { content: ''; display: block; height: 1px; background: #595757; overflow: hidden; position: absolute; z-index: 0; left: 0; right: 0; top: 50%; margin-top: -0.5px; }
-.infotxt .infocon p { position: relative; margin: 0.5rem 0 1rem; padding: 0 0 0.5rem 0; font-size: 0.9rem; line-height: 1.8rem; color: #666; }
+.infotxt .infocon p { position: relative; margin: 0.5rem 0 1rem; padding: 0 0 0.5rem 0; font-size: 1.1rem; line-height: 1.8rem; color: #666; }
 .infotxt .infocon p:after { bottom: 0; position: absolute; left: 0; content: ''; width: 100%; height: 1px; background: #717071; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .infotxt .infoheader .infotool{margin-right:-1.8rem;}
-.infotit { font-size: 1.2rem; font-weight: bold; color: #333; line-height: 1.2; margin: 1rem 0; }
+.infotit { font-size: 1.4rem; font-weight: bold; color: #333; line-height: 1.2; margin: 1rem 0; }
 .infotool img { width: 100%; height: auto; }
 .infotool {margin:0.8rem 0 0 1.8rem;}
 .infotit ,.infomenu,.infocon{padding-left:1.8rem;padding-right:1.8rem;}
