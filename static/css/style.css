@@ -178,10 +178,10 @@ body { }
 .btn_tick{width:2.6rem;height:1.5rem;margin:0.3rem auto;background:url(../images/btn_tick.png) no-repeat center center;background-size:cover;}
 /**ico End**/
 /**scrollpic Begin**/
-.scrollpic, .scrollpic img { height: 13.57rem!important; }
+.scrollpic, .scrollpic img { height: 159px!important; }
 .scrollpic { background: #f2f2f2; overflow: hidden; position: relative; }
 .imgico { position: relative; }
-.scrollpic1, .scrollpic1 img { height: 12.29rem!important; }
+.scrollpic1, .scrollpic1 img { height: 144px!important; }
 .imgico:after { content: ''; display: block; width: 4rem; height: 4rem; position: absolute; left: 0.9rem; top: 0.9rem; background: url(../images/img_ico.png) no-repeat center center; background-size: cover; }
 .scrollpic ul { width: 100%; display: -webkit-box; display: -moz-box; display: box; }
 .scrollpic li { width: 100%; height: 10.5rem; }
@@ -213,11 +213,12 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .hotmovie header { height: 2.4rem; line-height: 2.4rem; color: #fff; background: #00968f; text-align: center; font-size: 1.6rem; }
 .hotmovie h2 { font-size: 1.4rem; color: #333; line-height: 1.2;
 padding:0.8rem 0; position: relative; color: #221814; }
-.hotmovie section:after, .hotmovie .imgtxt:before, .hotmovie .imgtxt footer:after, .hotmovie .imgtxt footer:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
-.hotmovie .imgtxt:befor1e {
+.hotmovie section:after, .hotmovie .imgtxt:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
+.hotmovie .imgtxt:after {
 bottom: 0;
 top: auto;
 }
+.hotmovie .imgtxt:before{display:none;}
 .loading{text-align:center;font-size:1rem;line-height:1;padding:0.5rem 0 4.5rem;}
 .hotmovie .imgtxt footer { position: relative; margin: 0.5rem 0 0.2rem; }
 .hotmovie .imgtxt footer:after { left: -1rem; right: -1rem; }
