@@ -9,4 +9,8 @@ $(document).ready(function() {
         $('._txt').html(newscontent);
     }
 
+    if(title){
+    	$('.infotit').html('<div>'+title+'</div>');
+    }
+
 }); //END of jquery documet.ready 

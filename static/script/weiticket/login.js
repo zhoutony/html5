@@ -25,7 +25,7 @@ $(document).ready(function() {
 	// 验证手机号
 	function VerMobile(str){
 		var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-		if(retel.test(str)) && $('#TelBox').val() == '1'){
+		if(retel.test(str) && $('#TelBox').val() == '1'){
 			var _el = $(TelBox.parentElement);
 			_el.addClass('focus');
 			 alert('正确');

@@ -1,4 +1,4 @@
-webpackJsonp([17,18],[
+webpackJsonp([18,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -9,7 +9,7 @@ webpackJsonp([17,18],[
 	var cache = __webpack_require__(4);
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
-	var widgets = __webpack_require__(7);
+	var widgets = __webpack_require__(9);
 
 	/* jshint ignore:end */
 	$(document).ready(function() { 
@@ -29,15 +29,14 @@ webpackJsonp([17,18],[
 		// 验证手机号
 		function VerMobile(str){
 			var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-			
-			if(retel.test(str)){
+			if(retel.test(str) && $('#TelBox').val() == '1'){
 				var _el = $(TelBox.parentElement);
 				_el.addClass('focus');
 				 alert('正确');
 			} else {
 				 var _el = $(TelBox.parentElement);
 			     _el.addClass('eorr');
-			     alert('错误');
+			     alert('请输入正确的手机号码！');
 			}
 		};
 		//手机号
@@ -4332,7 +4331,9 @@ webpackJsonp([17,18],[
 
 
 /***/ },
-/* 7 */
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -4553,8 +4554,6 @@ webpackJsonp([17,18],[
 	;
 
 /***/ },
-/* 8 */,
-/* 9 */,
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
