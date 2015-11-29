@@ -1,6 +1,9 @@
 extends ./layout
 
 block title
+    if data && !data.err && data.newsInfo
+        title #{data.newsInfo.title}  -- 电影票友
+    else
         title 电影票友
 
 block prepend body
@@ -9,17 +12,79 @@ block prepend body
     div.wrap
         if data && !data.err && data.newsInfo
             div.infotxt
-                header.infoheader
-                    div.infotool
+                if data.movies && data.movies.Items && data.movies.Items.length > 0
+                    - var _items = data.movies.Items;
+                    - var _len = _items.length;
+                    - var _ad_firstList = _items[0];
+                    - var _ad_lastList = _items[_len - 1];
+                    if _len > 1
+                        div.scrollpic.mui-slider.imgico
+                            ul.mui-slider-group.mui-slider-loop
+                                li.mui-slider-item.mui-slider-item-duplicate
+                                    div.addticketbox.flexbox_v_c
+                                        div.bigimgbox(style="background:url(#{_ad_firstList.movieImage}) center center no-repeat; background-size:300% auto;")
+                                        div.imgbox
+                                            img(src="#{_ad_firstList.movieImage}")
+                                        div.txtbox.flex
+                                            h3 #{_ad_firstList.movieNameCN}
+                                                p #{_ad_firstList.movieVersions}
+                                                p #{_ad_firstList.intro}
+                                        div.btnbox
+                                            a(href="/110000/ticket/#{_ad_firstList.movieID}").new 
+                                                i.btn_tick
+                                                p 购票
+                                each indexAd in _items
+                                    li.mui-slider-item.mui-slider-item-duplicate
+                                        div.addticketbox.flexbox_v_c
+                                            div.bigimgbox(style="background:url(#{indexAd.movieImage}) center center no-repeat; background-size:300% auto;")
+                                            div.imgbox
+                                                img(src="#{indexAd.movieImage}")
+                                            div.txtbox.flex
+                                                h3 #{indexAd.movieNameCN}
+                                                    p #{indexAd.movieVersions}
+                                                    p #{indexAd.intro}
+                                            div.btnbox
+                                                a(href="/110000/ticket/#{indexAd.movieID}").new 
+                                                    i.btn_tick
+                                                    p 购票
+                                li.mui-slider-item.mui-slider-item-duplicate
+                                    div.addticketbox.flexbox_v_c
+                                        div.bigimgbox(style="background:url(#{_ad_lastList.movieImage}) center center no-repeat; background-size:300% auto;")
+                                        div.imgbox
+                                            img(src="#{_ad_lastList.movieImage}")
+                                        div.txtbox.flex
+                                            h3 #{_ad_lastList.movieNameCN}
+                                                p #{_ad_lastList.movieVersions}
+                                                p #{_ad_lastList.intro}
+                                        div.btnbox
+                                            a(href="/110000/ticket/#{_ad_lastList.movieID}").new 
+                                                i.btn_tick
+                                                p 购票
+                    else
+                        each indexAd in _items
+                            div.addticketbox.flexbox_v_c
+                                div.bigimgbox(style="background:url(#{indexAd.movieImage}) center center no-repeat; background-size:300% auto;")
+                                div.imgbox
+                                    img(src="#{indexAd.movieImage}")
+                                div.txtbox.flex
+                                    h3 #{indexAd.movieNameCN}
+                                        p #{indexAd.movieVersions}
+                                        p #{indexAd.intro}
+                                div.btnbox
+                                    a(href="/110000/ticket/#{indexAd.movieID}").new 
+                                        i.btn_tick
+                                        p 购票
+                else
+                    header.infoheader
+                        div.infotool
                         img(src="/tempimages/inin.jpg")
-                    div.addticketbox ddaf
-                    h2.infotit #{data.newsInfo.title}
-                    div.infomenu.flexbox_v_c
-                        i.info01
-                        span.linkname #{data.newsInfo.weMediaName}
-                            time #{data.newsInfo.publishtime}
-                        i.info02
-                        span 票友开放平台
+                h2.infotit #{data.newsInfo.title}
+                div.infomenu.flexbox_v_c
+                    i.info01
+                    span.linkname #{data.newsInfo.weMediaName}
+                        time #{data.newsInfo.publishtime}
+                    i.info02
+                    span 票友开放平台
                 div.infocon
                     div._txt
                         
