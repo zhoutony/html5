@@ -7,17 +7,45 @@ var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 
 var dialogs = require('../util/dialogs.js');
+var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 
 /* jshint ignore:end */
 $(document).ready(function() {
     window.dialogs = dialogs;
+    var movienewsPageindex = 1;
+    var hotmovie = $('.hotmovie');
+    var lock = false;
     //加载 头条电影列表
-    $.get('/movienews/0', function(data) {
-        var _el = $('.hotmovie').html(data)
-        //console.log(data);
-        appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
-    });
+    function getMovieNews(){
+        var _url = '/movienews/' + movienewsPageindex;
+        $.get(_url, function(data) {
+            if(data == ""){
+                ScrollBottomPlus.remove();
+                return;
+            }
+            var _el = $('<div></div>').html(data).appendTo(hotmovie);
+            if(movienewsPageindex == 1){
+                appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
+            }
+            if(!lock){
+                lock = true;
+                ScrollBottomPlus.render({
+                    el: '.hotmovie',
+                    app_el: '.wrap',
+                    footer: '.navtool',
+                    callback: function(){
+                        movienewsPageindex++;
+                        getMovieNews();
+                        ScrollBottomPlus.gotoBottomShowed = false;
+                    }
+                })
+            }
+        });
 
+    }
+    getMovieNews();
+
+        
     
     var _txtbox = $('.txtbox');
     document.querySelector('.scrollpic').addEventListener('slide', function(event) {

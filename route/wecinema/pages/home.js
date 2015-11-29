@@ -76,11 +76,16 @@ app.get(['/movienews/:pageindex'], function (req, res) {
         // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
-            render_data.data.movieNews = data.movieNews;
+            if(data.movieNews.length == 0){
+                res.send('');
+            }else{
+                render_data.data.movieNews = data.movieNews;
+                res.render("wecinema/indexmovienews", render_data);
+            }
+            
         }else{
-            render_data.data.movieNews = [];
+            res.send('');
         }
-        res.render("wecinema/indexmovienews", render_data);
     });
 });
 

@@ -6,6 +6,7 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
+var Citys = require('./citys');
 
 /* jshint ignore:end */
 $(document).ready(function() {
@@ -20,6 +21,7 @@ $(document).ready(function() {
         gallery.slider({
             interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
         });
+        var myCitys = Citys.render();
     })
     //定位城市
     function getCurrentPosition () {
