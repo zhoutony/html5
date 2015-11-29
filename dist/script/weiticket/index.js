@@ -4532,7 +4532,7 @@ webpackJsonp([17,18],[
 
 	        this.checkScrollHandler = _.bind(this.checkScroll, this);
 	        $(document).bind("scroll", this.checkScrollHandler);
-	        this.footerHeight = $(this.options.footer).height() + 300 || 300;
+	        this.footerHeight = $(this.options.footer).height() + 70 || 300;
 	        this.bodyOffsetHeight = document.body.offsetHeight;
 	    },
 
