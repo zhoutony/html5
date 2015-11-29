@@ -1,4 +1,4 @@
-webpackJsonp([17,18],[
+webpackJsonp([18,17],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -9,7 +9,7 @@ webpackJsonp([17,18],[
 	var cache = __webpack_require__(4);
 	var cookie = __webpack_require__(5);
 	var mui = __webpack_require__(6);
-	var widgets = __webpack_require__(7);
+	var widgets = __webpack_require__(9);
 
 	/* jshint ignore:end */
 	$(document).ready(function() { 
@@ -21,9 +21,50 @@ webpackJsonp([17,18],[
 		TabNav.on('click',function(){
 			$(this).addClass("curr").siblings().removeClass();
 			TabCon.eq(TabNav.index(this)).show().siblings().hide();
-		});
+		})
 
-		
+		// 验证手机号
+		function VerMobile(str){
+			var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if(retel.test(str) && $('#TelBox').val() == '1'){
+				var _el = $(TelBox.parentElement);
+				_el.addClass('focus');
+				 alert('正确');
+			} else {
+				 var _el = $(TelBox.parentElement);
+			     _el.addClass('eorr');
+			     alert('请输入正确的手机号码！');
+			}
+		};
+		//手机号
+		TelBox.focus(function(){
+			 var _el = $(this.parentElement);
+			 _el.addClass('focus');
+			  
+		})
+		//手机号
+		TelBox.blur(function(){
+			 var _el = $(this.parentElement);
+			 var TelBoxvalue = TelBox.val();
+			 _el.removeClass('focus');
+			 VerMobile(TelBoxvalue);
+			  
+		})
+		//验证码
+		CodeNumber.focus(function(){
+			  var _el = $(this.parentElement);
+			 _el.addClass('focus');
+			  
+		})
+		// 登陆
+		BtnLogin.on('click',function(){
+			var TelBoxvalue = TelBox.val();
+			VerMobile(TelBoxvalue);
+			 
+			 
+			
+
+		})
 		 
 	}); //END of jquery documet.ready 
 
@@ -4274,7 +4315,9 @@ webpackJsonp([17,18],[
 
 
 /***/ },
-/* 7 */
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -4495,8 +4538,6 @@ webpackJsonp([17,18],[
 	;
 
 /***/ },
-/* 8 */,
-/* 9 */,
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
