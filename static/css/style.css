@@ -740,7 +740,7 @@ border-radius:10rem; position: absolute;top:-0.6rem;right:-0.7rem;background: #0
 .sharecon .share_dou { background: url(../images/share_dou.png) no-repeat center center; background-size: cover; }
 .sharecon .share_email { background: url(../images/share_email.png) no-repeat center center; background-size: cover; }
 /**首页新加**/
-.imgtxt h2 { line-height: 1.6; font-size: 0.9rem; }
+.imgtxt h2 { line-height: 1.6; font-size: 1.4rem; }
 .imgtxt ul { position: relative; }
 .hotmovie .imgtxt li { width: auto; }
 .imgtxt li p { position: absolute; bottom: 0.5rem; left: 0rem; }
