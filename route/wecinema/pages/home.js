@@ -59,7 +59,7 @@ app.get(['/', '/index.html'], function (req, res) {
 });
 
 // 头条电影列表
-app.get(['/movienews/:pageindex'], function (req, res) {
+app.get(['/hotmovienews/:pageindex'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
     var _pageIndex = req.params["pageindex"];

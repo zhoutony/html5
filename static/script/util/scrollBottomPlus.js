@@ -46,8 +46,9 @@ var ScrollBottomPlus = {
         if (!this.gotoBottomShowed && scrollHeight >= bodyOffsetHeight) {
             this.gotoBottomShowed = true;
             this.bodyOffsetHeight = bodyOffsetHeight;
-            this.loading = $('<div class="mui-pull"><div class="mui-pull-loading mui-icon mui-spinner mui-visibility"></div><div class="mui-pull-caption mui-pull-caption-refresh">正在加载...</div></div>').appendTo(this.el);
+            // this.loading = $('<div class="mui-pull"><div class="mui-pull-loading mui-icon mui-spinner mui-visibility"></div><div class="mui-pull-caption mui-pull-caption-refresh">正在加载...</div></div>').appendTo(this.el);
             this.options.callback && (this.options.callback());
+            console.log(scrollHeight);
         }
     },
 

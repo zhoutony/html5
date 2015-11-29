@@ -52,8 +52,8 @@ require('./pages/myecoupons');
 //event
 require('./pages/event');
 
-//infotxt
-require('./pages/infotxt');
+//movienews
+require('./pages/movienews');
 
 //vipcard
 require('./pages/vipcard');
