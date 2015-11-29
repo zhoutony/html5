@@ -71,30 +71,45 @@ block prepend body
                             a(href="#{_ad_secondList.url}")
                                 img(src="#{_ad_secondList.imageUrl}")
 
-        div.scrollpic1._thirdads.m-hide
+        div._thirdads.m-hide.txtpic
             if(data && data.thirdAds)
                 div._mui-slider.mui-slider
                     div.mui-slider-group.mui-slider-loop
                         - var _ad_secondList = data.thirdAds[0];
                         - var _ad_secondLen = data.thirdAds.length;
                         - var _ad_secondlastList = data.thirdAds[_ad_secondLen - 1];
-                        div.addimg.mui-slider-item.mui-slider-item-duplicate
-                            h2 
-                                span 
-                            a(href="#").btn_share
-                            a(href="#{_ad_secondlastList.url}")
-                                img(src="#{_ad_secondlastList.imageUrl}")
+                        div.mui-slider-item.mui-slider-item-duplicate
+                            section
+                                a(href="#{_ad_secondlastList.url}")
+                                    div.flexbox_v_c
+                                        h2.flex #{_ad_secondlastList.advertisementName} 
+                                    img(src="#{_ad_secondlastList.imageUrl}")
+                                    footer.flexbox 
+                                        div.main.flex
+                                            span.ico_edit_top 推广
+                                            span.n_name #{_ad_secondlastList.weMediaName}
                             
                         each secondAd, index in data.thirdAds
-                            div.addimg.mui-slider-item
-                                h2 
-                                    span 
-                                a(href="#").btn_share
-                                a(href="#{secondAd.url}")
+                            div.mui-slider-item
+                                section 
+                                    a(href="#{secondAd.url}")
+                                    div.flexbox_v_c
+                                    h2.flex  #{secondAd.advertisementName}
                                     img(src="#{secondAd.imageUrl}")
-                        div.mui-slider-item.mui-slider-item-duplicate
-                            a(href="#{_ad_secondList.url}")
-                                img(src="#{_ad_secondList.imageUrl}")                    
+                                    footer.flexbox 
+                                        div.main.flex
+                                            span.ico_edit_top 推广
+                                            span.n_name #{secondAd.weMediaName}
+                            div.mui-slider-item.mui-slider-item-duplicate
+                                section
+                                    a(href="#{_ad_secondlastList.url}")
+                                        div.flexbox_v_c
+                                            h2.flex #{_ad_secondlastList.advertisementName} 
+                                        img(src="#{_ad_secondlastList.imageUrl}")
+                                        footer.flexbox 
+                                            div.main.flex
+                                                span.ico_edit_top 推广
+                                                span.n_name #{_ad_secondlastList.weMediaName}       
 
         div.hotmovie
         
