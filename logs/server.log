@@ -2275,3 +2275,96 @@
        publishtime: '2015-11-29 15:43:46',
        weMediaName: '时光网',
        content: null } ] }
+[2015-11-29 18:33:48.873] [INFO] console - Listening on port 80
+[2015-11-29 18:33:50.831] [INFO] console - 521b247 
+[2015-11-29 18:33:54.014] [INFO] console - cdmatomdeMacBook-Pro.local:2212 request uri: http://weiticket.com:8088/queryMovieNewsByID.aspx elapsedTime: 3174 ms
+[2015-11-29 18:33:54.014] [INFO] console - true
+[2015-11-29 18:33:54.015] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { time: true,
+  timeout: 20000,
+  uri: 'http://weiticket.com:8088/queryMovieNewsByID.aspx',
+  json: false,
+  formData: { newsID: '3795' },
+  req_id: 'ae4587f0-9684-11e5-bc24-1945e541f259' }
+[2015-11-29 18:33:54.017] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { newsInfo: 
+   { movieNewID: 3795,
+     title: '《桃李花歌》首曝海报预告',
+     image1: 'http://p2.pstatp.com/list/8708/3636253917',
+     image2: '',
+     image3: '',
+     isTop: false,
+     readCount: 251,
+     publishtime: '2015-11-29 15:43:55',
+     weMediaName: '时光网',
+     content: '\n                   <img src="http://p2.pstatp.com/large/8708/3636253917" img_width="620" img_height="884" alt="《桃李花歌》首曝海报预告" onerror="javascript:errorimg.call(this);"><p>《桃李花歌》首款海报</p><p>时光网讯 由柳承龙和秀智主演的古装电影《桃李花歌》今日首曝海报和一支先行版预告片。并确定将于11月25日在韩国上映。</p><p>《桃李花歌》以十九世纪六七十年代的朝鲜为背景，讲述了在那个女子不能演唱盘索里（注：朝鲜一种古老的演唱形式）的年代，梦想歌唱并为之付出艰辛努力的朝鲜第一位女性盘索里歌唱家陈彩善（秀智 饰）和她的师傅申宰浩（柳承龙 饰）之间发生的故事。</p><p>此次公开的首款海报，呈现了盘索里大家申宰浩创办的盘索里学堂"栋里精舍"接收第一个女学员时颇具纪念意义的一刻。同时曝光的预告片则通过申宰浩之口，和演员的演绎展现了盘索里这一古老的歌唱艺术形式，并引出了主人公之间的故事。曾因主演《建筑学概论》被誉为“国民初恋”的秀智变身热爱盘索里演唱的朝鲜时代少女陈彩善，而通过主演《七号房的礼物》《鸣梁海战》一跃成为韩国一线实力男星的柳承龙扮演陈彩善的严师申宰浩。此外，宋清晨和金南佶还在片中出演的盘索里老师金世宗和历史人物兴宣大院君李昰应。</p><p>该片导演李宗弼算是导演新人，但其此前曾客串出演过多部电影，包括元彬主演的《大叔》和宋康昊主演的《蓝盐》。由其执导的多部短篇作品曾受邀参展韩国内外的电影节，《桃李花歌》是其首次担纲执导商业电影。</p>\n               ' },
+  movies: 
+   { TotalCount: 0,
+     Items: [ [Object], [Object], [Object], [Object], [Object] ] } }
+[2015-11-29 18:34:26.353] [INFO] console - 521b247 
+[2015-11-29 18:34:29.772] [INFO] console - cdmatomdeMacBook-Pro.local:2212 request uri: http://weiticket.com:8088/queryMovieNewsByID.aspx elapsedTime: 3417 ms
+[2015-11-29 18:34:29.773] [INFO] console - true
+[2015-11-29 18:34:29.773] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { time: true,
+  timeout: 20000,
+  uri: 'http://weiticket.com:8088/queryMovieNewsByID.aspx',
+  json: false,
+  formData: { newsID: '3795' },
+  req_id: 'c371c210-9684-11e5-bc24-1945e541f259' }
+[2015-11-29 18:34:29.774] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { newsInfo: 
+   { movieNewID: 3795,
+     title: '《桃李花歌》首曝海报预告',
+     image1: 'http://p2.pstatp.com/list/8708/3636253917',
+     image2: '',
+     image3: '',
+     isTop: false,
+     readCount: 251,
+     publishtime: '2015-11-29 15:43:55',
+     weMediaName: '时光网',
+     content: '\n                   <img src="http://p2.pstatp.com/large/8708/3636253917" img_width="620" img_height="884" alt="《桃李花歌》首曝海报预告" onerror="javascript:errorimg.call(this);"><p>《桃李花歌》首款海报</p><p>时光网讯 由柳承龙和秀智主演的古装电影《桃李花歌》今日首曝海报和一支先行版预告片。并确定将于11月25日在韩国上映。</p><p>《桃李花歌》以十九世纪六七十年代的朝鲜为背景，讲述了在那个女子不能演唱盘索里（注：朝鲜一种古老的演唱形式）的年代，梦想歌唱并为之付出艰辛努力的朝鲜第一位女性盘索里歌唱家陈彩善（秀智 饰）和她的师傅申宰浩（柳承龙 饰）之间发生的故事。</p><p>此次公开的首款海报，呈现了盘索里大家申宰浩创办的盘索里学堂"栋里精舍"接收第一个女学员时颇具纪念意义的一刻。同时曝光的预告片则通过申宰浩之口，和演员的演绎展现了盘索里这一古老的歌唱艺术形式，并引出了主人公之间的故事。曾因主演《建筑学概论》被誉为“国民初恋”的秀智变身热爱盘索里演唱的朝鲜时代少女陈彩善，而通过主演《七号房的礼物》《鸣梁海战》一跃成为韩国一线实力男星的柳承龙扮演陈彩善的严师申宰浩。此外，宋清晨和金南佶还在片中出演的盘索里老师金世宗和历史人物兴宣大院君李昰应。</p><p>该片导演李宗弼算是导演新人，但其此前曾客串出演过多部电影，包括元彬主演的《大叔》和宋康昊主演的《蓝盐》。由其执导的多部短篇作品曾受邀参展韩国内外的电影节，《桃李花歌》是其首次担纲执导商业电影。</p>\n               ' },
+  movies: 
+   { TotalCount: 0,
+     Items: [ [Object], [Object], [Object], [Object], [Object] ] } }
+[2015-11-29 18:34:29.909] [INFO] console - 521b247 
+[2015-11-29 18:34:30.206] [INFO] console - cdmatomdeMacBook-Pro.local:2212 request uri: http://weiticket.com:8088/queryMovieNewsByID.aspx elapsedTime: 294 ms
+[2015-11-29 18:34:30.206] [INFO] console - true
+[2015-11-29 18:34:30.206] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { time: true,
+  timeout: 20000,
+  uri: 'http://weiticket.com:8088/queryMovieNewsByID.aspx',
+  json: false,
+  formData: { newsID: '3795' },
+  req_id: 'c5908360-9684-11e5-bc24-1945e541f259' }
+[2015-11-29 18:34:30.207] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { newsInfo: 
+   { movieNewID: 3795,
+     title: '《桃李花歌》首曝海报预告',
+     image1: 'http://p2.pstatp.com/list/8708/3636253917',
+     image2: '',
+     image3: '',
+     isTop: false,
+     readCount: 251,
+     publishtime: '2015-11-29 15:43:55',
+     weMediaName: '时光网',
+     content: '\n                   <img src="http://p2.pstatp.com/large/8708/3636253917" img_width="620" img_height="884" alt="《桃李花歌》首曝海报预告" onerror="javascript:errorimg.call(this);"><p>《桃李花歌》首款海报</p><p>时光网讯 由柳承龙和秀智主演的古装电影《桃李花歌》今日首曝海报和一支先行版预告片。并确定将于11月25日在韩国上映。</p><p>《桃李花歌》以十九世纪六七十年代的朝鲜为背景，讲述了在那个女子不能演唱盘索里（注：朝鲜一种古老的演唱形式）的年代，梦想歌唱并为之付出艰辛努力的朝鲜第一位女性盘索里歌唱家陈彩善（秀智 饰）和她的师傅申宰浩（柳承龙 饰）之间发生的故事。</p><p>此次公开的首款海报，呈现了盘索里大家申宰浩创办的盘索里学堂"栋里精舍"接收第一个女学员时颇具纪念意义的一刻。同时曝光的预告片则通过申宰浩之口，和演员的演绎展现了盘索里这一古老的歌唱艺术形式，并引出了主人公之间的故事。曾因主演《建筑学概论》被誉为“国民初恋”的秀智变身热爱盘索里演唱的朝鲜时代少女陈彩善，而通过主演《七号房的礼物》《鸣梁海战》一跃成为韩国一线实力男星的柳承龙扮演陈彩善的严师申宰浩。此外，宋清晨和金南佶还在片中出演的盘索里老师金世宗和历史人物兴宣大院君李昰应。</p><p>该片导演李宗弼算是导演新人，但其此前曾客串出演过多部电影，包括元彬主演的《大叔》和宋康昊主演的《蓝盐》。由其执导的多部短篇作品曾受邀参展韩国内外的电影节，《桃李花歌》是其首次担纲执导商业电影。</p>\n               ' },
+  movies: 
+   { TotalCount: 0,
+     Items: [ [Object], [Object], [Object], [Object], [Object] ] } }
+[2015-11-29 18:35:43.435] [INFO] console - 521b247 
+[2015-11-29 18:35:44.718] [INFO] console - cdmatomdeMacBook-Pro.local:2212 request uri: http://weiticket.com:8088/queryMovieNewsByID.aspx elapsedTime: 1278 ms
+[2015-11-29 18:35:44.718] [INFO] console - true
+[2015-11-29 18:35:44.718] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { time: true,
+  timeout: 20000,
+  uri: 'http://weiticket.com:8088/queryMovieNewsByID.aspx',
+  json: false,
+  formData: { newsID: '3795' },
+  req_id: 'f16389b0-9684-11e5-bc24-1945e541f259' }
+[2015-11-29 18:35:44.719] [DEBUG] console - cdmatomdeMacBook-Pro.local:2212 { newsInfo: 
+   { movieNewID: 3795,
+     title: '《桃李花歌》首曝海报预告',
+     image1: 'http://p2.pstatp.com/list/8708/3636253917',
+     image2: '',
+     image3: '',
+     isTop: false,
+     readCount: 251,
+     publishtime: '2015-11-29 15:43:55',
+     weMediaName: '时光网',
+     content: '\n                   <img src="http://p2.pstatp.com/large/8708/3636253917" img_width="620" img_height="884" alt="《桃李花歌》首曝海报预告" onerror="javascript:errorimg.call(this);"><p>《桃李花歌》首款海报</p><p>时光网讯 由柳承龙和秀智主演的古装电影《桃李花歌》今日首曝海报和一支先行版预告片。并确定将于11月25日在韩国上映。</p><p>《桃李花歌》以十九世纪六七十年代的朝鲜为背景，讲述了在那个女子不能演唱盘索里（注：朝鲜一种古老的演唱形式）的年代，梦想歌唱并为之付出艰辛努力的朝鲜第一位女性盘索里歌唱家陈彩善（秀智 饰）和她的师傅申宰浩（柳承龙 饰）之间发生的故事。</p><p>此次公开的首款海报，呈现了盘索里大家申宰浩创办的盘索里学堂"栋里精舍"接收第一个女学员时颇具纪念意义的一刻。同时曝光的预告片则通过申宰浩之口，和演员的演绎展现了盘索里这一古老的歌唱艺术形式，并引出了主人公之间的故事。曾因主演《建筑学概论》被誉为“国民初恋”的秀智变身热爱盘索里演唱的朝鲜时代少女陈彩善，而通过主演《七号房的礼物》《鸣梁海战》一跃成为韩国一线实力男星的柳承龙扮演陈彩善的严师申宰浩。此外，宋清晨和金南佶还在片中出演的盘索里老师金世宗和历史人物兴宣大院君李昰应。</p><p>该片导演李宗弼算是导演新人，但其此前曾客串出演过多部电影，包括元彬主演的《大叔》和宋康昊主演的《蓝盐》。由其执导的多部短篇作品曾受邀参展韩国内外的电影节，《桃李花歌》是其首次担纲执导商业电影。</p>\n               ' },
+  movies: 
+   { TotalCount: 0,
+     Items: [ [Object], [Object], [Object], [Object], [Object] ] } }
