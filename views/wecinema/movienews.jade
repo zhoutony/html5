@@ -1,0 +1,57 @@
+extends ./layout
+
+block title
+        title 电影票友
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        if data && !data.err && data.newsInfo
+            div.infotxt
+                header.infoheader
+                    div.infotool
+                        img(src="/tempimages/inin.jpg")
+                    div.addticketbox ddaf
+                    h2.infotit #{data.newsInfo.title}
+                    div.infomenu.flexbox_v_c
+                        i.info01
+                        span.linkname #{data.newsInfo.weMediaName}
+                            time #{data.newsInfo.publishtime}
+                        i.info02
+                        span 票友开放平台
+                div.infocon
+                    div._txt
+                        
+                    //- div.codeinfo.flexbox
+                    //-     div.imgbox
+                    //-         img(src="/tempimages/code.jpg")
+                    //-     div.txtbox.flex
+                    //-         h4 票友开放平台
+                    //-         p 最佳影互平台
+                    //- div.sharetoolbox
+                    //-     a
+                    //-         i.b_fav
+                    //-         span 1
+                    //-     a
+                    //-         i.b_weixin
+                    //-         span 1
+                    //-     a
+                    //-         i.b_oicq
+                    //-         span 1
+                    //-     a
+                    //-         i.b_sina
+                    //-         span 1
+                    //- div.infoaddimg
+                    //-     img(src="/tempimages/infoaddimg.jpg")
+
+
+block prepend footer
+
+block prepend script
+    script
+        | var newscontent = !{JSON.stringify(data.newsInfo.content)};
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")
+
+

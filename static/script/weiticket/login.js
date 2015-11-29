@@ -25,29 +25,42 @@ $(document).ready(function() {
 	// 验证手机号
 	function VerMobile(str){
 		var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-		if(retel.test(str)){
-			
-			 
+		if(retel.test(str)) && $('#TelBox').val() == '1'){
+			var _el = $(TelBox.parentElement);
+			_el.addClass('focus');
+			 alert('正确');
 		} else {
-			 
+			 var _el = $(TelBox.parentElement);
+		     _el.addClass('eorr');
+		     alert('请输入正确的手机号码！');
 		}
 	};
+	//手机号
 	TelBox.focus(function(){
 		 var _el = $(this.parentElement);
 		 _el.addClass('focus');
 		  
 	})
-	CodeNumber.focus(function(){
+	//手机号
+	TelBox.blur(function(){
 		 var _el = $(this.parentElement);
+		 var TelBoxvalue = TelBox.val();
+		 _el.removeClass('focus');
+		 VerMobile(TelBoxvalue);
+		  
+	})
+	//验证码
+	CodeNumber.focus(function(){
+		  var _el = $(this.parentElement);
 		 _el.addClass('focus');
 		  
 	})
 	// 登陆
 	BtnLogin.on('click',function(){
 		var TelBoxvalue = TelBox.val();
-		VerMobile(TelBoxvalue)  ;
+		VerMobile(TelBoxvalue);
 		 
-		
+		 
 		// ajax 请求
 		$.ajax({
 			type:'post',
@@ -59,12 +72,10 @@ $(document).ready(function() {
 
 			},
 			error:function(){
-				alert("用户名密码不正确！")
+				 
 			}
-
-
-		});	 
-	})
+  
+		})
  
-	 
+	})
 }); //END of jquery documet.ready 

@@ -17,7 +17,7 @@ $(document).ready(function() {
     var lock = false;
     //加载 头条电影列表
     function getMovieNews(){
-        var _url = '/movienews/' + movienewsPageindex;
+        var _url = '/hotmovienews/' + movienewsPageindex;
         $.get(_url, function(data) {
             if(data == ""){
                 ScrollBottomPlus.remove();
@@ -36,10 +36,10 @@ $(document).ready(function() {
                     callback: function(){
                         movienewsPageindex++;
                         getMovieNews();
-                        ScrollBottomPlus.gotoBottomShowed = false;
                     }
                 })
             }
+            ScrollBottomPlus.gotoBottomShowed = false;
         });
 
     }
