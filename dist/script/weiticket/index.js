@@ -4532,7 +4532,7 @@ webpackJsonp([16,17],[
 
 	        this.checkScrollHandler = _.bind(this.checkScroll, this);
 	        $(document).bind("scroll", this.checkScrollHandler);
-	        this.footerHeight = $(this.options.footer).height() + 300 || 300;
+	        this.footerHeight = $(this.options.footer).height() + 70 || 300;
 	        this.bodyOffsetHeight = document.body.offsetHeight;
 	    },
 
@@ -4543,7 +4543,7 @@ webpackJsonp([16,17],[
 	        if (!this.gotoBottomShowed && scrollHeight >= bodyOffsetHeight) {
 	            this.gotoBottomShowed = true;
 	            this.bodyOffsetHeight = bodyOffsetHeight;
-	            this.loading = $('<div class="mui-pull"><div class="mui-pull-loading mui-icon mui-spinner mui-visibility"></div><div class="mui-pull-caption mui-pull-caption-refresh">正在加载...</div></div>').appendTo(this.el);
+	            // this.loading = $('<div class="mui-pull"><div class="mui-pull-loading mui-icon mui-spinner mui-visibility"></div><div class="mui-pull-caption mui-pull-caption-refresh">正在加载...</div></div>').appendTo(this.el);
 	            this.options.callback && (this.options.callback());
 	        }
 	    },
