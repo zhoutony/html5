@@ -17,7 +17,8 @@ webpackJsonp([4,17],[
 			TabCon     = $(' .tabbox'),
 			TelBox     = $('#TelBox'),
 			CodeNumber = $('#CodeNumber'),
-			BtnLogin   = $('#BtnLogin') 
+			BtnLogin   = $('#BtnLogin')
+
 		    
 		// tab 切换
 		TabNav.on('click',function(){
@@ -29,16 +30,27 @@ webpackJsonp([4,17],[
 		function VerMobile(str){
 			var retel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
 			if(retel.test(str)){
-				 alert("正确");	
+				
+				 
 			} else {
-				alert("错误");
+				 
 			}
-		}
+		};
+		TelBox.focus(function(){
+			 var _el = $(this.parentElement);
+			 _el.addClass('focus');
+			  
+		})
+		CodeNumber.focus(function(){
+			 var _el = $(this.parentElement);
+			 _el.addClass('focus');
+			  
+		})
 		// 登陆
 		BtnLogin.on('click',function(){
-			var value = TelBox.val();
-			 VerMobile(value);
-
+			var TelBoxvalue = TelBox.val();
+			VerMobile(TelBoxvalue)  ;
+			 
 			
 			// ajax 请求
 			$.ajax({

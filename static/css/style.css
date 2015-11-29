@@ -707,13 +707,15 @@ border-radius:10rem; position: absolute;top:-0.6rem;right:-0.7rem;background: #0
 .city-list h3 + ul.area-list li { float: none; width: 100%; border-bottom: 1px solid #f3f3f3; }
 .city-list h3 + ul.area-list li span { display: inline-block; width: 3rem; text-align: left; padding-left: 1rem; border: none; }
 .city-list h3 + ul.area-list li mark { font-size: 1rem; color: #9d9d9d; margin-left: 10px; }
-.registbox li.eorrinput { background: #e8fffe; border: 2px solid #00948D; }
-.registbox li.eorrinput .biginput { border-right: none; }
-.registbox li.eorrinput input { border-right: 2px solid #00948D; }
-.registbox li.eorrinput input.btn_code { border-right: 2px solid #fff; margin: -2px 0; }
-.registbox li.eorrinput:last-child { border-right: 2px solid #fff; }
+.registbox li.focus { background: #e8fffe; border: 2px solid #00948D; }
+.registbox li.focus .biginput { border-right: none; }
+.registbox li.focus input { border-right: 2px solid #00948D; }
+.registbox li.focus input.btn_code { border-right: 2px solid #fff; margin: -2px 0; }
+.registbox li.focus:last-child { border-right: 2px solid #fff; }
 .registbox input.eorrinput { background: red; }
 .regist .onbox { background: #00948D; }
+.registbox li .btn_non{background:#c9c9cb}
+.registbox li .btn_clear{display:none;}
 /**分享弹出**/
 .sharepop { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0,0,0,.8) }
 .sharebtn a { display: block; font-size: 1.1rem; color: #fff; height: 3rem; line-height: 3rem; text-align: center; background: #00948D; }
@@ -872,3 +874,5 @@ transform:rotate(330deg)
 transform:rotate(360deg)
 }
 }
+
+.red{background: red;}
