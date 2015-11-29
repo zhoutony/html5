@@ -633,6 +633,7 @@ color:#fff;
 .transition10 { -webkit-transition: .10s all; -moz-transition: .10s all; -o-transition: .10s all; -ms-transition: .10s all; transition: .10s all }
 /**内容页**/
 .infotxt { padding: 0rem 0rem 1rem; }
+.infotxt .infocon  img{max-width:100%;}
 .infotxt .infocon h3 { font-size: 1.1rem; line-height: 1; color: #333; position: relative; }
 .infotxt .infocon h3 span { padding: 0 1rem 0 0; background: #fff; position: relative; z-index: 1; }
 .infotxt .infocon h3:after { content: ''; display: block; height: 1px; background: #595757; overflow: hidden; position: absolute; z-index: 0; left: 0; right: 0; top: 50%; margin-top: -0.5px; }
@@ -707,13 +708,21 @@ border-radius:10rem; position: absolute;top:-0.6rem;right:-0.7rem;background: #0
 .city-list h3 + ul.area-list li { float: none; width: 100%; border-bottom: 1px solid #f3f3f3; }
 .city-list h3 + ul.area-list li span { display: inline-block; width: 3rem; text-align: left; padding-left: 1rem; border: none; }
 .city-list h3 + ul.area-list li mark { font-size: 1rem; color: #9d9d9d; margin-left: 10px; }
-.registbox li.eorrinput { background: #e8fffe; border: 2px solid #00948D; }
-.registbox li.eorrinput .biginput { border-right: none; }
-.registbox li.eorrinput input { border-right: 2px solid #00948D; }
-.registbox li.eorrinput input.btn_code { border-right: 2px solid #fff; margin: -2px 0; }
-.registbox li.eorrinput:last-child { border-right: 2px solid #fff; }
+.registbox li.focus { background: #e8fffe; border: 2px solid #00948D; }
+.registbox li.focus .biginput { border-right: none; }
+.registbox li.focus input { border-right: 2px solid #00948D; }
+.registbox li.focus input.btn_code { border-right: 2px solid #fff; margin: -2px 0; }
+.registbox li.focus:last-child { border-right: 2px solid #fff; }
+
+.registbox li.eorr { background: #ffe5e5; border: 2px solid red; }
+.registbox li.eorr .biginput { border-right: none; }
+.registbox li.eorr input { border-right: 2px solid red; }
+.registbox li.eorr input.btn_code { border-right: 2px solid #fff; margin: -2px 0; }
+.registbox li.eorr:last-child { border-right: 2px solid #fff; }
 .registbox input.eorrinput { background: red; }
 .regist .onbox { background: #00948D; }
+.registbox li .btn_non{background:#c9c9cb}
+.registbox li .btn_clear{display:none;}
 /**分享弹出**/
 .sharepop { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(0,0,0,.8) }
 .sharebtn a { display: block; font-size: 1.1rem; color: #fff; height: 3rem; line-height: 3rem; text-align: center; background: #00948D; }
@@ -872,3 +881,5 @@ transform:rotate(330deg)
 transform:rotate(360deg)
 }
 }
+
+.red{background: red;}
