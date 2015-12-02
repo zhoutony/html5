@@ -9,3 +9,5 @@
 Error: getaddrinfo ENOTFOUND localhost localhost:3091
     at errnoException (dns.js:26:10)
     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2015-12-02 14:29:22.021] [INFO] console - Listening on port 80
+[2015-12-02 14:34:39.997] [INFO] console - Listening on port 80
