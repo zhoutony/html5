@@ -642,6 +642,8 @@ color:#fff;
 .infotxt .infocon p:first-child:after { top: -1.4rem;
  position: absolute; left: 0; content: ''; 
  width: 100%; height: 1px; background: #d6d6d6; -webkit-transform: scaleY(0.5); overflow: hidden; }
+  .infotxt .infocon p object,
+ .infotxt .infocon p embed{max-width:100%;}
 .infotxt .infoheader .infotool{margin-right:0rem;}
 .infotit { font-size: 1.6rem; font-weight: bold; color: #333; line-height: 1.2; margin: 1rem 0; }
 .infotool img { width: 100%; height: auto; }
