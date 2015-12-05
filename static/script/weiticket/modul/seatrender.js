@@ -38,7 +38,7 @@ define([
 
                 //计算缩放比例
                 var min = $root.width() / ($table.width() + 30);
-                var max = Math.max(1.5, $table.width() / 1000);
+                var max = Math.max(1.5, ($table.width() + 30) / 1000);
 
                 this.minZoom = min;
                 this.maxZoom = max;
