@@ -29,10 +29,11 @@ block prepend body
                                 p #{_moivetype}#{_showtime} 
                         div.onbtn
                             a.notbtn(href="/payment") 选好了
-                div.onlinemid.flexbox
-                    div.main.flex 请选择下方座位，最多选4个
-                    div.aside
-                        a(href="") 换个场次
+                div.onlinemid
+                    div.flexbox
+                         div.main.flex 请选择下方座位，最多选4个
+                         div.aside
+                             a(href="") 换个场次  
                 div.onlineseat.flex
                     if data.show
                         h2 #{data.show.hallName}（银幕方向）
@@ -40,7 +41,7 @@ block prepend body
                         div.text
                             i.seat_selected
                             | 选择
-                            i.seat_false
+                            i.seat_false.icon-set
                             | 已选
                             i.seat_ture
                             | 未选
