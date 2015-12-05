@@ -17,8 +17,8 @@ define([
                 this.roomVM = config.vm;
                 this.$root = config.root;
                 this.$room = this.$root.find('.room');
-                this.$roomTable = this.$room.find('.table');
-                this.$hIndicator = this.$root.find('.hIndicator .scroller');
+                this.$roomTable = this.$room.find('.ticket_seatcont');
+                this.$hIndicator = this.$root.find('.seat-nav .lines');
 
                 var $room = this.$room;
                 var $table = this.$roomTable;
@@ -37,7 +37,7 @@ define([
                 };
 
                 //计算缩放比例
-                var min = $root.width() / $table.width();
+                var min = $root.width() / ($table.width() + 30);
                 var max = Math.max(1.5, $table.width() / 1000);
 
                 this.minZoom = min;
@@ -54,7 +54,8 @@ define([
                     useTransition: true,
                     scrollX: true,
                     scrollY: true,
-                    freeScroll: true
+                    freeScroll: true,
+                    scrollbars: false
                 });
                 setTimeout(function(){
                     seats2info.show();
@@ -62,34 +63,34 @@ define([
 
 
                 //指示条逻辑
-                if (!this.scroll.indicators) {
-                    this.scroll.indicators = [];
-                }
-                var indicator = {
-                    style: that.$hIndicator[0].style,
-                    updatePosition: function() {
-                        var y = Math.round(that.scroll.y);
-                        this.style["webkitTransform"] = "translate(0," + y + "px) translateZ(0) scale(" + that.scroll.scale + ")";
-                        this.style["webkitTransformOrigin"] = "top left";
-                    },
-                    transitionTime: function(time) {
-                        this.style.webkitTransitionDuration = time + 'ms';
-                    },
-                    transitionTimingFunction: function(value) {
-                        this.style.webkitTransitionTiming = value;
-                    },
-                    refresh: function() {
-                        this.transitionTime(0);
-                        this.updatePosition();
-                    },
-                    remove: function() {},
-                    destroy: function() {}
-                };
-                this.scroll.indicators.push(indicator);
+                // if (!this.scroll.indicators) {
+                //     this.scroll.indicators = [];
+                // }
+                // var indicator = {
+                //     style: that.$hIndicator[0].style,
+                //     updatePosition: function() {
+                //         var y = Math.round(that.scroll.y);
+                //         this.style["webkitTransform"] = "translate(0," + y + "px) translateZ(0) scale(" + that.scroll.scale + ")";
+                //         this.style["webkitTransformOrigin"] = "top left";
+                //     },
+                //     transitionTime: function(time) {
+                //         this.style.webkitTransitionDuration = time + 'ms';
+                //     },
+                //     transitionTimingFunction: function(value) {
+                //         this.style.webkitTransitionTiming = value;
+                //     },
+                //     refresh: function() {
+                //         this.transitionTime(0);
+                //         this.updatePosition();
+                //     },
+                //     remove: function() {},
+                //     destroy: function() {}
+                // };
+                // this.scroll.indicators.push(indicator);
 
                 //处理完毕数据之后执行缩放动画
                 _.defer(function() {
-                    var $seats = $table.find('.available, .locked');
+                    var $seats = $table.find('.seat');
                     that.scroll.scrollBy(0, -0.5 * ($table.width() - $table.height()));
                     that.scroll.zoom(that.scroll.scale + .0001); //hack the hIndicator
                 });
@@ -134,7 +135,7 @@ define([
                         //-100 选中的座位上移100像素
                         _numTop = -100;
                     }
-                    that.scroll.scrollToElement(who[0], 300, -_numLeft, _numTop);
+                    that.scroll.scrollToElement(who[0], 300, true, true);
                 });
             }
 
