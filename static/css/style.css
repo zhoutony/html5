@@ -2585,6 +2585,10 @@ color:#fff;
     color: #333;
     position: relative;
 }
+.infotxt .formtxt a{color:#00948D;}
+.infotxt .formtxt .main{text-align:left; font-size:1.2rem;padding-bottom:0.5rem;}
+.infotxt .formtxt .aside{text-align:center;}
+.infotxt .formtxt{color:#666;line-height:1.6;padding:1rem 1.8rem 1rem 1.8rem;text-align:right;font-size:.8rem;}
 .infotxt .infocon h13 span {
     padding: 0 1rem 0 0;
     background: #fff;
