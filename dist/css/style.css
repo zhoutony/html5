@@ -167,21 +167,21 @@ body { }
 .ico_firend, .ico_redbag { width: 1.8rem; height: 1.8rem; }
 .ico_firend { background: url(../images/ico_friend.png) no-repeat center center; background-size: cover; }
 .ico_redbag { background: url(../images/ico_redbag.png) no-repeat center center; background-size: cover; }
-.info01, .info02 { width: 2.2rem; height: 2.2rem; }
+.info01, .info02 { width: 2.4rem; height: 2.4rem; }
 .info01 { background: url(../images/info01.png) no-repeat center center; background-size: cover; }
 .info02 { background: url(../images/info02.png) no-repeat center center; background-size: cover; }
 .btn_share { width: 2.1rem; height: 2.1rem; background: url(../images/add_share.png) no-repeat center center; background-size: cover; }
 .time i { width: 1.2rem; height: 1.2rem; background: url(../images/time.png) no-repeat center center; background-size: cover; }
 .sharetool { position: absolute; right: 1.1rem; bottom: 0.5rem; }
-.sharetool a { width: 2.4rem; height: 2.4rem; margin-left: 0.6rem; border-radius: 4rem; }
+.sharetool a { width: 2.4rem; height: 2.4rem; margin-left: 1rem; border-radius: 4rem; }
 .sharetool a span { text-indent: -1000rem; }
 .btn_tick{width:2.6rem;height:1.5rem;margin:0.3rem auto;background:url(../images/btn_tick.png) no-repeat center center;background-size:cover;}
 /**ico End**/
 /**scrollpic Begin**/
-.scrollpic, .scrollpic img { height: 159px!important; }
+.scrollpic, .scrollpic img {   }
 .scrollpic { background: #f2f2f2; overflow: hidden; position: relative; }
 .imgico { position: relative; }
-.scrollpic1, .scrollpic1 img { height: 144px!important; }
+.scrollpic1, .scrollpic1 img {  }
 .imgico:after { content: ''; display: block; width: 4rem; height: 4rem; position: absolute; left: 0.9rem; top: 0.9rem; background: url(../images/img_ico.png) no-repeat center center; background-size: cover; }
 .scrollpic ul { width: 100%; display: -webkit-box; display: -moz-box; display: box; }
 .scrollpic li { width: 100%; height: 10.5rem; }
@@ -192,7 +192,8 @@ body { }
 background: #f2f2f2; overflow: hidden; position: relative; }
 .scrollpic1 .btn_share, .scrollpic1 h2 { position: absolute!important; z-index: 1!important; }
 .scrollpic1 .btn_share { bottom: 1.3rem; left: 1.3rem; }
-.scrollpic1 h2 { background: #00948D; padding: 0 1rem; height: 1rem; color: #fff; left: 0; top: 0; font-size: 0.6rem; line-height: 1rem; }
+.scrollpic1 h2 { background: #00948D; padding: 0 1rem; height: 1rem; 
+    color: #fff; left: 0; top: 0; font-size: 0.8rem; line-height: 1rem; }
 .scrollpic1 h2 span { z-index: 1; position: relative; }
 .scrollpic1 h2:after { height: 1rem; width: 0.1rem; content: ''; display: bock; position: absolute; right: -4px; z-index: 0; top: 0; -webkit-transform: skew(-30deg); background: #00948D; padding: 0 1rem; }
 .scrollpic .currbox .curr { background: #fff; }
@@ -202,28 +203,25 @@ background: #f2f2f2; overflow: hidden; position: relative; }
 .txtimg li a { display: block; height: 10.4rem; }
 /**scrollpic end**/
 .txtbox { padding: 0rem 0; margin-bottom: 0.5rem; position: relative; }
-.txtbox h2 { font-size: 1.4rem; line-height: 1; text-align: center; color: #333; padding: 0.8rem 0; position: relative; }
+.txtbox h2 { font-size: 1.6rem; line-height: 1; text-align: center; color: #333; padding: 0.8rem 0; position: relative; }
 .txtbox h2:after { position: absolute; bottom: 0; left: 0; content: ''; width: 100%; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .txtbox .txtmid { padding: 1rem 1rem 3.5rem; background: #F7F7F7; }
-.txtbox p { font-size: 1.1rem; height: 4.2rem; line-height: 1.5rem; color: #717171; text-overflow: ellipsis; white-space: normal!important; -webkit-line-clamp: 3; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; }
+.txtbox p { font-size: 1.2rem; height: 4.3rem; line-height: 1.5rem; color: #717171; text-overflow: ellipsis; white-space: normal!important; -webkit-line-clamp: 3; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; }
 .txtbox .txtinfo { font-size: 1rem; color: #c6c7c7; padding: 0 1rem 1rem; background: #f6f7f7; }
 .hotmovie { padding: 0rem 0rem 0rem; }
 .hotmovie section { position: relative; background: #f6f7f7; padding: 0.5rem 1rem 0.5rem; }
 .hotmovie section:last-child { padding-bottom: 1rem; }
 .hotmovie header { height: 2.4rem; line-height: 2.4rem; color: #fff; background: #00968f; text-align: center; font-size: 1.6rem; }
-.hotmovie h2 { font-size: 1.4rem; color: #333; line-height: 1.2;
+.hotmovie h2 { font-size: 1.6rem; color: #333; line-height: 1.2;
 padding:0.8rem 0; position: relative; color: #221814; }
-.hotmovie section:after, .hotmovie .imgtxt:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
-.hotmovie .imgtxt:after {
-bottom: 0;
-top: auto;
-}
-.hotmovie .imgtxt:before{display:none;}
+.hotmovie section:after { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; top: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
+.hotmovie section img{ } 
 .loading{text-align:center;font-size:1rem;line-height:1;padding:0.5rem 0 4.5rem;}
 .hotmovie .imgtxt footer { position: relative; margin: 0.5rem 0 0.2rem; }
 .hotmovie .imgtxt footer:after { left: -1rem; right: -1rem; }
+
 .hotmovie ul { }
-.hotmovie section li { width: 16.5rem; }
+.hotmovie section li { }
 .hotmovie section li:first-child { margin-right: 3px; }
 .hotmovie section li:last-child { margin-left: 3px; }
 .hotmovie li img { width: 100%; height: auto; }
@@ -232,7 +230,7 @@ top: auto;
 .hotmovie footer span b { font-weight: normal; }
 .hotmovie footer span.num { padding: 0 0.3rem; }
 .hotmovie footer span.ico_edit_top { color: #fff; }
-.hotmovie footer span.n_name { color: #00948D; }
+.hotmovie footer span.n_name { color: #25908b; }
 
 /**navtool Begin**/
 .navtool { background: #eeefef; height: 4rem; position: fixed; bottom: 0; left: 0rem; right: 0rem; }
@@ -569,7 +567,7 @@ color:#fff;
 .onlinemid div:after { position: absolute; bottom: 0; left: -1rem; right: -1rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .onlinemid div:before { position: absolute; top: 0; left: -1rem; right: -1rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .onlinemid .aside a { display: block; color: #00958E; }
-.smallticket { position: relative; padding: 2rem 0; }
+.smallticket { position: relative; }
 .onlineseat{background: #F7F7F7; }
 .onlineseat h2 { color: #00958E;background:#fff; font-size: 1.1rem; line-height: 2; text-align: center; }
 .onlinebox { padding: 1rem; }
@@ -583,8 +581,8 @@ color:#fff;
 .line-v, .line-h { position: absolute; display: none; }
 .ticket_seatcont li { margin-bottom: 0.2rem; }
 .smallticket {   }
-.onlineseat .row_num { background: rgba(0,150,141,.6); z-index: 1; border-radius: 1.5em; position: absolute; left: 1.5em; top: 2rem; }
-.smallticket .ticket_seatcont {  overflow-x: auto; overflow-y: hidden; margin-left: 3rem; }
+.onlineseat .row_num { background: rgba(0,150,141,.6); z-index: 1; border-radius: 1.5em; position: absolute; left: 1.5em; }
+.smallticket .ticket_seatcont {  overflow-x: auto; overflow-y: hidden; margin-left: 2rem; }
 .smallticket .ticket_seatcont span { margin: 0 0.15rem }
 .smallticket .row_num li { width: 1.35rem; height: 1.3rem; overflow: hidden; line-height: 1.3rem; text-align: center; color: #dcdcdc; margin-bottom: 0.2rem; }
 .smallticket .row_num li span { font-size: 0.8rem; }
@@ -634,21 +632,31 @@ color:#fff;
 .transition10 { -webkit-transition: .10s all; -moz-transition: .10s all; -o-transition: .10s all; -ms-transition: .10s all; transition: .10s all }
 /**内容页**/
 .infotxt { padding: 0rem 0rem 1rem; }
+.infotxt .infocon img:first-child{margin-top:1rem;}
 .infotxt .infocon  img{max-width:100%;}
-.infotxt .infocon h3 { font-size: 1.1rem; line-height: 1; color: #333; position: relative; }
-.infotxt .infocon h3 span { padding: 0 1rem 0 0; background: #fff; position: relative; z-index: 1; }
-.infotxt .infocon h3:after { content: ''; display: block; height: 1px; background: #595757; overflow: hidden; position: absolute; z-index: 0; left: 0; right: 0; top: 50%; margin-top: -0.5px; }
-.infotxt .infocon p { position: relative; margin: 0.5rem 0 1rem; padding: 0 0 0.5rem 0; font-size: 0.9rem; line-height: 1.8rem; color: #666; }
-.infotxt .infocon p:after { bottom: 0; position: absolute; left: 0; content: ''; width: 100%; height: 1px; background: #717071; -webkit-transform: scaleY(0.5); overflow: hidden; }
-.infotxt .infoheader .infotool{margin-right:-1.8rem;}
-.infotit { font-size: 1.2rem; font-weight: bold; color: #333; line-height: 1.2; margin: 1rem 0; }
+.infotxt .infocon p1 strong { font-size: 1.1rem; line-height: 1; color: #333; position: relative; }
+.infotxt .infocon h13 span { padding: 0 1rem 0 0; background: #fff; position: relative; z-index: 1; }
+.infotxt .infocon p1 strong:after { content: ''; display: block; height: 1px; background: #595757; overflow: hidden; position: absolute; z-index: 0; left: 0; right: 0; top: 50%; margin-top: -0.5px; }
+.infotxt .infocon p { position: relative; margin: 0.5rem 0 1rem; 
+    padding: 0 0 0.5rem 0; font-size: 1.4rem; line-height: 1.6; color: #666; }
+.infotxt .infocon p:first-child:after { top: -1.4rem;
+ position: absolute; left: 0; content: ''; 
+ width: 100%; height: 1px; background: #d6d6d6; -webkit-transform: scaleY(0.5); overflow: hidden; }
+  .infotxt .infocon p object,
+ .infotxt .infocon p embed{max-width:100%;}
+.infotxt .infoheader .infotool{margin-right:0rem;}
+.infotit { font-size: 1.6rem; font-weight: bold; color: #333; line-height: 1.2; margin: 1rem 0; }
 .infotool img { width: 100%; height: auto; }
 .infotool {margin:0.8rem 0 0 1.8rem;}
 .infotit ,.infomenu,.infocon{padding-left:1.8rem;padding-right:1.8rem;}
-.infomenu span { font-size: 0.8rem; margin: 0 1rem 0 0.5rem; }
+.infomenu {padding-bottom:0.4rem;margin-bottom:2rem;}
+.infomenu span { font-size:1.2rem; margin: 0 1rem 0 0.5rem; }
+ 
 .linkname { display: inline-block; font-size: 0.8rem; }
-.linkname time { display: block; font-size: 0.45rem; }
+.linkname time { display: block; font-size: 0.8rem; }
+
 .infomenu i, .infomenu span { display: block; }
+.infomenu i.info02{display:none;}
 .addticketbox{margin:0.8em 0 0;padding:0.5rem 0;overflow:hidden; position: relative; }
 .addticketbox .bigimgbox{ z-index: 0; position: absolute;left:0;bottom:0;right:0;top:0;-webkit-filter: blur(10px)} 
 .addticketbox .imgbox{width:6rem; margin-left:1.8rem;}
@@ -664,10 +672,13 @@ color:#fff;
 border-radius:10rem; position: absolute;top:-0.6rem;right:-0.7rem;background: #00948D;}
 .addticketbox .btnbox .new:after{}
 .addticketbox .btnbox p{color:#00948D;font-size:1.1rem;text-align:center;}
-.codeinfo .imgbox { width: 12rem; }
-.codeinfo .txtbox { text-align: center; border: 1px solid #00AF95; color: #00AF95; margin: 1rem 0; }
-.codeinfo .txtbox h4 { font-size: 1.6rem; padding: 3rem 0 0; }
-.codeinfo .txtbox b { font-size: 1rem; }
+.codeinfo{background:#EEEEEF;padding:0.8rem 1.5rem;}
+.codeinfo .imgbox { width: 9.5rem; }
+.codeinfo .txtbox { background:url(../images/infotxt_tit.png) no-repeat center center;background-size:60% auto ;  }
+.txthot .hottit{color:#00948D;font-size:1.6rem;padding:1.4rem 1.5rem 0.8rem;} 
+.txthot .hotmovie section{background: #fff;}
+.txthot .hotmovie section:last-child:after {  top:auto;bottom:0; }
+
 .sharetoolbox { padding: 1rem 0; text-align: center; }
 .sharetoolbox a { padding: 0 0.5rem; color: #b2b2b2; }
 .sharetoolbox i { width: 2.3rem; height: 2.3rem; margin: 0 0.4rem 0 0; }
@@ -741,13 +752,14 @@ border-radius:10rem; position: absolute;top:-0.6rem;right:-0.7rem;background: #0
 .sharecon .share_dou { background: url(../images/share_dou.png) no-repeat center center; background-size: cover; }
 .sharecon .share_email { background: url(../images/share_email.png) no-repeat center center; background-size: cover; }
 /**首页新加**/
-.imgtxt h2 { line-height: 1.6; font-size: 1.4rem; }
+.imgtxt h2 { line-height: 1.2; font-size: 1.6rem; }
 .imgtxt ul { position: relative; }
 .hotmovie .imgtxt li { width: auto; }
 .imgtxt li p { position: absolute; bottom: 0.5rem; left: 0rem; }
 .imgtxt li p span { margin-right: 0.5rem; font-size: 0.5rem; display: inline-block; vertical-align: middle; }
 .imgtxt li p .ico_edit_top { width: 1.8rem; height: 0.8rem; line-height: 0.8rem; }
 .imgtxt li img { width: 9.8rem; }
+.hotmovie .imgtxt   img{width:11.6rem!important;}
 /**skippop**/
 .skippop { position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: rgba(255,255,255,.9) }
 .skipbtn { height: 3rem; line-height: 3.4rem; text-align: center; background: rgba(0,148,141,.6); }
@@ -766,8 +778,11 @@ border-radius:10rem; position: absolute;top:-0.6rem;right:-0.7rem;background: #0
 .skipcont li .skip04 { background: url(../images/skip04.png) no-repeat center center; background-size: cover; }
 .skipcont li .skip05 { background: url(../images/skip05.png) no-repeat center center; background-size: cover; }
 .skipcont li .skip06 { background: url(../images/skip06.png) no-repeat center center; background-size: cover; }
-._thirdads { margin: 0.5rem 1rem; overflow: hidden; width: auto; }
-._thirdads, ._thirdads img { height: 7.9rem!important; }
+._thirdads { padding: 0.5rem 0rem; overflow: hidden; width: auto; background:#f6f7f7;}
+.hotmovie ._thirdads img {  width:100%!important;height:8.2rem!important; }
+._thirdads .mui-slider-item {margin:0 1rem;width:auto!important;}
+._thirdads section{padding:0;}
+._thirdads section:last-child{padding-bottom:0.2rem;}
 .inner{
     overflow: hidden;
     width: 100%;

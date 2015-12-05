@@ -12,10 +12,7 @@ $(document).ready(function() {
 	var TabNav     = $('.tabnav li'),
 		TabCon     = $(' .tabbox'),
 		TelBox     = $('#TelBox'),
-		CodeNumber = $('#CodeNumber'),
-		BtnLogin   = $('#BtnLogin')
-
-	    
+		CodeNumber = $('#CodeNumber')
 	// tab 切换
 	TabNav.on('click',function(){
 		$(this).addClass("curr").siblings().removeClass();
@@ -61,21 +58,8 @@ $(document).ready(function() {
 		VerMobile(TelBoxvalue);
 		 
 		 
-		// ajax 请求
-		$.ajax({
-			type:'post',
-			utr:'',
-			data: {TelNember : TelBox.val(),
-				  MessPwd   : CodeNumber.val()
-			},
-			success:function(data,status){
+		
 
-			},
-			error:function(){
-				 
-			}
-  
-		})
- 
 	})
+	 
 }); //END of jquery documet.ready 

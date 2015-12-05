@@ -16,16 +16,47 @@ var my_name = hostname + ':' + pid;
 
 
 app.get(['/room/:ticketId'], function(req, res){
+
     var render_data = {};
-    var my_api_addr = "/room";
+    var my_api_addr = "/queryShowSeats.aspx";
+    var ticketId = req.params["ticketId"];
     var options = {
         uri: my_api_addr,
         args: {
-            locationID: 110000,
-            type:       1,
-            pageIndex:  1,
-            pageSize:   10
+            ticketId: ticketId
         }
     };
-    res.render("wecinema/onlineseat");
+    render_data.data = {};
+    render_data.data = {
+        reversion: global.reversion,
+        staticBase: global.staticBase
+    }
+
+    model.getDataFromPhp(options, function (err, data) {
+        render_data.data.err = err;
+        if (!err && data && data.seats) {
+            render_data.data = data;
+            render_data.data.seats = setSeats(data.seats);
+            render_data.data.reversion = global.reversion;
+            render_data.data.staticBase = global.staticBase;
+        } else {
+
+        }
+        res.render("wecinema/onlineseat", render_data);
+    });
 });
+
+function setSeats(seats){
+    var _seats = [];
+    var _seat0, _seat1;
+    for(var i = 0; i < seats.length; i++){
+        _seat = seats[i];
+        if(!_seats[_seat.yCoord]){
+            _seats[_seat.yCoord] = [];
+        }
+        _seats[_seat.yCoord][_seat.xCoord] = _seat;
+        
+    }
+    return _seats;
+}
+
