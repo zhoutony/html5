@@ -1,15 +1,15 @@
-webpackJsonp([11,18],[
+webpackJsonp([12,18],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint ignore:start */
 	var $ = __webpack_require__(1);
-	var countdown = __webpack_require__(15);
+	var countdown = __webpack_require__(13);
 	var cache = __webpack_require__(2);
 	var modal = __webpack_require__(14);
 	var iScroll = __webpack_require__(4);
 	var cookie = __webpack_require__(3);
-	var EcouponPayMent = __webpack_require__(16);
+	var EcouponPayMent = __webpack_require__(15);
 	var widgets = __webpack_require__(9);
 	/* jshint ignore:end */
 
@@ -3182,7 +3182,7 @@ webpackJsonp([11,18],[
 	        __webpack_require__(5),
 	        __webpack_require__(14),
 	        __webpack_require__(3),
-	        __webpack_require__(18),
+	        __webpack_require__(19),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
 	                 _,
 	                 Modal,
@@ -3854,7 +3854,65 @@ webpackJsonp([11,18],[
 	})(this);
 
 /***/ },
-/* 13 */,
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(1);
+	var $countdown = $("#payment-countdown");
+	var epoch = $countdown.data('epoch');
+	var getEpoch = function () {
+	  return strToEpoch($countdown.html());
+	}
+	var callback;
+	var padZero = function (number) {
+	  if (number < 10) {
+	    return '0' + number;
+	  } else {
+	    return '' + number;
+	  }
+	}
+	var epochToStr = function (epoch) {
+	  minute = padZero(parseInt(epoch / 60));
+	  second = padZero(parseInt(epoch % 60));
+	  return minute + '分' + second + '秒';
+	}
+	var strToEpoch = function (str) {
+	  match = str.match(/(\d+)分(\d+)秒/);
+	  minute = parseInt(match[1]);
+	  second = parseInt(match[2]);
+	  return minute * 60 + second
+	}
+	var countDown = function() {
+	  epoch = getEpoch();
+	  if (epoch <= 0) {
+	    return 0;
+	  } else {
+	    return epoch - 1;
+	  }
+	}
+	var countDownUI = function() {
+	  epoch = countDown();
+	  if (epoch === 0) {
+	    stop();
+	    callback && callback();
+	  }
+	  epochstr = epochToStr(epoch);
+	  $countdown.html(epochstr);
+	}
+
+	var intervalID;
+	var start = function(_callback) {
+	  callback = _callback;
+	  intervalID = setInterval(countDownUI, 1000);
+	}
+	var stop = function() {
+	  clearInterval(intervalID);
+	}
+	exports.countDownUI = countDownUI;
+	exports.start = start;
+
+
+/***/ },
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -4036,65 +4094,6 @@ webpackJsonp([11,18],[
 
 /***/ },
 /* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(1);
-	var $countdown = $("#payment-countdown");
-	var epoch = $countdown.data('epoch');
-	var getEpoch = function () {
-	  return strToEpoch($countdown.html());
-	}
-	var callback;
-	var padZero = function (number) {
-	  if (number < 10) {
-	    return '0' + number;
-	  } else {
-	    return '' + number;
-	  }
-	}
-	var epochToStr = function (epoch) {
-	  minute = padZero(parseInt(epoch / 60));
-	  second = padZero(parseInt(epoch % 60));
-	  return minute + '分' + second + '秒';
-	}
-	var strToEpoch = function (str) {
-	  match = str.match(/(\d+)分(\d+)秒/);
-	  minute = parseInt(match[1]);
-	  second = parseInt(match[2]);
-	  return minute * 60 + second
-	}
-	var countDown = function() {
-	  epoch = getEpoch();
-	  if (epoch <= 0) {
-	    return 0;
-	  } else {
-	    return epoch - 1;
-	  }
-	}
-	var countDownUI = function() {
-	  epoch = countDown();
-	  if (epoch === 0) {
-	    stop();
-	    callback && callback();
-	  }
-	  epochstr = epochToStr(epoch);
-	  $countdown.html(epochstr);
-	}
-
-	var intervalID;
-	var start = function(_callback) {
-	  callback = _callback;
-	  intervalID = setInterval(countDownUI, 1000);
-	}
-	var stop = function() {
-	  clearInterval(intervalID);
-	}
-	exports.countDownUI = countDownUI;
-	exports.start = start;
-
-
-/***/ },
-/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -4279,8 +4278,10 @@ webpackJsonp([11,18],[
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); //END of ecoupon_payment.js
 
 /***/ },
+/* 16 */,
 /* 17 */,
-/* 18 */
+/* 18 */,
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//
@@ -5008,7 +5009,6 @@ webpackJsonp([11,18],[
 	}(true ? exports : window));
 
 /***/ },
-/* 19 */,
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
