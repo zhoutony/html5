@@ -9,162 +9,73 @@ block prepend body
     include ./pagelets/loading
     
     //wrap
-    div.wrap
-        div.online.flexbox_v
-            div.onlineinfo
-                div.flexbox
-                    div.ontext.flex
-                        h2 蚁人
-                        p 北京沃美影城（常营店）
-                        p 3D | 今天（10月17日） 18:20
-                    div.onbtn
-                        a(href="/payment") 选好了
-            div.onlinemid.flexbox
-                div.main.flex 请选择下方座位，最多选4个
-                div.aside
-                    a(href="#") 换个场次
-            div.onlineseat.flex
-                h2 2号影厅（银幕方向）
-                div.onlinebox
-                    div.text
-                        i.seat_selected
-                        | 选择
-                        i.seat_false
-                        | 已选
-                        i.seat_ture
-                        | 未选
-                div.smallticket
-                    div.row_num
-                        ul
-                            li
-                                span 1
-                            li
-                                span 2
-                            li
-                                span 3
-                            li
-                                span 4
-                            li
-                                span 5
-                    div.ticket_seatcont
-                        ul.tnone
-                            li
-                                span.seat_null
-                                span.seat_null
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_null
-                                span.seat_null
-                            li
-                                span.seat_null
-                                span.seat_null
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_null
-                                span.seat_null
-                            li
-                                span.seat_null
-                                span.seat_null
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_null
-                                span.seat_null
-                            li
-                                span.seat_null
-                                span.seat_null
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_null
-                                span.seat_null
-                            li
-                                span.seat_null
-                                span.seat_null
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_ture
-                                span.seat_selected
-                                span.seat_ture
-                                span.seat_false
-                                span.seat_ture
-                                span.seat_null
-                                span.seat_null
-            div.seatinfo
-                b ¥53
-                span 11排11座
-                span 11排12座
-                span 11排13座
-                span 11排14座
-
-
-          
-
-
-
+    if data
+        div.wrap
+            div.online.flexbox_v
+                div.onlineinfo
+                    div.flexbox
+                        div.ontext.flex
+                            - var _moivetype = data.movie && data.movie.movieVersions ? data.movie.movieVersions + ' | ': '';
+                            - var _showtime = data.show && data.show.showTime ? data.show.showTime : '';
+                            if data.movie
+                                h2 #{data.movie.movieNameCN}
+                            else
+                                h2
+                            if data.cinema
+                                p #{data.cinema.cinemaName}
+                            else
+                                p 
+                            if data.show
+                                p #{_moivetype}#{_showtime} 
+                        div.onbtn
+                            a.notbtn(href="/payment") 选好了
+                div.onlinemid
+                    div.flexbox
+                         div.main.flex 请选择下方座位，最多选4个
+                         div.aside
+                             a(href="") 换个场次  
+                div.onlineseat.flex
+                    if data.show
+                        h2 #{data.show.hallName}（银幕方向）
+                    div.onlinebox
+                        div.text
+                            i.seat_selected
+                            | 选择
+                            i.seat_false.icon-set
+                            | 已选
+                            i.seat_ture
+                            | 未选
+                    div.room
+                        if data.seats && data.seats.length > 0
+                            div.smallticket
+                                div.row_num
+                                    ul
+                                        each seat, index in data.seats
+                                            if seat.length > 0
+                                                - var _colNum = seat[0].colNum;
+                                                li
+                                                    span #{_colNum}
+                                div.ticket_seatcont
+                                    ul.tnone
+                                        each seats, index in data.seats
+                                            li
+                                                each seat in seats
+                                                    - var _className = seat.status == 0 ? 'seat_null' : (seat.status == 1 ? 'seat_ture' : seat.status == 2 ? 'seat_false' : 'seat_null');
+                                                    span(class="#{_className}")
+                div.seatinfo
+                    b ¥53
+                    span 11排11座
+                    span 11排12座
+                    span 11排13座
+                    span 11排14座
 
 block prepend footer
 
 block prepend script
     script
-        
-
-
+        | var seats = !{JSON.stringify(data.seats)};
+        | var cinema = !{JSON.stringify(data.cinema)};
+        | var movie = !{JSON.stringify(data.movie)};
+        | var showtime = !{JSON.stringify(data.show)};
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/room.js?#{data.reversion}")

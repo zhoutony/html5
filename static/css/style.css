@@ -563,17 +563,20 @@ color:#fff;
 .onlineinfo .ontext p { font-size:1.1rem; color: #666; line-height: 1.4; }
 .onlineinfo .onbtn a { display: block; width: 7.5rem; height: 2.1rem; color: #fff;
  background: #00968d; text-align: center; line-height: 2.1rem; border-radius: 10rem; font-size: 1.4rem; }
-.onlinemid div { height: 3rem; line-height: 3rem; padding: 0 2.5rem; font-size: 1.1rem; margin: 0.5rem 0; position: relative; }
-.onlinemid div:after { position: absolute; bottom: 0; left: -1rem; right: -1rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
-.onlinemid div:before { position: absolute; top: 0; left: -1rem; right: -1rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
+.onlinemid { position: relative;}
+.onlinemid .main ,
+.onlinemid .aside{ height: 3rem; line-height: 3rem; padding: 0 2.5rem; font-size: 1.1rem; margin: 0.5rem 0; position: relative; }
+.onlinemid:after { position: absolute; bottom: 0.3rem; left: 0rem; right: 0rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
+.onlinemid:before { position: absolute; top: 0.3rem; left: 0rem; right: 0rem; content: ''; height: 1px; background: #cecece; -webkit-transform: scaleY(0.5); overflow: hidden; }
 .onlinemid .aside a { display: block; color: #00958E; }
-.smallticket { position: relative; padding: 2rem 0; }
+.smallticket { position: relative; }
 .onlineseat{background: #F7F7F7; }
 .onlineseat h2 { color: #00958E;background:#fff; font-size: 1.1rem; line-height: 2; text-align: center; }
 .onlinebox { padding: 1rem; }
 .onlinebox .text { font-size: 1.1rem; text-align: center; }
 .onlinebox .text i { margin: 0 0.5rem 0 1rem; }
-.seat_selected, .seat_false, .seat_ture, .seat_null { display: inline-block; text-indent: -333rem; vertical-align: middle; overflow: hidden; width: 1.2rem; height: 1.2rem; }
+.seat_selected, .seat_false, .seat_ture, .seat_null { display: inline-block; text-indent: -333rem;
+ vertical-align: middle; overflow: hidden; width: 2rem; height: 2rem; }
 .seat_selected { background: url(../images/set01.png) no-repeat center center; background-size: cover; }
 .seat_false { background: url(../images/set02.png) no-repeat center center; background-size: cover; }
 .seat_ture { background: url(../images/set03.png) no-repeat center center; background-size: cover; }
@@ -581,14 +584,17 @@ color:#fff;
 .line-v, .line-h { position: absolute; display: none; }
 .ticket_seatcont li { margin-bottom: 0.2rem; }
 .smallticket {   }
-.onlineseat .row_num { background: rgba(0,150,141,.6); z-index: 1; border-radius: 1.5em; position: absolute; left: 1.5em; top: 2rem; }
-.smallticket .ticket_seatcont {  overflow-x: auto; overflow-y: hidden; margin-left: 3rem; }
+.onlineseat .row_num { background: rgba(0,150,141,.6); z-index: 1; border-radius: 1.5em; position: absolute; left: 1.5em; }
+.smallticket .ticket_seatcont {    margin-left: 3rem; }
 .smallticket .ticket_seatcont span { margin: 0 0.15rem }
-.smallticket .row_num li { width: 1.35rem; height: 1.3rem; overflow: hidden; line-height: 1.3rem; text-align: center; color: #dcdcdc; margin-bottom: 0.2rem; }
+.smallticket .row_num li { width: 1.35rem; height: 2.4rem; overflow: hidden; line-height: 2.4rem; text-align: center; color: #dcdcdc; margin-bottom: 0.2rem; }
 .smallticket .row_num li span { font-size: 0.8rem; }
-.ticket_seatcont li { text-align: left; height: 1.3rem; text-align: left; position: relative; white-space: nowrap; z-index: 0; }
+.ticket_seatcont li { text-align: left; height: 2.4rem; 
+
+    line-height:2.4rem;text-align: left; position: relative; white-space: nowrap; z-index: 0; }
 .seatinfo { background: #F7F7F7; padding: 0 1.5rem; 
  height: 6.3rem; line-height: 6.3rem; position: relative;}
+ .onlinebox .text i{width:1.2rem;height:1.2rem;}
  .seatinfo:before{position: absolute;
     top: 0;
     left: 0rem;
