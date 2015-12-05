@@ -87,7 +87,11 @@ block prepend body
                     span 
                 div.infocon
                     div._txt
-                        
+                div.formtxt 
+                    div.main 阅读量：#{data.newsInfo.readCount}
+                    div.aside    
+                        | 本文经票友开放平台重新格式整理，文章来源 
+                        a(href="#{data.newsInfo.sourceURL}") #{data.newsInfo.weMediaName}       
                 div.codeinfo.flexbox
                     div.imgbox
                         img(src="/tempimages/code.jpg")
