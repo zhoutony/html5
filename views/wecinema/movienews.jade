@@ -88,47 +88,68 @@ block prepend body
                 div.infocon
                     div._txt
                         
-            //- div.codeinfo.flexbox
-            //-     div.imgbox
-            //-         img(src="/tempimages/code.jpg")
-            //-     div.txtbox.flex
-            //-         h4 
-            //-         p 
+                div.codeinfo.flexbox
+                    div.imgbox
+                        img(src="/tempimages/code.jpg")
+                    div.txtbox.flex
+                        h4 
+                        p 
                 div.txthot
                     h2.hottie 精彩推荐
                     div.hotmovie
-                        section
-                            a(href="")
-                                div.flexbox_v_c
-                                    h2.flex 标题
-                                ul.flexbox
-                                    li.flex
-                                        img(src="http://p2.pstatp.com/list/9861/6767194739")
-                                    li.flex
-                                        img(src="http://p2.pstatp.com/list/9861/6767194739")
-                                    li.flex
-                                        img(src="http://p2.pstatp.com/list/9861/6767194739")
-                                footer.flexbox
-                                    div.main.flex
-                                        span.n_name Mtime时光网
-                                        span.num 阅读
-                                            b 265
-                                        time 2015-11-30 21:23:22
-            //- div.sharetoolbox
-            //-     a
-            //-         i.b_fav
-            //-         span 1
-            //-     a
-            //-         i.b_weixin
-            //-         span 1
-            //-     a
-            //-         i.b_oicq
-            //-         span 1
-            //-     a
-            //-         i.b_sina
-            //-         span 1
-            //- div.infoaddimg
-            //-     img(src="/tempimages/infoaddimg.jpg")
+                        if data && !data.err && data.movieNews && data.movieNews.Items
+                            each movieNew, index in data.movieNews.Items
+                                - var _time = Math.floor( (new Date() - new Date(movieNew.publishtime)) / 1000 / 60 )
+                                - var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
+                                if movieNew.image2 == '' || movieNew.image3 == ''
+                                    section.imgtxt
+                                        a(href="/movienews/#{movieNew.movieNewID}")
+                                            ul.flexbox_v_c
+                                                li.flex
+                                                    h2 #{movieNew.title}
+                                                li
+                                                    img(src="#{movieNew.image1}")
+                                            footer.flexbox
+                                                div.main.flex
+                                                    span.n_name #{movieNew.weMediaName}
+                                                    span.num 阅读 
+                                                        b #{movieNew.readCount} 
+                                                    time #{_date}
+                                else
+                                    section
+                                        a(href="/movienews/#{movieNew.movieNewID}")
+                                            div.flexbox_v_c
+                                                h2.flex #{movieNew.title}
+                                                
+                                            ul.flexbox 
+                                                li.flex 
+                                                    img(src="#{movieNew.image1}")
+                                                li.flex 
+                                                    img(src="#{movieNew.image2}")
+                                                li.flex 
+                                                    img(src="#{movieNew.image3}")
+                                            footer.flexbox 
+                                                div.main.flex
+                                                    span.n_name #{movieNew.weMediaName}
+                                                    span.num 阅读 
+                                                        b #{movieNew.readCount} 
+                                                    time #{_date}
+
+                div.sharetoolbox
+                    a
+                        i.b_fav
+                        span 1
+                    a
+                        i.b_weixin
+                        span 1
+                    a
+                        i.b_oicq
+                        span 1
+                    a
+                        i.b_sina
+                        span 1
+                div.infoaddimg
+                    img(src="/tempimages/infoaddimg.jpg")
 
 
 block prepend footer
