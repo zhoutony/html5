@@ -589,9 +589,10 @@ color:#fff;
 .smallticket .ticket_seatcont span { margin: 0 0.15rem }
 .smallticket .row_num li { width: 1.35rem; height: 2.4rem; overflow: hidden; line-height: 2.4rem; text-align: center; color: #dcdcdc; margin-bottom: 0.2rem; }
 .smallticket .row_num li span { font-size: 0.8rem; }
+.ticket_seatcont ul{display:inline-block;}
 .ticket_seatcont li { text-align: left; height: 2.4rem; 
 
-    line-height:2.4rem;text-align: left; position: relative; white-space: nowrap; z-index: 0; }
+    line-height:2.4rem;text-align: left; position: relative; clear:both;white-space: nowrap; z-index: 0; }
 .seatinfo { background: #F7F7F7; padding: 0 1.5rem; 
  height: 6.3rem; line-height: 6.3rem; position: relative;}
  .onlinebox .text i{width:1.2rem;height:1.2rem;}
