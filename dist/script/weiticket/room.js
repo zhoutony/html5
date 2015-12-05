@@ -34,42 +34,50 @@ webpackJsonp([15,18],[
 	        setTimeout(function () {
 	            seatRender.init({root: $root});
 	        }, 300)
-	        // var chooserConfig = {
-	        //     root: $root,
-	        //     render: seatRender,
-	        //     //座位图容器
-	        //     seatContainer: $(".table"),
-	        //     //最多选座个数
-	        //     limitCount: 4,
-	        //     //坐位3种状态
-	        //     selectSeatClassName: 'selected',
-	        //     unSelectSeatClassName: 'optional',
-	        //     selectedClassName: 'sold',
-	        //     //已选显示区容器及插入模板
-	        //     selectedContainer: null,
-	        //     selectedTemplaste: null,
-	        //     //“选好了”提交按扭及两种状态
-	        //     submitBtn: $('#btnSelect'),
-	        //     submitBtnClassName: 'btn-theme',
-	        //     disableSubmitBtnClassName: 'btn-disabled',
-	        //     //选中时是否缩放
-	        //     isZoom: true,
-	        //     //选错提示语
-	        //     pointOutTxts: ['右侧座位不能为空', '左侧座位不能为空', '不能间隔选座（×）', '请不要留下单独座位（√）',
-	        //         '为避免留空，已为您关联取消了右侧座位（√）',
-	        //         '为避免留空，已为您关联取消了左侧座位（√）'],
-	        //     //回调返回已选拼装字符串 01:2:10|01:2:11
-	        //     callback: function (s_seats) {
-	        //         this.selected_seats = s_seats;
-	        //     }.bind(this)
-	        // };
-	        // seatChooser.initSeatChooser(chooserConfig);
+	        var chooserConfig = {
+	            root: $root,
+	            render: seatRender,
+	            //座位图容器
+	            seatContainer: $(".ticket_seatcont"),
+	            //最多选座个数
+	            limitCount: 4,
+	            //坐位3种状态
+	            selectSeatClassName: 'seat_selected',
+	            unSelectSeatClassName: 'seat_ture',
+	            selectedClassName: 'seat_false',
+	            selectedNullClassName: 'seat_null',
+	            //已选显示区容器及插入模板
+	            selectedContainer: '.seatinfo',
+	            selectedTemplaste: '<span></span>',
+	            //“选好了”提交按扭及两种状态
+	            submitBtn: $('#btnSelect'),
+	            submitBtnClassName: 'btn-theme',
+	            disableSubmitBtnClassName: 'btn-disabled',
+	            //选中时是否缩放
+	            isZoom: true,
+	            //选错提示语
+	            pointOutTxts: ['右侧座位不能为空', '左侧座位不能为空', '不能间隔选座（×）', '请不要留下单独座位（√）',
+	                '为避免留空，已为您关联取消了右侧座位（√）',
+	                '为避免留空，已为您关联取消了左侧座位（√）'],
+	            //回调返回已选拼装字符串 01:2:10|01:2:11
+	            callback: function (s_seats) {
+	                this.selected_seats = s_seats;
+	            }.bind(this)
+	        };
+	        seatChooser.initSeatChooser(chooserConfig);
 	        //处理座位点击
-	        $table.on('tap', 'li', function (e) {
-	            // if ($(e.currentTarget).hasClass('selected') || $(e.currentTarget).hasClass('optional')) {
+	        var oldDate = new Date(), newDate;
+	        $table.on('tap', 'span', function (e) {
+	            if ($(e.currentTarget).hasClass('seat_selected') || $(e.currentTarget).hasClass('seat_ture')) {
 	            //     //view.onTapSeat(e);
-	            //     seatChooser.onTapSeat(e);
-	            // }
+	                
+	                newDate = new Date();
+	                if((newDate.getTime() - oldDate.getTime()) > 100){
+	                    oldDate = newDate;
+	                    console.log(1)
+	                    seatChooser.onTapSeat(e);
+	                }
+	            }
 	        });//处理座位点击===============================================
 	    }
 
@@ -4505,7 +4513,7 @@ webpackJsonp([15,18],[
 	        __webpack_require__(5),
 	        __webpack_require__(14),
 	        __webpack_require__(3),
-	        __webpack_require__(19),
+	        __webpack_require__(18),
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function ($,
 	                 _,
 	                 Modal,
@@ -4778,6 +4786,7 @@ webpackJsonp([15,18],[
 	            this.selectSeatClassName = config.selectSeatClassName ? config.selectSeatClassName : 'checked';
 	            this.availableSeatClassName = config.unSelectSeatClassName ? config.unSelectSeatClassName : 'available';
 	            this.selectedClassName = config.selectedClassName ? config.selectedClassName : 'locked';
+	            this.selectedNullClassName = config.selectedNullClassName ? config.selectedNullClassName : 'seat_null';
 	            //“选好了”提交按扭及两种状态
 	            this.submitBtn = config.submitBtn ? config.submitBtn : null;
 	            this.submitBtnClassName = config.submitBtnClassName ? config.submitBtnClassName : 'orangered';
@@ -4886,7 +4895,7 @@ webpackJsonp([15,18],[
 	            var seat_selected = SeatChooser.selectSeatClassName,
 	                seat_ture = SeatChooser.availableSeatClassName,
 	                seat_false = SeatChooser.selectedClassName,
-	                seat_null = SeatChooser.selectedClassName;
+	                seat_null = SeatChooser.selectedNullClassName;
 
 	            //选错提示语
 	            var pointOutTxts = SeatChooser.pointOutTxts;
@@ -5150,36 +5159,31 @@ webpackJsonp([15,18],[
 
 	        function afertSelectSeat() {
 	            var seatContainer = SeatChooser.seatContainer;
-	            var locking_seats_dom = SeatChooser.selectedContainer;
+	            var locking_seats_dom = $(SeatChooser.selectedContainer);
+	            var selectedTemplaste = SeatChooser.selectedTemplaste;
 	            if (seatContainer) {
 	                var d_classname = SeatChooser.selectSeatDetailClassName;
 	                var c_classname = SeatChooser.selectSeatClassName;
 	                var locking_seat_tmlp = SeatChooser.selectedTemplaste;
 	                var locking_seats_t = "";
-	                selected_seats = "";
+	                selected_seats = [];
 
 	                var $selected_seats = seatContainer.find(".seat." + c_classname),
 	                    selected_seats_num = $selected_seats.length;
 	                SeatChooser.mySeatCount = selected_seats_num;
+	                locking_seats_dom.html('');
+	                if($selected_seats.length > 0){
+	                    $(selectedTemplaste).html('<b>¥53</b>').appendTo(locking_seats_dom);
+	                }
 	                $selected_seats.each(function (index, item) {
-
-	                    if (item.title) {
-	                        // locking_seats_t = locking_seats_t+String.format(locking_seat_tmlp, item.title);
-	                        // locking_seats_t = locking_seats_t+'<li class="seat-label">'+
-	                        //                    item.title+'</li>';
-	                        var oHtml = item.outerHTML;
-	                        var ii = $(oHtml);
-	                        var row = ii.attr("row");
-	                        var col = ii.attr("col");
-	                        //  当只选中一个座位的时候后面不加"|"
-	                        //  01: 目前（注意是目前）所有影厅只有一个区
-	                        var selected_seat = "01:" + row + ":" + col +
-	                            ( (selected_seats_num - 1 == index) ? "" : "|" );
-	                        selected_seats = selected_seats + selected_seat
+	                    var seatname = $(item).data('seatname');
+	                    var seatid = $(item).data('seatid');
+	                    if (seatid) {
+	                        
+	                        selected_seats.push(seatid);
+	                        $(selectedTemplaste).html(seatname).appendTo(locking_seats_dom);
 	                    }
 	                });
-
-	                // locking_seats_dom.html(locking_seats_t);
 	                SeatChooser.callback && SeatChooser.callback(selected_seats);
 	            }
 	        }
@@ -5208,7 +5212,7 @@ webpackJsonp([15,18],[
 	        __webpack_require__(1),
 	        __webpack_require__(5),
 	        __webpack_require__(4),
-	        __webpack_require__(18)
+	        __webpack_require__(19)
 	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function(
 	        $,
 	        _,
@@ -5222,7 +5226,7 @@ webpackJsonp([15,18],[
 	                this.roomVM = config.vm;
 	                this.$root = config.root;
 	                this.$room = this.$root.find('.room');
-	                this.$roomTable = this.$room.find('.ticket_seatcont');
+	                this.$roomTable = this.$room.find('.tnone');
 	                this.$hIndicator = this.$root.find('.seat-nav .lines');
 
 	                var $room = this.$room;
@@ -5242,8 +5246,10 @@ webpackJsonp([15,18],[
 	                };
 
 	                //计算缩放比例
-	                var min = $root.width() / ($table.width() + 30);
-	                var max = Math.max(1.5, $table.width() / 1000);
+	                var tableWidth = $table.width() + 30;
+	                $('.smallticket').width(tableWidth);
+	                var min = $root.width() / tableWidth;
+	                var max = Math.max(1.5, tableWidth / 1000);
 
 	                this.minZoom = min;
 	                this.maxZoom = max;
@@ -5996,58 +6002,6 @@ webpackJsonp([15,18],[
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//TODO: 兼容性 webkitTransform
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(1),
-	    __webpack_require__(5)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
-	    $,
-	    _
-	) {
-	    var Transformer = function($el) {
-	        this.init($el);
-	    }
-
-	    Transformer.prototype = {
-	        init: function($el) {
-	            this.$el = $el;
-	            this.el = $el[0];
-	            return this;
-	        },
-	        setOrigin: function(value) {
-	            this.el.style.webkitTranformOrigin = value;
-	        },
-	        set: function(name, param) {
-	            var o = this.get();
-	            o[name] = param;
-	            this.setAll(o);
-	        },
-	        setAll: function(o) {
-	            var str = Joint._.map(o, function(param, key) {
-	                return key + "(" + param.join(',') + ")";
-	            }).join(' ');
-
-	            this.el.style["webkitTransform"] = str; 
-	        },
-	        get: function() {
-	            var t = this.el.style.webkitTranform || '';
-	            var result = {};
-	            t.replace(/([a-z0-9]+)\s*\((.+?)\);?/gi, function(a, key, param) {
-	                result[key] = param.split(/\s*,\s*/);
-	            });
-
-	            return result;
-	        }
-	    }
-
-	    return Transformer;
-
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
 	//
 	// Generated on Tue Dec 16 2014 12:13:47 GMT+0100 (CET) by Charlie Robbins, Paolo Fragomeni & the Contributors (Using Codesurgeon).
 	// Version 1.2.6
@@ -6771,6 +6725,58 @@ webpackJsonp([15,18],[
 
 
 	}(true ? exports : window));
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//TODO: 兼容性 webkitTransform
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	    __webpack_require__(1),
+	    __webpack_require__(5)
+	], __WEBPACK_AMD_DEFINE_RESULT__ = function(
+	    $,
+	    _
+	) {
+	    var Transformer = function($el) {
+	        this.init($el);
+	    }
+
+	    Transformer.prototype = {
+	        init: function($el) {
+	            this.$el = $el;
+	            this.el = $el[0];
+	            return this;
+	        },
+	        setOrigin: function(value) {
+	            this.el.style.webkitTranformOrigin = value;
+	        },
+	        set: function(name, param) {
+	            var o = this.get();
+	            o[name] = param;
+	            this.setAll(o);
+	        },
+	        setAll: function(o) {
+	            var str = Joint._.map(o, function(param, key) {
+	                return key + "(" + param.join(',') + ")";
+	            }).join(' ');
+
+	            this.el.style["webkitTransform"] = str; 
+	        },
+	        get: function() {
+	            var t = this.el.style.webkitTranform || '';
+	            var result = {};
+	            t.replace(/([a-z0-9]+)\s*\((.+?)\);?/gi, function(a, key, param) {
+	                result[key] = param.split(/\s*,\s*/);
+	            });
+
+	            return result;
+	        }
+	    }
+
+	    return Transformer;
+
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
 /* 20 */

@@ -30,42 +30,50 @@ $(document).ready(function() {
         setTimeout(function () {
             seatRender.init({root: $root});
         }, 300)
-        // var chooserConfig = {
-        //     root: $root,
-        //     render: seatRender,
-        //     //座位图容器
-        //     seatContainer: $(".table"),
-        //     //最多选座个数
-        //     limitCount: 4,
-        //     //坐位3种状态
-        //     selectSeatClassName: 'selected',
-        //     unSelectSeatClassName: 'optional',
-        //     selectedClassName: 'sold',
-        //     //已选显示区容器及插入模板
-        //     selectedContainer: null,
-        //     selectedTemplaste: null,
-        //     //“选好了”提交按扭及两种状态
-        //     submitBtn: $('#btnSelect'),
-        //     submitBtnClassName: 'btn-theme',
-        //     disableSubmitBtnClassName: 'btn-disabled',
-        //     //选中时是否缩放
-        //     isZoom: true,
-        //     //选错提示语
-        //     pointOutTxts: ['右侧座位不能为空', '左侧座位不能为空', '不能间隔选座（×）', '请不要留下单独座位（√）',
-        //         '为避免留空，已为您关联取消了右侧座位（√）',
-        //         '为避免留空，已为您关联取消了左侧座位（√）'],
-        //     //回调返回已选拼装字符串 01:2:10|01:2:11
-        //     callback: function (s_seats) {
-        //         this.selected_seats = s_seats;
-        //     }.bind(this)
-        // };
-        // seatChooser.initSeatChooser(chooserConfig);
+        var chooserConfig = {
+            root: $root,
+            render: seatRender,
+            //座位图容器
+            seatContainer: $(".ticket_seatcont"),
+            //最多选座个数
+            limitCount: 4,
+            //坐位3种状态
+            selectSeatClassName: 'seat_selected',
+            unSelectSeatClassName: 'seat_ture',
+            selectedClassName: 'seat_false',
+            selectedNullClassName: 'seat_null',
+            //已选显示区容器及插入模板
+            selectedContainer: '.seatinfo',
+            selectedTemplaste: '<span></span>',
+            //“选好了”提交按扭及两种状态
+            submitBtn: $('#btnSelect'),
+            submitBtnClassName: 'btn-theme',
+            disableSubmitBtnClassName: 'btn-disabled',
+            //选中时是否缩放
+            isZoom: true,
+            //选错提示语
+            pointOutTxts: ['右侧座位不能为空', '左侧座位不能为空', '不能间隔选座（×）', '请不要留下单独座位（√）',
+                '为避免留空，已为您关联取消了右侧座位（√）',
+                '为避免留空，已为您关联取消了左侧座位（√）'],
+            //回调返回已选拼装字符串 01:2:10|01:2:11
+            callback: function (s_seats) {
+                this.selected_seats = s_seats;
+            }.bind(this)
+        };
+        seatChooser.initSeatChooser(chooserConfig);
         //处理座位点击
-        $table.on('tap', 'li', function (e) {
-            // if ($(e.currentTarget).hasClass('selected') || $(e.currentTarget).hasClass('optional')) {
+        var oldDate = new Date(), newDate;
+        $table.on('tap', 'span', function (e) {
+            if ($(e.currentTarget).hasClass('seat_selected') || $(e.currentTarget).hasClass('seat_ture')) {
             //     //view.onTapSeat(e);
-            //     seatChooser.onTapSeat(e);
-            // }
+                
+                newDate = new Date();
+                if((newDate.getTime() - oldDate.getTime()) > 100){
+                    oldDate = newDate;
+                    console.log(1)
+                    seatChooser.onTapSeat(e);
+                }
+            }
         });//处理座位点击===============================================
     }
 
