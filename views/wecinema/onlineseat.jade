@@ -60,14 +60,9 @@ block prepend body
                                         each seats, index in data.seats
                                             li
                                                 each seat in seats
-                                                    - var _className = seat.status == 0 ? 'seat_null' : (seat.status == 1 ? 'seat_ture' : seat.status == 2 ? 'seat_false' : 'seat_null');
-                                                    span(class="#{_className}")
+                                                    - var _className = seat.status == 0 ? 'seat seat_null' : (seat.status == 1 ? 'seat seat_ture' : seat.status == 2 ? 'seat seat_false' : 'seat seat_null');
+                                                    span(class="#{_className}" data-seatname="#{seat.seatName}" data-seatid="#{data.seatID}")
                 div.seatinfo
-                    b ¥53
-                    span 11排11座
-                    span 11排12座
-                    span 11排13座
-                    span 11排14座
 
 block prepend footer
 

@@ -17,7 +17,7 @@ define([
                 this.roomVM = config.vm;
                 this.$root = config.root;
                 this.$room = this.$root.find('.room');
-                this.$roomTable = this.$room.find('.ticket_seatcont');
+                this.$roomTable = this.$room.find('.tnone');
                 this.$hIndicator = this.$root.find('.seat-nav .lines');
 
                 var $room = this.$room;
@@ -37,8 +37,10 @@ define([
                 };
 
                 //计算缩放比例
-                var min = $root.width() / ($table.width() + 30);
-                var max = Math.max(1.5, $table.width() / 1000);
+                var tableWidth = $table.width() + 30;
+                $('.smallticket').width(tableWidth);
+                var min = $root.width() / tableWidth;
+                var max = Math.max(1.5, tableWidth / 1000);
 
                 this.minZoom = min;
                 this.maxZoom = max;
