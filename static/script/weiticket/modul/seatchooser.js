@@ -75,6 +75,8 @@ define([
             this.isZoom = config.isZoom ? config.isZoom : false;
             //回调返回已选拼装字符串 01:2:10|01:2:11
             this.callback = config.callback ? config.callback : null;
+            this.price = $('.seatinfo').data('price');
+            this.oldmySeatCount = 0;
         }; //END of _initSeatChooser
 
         /**
@@ -113,6 +115,7 @@ define([
                             // }
                         });
                     }
+                    SeatChooser.oldmySeatCount = this.mySeatCount;
                 } else {
                     
                     // $seatDom.find('.num').removeClass('m-hide');
@@ -135,15 +138,17 @@ define([
                         }else{
                             $seatDom.removeClass(this.availableSeatClassName);
                             $seatDom.addClass(this.selectSeatClassName);
+                            $seatDom.find('i').removeClass('m-hide');
                         }
                     }
                     afertSelectSeat();
                     $seatDom.data('checked', 1);
                     //vm.mySeatCount++;
                     _.defer(function () {
-                        if (that.isZoom) {
+                        if (that.isZoom && SeatChooser.oldmySeatCount == 0) {
                             that.render.zoomIn($seatDom);
                         }
+                        SeatChooser.oldmySeatCount = this.mySeatCount;
                     });
                 }
                 return isCorrectSeat;
@@ -424,8 +429,9 @@ define([
                     seat.addClass(d_classname);
                     seat.removeClass(c_classname);
                     afertSelectSeat();
-                    // seat.find('.num').addClass('m-hide');
-                } //else if (_type == 1) {
+                    seat.find('i').addClass('m-hide');
+                }//else if (_type == 1) {
+                    // seat.find('i').removeClass('m-hide');
                 //     seat.addClass(c_classname);
                 //     seat.removeClass(d_classname);
                 // }
@@ -435,21 +441,27 @@ define([
 
         function afertSelectSeat() {
             var seatContainer = SeatChooser.seatContainer;
-            var locking_seats_dom = $(SeatChooser.selectedContainer);
-            var selectedTemplaste = SeatChooser.selectedTemplaste;
+            // var locking_seats_dom = $(SeatChooser.selectedContainer);
+            // var selectedTemplaste = SeatChooser.selectedTemplaste;
             if (seatContainer) {
-                var d_classname = SeatChooser.selectSeatDetailClassName;
+                // var d_classname = SeatChooser.selectSeatDetailClassName;
                 var c_classname = SeatChooser.selectSeatClassName;
-                var locking_seat_tmlp = SeatChooser.selectedTemplaste;
+                // var locking_seat_tmlp = SeatChooser.selectedTemplaste;
                 var locking_seats_t = "";
                 selected_seats = [];
 
                 var $selected_seats = seatContainer.find(".seat." + c_classname),
                     selected_seats_num = $selected_seats.length;
                 SeatChooser.mySeatCount = selected_seats_num;
-                locking_seats_dom.html('');
-                if($selected_seats.length > 0){
-                    $(selectedTemplaste).html('<b>¥53</b>').appendTo(locking_seats_dom);
+                // locking_seats_dom.html('');
+
+                if(selected_seats_num > 0){
+                    // $(selectedTemplaste).html('<b>¥53</b>').appendTo(locking_seats_dom);
+                    $('#_price').removeClass('m-hide')
+                    $('#_price').find('b').html( '¥' + (SeatChooser.price * selected_seats_num));
+                }else{
+                    $('#_price').addClass('m-hide');
+                    SeatChooser.submitBtn.removeClass(SeatChooser.submitBtnClassName).addClass(SeatChooser.disableSubmitBtnClassName);
                 }
                 $selected_seats.each(function (index, item) {
                     var seatname = $(item).data('seatname');
@@ -457,7 +469,7 @@ define([
                     if (seatid) {
                         
                         selected_seats.push(seatid);
-                        $(selectedTemplaste).html(seatname).appendTo(locking_seats_dom);
+                        // $(selectedTemplaste).html(seatname).appendTo(locking_seats_dom);
                     }
                 });
                 SeatChooser.callback && SeatChooser.callback(selected_seats);

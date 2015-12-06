@@ -63,13 +63,15 @@ block prepend body
                                                             | #{seat.colNum}排
                                                             <br>
                                                             | #{seat.rowNum}座
-                div.seatinfo
-                    div.flexbox_v_c
-                        div.main.flex 请选择上方座位，最多选4个
-                        div.aside 票价： 
-                            b ¥53   
+                if data.show
+                    - var price = data.show.price / 100
+                    div.seatinfo(data-price="#{price}")
+                        div.flexbox_v_c
+                            div.main.flex 请选择上方座位，最多选4个
+                            div.aside.m-hide#_price 票价： 
+                                b ¥#{price}
 
-                      a.notbtn(href="/payment") 确定选座
+                          a.submit.notbtn(href="/payment") 确定选座
 
 block prepend footer
 

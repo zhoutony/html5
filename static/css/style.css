@@ -2361,7 +2361,7 @@ color:#fff;
 .ticket_seatcont li span i{display: inline-block;
     vertical-align: middle;font-weight: bold;
     padding: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-style: normal;
     line-height: 1.2;
     color: #fff;}
@@ -3313,4 +3313,5 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
     background-size:auto 90%;
 display:inline-block; vertical-align: top;overflow:hidden;width:1.5rem;height:1.5rem;
 margin:0 0.3rem;border-radius:10rem; }
+
 .room{ visibility: hidden;}

@@ -32,22 +32,16 @@ block prepend body
 
             div._txtboxs_
                 each indexAd, index in data.firstAds
-                    if index === 0
-                        div.txtbox
-                            h2 #{indexAd.movie.movieNameCN}
-                            div.txtmid
-                                p #{indexAd.movie.intro}
-                            div.sharetool
-                                a(href='#{indexAd.url}').ico_ticket
-                                a(href='#{indexAd.url}').ico_price
-                    else
-                        div.txtbox.m-hide
-                            h2 #{indexAd.movie.movieNameCN}
-                            div.txtmid
-                                p #{indexAd.movie.intro}
-                            div.sharetool
-                                a(href='#{indexAd.url}').ico_ticket
-                                a(href='#{indexAd.url}').ico_price
+                    - var _class_name = index == 0 ? "txtbox" : "txtbox m-hide";
+                    - var _link = '/110000/ticket/' + indexAd.movieID;
+                    div.txtbox(class="#{_class_name}")
+                        h2 #{indexAd.movie.movieNameCN}
+                        div.txtmid
+                            p #{indexAd.movie.intro}
+                        div.sharetool
+                            a(href='#{_link}').ico_ticket
+                            a(href='#{i_link}').ico_price
+
         //轮刷2广告
         div.scrollpic1
             h2 
