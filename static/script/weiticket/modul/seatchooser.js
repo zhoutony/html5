@@ -95,12 +95,14 @@ define([
                 var isCorrectSeat; // 是否符合规则，是否需要写入选坐区域
                 // 如果座位状态是被选中的
                 if ($seatDom.hasClass(s_selectname)) {
-                    $seatDom.removeClass(s_selectname);
-                    $seatDom.addClass(a_selectname);
+                    
                     isCorrectSeat = seatPolicy('deselect', $seatDom); // 检查取消选择后是否和规则
                     afertSelectSeat();
                     if (!isCorrectSeat) {
                         return isCorrectSeat;
+                    }else{
+                        $seatDom.removeClass(s_selectname);
+                        $seatDom.addClass(a_selectname);
                     }
 
                     $seatDom.data('checked', 0);
@@ -114,9 +116,8 @@ define([
                         });
                     }
                 } else {
-                    $seatDom.removeClass(this.availableSeatClassName);
-                    $seatDom.addClass(this.selectSeatClassName);
-                    $seatDom.find('.num').removeClass('m-hide');
+                    
+                    // $seatDom.find('.num').removeClass('m-hide');
 
                     if ($checkout_btn.hasClass(that.disableSubmitBtnClassName))
                         $checkout_btn.removeClass(that.disableSubmitBtnClassName);
@@ -133,6 +134,9 @@ define([
                         afertSelectSeat();
                         if (!isCorrectSeat) {
                             return isCorrectSeat;
+                        }else{
+                            $seatDom.removeClass(this.availableSeatClassName);
+                            $seatDom.addClass(this.selectSeatClassName);
                         }
                     }
 
@@ -415,17 +419,17 @@ define([
         function _showModalTip(body, seat, _type, delay) {
             SeatChooser.tip && SeatChooser.tip();
             SeatChooser.tip = Dialogs.tip(body);
-            var d_classname = SeatChooser.availableSeatClassName;
-            var c_classname = SeatChooser.selectSeatClassName;
+            // var d_classname = SeatChooser.availableSeatClassName;
+            // var c_classname = SeatChooser.selectSeatClassName;
             setTimeout(function () {
-                if (_type == 0) {
-                    seat.addClass(d_classname);
-                    seat.removeClass(c_classname);
-                    seat.find('.num').addClass('m-hide');
-                } else if (_type == 1) {
-                    seat.addClass(c_classname);
-                    seat.removeClass(d_classname);
-                }
+                // if (_type == 0) {
+                //     seat.addClass(d_classname);
+                //     seat.removeClass(c_classname);
+                //     seat.find('.num').addClass('m-hide');
+                // } else if (_type == 1) {
+                //     seat.addClass(c_classname);
+                //     seat.removeClass(d_classname);
+                // }
                 afertSelectSeat();
             }, delay);
         }
