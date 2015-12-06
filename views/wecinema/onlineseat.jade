@@ -28,12 +28,9 @@ block prepend body
                             if data.show
                                 p #{_moivetype}#{_showtime} 
                         div.onbtn
-                            a.notbtn(href="/payment") 选好了
-                div.onlinemid
-                    div.flexbox
-                         div.main.flex 请选择下方座位，最多选4个
-                         div.aside
-                             a(href="") 换个场次  
+                             a(href="") 换个场次 
+                           
+                
                 div.onlineseat.flex
                     if data.show
                         h2 #{data.show.hallName}（银幕方向）
@@ -61,8 +58,18 @@ block prepend body
                                             li
                                                 each seat in seats
                                                     - var _className = seat.status == 0 ? 'seat seat_null' : (seat.status == 1 ? 'seat seat_ture' : seat.status == 2 ? 'seat seat_false' : 'seat seat_null');
-                                                    span(class="#{_className}" data-seatname="#{seat.seatName}" data-seatid="#{data.seatID}")
+                                                    span(class="#{_className}" data-seatid="#{seat.seatID}")
+                                                        i.m-hide
+                                                            | #{seat.colNum}排
+                                                            <br>
+                                                            | #{seat.rowNum}座
                 div.seatinfo
+                    div.flexbox_v_c
+                        div.main.flex 请选择上方座位，最多选4个
+                        div.aside 票价： 
+                            b ¥53   
+
+                      a.notbtn(href="/payment") 确定选座
 
 block prepend footer
 
