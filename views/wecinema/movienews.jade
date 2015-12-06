@@ -77,7 +77,8 @@ block prepend body
                 else
                     header.infoheader
                         div.infotool
-                            img(src="/tempimages/inin.jpg")
+                            a(href="/")
+                                img(src="/tempimages/inin.jpg")
                 h2.infotit #{data.newsInfo.title}
                 div.infomenu.flexbox_v_c
                     i.info01 
@@ -89,10 +90,23 @@ block prepend body
                 div.infocon
                     div._txt
                 div.formtxt 
-                    div.main 阅读量：#{data.newsInfo.readCount}
+                    div.main 阅读：#{data.newsInfo.readCount}
                     div.aside    
                         | 本文经票友开放平台重新格式整理，文章来源 
                         a(href="#{data.newsInfo.sourceURL}") #{data.newsInfo.weMediaName}       
+                div.sharetoolbox.m-hide
+                    a
+                        i.b_fav
+                        span 1
+                    a
+                        i.b_weixin
+                        span 1
+                    a
+                        i.b_oicq
+                        span 1
+                    a
+                        i.b_sina
+                        span 1
                 div.codeinfo.flexbox
                     div.imgbox
                         img(src="/tempimages/code.jpg")
@@ -140,19 +154,6 @@ block prepend body
                                                         b #{movieNew.readCount} 
                                                     time #{_date}
 
-                div.sharetoolbox
-                    a
-                        i.b_fav
-                        span 1
-                    a
-                        i.b_weixin
-                        span 1
-                    a
-                        i.b_oicq
-                        span 1
-                    a
-                        i.b_sina
-                        span 1
                 div.infoaddimg
                     img(src="/tempimages/infoaddimg.jpg")
 
@@ -161,8 +162,8 @@ block prepend footer
 
 block prepend script
     script
-        | var newscontent = !{JSON.stringify(data.newsInfo.content)};
         | var title = "#{data.newsInfo.title}";
+        | var newscontent = !{JSON.stringify(data.newsInfo.content)};
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")
 
