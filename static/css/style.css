@@ -492,7 +492,9 @@ body { }
     background-size: cover;
 }
 .info01,
-.info02 {
+.info02 ,
+.info01 img,
+.info02 img{
     width: 2.4rem;
     height: 2.4rem;
 }
@@ -748,7 +750,7 @@ body { }
     right: -1rem;
 }
 .hotmovie ul { }
-.hotmovie section li { }
+.hotmovie section li {width:33%; }
 .hotmovie section li:first-child { margin-right: 3px; }
 .hotmovie section li:last-child { margin-left: 3px; }
 .hotmovie li img {
@@ -1267,6 +1269,7 @@ body { }
     font-size: 1.4rem;
     border-radius: 4rem;
     text-align: center;
+    margin-top:2rem;
 }
 .paylist li {
     padding: 1rem 2rem;
@@ -2380,13 +2383,13 @@ color:#fff;
 .seatinfo a{
     display: block;
       
-    height: 3rem;
+    height: 3.6rem;
     color: #fff;
     background: #00968d;
     text-align: center;
-    line-height: 3rem;
+    line-height: 3.6rem;
     border-radius: 10rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .onlinebox .text i {
@@ -2799,7 +2802,20 @@ color:#fff;
 .sharetoolbox {
     padding: 1rem 0;
     text-align: center;
+    position: relative;
 }
+.sharetoolbox:after{content: '';
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    background: #cecece;
+    position: absolute;
+    top: 0;
+    left: 0rem;
+    right: 0rem;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}}
 .sharetoolbox a {
     padding: 0 0.5rem;
     color: #b2b2b2;
