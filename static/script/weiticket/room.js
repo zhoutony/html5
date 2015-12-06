@@ -22,14 +22,18 @@ $(document).ready(function() {
             $table = $room.find('.ticket_seatcont');
 
         $room.css({
-            height: document.documentElement.clientHeight - 220,
-            visibility: 'visible',
+            height: document.documentElement.clientHeight - 210,
             width: '100%',
             overflow: 'hidden'
         });
         setTimeout(function () {
             seatRender.init({root: $root});
         }, 300)
+        setTimeout(function (){
+            $room.css({
+                visibility: 'visible'
+            });
+        }, 500)
         var chooserConfig = {
             root: $root,
             render: seatRender,
@@ -46,9 +50,9 @@ $(document).ready(function() {
             selectedContainer: '.seatinfo',
             selectedTemplaste: '<span></span>',
             //“选好了”提交按扭及两种状态
-            submitBtn: $('#btnSelect'),
-            submitBtnClassName: 'btn-theme',
-            disableSubmitBtnClassName: 'btn-disabled',
+            submitBtn: $('.submit'),
+            submitBtnClassName: 'submit',
+            disableSubmitBtnClassName: 'notbtn',
             //选中时是否缩放
             isZoom: true,
             //选错提示语
