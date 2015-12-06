@@ -8,23 +8,24 @@ block prepend body
     //wrap
     div.wrap
         //轮刷1广告
-        if(data && data.firstAds)
+        if(data && data.firstAds && data.firstAds.length >0)
             div.scrollpic.mui-slider.imgico
                 ul.mui-slider-group.mui-slider-loop
                     - var _ad_firstList = data.firstAds[0];
                     - var _ad_firstLen = data.firstAds.length;
                     - var _ad_lastList = data.firstAds[_ad_firstLen - 1];
-                    li.mui-slider-item.mui-slider-item-duplicate
-                        a(href="/110000/ticket/10034")
-                            if _ad_lastList
+                    if _ad_lastList
+                        li.mui-slider-item.mui-slider-item-duplicate
+                            a(href="#{_ad_lastList.url}")
                                 img(src="#{_ad_lastList.imageUrl}")
                     each indexAd in data.firstAds
                         li.mui-slider-item
-                            a(href="/110000/ticket/10034")
+                            a(href="#{indexAd.url}")
                                 img(src="#{indexAd.imageUrl}")
-                    li.mui-slider-item.mui-slider-item-duplicate
-                        a(href="/110000/ticket/10034")
-                            img(src="#{_ad_firstList.imageUrl}")
+                    if _ad_firstList
+                        li.mui-slider-item.mui-slider-item-duplicate
+                            a(href="#{_ad_firstList.url}")
+                                img(src="#{_ad_firstList.imageUrl}")
                 div.currbox.mui-slider-indicator
                     each indexAd, index in data.firstAds
                         span.mui-indicator
@@ -37,57 +38,59 @@ block prepend body
                             div.txtmid
                                 p #{indexAd.movie.intro}
                             div.sharetool
-                                a(href='/110000/ticket/10034').ico_ticket
-                                a(href='/110000/ticket/10034').ico_price
+                                a(href='#{indexAd.url}').ico_ticket
+                                a(href='#{indexAd.url}').ico_price
                     else
                         div.txtbox.m-hide
                             h2 #{indexAd.movie.movieNameCN}
                             div.txtmid
                                 p #{indexAd.movie.intro}
                             div.sharetool
-                                a(href='/110000/ticket/10034').ico_ticket
-                                a(href='/110000/ticket/10034').ico_price
+                                a(href='#{indexAd.url}').ico_ticket
+                                a(href='#{indexAd.url}').ico_price
         //轮刷2广告
         div.scrollpic1
             h2 
                 span 耳语
             a(href="#").btn_share
-            if(data && data.secondAds)
+            if(data && data.secondAds && data.secondAds.length >0)
                 div.mui-slider
                     div.mui-slider-group.mui-slider-loop
                         - var _ad_secondList = data.secondAds[0];
                         - var _ad_secondLen = data.secondAds.length;
                         - var _ad_secondlastList = data.secondAds[_ad_secondLen - 1];
                         div.addimg.mui-slider-item.mui-slider-item-duplicate
-                            
-                            a(href="#{_ad_secondlastList.url}")
-                                img(src="#{_ad_secondlastList.imageUrl}")
+                            if _ad_secondlastList
+                                a(href="#{_ad_secondlastList.url}")
+                                    img(src="#{_ad_secondlastList.imageUrl}")
                             
                         each secondAd, index in data.secondAds
                             div.addimg.mui-slider-item
                                   a(href="#{secondAd.url}")
                                     img(src="#{secondAd.imageUrl}")
-                        div.mui-slider-item.mui-slider-item-duplicate
-                            a(href="#{_ad_secondList.url}")
-                                img(src="#{_ad_secondList.imageUrl}")
+                        if _ad_secondList
+                            div.mui-slider-item.mui-slider-item-duplicate
+                                a(href="#{_ad_secondList.url}")
+                                    img(src="#{_ad_secondList.imageUrl}")
 
         div._thirdads.m-hide.txtpic
-            if(data && data.thirdAds)
+            if(data && data.thirdAds && data.thirdAds.length)
                 div._mui-slider.mui-slider
                     div.mui-slider-group.mui-slider-loop
                         - var _ad_secondList = data.thirdAds[0];
                         - var _ad_secondLen = data.thirdAds.length;
                         - var _ad_secondlastList = data.thirdAds[_ad_secondLen - 1];
-                        div.mui-slider-item.mui-slider-item-duplicate
-                            section
-                                a(href="#{_ad_secondlastList.url}")
-                                    div.flexbox_v_c
-                                        h2.flex #{_ad_secondlastList.advertisementName} 
-                                    img(src="#{_ad_secondlastList.imageUrl}")
-                                    footer.flexbox 
-                                        div.main.flex
-                                            span.ico_edit_top 推广
-                                            span.n_name #{_ad_secondlastList.weMediaName}
+                        if _ad_secondlastList
+                            div.mui-slider-item.mui-slider-item-duplicate
+                                section
+                                    a(href="#{_ad_secondlastList.url}")
+                                        div.flexbox_v_c
+                                            h2.flex #{_ad_secondlastList.advertisementName} 
+                                        img(src="#{_ad_secondlastList.imageUrl}")
+                                        footer.flexbox 
+                                            div.main.flex
+                                                span.ico_edit_top 推广
+                                                span.n_name #{_ad_secondlastList.weMediaName}
                             
                         each secondAd, index in data.thirdAds
                             div.mui-slider-item
@@ -100,6 +103,7 @@ block prepend body
                                         div.main.flex
                                             span.ico_edit_top 推广
                                             span.n_name #{secondAd.weMediaName}
+                        if _ad_secondlastList
                             div.mui-slider-item.mui-slider-item-duplicate
                                 section
                                     a(href="#{_ad_secondlastList.url}")
