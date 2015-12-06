@@ -59,6 +59,7 @@ define([
             this.selectSeatClassName = config.selectSeatClassName ? config.selectSeatClassName : 'checked';
             this.availableSeatClassName = config.unSelectSeatClassName ? config.unSelectSeatClassName : 'available';
             this.selectedClassName = config.selectedClassName ? config.selectedClassName : 'locked';
+            this.selectedNullClassName = config.selectedNullClassName ? config.selectedNullClassName : 'seat_null';
             //“选好了”提交按扭及两种状态
             this.submitBtn = config.submitBtn ? config.submitBtn : null;
             this.submitBtnClassName = config.submitBtnClassName ? config.submitBtnClassName : 'orangered';
@@ -167,7 +168,7 @@ define([
             var seat_selected = SeatChooser.selectSeatClassName,
                 seat_ture = SeatChooser.availableSeatClassName,
                 seat_false = SeatChooser.selectedClassName,
-                seat_null = SeatChooser.selectedClassName;
+                seat_null = SeatChooser.selectedNullClassName;
 
             //选错提示语
             var pointOutTxts = SeatChooser.pointOutTxts;
@@ -431,36 +432,31 @@ define([
 
         function afertSelectSeat() {
             var seatContainer = SeatChooser.seatContainer;
-            var locking_seats_dom = SeatChooser.selectedContainer;
+            var locking_seats_dom = $(SeatChooser.selectedContainer);
+            var selectedTemplaste = SeatChooser.selectedTemplaste;
             if (seatContainer) {
                 var d_classname = SeatChooser.selectSeatDetailClassName;
                 var c_classname = SeatChooser.selectSeatClassName;
                 var locking_seat_tmlp = SeatChooser.selectedTemplaste;
                 var locking_seats_t = "";
-                selected_seats = "";
+                selected_seats = [];
 
                 var $selected_seats = seatContainer.find(".seat." + c_classname),
                     selected_seats_num = $selected_seats.length;
                 SeatChooser.mySeatCount = selected_seats_num;
+                locking_seats_dom.html('');
+                if($selected_seats.length > 0){
+                    $(selectedTemplaste).html('<b>¥53</b>').appendTo(locking_seats_dom);
+                }
                 $selected_seats.each(function (index, item) {
-
-                    if (item.title) {
-                        // locking_seats_t = locking_seats_t+String.format(locking_seat_tmlp, item.title);
-                        // locking_seats_t = locking_seats_t+'<li class="seat-label">'+
-                        //                    item.title+'</li>';
-                        var oHtml = item.outerHTML;
-                        var ii = $(oHtml);
-                        var row = ii.attr("row");
-                        var col = ii.attr("col");
-                        //  当只选中一个座位的时候后面不加"|"
-                        //  01: 目前（注意是目前）所有影厅只有一个区
-                        var selected_seat = "01:" + row + ":" + col +
-                            ( (selected_seats_num - 1 == index) ? "" : "|" );
-                        selected_seats = selected_seats + selected_seat
+                    var seatname = $(item).data('seatname');
+                    var seatid = $(item).data('seatid');
+                    if (seatid) {
+                        
+                        selected_seats.push(seatid);
+                        $(selectedTemplaste).html(seatname).appendTo(locking_seats_dom);
                     }
                 });
-
-                // locking_seats_dom.html(locking_seats_t);
                 SeatChooser.callback && SeatChooser.callback(selected_seats);
             }
         }
