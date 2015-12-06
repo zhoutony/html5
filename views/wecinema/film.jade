@@ -57,7 +57,8 @@ block prepend body
                                                     p #{one_schedule.hallName}
                                                 div.pricemid
                                                     if one_schedule.stopSellTime
-                                                        p.pricetxt #{one_schedule.price}
+                                                        - var price = one_schedule.price / 100;
+                                                        p.pricetxt ¥#{price}
                                                     else
                                                         p 已关闭订票
                                         
