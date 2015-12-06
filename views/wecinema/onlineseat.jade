@@ -58,7 +58,7 @@ block prepend body
                                             li
                                                 each seat in seats
                                                     - var _className = seat.status == 0 ? 'seat seat_null' : (seat.status == 1 ? 'seat seat_ture' : seat.status == 2 ? 'seat seat_false' : 'seat seat_null');
-                                                    span(class="#{_className}" data-seatid="#{seat.seatID}")
+                                                    span(class="#{_className}", data-seatid="#{seat.seatID}", data-seatname="#{seat.seatName}")
                                                         i.m-hide
                                                             | #{seat.colNum}排
                                                             <br>
@@ -71,7 +71,7 @@ block prepend body
                             div.aside.m-hide#_price 票价： 
                                 b ¥#{price}
 
-                          a.submit.notbtn(href="/payment") 确定选座
+                          a.submit.notbtn(href="javascript:;") 确定选座
 
 block prepend footer
 
@@ -81,5 +81,6 @@ block prepend script
         | var cinema = !{JSON.stringify(data.cinema)};
         | var movie = !{JSON.stringify(data.movie)};
         | var showtime = !{JSON.stringify(data.show)};
+        | var showtimeId = "#{data.show.showtimeID}"
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/room.js?#{data.reversion}")

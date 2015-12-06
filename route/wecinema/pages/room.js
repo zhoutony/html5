@@ -46,6 +46,24 @@ app.get(['/room/:ticketId'], function(req, res){
     });
 });
 
+app.post(['/lockseats/:showtimeId'], function(req, res){
+    var options = {
+        uri: "/lockSeats.aspx",
+        passType: 'send',
+        args: req.body
+    };
+
+    model.getDataFromPhp(options, function (err, data) {
+        if(data){
+            res.send(JSON.parse(data));
+        }else{
+            res.send(err);
+        }
+        
+    });
+});
+
+
 function setSeats(seats){
     var _seats = [];
     var _seat0, _seat1;

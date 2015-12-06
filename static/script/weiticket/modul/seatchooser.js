@@ -468,7 +468,7 @@ define([
                     var seatid = $(item).data('seatid');
                     if (seatid) {
                         
-                        selected_seats.push(seatid);
+                        selected_seats.push(seatid +'|'+seatname);
                         // $(selectedTemplaste).html(seatname).appendTo(locking_seats_dom);
                     }
                 });
