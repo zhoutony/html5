@@ -80,7 +80,8 @@ block prepend body
                             img(src="/tempimages/inin.jpg")
                 h2.infotit #{data.newsInfo.title}
                 div.infomenu.flexbox_v_c
-                    i.info01
+                    i.info01 
+                        img(src="#{data.newsInfo.logoURL}")
                     span.linkname #{data.newsInfo.weMediaName}
                         time #{data.newsInfo.publishtime}
                     i.info02
