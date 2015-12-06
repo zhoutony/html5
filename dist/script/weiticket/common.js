@@ -75,7 +75,7 @@
 /******/ 			script.type = 'text/javascript';
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"event","1":"cinema_list","2":"setcookie","3":"movienews","4":"login","5":"schedule","6":"ticket","7":"mycards","8":"bindingcard","9":"myecoupons","10":"checkbincard","11":"mine","12":"payment","13":"result","14":"filmlist","15":"room","16":"index","17":"choose_cinema"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"event","1":"choose_cinema","2":"setcookie","3":"movienews","4":"schedule","5":"ticket","6":"mycards","7":"bindingcard","8":"checkbincard","9":"myecoupons","10":"cinema_list","11":"mine","12":"filmlist","13":"payment","14":"result","15":"room","16":"login","17":"index"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
