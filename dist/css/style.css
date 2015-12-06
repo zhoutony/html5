@@ -2332,22 +2332,23 @@ color:#fff;
     background: rgba(0,150,141,.6);
     z-index: 1;
     border-radius: 1.5rem;
-    position: absolute;
-    left: 1.5rem;
+    position: absolute; 
+    left: 0rem;
+    top:0;
 }
 .smallticket .ticket_seatcont { margin-left: 3rem; }
 .smallticket .ticket_seatcont span { margin: 0 0.5rem }
 
-.smallticket .row_num li {
-    width: 1.6rem;
-    height: 4.6rem;
+ .row_num li {
+    width: 3rem;
+    height: 5.4rem;
     overflow: hidden;
-    line-height: 3rem;
+    line-height: 4.4rem;
     text-align: center;
     color: #fff;
-    margin-bottom: 1em;
+   
 }
-.smallticket .row_num li span { font-size: 1.2rem; }
+  .row_num li span { font-size: 1.2rem; }
 .ticket_seatcont ul { display: inline-block; }
 .ticket_seatcont li {
     text-align: left;
@@ -2367,23 +2368,23 @@ color:#fff;
     color: #fff;}
 .seatinfo {
     background: #F7F7F7;
-    padding: 0 1.5rem 0.5rem;
+    padding: 0 1.5rem 1rem;
    
      
     position: relative;
 }
 .seatinfo .main {font-size:1.2rem;}
 .seatinfo .main,
-.seatinfo .aside{padding:1rem 0 ;}
+.seatinfo .aside{padding:1rem 0 ;height:4rem;}
 .seatinfo .aside  {font-size:1.2rem;}
 .seatinfo a{
     display: block;
       
-    height: 2.6rem;
+    height: 3rem;
     color: #fff;
     background: #00968d;
     text-align: center;
-    line-height: 2.6rem;
+    line-height: 3rem;
     border-radius: 10rem;
     font-size: 1.4rem;
 }
@@ -3314,4 +3315,4 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
 display:inline-block; vertical-align: top;overflow:hidden;width:1.5rem;height:1.5rem;
 margin:0 0.3rem;border-radius:10rem; }
 
-.room{ visibility: hidden;}
+.room{ visibility: hidden; position: relative;}
