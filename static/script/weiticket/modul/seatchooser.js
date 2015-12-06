@@ -97,14 +97,12 @@ define([
                 if ($seatDom.hasClass(s_selectname)) {
                     
                     isCorrectSeat = seatPolicy('deselect', $seatDom); // 检查取消选择后是否和规则
-                    afertSelectSeat();
+                    $seatDom.removeClass(s_selectname);
+                    $seatDom.addClass(a_selectname);
                     if (!isCorrectSeat) {
                         return isCorrectSeat;
-                    }else{
-                        $seatDom.removeClass(s_selectname);
-                        $seatDom.addClass(a_selectname);
                     }
-
+                    afertSelectSeat();
                     $seatDom.data('checked', 0);
                     //vm.mySeatCount--;
                     if (this.mySeatCount == 0) {
@@ -126,12 +124,12 @@ define([
                         $checkout_btn.addClass(that.submitBtnClassName);
 
                     if (this.mySeatCount == this.limitCount) {
-                        _showModalTip('您最多只能购买' + this.limitCount + '张票', $seatDom, 0);
+                        _showModalTip('您一次最多只能购买' + this.limitCount + '张票', $seatDom, 0);
                         isCorrectSeat = false;
                         return;
                     } else {
                         isCorrectSeat = seatPolicy('select', $seatDom);
-                        afertSelectSeat();
+                        
                         if (!isCorrectSeat) {
                             return isCorrectSeat;
                         }else{
@@ -139,7 +137,7 @@ define([
                             $seatDom.addClass(this.selectSeatClassName);
                         }
                     }
-
+                    afertSelectSeat();
                     $seatDom.data('checked', 1);
                     //vm.mySeatCount++;
                     _.defer(function () {
@@ -418,19 +416,20 @@ define([
         // 错误提示框
         function _showModalTip(body, seat, _type, delay) {
             SeatChooser.tip && SeatChooser.tip();
-            SeatChooser.tip = Dialogs.tip(body);
-            // var d_classname = SeatChooser.availableSeatClassName;
-            // var c_classname = SeatChooser.selectSeatClassName;
+            SeatChooser.tip = Dialogs.tip('<i></i>'+body);
+            var d_classname = SeatChooser.availableSeatClassName;
+            var c_classname = SeatChooser.selectSeatClassName;
             setTimeout(function () {
-                // if (_type == 0) {
-                //     seat.addClass(d_classname);
-                //     seat.removeClass(c_classname);
-                //     seat.find('.num').addClass('m-hide');
-                // } else if (_type == 1) {
+                if (_type == 0) {
+                    seat.addClass(d_classname);
+                    seat.removeClass(c_classname);
+                    afertSelectSeat();
+                    // seat.find('.num').addClass('m-hide');
+                } //else if (_type == 1) {
                 //     seat.addClass(c_classname);
                 //     seat.removeClass(d_classname);
                 // }
-                afertSelectSeat();
+            //     afertSelectSeat();
             }, delay);
         }
 
