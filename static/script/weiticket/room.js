@@ -16,6 +16,7 @@ $(document).ready(function() {
         initSeatControl();
     }
     window.dialogs = dialogs;
+    var selected_seats;
     function initSeatControl(){
         var $root = $('.wrap'),
             $room = $root.find('.room'),
@@ -61,24 +62,55 @@ $(document).ready(function() {
                 '为避免留空，已为您关联取消了左侧座位（√）'],
             //回调返回已选拼装字符串 01:2:10|01:2:11
             callback: function (s_seats) {
-                this.selected_seats = s_seats;
+                selected_seats = s_seats;
             }.bind(this)
         };
         seatChooser.initSeatChooser(chooserConfig);
         //处理座位点击
         var oldDate = new Date(), newDate;
-        $table.on('tap', 'span', function (e) {
-            if ($(e.currentTarget).hasClass('seat_selected') || $(e.currentTarget).hasClass('seat_ture')) {
+        $table.on('tap', 'span', function (evt) {
+            if ($(evt.currentTarget).hasClass('seat_selected') || $(evt.currentTarget).hasClass('seat_ture')) {
             //     //view.onTapSeat(e);
                 
                 newDate = new Date();
                 if((newDate.getTime() - oldDate.getTime()) > 100){
                     oldDate = newDate;
                     console.log(1)
-                    seatChooser.onTapSeat(e);
+                    seatChooser.onTapSeat(evt);
                 }
             }
         });//处理座位点击===============================================
+
+        //选好座位提交
+        $('.submit').on('click', function(evt){
+            var _el = $(evt.currentTarget);
+            var _len = selected_seats && selected_seats.length;
+            if(_len){
+                lockSeats(selected_seats, _len);
+            }
+        })
+
+        //锁座
+        function lockSeats(selected_seats, _len){
+            var option    = {},
+                seatIDs   = [],
+                seatNames = []; //
+            
+            for(var i = 0; i < _len; i++){
+                var _item = selected_seats[i].split('|');
+                seatIDs.push(_item[0]);
+                seatNames.push(_item[1]);
+            }; 
+            
+            option.seatIDs    = seatIDs.join(',');
+            option.seatNames  = seatNames.join(',');
+            option.showtimeID = showtimeId;
+            option.mobile     = ''
+            $.post('/lockseats/' + showtimeId, option, function(reture_data){
+                // console.log(reture_data);
+                location.href = '/payment'
+            })
+        }
     }
 
     //init()
