@@ -15,7 +15,7 @@ $(document).ready(function() {
     function init(){
         initSeatControl();
     }
-
+    window.dialogs = dialogs;
     function initSeatControl(){
         var $root = $('.wrap'),
             $room = $root.find('.room'),
