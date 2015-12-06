@@ -18,7 +18,7 @@ process.on('uncaughtException', function(err) {
     console.error('Error caught in uncaughtException event:', err);
 });
 //git版本
-global.reversion = "c034ec9";
+global.reversion = "1a4aeaa";
 
 
 global.staticBase = "";//"http://smart-static.wepiao.com";
