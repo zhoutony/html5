@@ -3277,3 +3277,11 @@ transform:rotate(360deg)
 }
 .red { background: red; }
 a.notbtn { background: #ddd!important; color: #fff!important; } 
+
+.prompt-pop-up{background:rgba(0,0,0,.7) ; position: fixed;;top:0rem;left:4rem;right:4rem;
+     line-height:1;padding:0.3rem 0;color:#fff;font-size:1rem;line-height;
+    text-align:center;}
+.prompt-pop-up i{background:#fff url(../images/itips.png) no-repeat center center;
+    background-size:auto 90%;
+display:inline-block; vertical-align: middle;overflow:hidden;width:1.2rem;height:1.2rem;
+margin:0 0.3rem;border-radius:10rem; }
