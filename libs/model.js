@@ -105,6 +105,7 @@ var build_res_status_map = function(uri,statusCode){
 var getDataFromPhp = function(options, callback) {
     var uri      = base + options.uri;
     var formData = options.args;
+    var passType = options.passType;
 
     //TODO:对options的传参做更多的校验
     var options_for_requst = {
@@ -129,6 +130,12 @@ var getDataFromPhp = function(options, callback) {
             console.info(my_name,"request uri:",options_for_requst.uri,"elapsedTime:",response.elapsedTime,"ms");
 
             build_metrics_map(options_for_requst.uri,response.elapsedTime);
+
+            // options.passType = 'send' 为获取全部返回数据
+            if (passType === 'send') {
+                callback(null, body);
+                return;
+            }
 
             //判断是否是成功返回，如果是已经解析好了的json，直接返回
             body = JSON.parse(body);

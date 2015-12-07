@@ -203,6 +203,16 @@ define([
             }
         }
 
+        //判断是否在微信里
+        function is_weixn(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         return {
             strShort: strShort,
             getIsMembershipCard: getIsMembershipCard,
@@ -210,7 +220,8 @@ define([
             physicsBack: physicsBack,
             physicsGoBack: physicsGoBack,
             getCurrentPosition: getCurrentPosition,
-            iScrollClick: iScrollClick
+            iScrollClick: iScrollClick,
+            is_weixn: is_weixn
         };
     }
 )
