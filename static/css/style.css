@@ -1269,7 +1269,7 @@ body { }
     font-size: 1.4rem;
     border-radius: 4rem;
     text-align: center;
-    margin-top:2rem;
+     
 }
 .paylist li {
     padding: 1rem 2rem;
@@ -2227,7 +2227,17 @@ color:#fff;
 .onlineinfo {
     padding: 1rem 1.5rem 1rem 2.5rem ;
     overflow: hidden;
+    position: relative;
 }
+.onlineinfo:after{position: absolute;
+    bottom: 0;
+    left: 0rem;
+    right: 0rem;
+    content: '';
+    height: 1px;
+    border-bottom:1px dashed #cecece;
+    -webkit-transform: scaleY(0.5);
+    overflow: hidden;}
 .onlineinfo .ontext h2 {
     font-size: 1.4rem;
     color: #333;
@@ -2246,8 +2256,8 @@ color:#fff;
     text-align: right;
     line-height: 2.6rem;
     border-radius: 10rem;
-    font-size: 1.4rem;
-    margin-top:2.4rem;
+    font-size: 1.2rem;
+    
 }
 .onlinemid { position: relative; }
 .onlinemid .main,
@@ -2308,7 +2318,7 @@ color:#fff;
     text-align:center;
     vertical-align: middle;
     overflow: hidden;
-    width: 4.9rem;
+    width: 4.4rem;
     height: 4.4rem;
 }
 .seat_selected {
@@ -2371,14 +2381,14 @@ color:#fff;
     color: #fff;}
 .seatinfo {
     background: #F7F7F7;
-    padding: 0 1.5rem 1rem;
+    padding: 0 1.5rem 2rem;
    
      
     position: relative;
 }
 .seatinfo .main {font-size:1.2rem;}
 .seatinfo .main,
-.seatinfo .aside{padding:1rem 0 ;height:4rem;}
+.seatinfo .aside{padding:0rem 0 ;height:4rem;line-height:4rem;}
 .seatinfo .aside  {font-size:1.2rem;}
 .seatinfo a{
     display: block;
@@ -2413,7 +2423,7 @@ color:#fff;
     font-weight: normal;
     margin-right: 1rem;
     line-height:1;
-    margin-top:-0.2rem;
+    margin-top:-0.3rem;
 }
 .seatinfo b,
 .seatinfo span {
@@ -2815,10 +2825,13 @@ color:#fff;
     right: 0rem;
     -webkit-transform: scaleY(.5);
     transform: scaleY(.5);
-}}
+} 
 .sharetoolbox a {
-    padding: 0 0.5rem;
+    padding: 0 2rem 0 0;
     color: #b2b2b2;
+    
+    display:inline-block;
+    vertical-align: middle;
 }
 .sharetoolbox i {
     width: 2.3rem;
