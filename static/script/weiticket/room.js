@@ -2,9 +2,9 @@
 var $ = require('../lib/zepto.js');
 var iScroll = require('../lib/iscroll');
 var _ = require('../lib/underscore');
-var cache = require('../util/session_cache.js');
-var cookie = require("../util/cookie.js");
-var mui = require('../lib/mui.js');
+// var cache = require('../util/session_cache.js');
+// var cookie = require("../util/cookie.js");
+// var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
 var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
@@ -12,11 +12,15 @@ var seatRender = require('./modul/seatrender');
 
 /* jshint ignore:end */
 $(document).ready(function() {
-    function init(){
-        initSeatControl();
-    }
     window.dialogs = dialogs;
     var selected_seats;
+    function init(){
+        initSeatControl();
+        localStorage.setItem('cinema', JSON.stringify(window.cinema));
+        localStorage.setItem('showtime', JSON.stringify(window.showtime));
+        localStorage.setItem('movie', JSON.stringify(window.movie));
+    }
+    
     function initSeatControl(){
         var $root = $('.wrap'),
             $room = $root.find('.room'),
@@ -108,7 +112,8 @@ $(document).ready(function() {
             option.mobile     = ''
             $.post('/lockseats/' + showtimeId, option, function(reture_data){
                 // console.log(reture_data);
-                location.href = '/payment'
+                localStorage.setItem('seats', JSON.stringify( selected_seats ));
+                location.href = '/payment';
             })
         }
     }

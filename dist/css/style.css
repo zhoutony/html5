@@ -2342,7 +2342,6 @@ color:#fff;
 .ticket_seatcont li { margin-bottom: 1rem; }
 .smallticket { overflow-x: auto; }
 .onlineseat .row_num {
-    background: rgba(0,150,141,.6);
     z-index: 1;
     border-radius: 1.5rem;
     position: absolute; 
@@ -2351,7 +2350,7 @@ color:#fff;
 }
 .smallticket .ticket_seatcont { margin-left: 3rem; }
 .smallticket .ticket_seatcont span { margin: 0 0.5rem }
-
+ 
  .row_num li {
     width: 3rem;
     height: 5.4rem;
@@ -2359,9 +2358,15 @@ color:#fff;
     line-height: 4.4rem;
     text-align: center;
     color: #fff;
+      background: rgba(0,150,141,.6);
+      overflow:hidden;
    
 }
-  .row_num li span { font-size: 1.2rem; }
+.row_num li.first{border-radius:1rem 1rem 0 0 ;}
+.row_num li.last{border-radius:0 0 1rem 1rem;}
+.row_num li.space{text-indent:-111rem;}
+.row_num li.hidden{background:none;}
+.row_num li span { font-size: 1.2rem; }
 .ticket_seatcont ul { display: inline-block; }
 .ticket_seatcont li {
     text-align: left;
@@ -2382,7 +2387,7 @@ color:#fff;
 .seatinfo {
     background: #F7F7F7;
     padding: 0 1.5rem 2rem;
-   
+    z-index: 1;
      
     position: relative;
 }

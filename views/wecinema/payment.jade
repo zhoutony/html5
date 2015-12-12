@@ -10,20 +10,15 @@ block prepend body
     //wrap
     div.wrap
         div.paybox.flexbox
-            div.flex 
-                h2 蚁人
-                p 北京沃美影城（常营店）
-                p 3D | 今天（10月17日） 18:20
+            div.flex#ticketinfo
+                
             div.btnbox
-                a(href="#") 重新选座
+                a(href="javascript:;", onclick="history.back()") 重新选座
         ul.paylist 
             li.flexbox
-                div.main.flex 
-                    i.ico_ticket 11排17座
-                    i.ico_ticket 11排18座
-                    i.ico_ticket 11排19座
-                    i.ico_ticket 11排20座
-                div.priceaside ¥53
+                div.main.flex#seats
+                    
+                div.priceaside._price
             li.flexbox.txtflex
                 div.main.flex 票友卡¥28+红包¥25
                 div.priceaside
@@ -37,13 +32,13 @@ block prepend body
             li.telbox
                 div.flexbox_v_c.payinfo
                     label 手机号码
-                    input(type="tel").flex 
-                    a(href="#")
+                    input(type="tel" placeholder="请输入手机号").flex 
+                    a.m-hide(href="#")
                         i.demo-icon.icon-cancel-circled
                 div.flexbox_v_c.payend
                     div.flex 还需支付
                     div.payprice
-                        b ¥5
+                        b._price 
                         p 已含服务费：¥1/张
         div.paytool
             p 
@@ -52,9 +47,9 @@ block prepend body
                 i.demo-icon.icon-cancel-circled2
                 | 不支持更换场次
             ul 
-                li
+                li.m-hide
                     a(href="#") 微信付款
-                li
+                li.m-hide
                     a(href="#") 支付宝付款
                 li.notlink
                     a(href="#") 立即支付
@@ -74,7 +69,8 @@ block prepend body
 block prepend footer
 
 block prepend script
-    script
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/payment.js?#{data.reversion}")
         
 
 

@@ -18,7 +18,11 @@ app.get(['/payment'], function (req, res) {
     //渲染准备用数据
     var render_data = {};
 
-    
+    render_data.data = {};
+    render_data.data = {
+        reversion: global.reversion,
+        staticBase: global.staticBase
+    }
 
-    res.render('wecinema/pay');
+    res.render('wecinema/payment', render_data);
 });
