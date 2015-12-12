@@ -9,6 +9,17 @@ $(document).ready(function() {
     if(window.newscontent){
     	var _html = JSON.stringify(window.newscontent)
         $('._txt').html(window.newscontent);
+
+        var _url = $('._txt').find('link').attr('src');
+
+
+        var oHead = document.getElementsByTagName('HEAD').item(0); 
+
+        var oScript = document.createElement("script"); 
+        oScript.type = "text/javascript"; 
+        oScript.src = _url;
+        oHead.appendChild(oScript);
+
     }
 
     if(window.title){

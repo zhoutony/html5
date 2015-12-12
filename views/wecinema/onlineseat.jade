@@ -8,7 +8,7 @@ block title
 block prepend body
     include ./pagelets/loading
     
-    //wrap
+    //- wrap
     if data
         div.wrap
             div.online.flexbox_v
@@ -28,7 +28,7 @@ block prepend body
                             if data.show
                                 p #{_moivetype}#{_showtime} 
                         div.onbtn
-                             a(href="") 换个场次 
+                             a(href="javascript:;", onclick="history.back()") 换个场次 
                            
                 
                 div.onlineseat.flex
@@ -45,13 +45,7 @@ block prepend body
                     div.room
                         if data.seats && data.seats.length > 0
                             div.smallticket
-                                div.row_num
-                                    ul
-                                        each seat, index in data.seats
-                                            if seat.length > 0
-                                                - var _colNum = seat[0].colNum;
-                                                li
-                                                    span #{_colNum}
+                                
                                 div.ticket_seatcont
                                     ul.tnone
                                         each seats, index in data.seats
@@ -63,6 +57,26 @@ block prepend body
                                                             | #{seat.colNum}排
                                                             <br>
                                                             | #{seat.rowNum}座
+                            div.row_num
+                                ul.lines
+                                    each seat, index in data.seats
+                                        if seat.length > 0
+                                            - var _colNum = seat[0].colNum;
+                                            - var _desc = seat[0].desc;
+                                            if _desc != 'vacant_seat'
+                                                if seat[0].rowStatus
+                                                    if seat[0].rowStatus === 'first'
+                                                        li.first
+                                                            span #{_colNum}
+                                                    if seat[0].rowStatus === 'last'
+                                                        li.last
+                                                            span #{_colNum}
+                                                else
+                                                    li
+                                                        span #{_colNum}
+                                            else
+                                                li.hidden
+                                                    span 
                 if data.show
                     - var price = data.show.price / 100
                     div.seatinfo(data-price="#{price}")

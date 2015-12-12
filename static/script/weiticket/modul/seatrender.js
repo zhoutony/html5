@@ -18,7 +18,7 @@ define([
                 this.$root = config.root;
                 this.$room = this.$root.find('.room');
                 this.$roomTable = this.$room.find('.tnone');
-                this.$hIndicator = this.$root.find('.seat-nav .lines');
+                this.$hIndicator = this.$root.find('.row_num .lines');
 
                 var $room = this.$room;
                 var $table = this.$roomTable;
@@ -64,31 +64,31 @@ define([
                 }, 200)
 
 
-                //指示条逻辑
-                // if (!this.scroll.indicators) {
-                //     this.scroll.indicators = [];
-                // }
-                // var indicator = {
-                //     style: that.$hIndicator[0].style,
-                //     updatePosition: function() {
-                //         var y = Math.round(that.scroll.y);
-                //         this.style["webkitTransform"] = "translate(0," + y + "px) translateZ(0) scale(" + that.scroll.scale + ")";
-                //         this.style["webkitTransformOrigin"] = "top left";
-                //     },
-                //     transitionTime: function(time) {
-                //         this.style.webkitTransitionDuration = time + 'ms';
-                //     },
-                //     transitionTimingFunction: function(value) {
-                //         this.style.webkitTransitionTiming = value;
-                //     },
-                //     refresh: function() {
-                //         this.transitionTime(0);
-                //         this.updatePosition();
-                //     },
-                //     remove: function() {},
-                //     destroy: function() {}
-                // };
-                // this.scroll.indicators.push(indicator);
+                // 指示条逻辑
+                if (!this.scroll.indicators) {
+                    this.scroll.indicators = [];
+                }
+                var indicator = {
+                    style: that.$hIndicator[0].style,
+                    updatePosition: function() {
+                        var y = Math.round(that.scroll.y);
+                        this.style["webkitTransform"] = "translate(0," + y + "px) translateZ(0) scale(" + that.scroll.scale + ")";
+                        this.style["webkitTransformOrigin"] = "top left";
+                    },
+                    transitionTime: function(time) {
+                        this.style.webkitTransitionDuration = time + 'ms';
+                    },
+                    transitionTimingFunction: function(value) {
+                        this.style.webkitTransitionTiming = value;
+                    },
+                    refresh: function() {
+                        this.transitionTime(0);
+                        this.updatePosition();
+                    },
+                    remove: function() {},
+                    destroy: function() {}
+                };
+                this.scroll.indicators.push(indicator);
 
                 //处理完毕数据之后执行缩放动画
                 _.defer(function() {

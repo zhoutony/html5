@@ -35,7 +35,7 @@ app.get(["/movienews/:movieNewId"], function(req, res){
                 var content = new StringBuilder();
                 content.append(data.newsInfo.content);
                 // console.log('content:', content.toString());
-                render_data.data.newsInfo.content = content.toString();
+                render_data.data.newsInfo.content = content.toString().replace(/script/g, 'link');
             }
         }
         res.render("wecinema/movienews", render_data);

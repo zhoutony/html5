@@ -164,6 +164,7 @@ block prepend script
     script
         | var title = "#{data.newsInfo.title}";
         | var newscontent = !{JSON.stringify(data.newsInfo.content)};
+        //- var newscontent = '#{data.newsInfo.content}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")
 
