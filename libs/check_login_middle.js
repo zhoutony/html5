@@ -25,7 +25,7 @@ var urlencode   = require('urlencode');
 
 function isLoggedIn(req, res, next) {
     
-    var publicsignalshort_in_cookie          = req.params["publicsignalshort"];
+    var publicsignalshort_in_cookie          = "url";
     var open_id                              = req.cookies.open_id;
     var public_short_in_openid_cookie        = "";
     var openid_in_openid_cookie              = "";
@@ -33,14 +33,14 @@ function isLoggedIn(req, res, next) {
     //var cinema_id = req.params["cinema_id"];
     //console.log("req.url:::",req.url);
     //调用的接口列表
-    var my_api_addr = "/publicsignal/info";
+    var my_api_addr = "/queryWeixinBaseConfigInfo.aspx";
     var req_publicsignalshort = req.publicsignalshort;
 
     var options = {
-        uri: my_api_addr,
-        args: {
-            publicsignalshort: publicsignalshort_in_cookie
-        }
+        uri: my_api_addr
+        // args: {
+        //     // publicsignalshort: publicsignalshort_in_cookie
+        // }
     };
 
     var publicsignalshort_data = {};
@@ -52,7 +52,7 @@ function isLoggedIn(req, res, next) {
     var build_weixin_url = function(publicsignalshort){
         var app_id          =  getAppId(publicsignalshort).appId;
         var open_wx_host    =  'https://open.weixin.qq.com';
-        var callback_host   =  'http://smart.wepiao.com';
+        var callback_host   =  'http://moviefan.com.cn';
 
         if(req.auth_debug){
             open_wx_host    =  '/mock_openwx'
@@ -77,7 +77,7 @@ function isLoggedIn(req, res, next) {
     };
 
     model.getDataFromPhp(options, function(err,data) {
-        //res.send(data);
+        console.log("data:", data);
         if(!err && data){
             publicsignalshort_data = data;
             //console.log("viewColor:", data.viewColor);
@@ -97,7 +97,7 @@ function isLoggedIn(req, res, next) {
             //console.log('has_publicsignalshort_member:', data.hasMember)
             if(open_id){
                 // console.debug(my_name,"I am in open_id === ture");
-                public_short_in_openid_cookie = open_id.public_short;
+                // public_short_in_openid_cookie = open_id.public_short;
                 // console.debug(my_name,"========logs from check_login_middle.js============");
                 // console.debug(my_name,open_id);
                 // console.debug(my_name,"publicsignalshort_in_cookie:"+publicsignalshort_in_cookie);
@@ -105,21 +105,21 @@ function isLoggedIn(req, res, next) {
                 //比较设置的公众号的缩写与存在的open_id当中的值是否一致，如果一致，则算作通过校验登录
                 //如果不一致，构造一个新的open_weixin_url，然后跳转过去
                 //调用微信之后的回调地址的路由卸载util目录下的login.js-->route/util/login.js
-                if(public_short_in_openid_cookie === publicsignalshort_in_cookie){
-                    // console.debug(my_name,"the same.......");
+                // if(public_short_in_openid_cookie === publicsignalshort_in_cookie){
+                //     // console.debug(my_name,"the same.......");
 
-                    var session_id = req.cookies.session_id;
-                    if(!session_id){
-                            res.cookie('session_id',uuid.v1(),{
-                                    path:'/'
-                            });
-                    }
+                //     var session_id = req.cookies.session_id;
+                //     if(!session_id){
+                //             res.cookie('session_id',uuid.v1(),{
+                //                     path:'/'
+                //             });
+                //     }
                     return next();
-                }else{
-                    // console.debug(my_name,"not the same");
-                    // console.debug(my_name,"redirect to :"+build_weixin_url(publicsignalshort_in_cookie));
-                    res.redirect(build_weixin_url(publicsignalshort_in_cookie));
-                }
+                // }else{
+                //     // console.debug(my_name,"not the same");
+                //     // console.debug(my_name,"redirect to :"+build_weixin_url(publicsignalshort_in_cookie));
+                //     res.redirect(build_weixin_url(publicsignalshort_in_cookie));
+                // }
             }else{
                 console.debug(my_name,"open_id not exist....");
                 console.debug(my_name,"redirect to :"+build_weixin_url(publicsignalshort_in_cookie));

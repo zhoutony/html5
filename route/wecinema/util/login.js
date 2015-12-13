@@ -85,13 +85,13 @@ app.route('/oauth2').get(function(req, res) {
     //console.log("publicsignalshort::" + publicsignalshort +"::cinema_id::" + cinema_id);
 
     //调用的接口列表
-    var my_api_addr = "/publicsignal/info";
+    var my_api_addr = "/queryWeixinBaseConfigInfo.aspx";
     var req_publicsignalshort = publicsignalshort;
 
     var options = {
         uri: my_api_addr,
         args: {
-            publicsignalshort: req_publicsignalshort
+            // publicsignalshort: req_publicsignalshort
         }
     };
 
