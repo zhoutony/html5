@@ -47,4 +47,26 @@ $(document).ready(function() {
     }
     getCurrentPosition();
 
+    $('#menutop').on('click', 'li', function(evt){
+        var _el = $(evt.currentTarget),
+            _type = '';
+        if(!_el.hasClass('curr')){
+            _type = _el.data('type');
+            $.get('/11000/filmlist/' + _type + '/1', function(_html){
+                if(_html){
+                    $('#menutop').find('li').removeClass('curr');
+                    _el.addClass('curr');
+                    $('.movielist').html(_html);
+                }
+            });
+        }
+    })
+    $('.movielist').on('tap', 'li', function(evt){
+        var _el = $(evt.currentTarget),
+            _url = _el.data('url');
+        if(_url){
+            location.href = _url;
+        }
+    })
+
 }); //END of jquery documet.ready 

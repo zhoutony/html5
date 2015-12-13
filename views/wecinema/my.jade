@@ -16,7 +16,7 @@ block prepend body
                 dd
                     b LIUDAQ1007
                     p.myprice 余额：0.00元
-            nav.mynav
+            nav.mynav.m-hide
                 ul.flexbox_v_c
                     li.flex
                         a(href="") 登录
@@ -38,6 +38,7 @@ block prepend body
                         a(href="")
                             i.n03
                             p 卡包
+                ul.flexbox
                     li
                         a(href="")
                             i.n04
@@ -53,14 +54,35 @@ block prepend body
     footer.footer
         h2 客服电话：4008-188-188
         p 电影票友服务由北京亚视联合在线科技有限公司提供
-
+    div.navtool
+             ul.flexbox_v_c
+                li.flex.curr 
+                    a(href="/")
+                        i.n01 
+                        | 头条
+                li.flex
+                    a(href="/11000/filmlist/hot")
+                        i.n02 
+                        | 电影
+                li
+                    a(href="javascript:;")
+                        i.nadd
+                li.flex
+                    a(href="javascript:;")
+                        i.n03 
+                        | 发现
+                li.flex
+                    a(href="javascript:;")
+                        i.n04 
+                        | 友惠
 
 
 
 block prepend footer
 
 block prepend script
-    script
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/mine.js?#{data.reversion}")
         
 
 

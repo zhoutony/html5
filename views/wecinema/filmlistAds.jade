@@ -7,15 +7,17 @@ if(data && data.fourthAds)
             - var _ad_lastList = data.fourthAds[_ad_firstLen - 1];
             li.mui-slider-item.mui-slider-item-duplicate
                 a(href="/110000/ticket/10034")
-                    if _ad_lastList
+                    if _ad_lastList && _ad_lastList.imageUrl
                         img(src="#{_ad_lastList.imageUrl}")
             each indexAd in data.fourthAds
                 li.mui-slider-item
                     a(href="/110000/ticket/10034")
-                        img(src="#{indexAd.imageUrl}")
+                        if indexAd && indexAd.imageUrl
+                            img(src="#{indexAd.imageUrl}")
             li.mui-slider-item.mui-slider-item-duplicate
                 a(href="/110000/ticket/10034")
-                    img(src="#{_ad_firstList.imageUrl}")
+                    if _ad_firstList && _ad_firstList.imageUrl
+                        img(src="#{_ad_firstList.imageUrl}")
         div.currbox.mui-slider-indicator
             each indexAd, index in data.fourthAds
                 span.mui-indicator

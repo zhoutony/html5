@@ -14,27 +14,27 @@ block prepend body
                 div.city 
                     a(href="#") 北京
                         i.demo-icon.icon-down-open-mini
-                ul.flex.flexbox
-                    li.curr.flex 正在上映
-                    li.flex 即将上映
+                ul.flex.flexbox#menutop
+                    li.curr.flex(data-type="hot") 正在上映
+                    li.flex(data-type="coming") 即将上映
         div.addimg.fmaddimg
 
         if (data && !data.err && data.movies)
             section.movielist
                 ul
                     each movie, index in data.movies
-                        li.flexbox
+                        li.flexbox(data-url="/110000/ticket/#{movie.movieID}")
                             div.picmid
-                                a(href="/110000/ticket/#{movie.movieID}")
+                                a(href="javascript:;")
                                     img(src="#{movie.movieImage}")
                             div.txtmid.flex 
-                                a(href="/110000/ticket/10034")
+                                a(href="javascript:;")
                                     h2 #{movie.movieNameCN}
                                         span #{movie.movieVersions}
                                         span.curr 巨幕
                                     p #{movie.intro}
                             div.toolmid
-                                a(href="/110000/ticket/#{movie.movieID}").btn_buy
+                                a(href="javascript:;").btn_buy
                                     span 购票
                                 div.btnbar
                                     a(href="/")
@@ -50,18 +50,18 @@ block prepend body
                         i.n01 
                         | 头条
                 li.flex.curr
-                    a(href="/11000/filmlist")
+                    a(href="javascript:;")
                         i.n02 
                         | 电影
                 li
-                    a(href="")
+                    a(href="javascript:;")
                         i.nadd
                 li.flex
-                    a(href="index.html")
+                    a(href="javascript:;")
                         i.n03 
                         | 发现
                 li.flex
-                    a(href="index.html")
+                    a(href="/my/index")
                         i.n04 
                         | 友惠
 

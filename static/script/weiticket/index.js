@@ -45,7 +45,6 @@ $(document).ready(function() {
     }
     getMovieNews();
 
-        
     
     var _txtbox = $('.txtbox');
     document.querySelector('.scrollpic').addEventListener('slide', function(event) {

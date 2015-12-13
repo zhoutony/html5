@@ -7,15 +7,17 @@ var pid = process.pid;
 var hostname = os.hostname();
 var my_name = hostname + ':' + pid;
 
-app.get(['/:locationID/filmlist'], function (req, res) {
+app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:sole'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryMovies.aspx";
     var _locationID = req.params["locationID"];
+    var showtype = req.params["showtype"] == "hot" ? 1 : 2;//coming
+    var sole = req.params["sole"];
     var options = {
         uri: my_api_addr,
         args: {
             locationID: _locationID,//110000
-            type:       1,
+            type:       showtype,
             pageIndex:  1,
             pageSize:   10
         }
@@ -34,7 +36,12 @@ app.get(['/:locationID/filmlist'], function (req, res) {
         } else {
 
         }
-        res.render("wecinema/filmlist", render_data);
+        if(!sole){
+            res.render("wecinema/filmlist", render_data);
+        }else{
+            res.render("wecinema/movieList", render_data);
+        }
+        
     });
 });
 
