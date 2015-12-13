@@ -120,6 +120,7 @@ app.route('/oauth2').get(function(req, res) {
                     if(if_had_code && if_had_publicsignalshort){
                         var url = build_access_token_url(publicsignalshort);
                             send_request_wx(url,publicsignalshort,function(err,data){
+                                console.log(data);
                                 if(!err){
                                     res.cookie('open_id', data, {
                                         maxAge: 1000 * 60 * 60 * 24 * 30,
