@@ -69,6 +69,12 @@ require('./pages/skippop');
 
 //sharepop
 require('./pages/sharepop');
+//cinemaorderm
+require('./pages/cinemaorder');
+//ordersucc
+require('./pages/ordersucc');
+//ordersucc
+require('./pages/mask-redbag');
 
 
 
