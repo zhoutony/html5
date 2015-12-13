@@ -13,7 +13,8 @@ if data && data.movieNews
 									span.ico_edit_top 推广
 									span.n_name #{movieNew.weMediaName}
 							li
-								img(src="#{movieNew.image1}")
+								if movieNew.image1 != ''
+									img(src="#{movieNew.image1}")
 						footer.flexbox
 							div.main.flex 置顶
 								span.n_name #{movieNew.weMediaName}
@@ -49,7 +50,8 @@ if data && data.movieNews
 							li.flex
 								h2 #{movieNew.title}
 							li
-								img(src="#{movieNew.image1}")
+								if movieNew.image1 != ''
+									img(src="#{movieNew.image1}")
 						footer.flexbox
 							div.main.flex
 								span.n_name #{movieNew.weMediaName}

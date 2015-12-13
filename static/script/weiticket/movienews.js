@@ -12,14 +12,13 @@ $(document).ready(function() {
 
         var _url = $('._txt').find('link').attr('src');
 
-
-        var oHead = document.getElementsByTagName('HEAD').item(0); 
-
-        var oScript = document.createElement("script"); 
-        oScript.type = "text/javascript"; 
-        oScript.src = _url;
-        oHead.appendChild(oScript);
-
+        if(_url && _url.indexOf('http') == 0){
+            var oHead = document.getElementsByTagName('HEAD').item(0); 
+            var oScript = document.createElement("script"); 
+            oScript.type = "text/javascript"; 
+            oScript.src = _url;
+            oHead.appendChild(oScript);
+        }
     }
 
     if(window.title){

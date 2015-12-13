@@ -8,7 +8,7 @@ block title
 
 block prepend body
     
-    //wrap
+    //- //wrap
     div.wrap
         if data && !data.err && data.newsInfo
             div.infotxt
@@ -79,7 +79,8 @@ block prepend body
                         div.infotool
                             a(href="/")
                                 img(src="/tempimages/inin.jpg")
-                h2.infotit #{data.newsInfo.title}
+                if data.newsInfo.title
+                    h2.infotit #{data.newsInfo.title}
                 div.infomenu.flexbox_v_c
                     i.info01 
                         img(src="#{data.newsInfo.logoURL}")
@@ -162,7 +163,7 @@ block prepend footer
 
 block prepend script
     script
-        | var title = "#{data.newsInfo.title}";
+        //- | var title = "#{data.newsInfo.title}";
         | var newscontent = !{JSON.stringify(data.newsInfo.content)};
         //- var newscontent = '#{data.newsInfo.content}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")

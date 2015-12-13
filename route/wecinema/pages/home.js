@@ -44,7 +44,6 @@ app.get(['/', '/index.html'], function (req, res) {
             for(var i = 0; i < _len; i++){
                 if(ads[i].advertisementType == 1){
                     render_data.data.firstAds.push(ads[i]);
-
                 }else if(ads[i].advertisementType == 2){
                     render_data.data.secondAds.push(ads[i]);
 

@@ -39,8 +39,10 @@ block prepend body
                         div.txtmid
                             p #{indexAd.movie.intro}
                         div.sharetool
-                            a(href='#{_link}').ico_ticket
-                            a(href='#{i_link}').ico_price
+                            if indexAd.movie.isBuyTicket
+                                a(href='#{_link}').ico_ticket
+                            if indexAd.movie.isMoneyPacket
+                                a(href='').ico_price
 
         //轮刷2广告
         div.scrollpic1
@@ -118,22 +120,22 @@ block prepend body
         div.navtool
              ul.flexbox_v_c
                 li.flex.curr 
-                    a(href="/")
+                    a(href="javascript:;")
                         i.n01 
                         | 头条
                 li.flex
-                    a(href="/11000/filmlist")
+                    a(href="/11000/filmlist/hot")
                         i.n02 
                         | 电影
                 li
-                    a(href="")
+                    a(href="javascript:;")
                         i.nadd
                 li.flex
-                    a(href="index.html")
+                    a(href="javascript:;")
                         i.n03 
                         | 发现
                 li.flex
-                    a(href="index.html")
+                    a(href="/my/index")
                         i.n04 
                         | 友惠
 

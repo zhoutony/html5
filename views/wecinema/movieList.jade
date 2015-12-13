@@ -1,0 +1,23 @@
+if (data && !data.err && data.movies)
+    ul
+        each movie, index in data.movies
+            li.flexbox
+                div.picmid
+                    a(href="/110000/ticket/#{movie.movieID}")
+                        img(src="#{movie.movieImage}")
+                div.txtmid.flex 
+                    a(href="/110000/ticket/10034")
+                        h2 #{movie.movieNameCN}
+                            span #{movie.movieVersions}
+                            span.curr 巨幕
+                        p #{movie.intro}
+                div.toolmid
+                    a(href="/110000/ticket/#{movie.movieID}").btn_buy
+                        span 购票
+                    div.btnbar
+                        a(href="/")
+                            i.ico_firend
+                            span 好友买单
+                        a(href="/")
+                            i.ico_redbag
+                            span 邀红包
