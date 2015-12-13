@@ -16,7 +16,7 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 // 首页
-app.get(['/my/index'], function (req, res) {
+app.get(['/my/index'], chk_login.isLoggedIn, function (req, res) {//
     var render_data = {};
     
     render_data.data = {};
