@@ -543,7 +543,11 @@ color:#fff;
 .row_num li span { font-size: 1.2rem; }
 .ticket_seatcont ul { display: inline-block; }
 .ticket_seatcont li { text-align: left; height: 4.4rem; text-align: left; position: relative; clear: both; white-space: nowrap; z-index: 0; }
-.ticket_seatcont li span i { display: inline-block; vertical-align: middle; font-weight: bold; padding: 0.5rem; font-size: 1.4rem; font-style: normal; line-height: 1.2; color: #fff; }
+.ticket_seatcont li span i { text-align:center;font-size:1.4rem;
+ font-family: 'helvetica neue';line-height:4rem; text-indent: 0.5rem;
+word-wrap: break-word; break-word: break-all; display:block; 
+vertical-align: middle; font-weight: bold; padding: 0.5rem 0 0; overflow:hidden;white-space:nowrap; text-overflow:ellipsis;  font-style: normal; 
+line-height: 1.2; color: #fff; }
 .seatinfo { background: #F7F7F7; padding: 0 1.5rem 2rem; z-index: 1; position: relative; }
 .seatinfo .main { font-size: 1.2rem; }
 .seatinfo .main, .seatinfo .aside { padding: 0rem 0; height: 4rem; line-height: 4rem; }
@@ -620,9 +624,9 @@ color:#fff;
 .addticketbox .btnbox a i:after { content: ''; display: block; width: 4px; height: 4px; border-radius: 10rem; position: absolute; top: -0.6rem; right: -0.7rem; background: #00948D; }
 .addticketbox .btnbox .new:after { }
 .addticketbox .btnbox p { color: #00948D; font-size: 1.1rem; text-align: center; }
-.codeinfo { background: #EEEEEF; padding: 0.8rem 1.5rem; }
+.codeinfo { background: url(../images/infobg.jpg) no-repeat center center;background-size:100% auto; padding: 0.8rem 1.5rem; }
 .codeinfo .imgbox { width: 9.5rem; }
-.codeinfo .txtbox { background: url(../images/infotxt_tit.png) no-repeat center center; background-size: 60% auto; }
+.codeinfo .txtbox {margin-bottom: 0;margin-right:4rem; background: url(../images/infotxt_tit.png) no-repeat center center; background-size: 60% auto; }
 .txthot .hottie { color: #00948D; font-size: 1.6rem; padding: 1.4rem 1rem 0.8rem; position: relative; }
 .txthot .hottie:before { content: ''; display: block; height: 1px; overflow: hidden; background: #cecece; position: absolute; bottom: 0; left: 0rem; right: 0rem; -webkit-transform: scaleY(.5); transform: scaleY(.5); }
 .txthot .hotmovie section { background: #fff; padding-top: 0; }

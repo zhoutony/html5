@@ -22,7 +22,7 @@ app.get(["/get/citys"], function(req, res){
     };
     render_data.data = {}
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data);
+        // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
             res.send(data)

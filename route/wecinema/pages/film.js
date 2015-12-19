@@ -32,7 +32,7 @@ app.get(["/schedule/:cinemaId/:movieId", "/schedule/:cinemaId/:movieId/:dateTime
         movieId: movieId
     }
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data);
+        // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
             render_data.data.shows = data.shows;

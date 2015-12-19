@@ -23,7 +23,7 @@ app.get(["/movienews/:movieNewId"], function(req, res){
         reversion: global.reversion,
         staticBase: global.staticBase
     }
-    console.log(global.reversion,global.staticBase);
+    // console.log(global.reversion,global.staticBase);
     model.getDataFromPhp(options, function (err, data) {
         render_data.data.err = err;
         if (!err && data) {

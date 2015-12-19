@@ -127,7 +127,7 @@ var getDataFromPhp = function(options, callback) {
         }
         if (!error && response.statusCode === 200) {
             var return_data = "";
-            console.info(my_name,"request uri:",options_for_requst.uri,"elapsedTime:",response.elapsedTime,"ms");
+            // console.info(my_name,"request uri:",options_for_requst.uri,"elapsedTime:",response.elapsedTime,"ms");
             build_metrics_map(options_for_requst.uri,response.elapsedTime);
 
             // options.passType = 'send' 为获取全部返回数据
@@ -138,13 +138,13 @@ var getDataFromPhp = function(options, callback) {
 
             //判断是否是成功返回，如果是已经解析好了的json，直接返回
             body = JSON.parse(body);
-            console.log(body.data);
+            // console.log(body.data);
             if (body.success) {
                 // console.debug(my_name,"I am in first level if....");
                 // console.debug(my_name,"====get res from module  model.js=====");
                 // console.debug(my_name,"it's request....");
-                console.debug(my_name,options_for_requst);
-                console.debug(my_name,body.data);
+                // console.debug(my_name,options_for_requst);
+                // console.debug(my_name,body.data);
                 
                 // console.log(body.data);
                 callback(null,body.data);
@@ -182,7 +182,7 @@ var getDataFromPhp = function(options, callback) {
                       callback(null, return_data.data);
                       return;
                   }else{
-                      console.error(my_name,return_data);
+                      // console.error(my_name,return_data);
                       callback(return_data.msg);
                       return;
                   }
