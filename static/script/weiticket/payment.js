@@ -13,8 +13,8 @@ $(document).ready(function () {
     }
     
     function initSeatControl(){
-        cinema = localStorage.getItem('cinema'),
-        showtime = localStorage.getItem('showtime'),
+        cinema = localStorage.getItem('cinema');
+        showtime = localStorage.getItem('showtime');
         movie = localStorage.getItem('movie');
         seats = localStorage.getItem('seats');
         cinema =  cinema ? JSON.parse( cinema ) : '';

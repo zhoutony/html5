@@ -2,9 +2,6 @@
 var $ = require('../lib/zepto.js');
 var iScroll = require('../lib/iscroll');
 var _ = require('../lib/underscore');
-// var cache = require('../util/session_cache.js');
-// var cookie = require("../util/cookie.js");
-// var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
 var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
@@ -74,7 +71,6 @@ $(document).ready(function() {
         var oldDate = new Date(), newDate;
         $table.on('tap', 'span', function (evt) {
             if ($(evt.currentTarget).hasClass('seat_selected') || $(evt.currentTarget).hasClass('seat_ture')) {
-            //     //view.onTapSeat(e);
                 
                 newDate = new Date();
                 if((newDate.getTime() - oldDate.getTime()) > 100){
@@ -98,7 +94,7 @@ $(document).ready(function() {
         function lockSeats(selected_seats, _len){
             var option    = {},
                 seatIDs   = [],
-                seatNames = []; //
+                seatNames = [];
             
             for(var i = 0; i < _len; i++){
                 var _item = selected_seats[i].split('|');
@@ -111,13 +107,11 @@ $(document).ready(function() {
             option.showtimeID = showtimeId;
             option.mobile     = ''
             $.post('/lockseats/' + showtimeId, option, function(reture_data){
-                // console.log(reture_data);
                 localStorage.setItem('seats', JSON.stringify( selected_seats ));
                 location.href = '/payment';
             })
         }
     }
 
-    //init()
     init();
 }); //END of jquery documet.ready 
