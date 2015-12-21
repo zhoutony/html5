@@ -1,13 +1,5 @@
-extends ./layout
-
-block title
-        title 电影票友
-
-
-
-block prepend body
-    
-    //citypop
+if !data.err && data.citys
+    //- citypop
     div.citypop
         div.citybox.city-list
             div.citytit.flexbox_v_c
@@ -16,7 +8,12 @@ block prepend body
                     | 返回
             div.citysearch.flexbox
                 input.flex.txt(type="text",placeholder="输入城市名或拼音查询")
-            div.list-wrapper
+            div.list-wrapper.m-hide
+                h3 搜索结果
+                ul
+                    li
+                        span 北京
+            div.list-wrapper.m-hide
                 h3 最近访问
                 ul
                     li
@@ -26,88 +23,16 @@ block prepend body
                 ul
                     li
                         span 北京
-                    li
-                        span 上海
-                    li
-                        span 广州
-                    li
-                        span 深圳
-                    li
-                        span 成都
-                    li
-                        span 武汉
-                    li
-                        span 南京
-                    li
-                        span 杭州
+
             div.citylist(style="display:non1e")
-                 
-                
                 dl
-                   
+                    dt A
                     dd
                         ul
                             li
                                 a(href="#") 北京
-                            li
-                                a(href="#") 上海
-                            li
-                                a(href="#") 天津
-                            li
-                                a(href="#") 大连
-                    dt B
-                    dd
-                        ul
-                            li
-                                a(href="#") 北京
-                            li
-                                a(href="#") 上海
-                            li
-                                a(href="#") 天津
-                            li
-                                a(href="#") 大连
-                    dt C
-                    dd
-                        ul
-                            li
-                                a(href="#") 北京
-                            li
-                                a(href="#") 上海
-                            li
-                                a(href="#") 天津
-                            li
-                                a(href="#") 大连
-                    dt D
-                    dd
-                        ul
-                            li
-                                a(href="#") 北京
-                            li
-                                a(href="#") 上海
-                            li
-                                a(href="#") 天津
-                            li
-                                a(href="#") 大连
-                    dt E
-                    dd
-                        ul
-                            li
-                                a(href="#") 北京
-                            li
-                                a(href="#") 上海
-                            li
-                                a(href="#") 天津
-                            li
-                                a(href="#") 大连
-         
 
 
-
-
-block prepend footer
-
-block prepend script
-    script
         
 
 
