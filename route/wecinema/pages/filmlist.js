@@ -11,7 +11,7 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
     var render_data = {};
     var my_api_addr = "/queryMovies.aspx";
     var _locationID = req.params["locationID"];
-    var showtype = req.params["showtype"] == "hot" ? 1 : 2;//coming
+    var showtype = req.params["showtype"] == 1;//coming
     var sole = req.params["sole"];
     var options = {
         uri: my_api_addr,
