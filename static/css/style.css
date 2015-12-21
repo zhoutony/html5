@@ -889,7 +889,7 @@ body {
 /**navtool Begin**/
 .navtool {
 	background: #eeefef;
-	height: 4rem;
+	height: 4.4rem;
 	position: fixed;
 	bottom: 0;
 	left: 0rem;
@@ -943,8 +943,8 @@ body {
 .navtool li i {
 	display: block;
 	overflow: hidden;
-	width: 1.6rem;
-	height: 1.6rem;
+	width: 2rem;
+	height: 2rem;
 	margin: 0rem auto 0.3rem;
 }
 .navtool li i.n01 {
@@ -4259,3 +4259,4 @@ line-height;
 	height: 11.4rem;
 	overflow: hidden;
 }
+  
