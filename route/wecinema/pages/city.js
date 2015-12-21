@@ -7,7 +7,7 @@ var pid      = process.pid;
 var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
-//
+//选择城市
 app.get(["/get/citys"], function(req, res){
     var render_data = {};
     var my_api_addr = "/queryLocations.aspx";
@@ -23,11 +23,11 @@ app.get(["/get/citys"], function(req, res){
     render_data.data = {}
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data);
-        render_data.data.err = err;
-        if (!err && data) {
-            res.send(data)
+        render_data.data = {
+            err: err,
+            citys: data
         }
-        //res.render("wecinema/city");
+        res.render("wecinema/city", render_data);
     });
     
 });
