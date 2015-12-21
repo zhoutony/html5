@@ -17,8 +17,9 @@ var compression = require('compression');
 process.on('uncaughtException', function(err) {
     console.error('Error caught in uncaughtException event:', err);
 });
-//git版本
-global.reversion = "aa04b6b";
+
+global.reversion = "2192515";
+
 
 
 global.staticBase = "";//"http://smart-static.wepiao.com";
