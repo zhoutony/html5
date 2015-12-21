@@ -5,7 +5,7 @@ if data && data.movieNews
 		if movieNew.isTop
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.first.imgtxt
-					a(href="/movienews/#{movieNew.movieNewID}")
+					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						ul.flexbox_v_c
 							li.flex
 								h2 #{movieNew.title}
@@ -23,7 +23,7 @@ if data && data.movieNews
 								time #{_date}
 			else
 				section.first
-					a(href="/movienews/#{movieNew.movieNewID}")
+					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						div.flexbox_v_c
 							h2.flex #{movieNew.title}
 							
@@ -45,7 +45,7 @@ if data && data.movieNews
 		else
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.imgtxt
-					a(href="/movienews/#{movieNew.movieNewID}")
+					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						ul.flexbox_v_c
 							li.flex
 								h2 #{movieNew.title}
@@ -60,7 +60,7 @@ if data && data.movieNews
 								time #{_date}
 			else
 				section
-					a(href="/movienews/#{movieNew.movieNewID}")
+					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						div.flexbox_v_c
 							h2.flex #{movieNew.title}
 							

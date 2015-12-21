@@ -38,7 +38,7 @@ block prepend body
                         - var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
                         if movieNew.image2 == '' || movieNew.image3 == ''
                             section
-                                a(href="/movienews/#{movieNew.movieNewID}")
+                                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                                     ul.flexbox
                                         li.medtxt.flex
                                             h2 #{movieNew.title}
@@ -55,7 +55,7 @@ block prepend body
                                     div.line.flex
                         else
                             section
-                                a(href="/movienews/#{movieNew.movieNewID}")
+                                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                                     ul.flexbox
                                         li.flex
                                             img(src="#{movieNew.image1}")

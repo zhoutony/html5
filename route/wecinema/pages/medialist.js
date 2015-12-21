@@ -7,16 +7,16 @@ var pid      = process.pid;
 var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
-app.get(["/medialist"], function(req, res){
+app.get(["/medialist/:sourceId"], function(req, res){
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
 
-    // var sourceID = req.params["data.sourceInfo.sourceID"];
+    var sourceId = req.params["sourceId"];
     // var showtype = sourceID;
     var options = {
         uri: my_api_addr,
         args: {
-            type:       17,
+            type:       sourceId,
             pageIndex:  1,
             pageSize:   10,
 
@@ -29,7 +29,7 @@ app.get(["/medialist"], function(req, res){
         sourceInfo: []
          
     }
-    console.log(global.reversion,global.staticBase);
+    // console.log(global.reversion,global.staticBase);
     model.getDataFromPhp(options, function (err, data) {
         render_data.data.err = err;
         if (!err && data) {
