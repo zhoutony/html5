@@ -18,7 +18,7 @@ process.on('uncaughtException', function(err) {
     console.error('Error caught in uncaughtException event:', err);
 });
 
-global.reversion = "9cd6318";
+global.reversion = "2192515";
 
 
 

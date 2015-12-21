@@ -30,7 +30,7 @@ app.get(["/movienews/:movieNewId"], function(req, res){
             render_data.data = data;
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;
-            
+            console.log(data);
             if(data.newsInfo && data.newsInfo.content){
                 var content = new StringBuilder();
                 content.append(data.newsInfo.content);

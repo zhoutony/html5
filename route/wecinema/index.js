@@ -76,6 +76,9 @@ require('./pages/ordersucc');
 //ordersucc
 require('./pages/mask-redbag');
 
+//medialist
+require('./pages/medialist');
+
 
 
 

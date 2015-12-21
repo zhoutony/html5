@@ -77,17 +77,37 @@ block prepend body
                 else
                     header.infoheader
                         div.infotool
-                            a(href="/")
-                                img(src="/tempimages/inin.jpg")
+                            a(href='/medialist')
+                                div.flexbox_v_c
+                                    div.logobox
+                                        p 
+                                            img(src="#{data.newsInfo.logoURL}")
+                                    div.imgbox.flex
+                                        h2 #{data.newsInfo.weMediaName}
+                                        p #{data.newsInfo.publishtime}
+                                        p
+                                            b.icon_y(style="display:none") 原创
+                                            span 
+                                                b +
+                                                | 订阅
+                                    div.txtbox
+                                        p 在电影的时光读懂自已
+                                 
                 if data.newsInfo.title
                     h2.infotit #{data.newsInfo.title}
+                
                 div.infomenu.flexbox_v_c
-                    i.info01 
-                        img(src="#{data.newsInfo.logoURL}")
-                    span.linkname #{data.newsInfo.weMediaName}
-                        time #{data.newsInfo.publishtime}
-                    i.info02
-                    span 
+                    div.main.flex.flexbox_v_c
+                        img(src="/images/img_ico.png")
+                        span 开放平台
+                        b 
+                            sup + 
+                    a.info05(style=" ")
+                            sup #{data.newsInfo.readCount}
+                            //- #{data.newsInfo.readCount}
+                    a.info02
+                    a.info03
+
                 div.infocon
                     div._txt
                 div.formtxt 
@@ -109,11 +129,8 @@ block prepend body
                         i.b_sina
                         span 1
                 div.codeinfo.flexbox
-                    div.imgbox
-                        img(src="/tempimages/code.jpg")
-                    div.txtbox.flex
-                        h4 
-                        p 
+                    
+                     
                 div.txthot
                     h2.hottie 精彩推荐
                     div.hotmovie

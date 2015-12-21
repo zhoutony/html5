@@ -1,0 +1,101 @@
+extends ./layout
+
+block title
+        title 电影票友
+
+
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        div.medislist
+            if data && !data.err 
+                section.meditool 
+                    div.imgbox
+                        if data.sourceInfo.backImageURL== ''
+                            img(src="/tempimages/medbg.jpg" )
+                        else
+                            img(src="data.sourceInfo.backImageURL")
+                    div.medimid 
+                        div.main
+                            div.logo.showv1
+                                img(src="#{data.sourceInfo.logoURL}")
+                                span
+                            h2 #{data.sourceInfo.sourceName}
+                            p 
+                                span.flexbox_vh_c.icoplus 
+                                    b +
+                                    em 订阅
+                            p(style="display:none;") 
+                                b.icon_y 原创
+                            p 累计阅读 #{data.sourceInfo.AllReadCount} | 粉丝  #{data.sourceInfo.subscribeCount}
+                            div.medtxt #{data.sourceInfo.summary}
+            div.hotmovie.mlist
+                if data && !data.err && data
+                    each movieNew, index in data.movieNews
+                        - var _time = Math.floor( (new Date() - new Date(movieNew.publishtime)) / 1000 / 60 )
+                        - var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
+                        if movieNew.image2 == '' || movieNew.image3 == ''
+                            section
+                                a(href="/movienews/#{movieNew.movieNewID}")
+                                    ul.flexbox
+                                        li.medtxt.flex
+                                            h2 #{movieNew.title}
+                                            p #{movieNew.summary}
+                                        li.flex
+                                             img(src="#{movieNew.image1}")
+                                div.flexbox_vh_c.infomenu
+                                    div.line.flex
+                                    time #{_date}
+                                    span 阅读#{movieNew.readCount}
+                                    a.info01
+                                        sup 99
+                                    a.info03
+                                    div.line.flex
+                        else
+                            section
+                                a(href="/movienews/#{movieNew.movieNewID}")
+                                    ul.flexbox
+                                        li.flex
+                                            img(src="#{movieNew.image1}")
+                                        li.flex
+                                            img(src="#{movieNew.image2}")
+                                        li.flex
+                                            img(src="#{movieNew.image3}")
+                                    h2 #{movieNew.title}
+                                    p.
+                                        #{movieNew.summary}
+                                div.flexbox_vh_c.infomenu
+                                    div.line.flex
+                                    time #{_date}
+                                    span 阅读#{movieNew.readCount}
+                                    a.info01
+                                        sup 99
+                                    a.info03
+                                    div.line.flex
+                                     
+                                    //- section
+                                    //-     div.oneimg
+                                    //-         div.imgbox
+                                    //-             <img src="http://p2.pstatp.com/list/10747/4275399315">
+                                    //-         h2 好色 | 布拉德·皮特，电影之外，他是丈夫与父亲
+                                    //-         p.
+                                    //-             在新人辈出的娱乐圈，最近冒出了一个叫做“娱乐圈老干部”的超人气天团。说的是在永远行走在时尚与潮流前线的贵圈中，有这么一群人，无论是在工作、生活中都是老干部的作风。他们在年龄与“小鲜肉”的标签绝缘，在动辄炒作爆料的环境生态中却坚持为人低调，不炒作绯闻，不爱上综艺节目，相比起对潮流的关注度，他们更重视对自身演技的要求。
+                                    //-     div.flexbox_vh_c.infomenu
+                                    //-         div.line.flex
+                                    //-         time 12-19 12:40
+                                    //-         span 阅读123
+                                    //-         a.info01
+                                    //-             sup 99
+                                    //-         a.info03
+                                    //-         div.line.flex
+                div.infoaddimg
+                    img(src="/tempimages/infoaddimg.jpg")
+        
+             
+block prepend footer
+
+block prepend script
+    //- script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    //- script(src="#{data.staticBase}/script/weiticket/mine.js?#{data.reversion}")
