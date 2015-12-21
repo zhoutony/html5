@@ -664,7 +664,8 @@ body {
 .scrollpic .currbox {
 	position: absolute;
 	bottom: 0.5rem;
-	right: 0.5rem;
+	left: 50%;
+	transform: translateX(-50%);
 }
 .scrollpic .currbox span {
 	width: 0.5rem;
@@ -3243,7 +3244,7 @@ color:#fff;
 	background-size: 110%;
 }
 .infomenu b {
-	color: #E73828;
+	color: #ccc;/*#E73828**/
 	font-weight: bold;
 	font-size: 1.6rem;
 	line-height: 1;
@@ -4112,6 +4113,21 @@ line-height;
 	height: auto;
 	font-size: 1.2rem;
 }
+.medislist .medimid p.num span,
+.medislist .medimid p.num b {
+	display: inline-block;
+	vertical-align: middle;
+}
+.medislist .medimid p.num b.mr {
+	margin: 0 0.6rem;
+}
+.medislist .medimid p.num span {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 5rem;
+	text-algin: left;
+}
 .medislist .medimid h2 {
 	font-size: 1.4rem;
 	padding-bottom: 0.5rem;
@@ -4164,6 +4180,9 @@ line-height;
 	text-align: center;
 	line-height: 2rem;
 	vertical-align: middle;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .medislist .infomenu {
 	padding: 1.4rem 0 0.5rem;
@@ -4239,12 +4258,17 @@ line-height;
 	white-space: pre-wrap;
 	margin-top: 0;
 	padding: 0;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 .medislist .hotmovie section li.medtxt {
 	padding-top: 0;
 }
 .medislist .hotmovie section li.medtxt p {
-	padding : 0.2rem 0 0;
+	padding : 0.5rem 0 0;
 	text-overflow: inherit;
 	white-space: pre-wrap;
 	text-align: left;
@@ -4259,4 +4283,3 @@ line-height;
 	height: 11.4rem;
 	overflow: hidden;
 }
-  
