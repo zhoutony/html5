@@ -30,13 +30,14 @@ var ScrollBottomPlus = {
   		this.options = options;
   		this.el = $(options.el);
   		this.app = $(options.app_el);
-        this.gotoBottomShowed = false;
-        this.clientHeight = document.documentElement.clientHeight;
+      this.footer = $(this.options.footer);
+      this.gotoBottomShowed = false;
+      this.clientHeight = document.documentElement.clientHeight;
 
-        this.checkScrollHandler = _.bind(this.checkScroll, this);
-        $(document).bind("scroll", this.checkScrollHandler);
-        this.footerHeight = $(this.options.footer).height() + 70 || 300;
-        this.bodyOffsetHeight = document.body.offsetHeight;
+      this.checkScrollHandler = _.bind(this.checkScroll, this);
+      $(document).bind("scroll", this.checkScrollHandler);
+      this.footerHeight = this.footer.length > 0 ? this.footer.height() + 70 : 300;
+      this.bodyOffsetHeight = document.body.offsetHeight;
     },
 
     checkScroll: function(){

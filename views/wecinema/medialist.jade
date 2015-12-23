@@ -37,64 +37,7 @@ block prepend body
                                 span  #{data.sourceInfo.AllReadCount}
                             div.medtxt #{data.sourceInfo.summary}
             div.hotmovie.mlist
-                if data && !data.err && data
-                    each movieNew, index in data.movieNews
-                        - var _time = Math.floor( (new Date() - new Date(movieNew.publishtime)) / 1000 / 60 )
-                        - var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
-                        if movieNew.image2 == '' || movieNew.image3 == ''
-                            section
-                                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
-                                    ul.flexbox
-                                        li.medtxt.flex
-                                            h2 #{movieNew.title}
-                                            p #{movieNew.summary}
-                                        li.flex
-                                             img(src="#{movieNew.image1}")
-                                div.flexbox_vh_c.infomenu
-                                    div.line.flex
-                                    time #{_date}
-                                    span 阅读#{movieNew.readCount}
-                                    a.info01(style="display:none;")
-                                        sup 99
-                                    a.info03
-                                    div.line.flex
-                        if movieNew.image1 == '' ||  movieNew.image2 == '' || movieNew.image3 == ''
-                            section
-                                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
-                                    ul.flexbox
-                                        li.medtxt.flex
-                                            h2 #{movieNew.title}
-                                            p #{movieNew.summary}
-                                         
-                                div.flexbox_vh_c.infomenu
-                                    div.line.flex
-                                    time #{_date}
-                                    span 阅读#{movieNew.readCount}
-                                    a.info01(style="display:none;")
-                                        sup 99
-                                    a.info03
-                                    div.line.flex
-                        else
-                            section
-                                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
-                                    ul.flexbox
-                                        li.flex
-                                            img(src="#{movieNew.image1}")
-                                        li.flex
-                                            img(src="#{movieNew.image2}")
-                                        li.flex
-                                            img(src="#{movieNew.image3}")
-                                    h2 #{movieNew.title}
-                                    p.
-                                        #{movieNew.summary}
-                                div.flexbox_vh_c.infomenu
-                                    div.line.flex
-                                    time #{_date}
-                                    span 阅读#{movieNew.readCount}
-                                    a.info01(style="display:none;")
-                                        sup 99
-                                    a.info03
-                                    div.line.flex
+                include one_medialist
                                      
                                     //- section
                                     //-     div.oneimg
@@ -111,12 +54,17 @@ block prepend body
                                     //-             sup 99
                                     //-         a.info03
                                     //-         div.line.flex
-                div.infoaddimg
-                    img(src="/tempimages/infoaddimg.jpg")
+            div.loading.flexbox_vh_c
+                div.mui-spinner
+                div 加载中.....
+            div.infoaddimg
+                img(src="/tempimages/infoaddimg.jpg")
         
              
 block prepend footer
 
 block prepend script
-    //- script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
-    //- script(src="#{data.staticBase}/script/weiticket/mine.js?#{data.reversion}")
+    script
+        | var sourceId = "#{data.sourceId}";
+    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/medialist.js?#{data.reversion}")
