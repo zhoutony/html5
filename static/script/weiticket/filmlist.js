@@ -10,6 +10,10 @@ var Citys = require('./citys');
 
 /* jshint ignore:end */
 $(document).ready(function() {
+    if(showtype == 'coming'){
+        $('._hot').removeClass('curr');
+        $('._coming').addClass('curr');
+    }
     $.get('/get/queryadvertisements', function(adsHtml){
         var _addimg = $('.addimg').html(adsHtml);
 
@@ -54,6 +58,7 @@ $(document).ready(function() {
             _type = _el.data('type');
             $.get('/11000/filmlist/' + _type + '/1', function(_html){
                 if(_html){
+                    history.pushState('', '', location.origin + '/11000/filmlist/' + _type);
                     $('#menutop').find('li').removeClass('curr');
                     _el.addClass('curr');
                     $('.movielist').html(_html);
