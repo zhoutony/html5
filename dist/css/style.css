@@ -575,8 +575,8 @@ body {
 .info02,
 .info01 img,
 .info02 img {
-	width: 2.6rem;
-	height: 2.6rem;
+	width: 1.3rem;
+	height: 1.3rem;
 	border-radius: 10rem;
 }
 .info01 {
@@ -798,7 +798,7 @@ body {
 .hotmovie section {
 	position: relative;
 	background: #f6f7f7;
-	padding: 0.5rem 1rem 0.5rem;
+	padding: 1rem 1rem 1rem;
 }
 .hotmovie section:last-child {
 	padding-bottom: 1rem;
@@ -2818,7 +2818,7 @@ color:#fff;
 .bartool {
 	cursor: pointer;
 	position: fixed;
-	bottom: 4rem;
+	bottom: 4.8rem;
 	right: 1rem;
 	width: 4.2rem;
 	height: 4.2rem;
@@ -2829,11 +2829,14 @@ color:#fff;
 	background: url(../images/bartool.png) no-repeat center center;
 	background-size: 4.2rem auto;
 	position: relative;
+	display:block;
 }
 .bartool .subnav {
 	position: absolute;
 	bottom: 4.2rem;
 	left: 0.5rem;
+	height:0;
+	overflow:hidden;
 }
 .bartool .subnav li {
 	width: 3rem;
@@ -3186,13 +3189,16 @@ color:#fff;
 	display: inline-block;
 }
 .infomenu img {
-	width: 2rem;
+	width: 2.2rem;
 	margin-top: -0.1rem;
 }
 .infomenu span {
 	margin: 0 0.2rem;
 	font-size: 1.2rem;
 }
+.infomenu .main a{margin-left:0;}
+.infomenu .main a b{ position: relative;;}
+.infomenu .main a b sup{background:none;color:rgba(0,0,0,.4);left:0;top:-0.9rem;}
 .infomenu a {
 	margin-left: 1.5rem;
 }
@@ -3207,7 +3213,7 @@ color:#fff;
 	line-height: 1rem;
 	position: absolute;
 	left: 1.2rem;
-	top: 0.3rem;
+	top: -0.3rem;
 	text-align: center;
 	padding: 0 0.2rem;
 	white-space: nowrap;
@@ -3218,30 +3224,30 @@ color:#fff;
 .info04,
 .info05 {
 	display: block;
-	width: 2.6rem;
-	height: 2.6rem;
+	width: 1.6rem;
+	height: 1.6rem;
 	margin: 0 0 0 0.2rem;
 	position: relative;
 }
 .info01 {
 	background: url(../images/infomenu01.png) no-repeat center center;
-	background-size: 80%;
+	background-size:cover;
 }
 .info02 {
 	background: url(../images/infomenu02.png) no-repeat center center;
-	background-size: 80%;
+	background-size: cover;
 }
 .info03 {
 	background: url(../images/infomenu03.png) no-repeat center center;
-	background-size: 80%;
+	background-size: cover;
 }
 .info04 {
 	background: url(../images/infomenu04.png) no-repeat center center;
-	background-size: 80%;
+	background-size: cover;
 }
 .info05 {
 	background: url(../images/infomenu05.png) no-repeat center center;
-	background-size: 80%;
+	background-size: cover;
 }
 .infomenu b {
 	color: #ccc;/*#E73828**/
@@ -4046,6 +4052,7 @@ line-height;
 	padding: 0.5rem 3rem;
 	text-align: center;
 	font-size: 1.2rem;
+	color:rgba(0,0,0,.4);
 }
 .medislist .meditool {
 	position: relative;
@@ -4200,7 +4207,7 @@ line-height;
 	margin-left: 1rem;
 }
 .medislist .infomenu span {
-	margin-left: 0.5rem;
+	margin-left: 0.8rem;
 }
 .medislist .infomenu .line {
 	position: relative;

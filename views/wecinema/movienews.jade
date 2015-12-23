@@ -97,11 +97,12 @@ block prepend body
                     h2.infotit #{data.newsInfo.title}
                 
                 div.infomenu.flexbox_v_c
-                    div.main.flex.flexbox_v_c
-                        img(src="/images/img_ico.png")
-                        span 开放平台
-                        b 
-                            sup + 
+                    div.main.flex
+                        a(href="/").flexbox_v_c
+                            img(src="/images/img_ico.png")
+                            span 开放平台
+                            b 
+                                sup + 
                     a.info05(style=" ")
                             sup #{data.newsInfo.readCount}
                             //- #{data.newsInfo.readCount}
