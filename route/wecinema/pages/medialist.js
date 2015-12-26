@@ -32,7 +32,7 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], function(re
     render_data.data = {};
     // console.log(global.reversion,global.staticBase);
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data);
+        console.log(data);
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;

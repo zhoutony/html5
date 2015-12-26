@@ -527,6 +527,7 @@ body {
 	font-size: 0.7rem;
 	background: #00948D;
 	text-align: center;
+	margin-top: 0rem;
 }
 .ico_tick,
 .ico_ticker,
@@ -872,6 +873,7 @@ body {
 .hotmovie footer span,
 .hotmovie footer time {
 	display: inline-block;
+	vertical-align: middle;
 	margin-right: 0.3rem;
 	color: #b2b2b2
 }
@@ -922,7 +924,7 @@ body {
 .navtool li:first-child:after,
 .navtool li:last-child:after {
 	content: '';
-	display: block;
+	display: none;
 	background: #9E9E9F;
 	position: absolute;
 	right: 0;
@@ -950,7 +952,7 @@ body {
 }
 .navtool li i.n01 {
 	background: url(../images/navtool_01.png) no-repeat center center;
-	background-size: 100% auto;
+	background-size: auto 100%;
 	;
 }
 .navtool li i.n02 {
@@ -966,17 +968,24 @@ body {
 	background-size: auto 100%;
 }
 .navtool li i.nadd {
-	width: 3.4rem;
-	height: 3.4rem;
+	width: 4rem;
+	height: 3.6rem;
 	border-radius: 0 0 0.3rem 0.3rem;
 	background: #00948D url(../images/ico_add.png) no-repeat center center;
-	background-size: auto 1.6rem;
+	background-size: auto 1.8rem;
 	line-height: 1;
-	margin-top: -0.5rem
+	margin-top: -0.5rem;
+	margin-left: 1.4rem;
+	margin-right: 1.4rem;
+}
+.navtool li.newflex {
+	-webkit-box-flex: 1.5;
+	-moz-box-flex: 1.5;
+	box-flex: 1.5;
 }
 .navtool li.curr i.n01 {
 	background: url(../images/navtool_01_c.png) no-repeat center center;
-	background-size: 100% auto;
+	background-size: auto 100%;
 }
 .navtool li.curr i.n02 {
 	background: url(../images/navtool_02_c.png) no-repeat center center;
@@ -1084,7 +1093,7 @@ body {
 	display: block;
 	width: 3.6rem;
 	height: 1.6rem;
-	line-height: 1.4;
+	line-height: 1.4rem;
 	font-size: 1rem;
 	text-align: center;
 	color: #00a19b;
@@ -1762,9 +1771,7 @@ body {
 	padding: 0.1rem 0.5rem;
 	font-size: 1rem;
 	border-radius: 10rem;
-	display: inline-block;
 	line-height: 1;
-	vertical-align: middle;
 	margin-left: 1rem;
 }
 .filmlist .pricebox {
@@ -2829,14 +2836,14 @@ color:#fff;
 	background: url(../images/bartool.png) no-repeat center center;
 	background-size: 4.2rem auto;
 	position: relative;
-	display:block;
+	display: block;
 }
 .bartool .subnav {
 	position: absolute;
 	bottom: 4.2rem;
 	left: 0.5rem;
-	height:0;
-	overflow:hidden;
+	height: 0;
+	overflow: hidden;
 }
 .bartool .subnav li {
 	width: 3rem;
@@ -3142,13 +3149,16 @@ color:#fff;
 	color: #666666;
 	font-size: 1.8rem;
 	line-height: 1;
-	margin-top: -0.6rem;
+}
+.infotool .imgbox p span em {
+	font-style: normal;
+	line-height: 1;
+	vertical-align: 0.2rem;
 }
 .infotool .imgbox p b,
 .infotool .imgbox p span {
 	margin: 0 0.3rem 0 0;
 	display: inline-block;
-	vertical-align: middle;
 }
 .icon_y {
 	font-size: 0.6rem;
@@ -3196,9 +3206,19 @@ color:#fff;
 	margin: 0 0.2rem;
 	font-size: 1.2rem;
 }
-.infomenu .main a{margin-left:0;}
-.infomenu .main a b{ position: relative;;}
-.infomenu .main a b sup{background:none;color:rgba(0,0,0,.4);left:0;top:-0.9rem;}
+.infomenu .main a {
+	margin-left: 0;
+}
+.infomenu .main a b {
+	position: relative;
+	;
+}
+.infomenu .main a b sup {
+	background: none;
+	color: rgba(0,0,0,.4);
+	left: 0;
+	top: -0.9rem;
+}
 .infomenu a {
 	margin-left: 1.5rem;
 }
@@ -3224,14 +3244,14 @@ color:#fff;
 .info04,
 .info05 {
 	display: block;
-	width: 1.6rem;
-	height: 1.6rem;
+	width: 1.8rem;
+	height: 1.8rem;
 	margin: 0 0 0 0.2rem;
 	position: relative;
 }
 .info01 {
 	background: url(../images/infomenu01.png) no-repeat center center;
-	background-size:cover;
+	background-size: cover;
 }
 .info02 {
 	background: url(../images/infomenu02.png) no-repeat center center;
@@ -4045,20 +4065,22 @@ line-height;
 	overflow : hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	height: 3.4rem;
+	height: 3.9rem;
 	line-height: 1.4;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	padding: 0.5rem 3rem;
 	text-align: center;
 	font-size: 1.2rem;
-	color:rgba(0,0,0,.4);
+	color: rgba(0,0,0,.5);
+}
+.medislist p.num {
+	color: #fff;
 }
 .medislist .meditool {
 	position: relative;
-	padding: 0 0 1rem 0;
+	padding: 0 0 0.6rem 0;
 	margin-bottom: 1rem;
-	height: 19.5rem;
 }
 .medislist .meditool:after {
 	display: block;
@@ -4074,18 +4096,24 @@ line-height;
 	transform: scaleY(.5);
 }
 .medislist .meditool .logo,
-.medislist .meditool .logo img {
+ .medislist .meditool .logo .imgbor {
 	width: 5.4rem;
 	height: 5.4rem;
 	border-radius: 6rem;
 	margin: auto;
 }
+.medislist .meditool .logo img {
+	width: 100%;
+	border-radius: 6rem;
+}
 .medislist .meditool .logo {
 	position: relative;
 	margin-bottom: 0.4rem;
 }
-.medislist .meditool .logo img {
+.medislist .meditool .logo .imgbor {
 	border: 0.2rem solid #c8c8c8;
+	width: 5.6rem;
+	height: 5.6rem;
 }
 .medislist .meditool .logo span {
 	display: block;
@@ -4166,12 +4194,12 @@ line-height;
 	display: block;
 	font-weight: bold;
 	font-style: normal;
-	vertical-align: middle;
-	;
 }
 .icoplus b {
 	font-size: 2rem;
-	margin-top: -0.45rem;
+	height: 1.6rem;
+	line-height: 1.4rem;
+	overflow: hidden;
 	margin-right: 0.2rem;
 }
 .medislist .medimid .icon_y {
@@ -4192,7 +4220,7 @@ line-height;
 	text-overflow: ellipsis;
 }
 .medislist .infomenu {
-	padding: 1.4rem 0 0.5rem;
+	padding: 2rem 0 0.5rem;
 	margin: 0;
 }
 .medislist .infomenu a {
@@ -4219,7 +4247,7 @@ line-height;
 	height: 0.4rem;
 	position: absolute;
 	top: 50%;
-	margin-top: -0.1rem;
+	margin-top: -0.2rem;
 	border-radius: 4rem;
 	background: #cecece;
 	right: 0;
@@ -4289,4 +4317,34 @@ line-height;
 .oneimg .imgbox {
 	height: 11.4rem;
 	overflow: hidden;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
+.infotool .imgbox p span em {
+	vertical-align: 0.1rem;
+}
+.icoplus b {
+	line-height: 1rem;
+}
+}
+
+/**
+ *  iPhone 5/5s landscape & portrait
+ */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+.infotool .imgbox p span em {
+	vertical-align: 0.1rem;
+}
+.icoplus b {
+	line-height: 1rem;
+}
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+.infotool .imgbox p span em {
+	vertical-align: 0.1rem;
+}
+.icoplus b {
+	line-height: 1rem;
+}
 }
