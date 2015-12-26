@@ -1,7 +1,8 @@
 /* jshint ignore:start */
 var $ = require('../lib/zepto.js');
 var mui = require('../lib/mui.js');
-
+var Util = require('../util/widgets')
+var wxbridge = require('../util/wxbridge');
 var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 
 /* jshint ignore:end */
@@ -9,6 +10,9 @@ $(document).ready(function() {
 	var movienewsPageindex = 1;
     var hotmovie = $('.hotmovie');
     var lock = false;
+    if(Util.is_weixn()){
+        $('#subscribe').removeClass('m-hide');
+    }
     //加载 头条电影列表
     function getMovieNews(){
         var _url = '/medialist/'+ sourceId +'/' + movienewsPageindex;
@@ -45,6 +49,13 @@ $(document).ready(function() {
             movienewsPageindex++;
             getMovieNews();
         }
+    })
+
+    wxbridge.share({
+        title: $('._sourceName').html() + ' -票友自媒体',
+        desc: $('.medtxt').html(),
+        link: window.location.href,
+        imgUrl: $('._logo').attr('src')
     })
 
 });

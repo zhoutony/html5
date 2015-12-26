@@ -20,11 +20,11 @@ block prepend body
                     div.medimid 
                         div.main
                             div.logo.showv1
-                                img(src="#{data.sourceInfo.logoURL}")
+                                img._logo(src="#{data.sourceInfo.logoURL}")
                                 span
-                            h2 #{data.sourceInfo.sourceName}
+                            h2._sourceName #{data.sourceInfo.sourceName}
                             p 
-                                span.flexbox_vh_c.icoplus 
+                                span.flexbox_vh_c.icoplus.m-hide#subscribe
                                     b +
                                     em 订阅
                             p(style="display:none;") 

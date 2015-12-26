@@ -26,7 +26,7 @@ app.get(['/:cityId/ticket/:movieId'], function(req, res){
         movie: []
     }
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data.movie);
+        // console.log(data.movie);
         render_data.data.err = err;
         if (!err && data) {
             render_data.data.cinemas = getCinemas(data.cinemas);
