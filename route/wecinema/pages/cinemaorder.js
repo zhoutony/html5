@@ -9,21 +9,34 @@ var my_name  = hostname + ':' + pid;
 
 //
 app.get(["/cinemaorder"], function(req, res){
-   var render_data = {};
+    var render_data = {};
     var my_api_addr = "/queryOrder.aspx";
-    var orders = req.params["orders"];
+    
     var options = {
         uri: my_api_addr,
         args: {
-            newsID: orders
+             
         }
     };
     render_data.data = {
-        reversion: global.reversion,
-        staticBase: global.staticBase
+        
     }
-    // res.render("wecinema/cinemaorder");
-    console.log(global.reversion,global.staticBase);
-    res.render("wecinema/cinemaorder", render_data);
+   
+    // console.log(orders.orderID );
+    // res.render("wecinema/cinemaorder", render_data);
+    model.getDataFromPhp(options, function (err, data) {
+        console.log(data);
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+            render_data.data.reversion = global.reversion;
+            render_data.data.staticBase = global.staticBase;
+            
+        }
+         
+        res.render("wecinema/cinemaorder", render_data);
+        
+    });
      
+   
 });
