@@ -13,14 +13,15 @@ block prepend body
             dt 电影订单
             dd 
                 ul 
-                if(data && data.orders)
-                    li.new
-                        strong 已放映
-                        h2 #{orders.movieName }
-                        p #{orders.movieVersions} | #{orders.showTime}
-                        div.flexbox.ordermid
-                            div.ordercode.flex #{orders.orderID }
-                            div.ordertxt #{orders.cinemaName}
+                //- if data && !data.err  
+                //-     each data, index in data
+                //-         li.new
+                //-             strong 已放映
+                //-             h2 #{data.orders.movieName }
+                //-             p #{data.orders.movieVersions} | #{data.orders.showTime}
+                //-             div.flexbox.ordermid
+                //-                 div.ordercode.flex #{data.orders.orderID }
+                //-                 div.ordertxt #{data.orders.cinemaName}
                 //- ul 
                 //-     li.new
                 //-         strong 已放映
