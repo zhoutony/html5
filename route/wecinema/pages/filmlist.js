@@ -11,13 +11,14 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
     var render_data = {};
     var my_api_addr = "/queryMovies.aspx";
     var _locationID = req.params["locationID"];
-    var showtype = req.params["showtype"] == 1;//coming
+    var showtype = req.params["showtype"];//coming
+    var type = showtype == "hot" ? 1 : 2;
     var sole = req.params["sole"];
     var options = {
         uri: my_api_addr,
         args: {
             locationID: _locationID,//110000
-            type:       showtype,
+            type:       type,
             pageIndex:  1,
             pageSize:   10
         }
@@ -25,10 +26,12 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
-        staticBase: global.staticBase
+        staticBase: global.staticBase,
+        showtype: showtype
     }
-
+    // console.log(JSON.stringify(options))
     model.getDataFromPhp(options, function (err, data) {
+        // console.log(data)
         render_data.data.err = err;
         if (!err && data && data.movies) {
             render_data.data.movies = data.movies;
