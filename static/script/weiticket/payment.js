@@ -51,9 +51,7 @@ $(document).ready(function () {
         if(showtime){
             $('._price').html( '¥'+ showtime.price * _len / 100 );
         }
-        
-        
-    }
+    }  
 
     var wechatPay = function (param, redirectUrl, modal) {
         window.WeixinJSBridge.invoke('getBrandWCPayRequest', param, function (res) {
