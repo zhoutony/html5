@@ -89,3 +89,19 @@ app.get(['/hotmovienews/:pageindex'], function (req, res) {
 });
 
 
+//微信jsSDK签名
+app.post(['/publicsignal/queryJsapiticket'], function(req, res) {
+    var publicsignalshort = req.params["publicsignal"];
+    
+    var options = {
+        uri: '/queryWeixinRightConfig.aspx',
+        passType: 'send',
+        args: req.body
+    };
+    // console.log('url:',options.args.url)
+    model.getDataFromPhp(options, function(err, data) {
+        // console.log(err, data)
+        res.send({'err': err, 'data': data});
+    });
+});
+

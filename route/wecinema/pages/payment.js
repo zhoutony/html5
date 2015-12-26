@@ -17,6 +17,7 @@ var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
 app.get(['/payment'], function (req, res) {
     //渲染准备用数据
     var render_data = {};
+    // QueryWeixinPlayParam.aspx
 
     render_data.data = {};
     render_data.data = {
@@ -25,4 +26,31 @@ app.get(['/payment'], function (req, res) {
     }
 
     res.render('wecinema/payment', render_data);
+});
+
+
+app.get(['/payment/:orderid'], function (req, res) {
+    //渲染准备用数据
+    var render_data = {};
+    var my_api_addr = "/QueryWeixinPlayParam.aspx";
+    var orderid = req.params["orderid"];
+    var options = {
+        uri: my_api_addr,
+        passType: 'send',
+        args: {
+            orderid: orderid
+        }
+    };
+
+    render_data.data = {};
+
+    model.getDataFromPhp(options, function (err, data) {
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+        } else {
+
+        }
+        res.seed(render_data);
+    });
 });

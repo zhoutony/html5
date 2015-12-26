@@ -115,10 +115,11 @@ app.route('/oauth2').get(function(req, res) {
     model.getDataFromPhp(options, function(err,data) {
         //res.send(data);
         if(!err){
-                // console.debug(my_name,"publicsignalshort_data",data);
+                console.debug(my_name,"publicsignalshort_data",data);
                 publicsignalshort_data = data;
                     if(if_had_code && if_had_publicsignalshort){
                         var url = build_access_token_url(publicsignalshort);
+                            console.log('url:', url)
                             send_request_wx(url,publicsignalshort,function(err,data){
                                 console.log(data);
                                 if(!err){

@@ -1,7 +1,7 @@
 /* jshint ignore:start */
 var $ = require('../lib/zepto.js');
 var mui = require('../lib/mui.js');
-
+var wxbridge = require('../util/wxbridge');
 var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 
 /* jshint ignore:end */
@@ -62,5 +62,14 @@ $(document).ready(function() {
         //     interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
         // });
     }
+
+    //分享
+    // var shareImgs = $('.infocon').find('img');
+    wxbridge.share({
+        title: '电影票友 -- 娱乐文化营销自媒体开放平台',
+        desc: '在电影的时光读懂自已     www.moviefan.com.cn',
+        link: window.location.href,
+        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910'
+    })
 
 }); //END of jquery documet.ready 
