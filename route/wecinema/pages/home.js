@@ -18,7 +18,7 @@ var viewColor;
 
 
 // 首页
-app.get(['/', '/index.html'], function (req, res) {
+app.get(['/', '/index.html'], chk_login.isLoggedIn, function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
     var options = {
@@ -36,7 +36,7 @@ app.get(['/', '/index.html'], function (req, res) {
         thirdAds: []
     }
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data.advertisements);
+        // console.log(data.advertisements);
         render_data.data.err = err;
         if (!err && data) {
             var ads = data.advertisements;
@@ -53,6 +53,8 @@ app.get(['/', '/index.html'], function (req, res) {
             }
             render_data.data.baseData = data;
         }
+        //隐藏工具条
+        render_data.data.isToolHide = true;
         res.render("wecinema/index", render_data);
     });
 });

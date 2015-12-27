@@ -6,6 +6,7 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
+var dialogs = require('../util/dialogs');
 var Citys = require('./citys');
 
 /* jshint ignore:end */

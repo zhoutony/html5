@@ -23,7 +23,8 @@ app.get(['/my/index'], chk_login.isLoggedIn, function (req, res) {//
     render_data.data = {
         reversion: global.reversion,
         staticBase: global.staticBase,
-        
     }
+    //隐藏工具条
+    render_data.data.isToolHide = true;
     res.render("wecinema/my", render_data);
 });

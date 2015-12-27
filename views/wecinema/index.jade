@@ -42,13 +42,13 @@ block prepend body
                             
                                 a(href='#{_link}').ico_ticket
                             
-                                a(href='').ico_price
+                                a.ico_price(style="display:none;")
 
         //轮刷2广告
         div.scrollpic1
             h2 
                 span 耳语
-            a(href="#").btn_share
+            a(href="#").btn_share.m-hide
             if(data && data.secondAds && data.secondAds.length >0)
                 div.mui-slider
                     div.mui-slider-group.mui-slider-loop
@@ -92,24 +92,24 @@ block prepend body
                             div.mui-slider-item
                                 section 
                                     a(href="#{secondAd.url}")
-                                    div.flexbox_v_c
-                                    h2.flex  #{secondAd.advertisementName}
-                                    img(src="#{secondAd.imageUrl}")
-                                    footer.flexbox 
-                                        div.main.flex
-                                            span.ico_edit_top 推广
-                                            span.n_name #{secondAd.weMediaName}
-                        if _ad_secondlastList
-                            div.mui-slider-item.mui-slider-item-duplicate
-                                section
-                                    a(href="#{_ad_secondlastList.url}")
                                         div.flexbox_v_c
-                                            h2.flex #{_ad_secondlastList.advertisementName} 
-                                        img(src="#{_ad_secondlastList.imageUrl}")
+                                            h2.flex  #{secondAd.advertisementName}
+                                        img(src="#{secondAd.imageUrl}")
                                         footer.flexbox 
                                             div.main.flex
                                                 span.ico_edit_top 推广
-                                                span.n_name #{_ad_secondlastList.weMediaName}       
+                                                span.n_name #{secondAd.weMediaName}
+                        if _ad_secondList
+                            div.mui-slider-item.mui-slider-item-duplicate
+                                section
+                                    a(href="#{_ad_secondList.url}")
+                                        div.flexbox_v_c
+                                            h2.flex #{_ad_secondList.advertisementName} 
+                                        img(src="#{_ad_secondList.imageUrl}")
+                                        footer.flexbox 
+                                            div.main.flex
+                                                span.ico_edit_top 推广
+                                                span.n_name #{_ad_secondList.weMediaName}       
 
         div.hotmovie
         
@@ -127,8 +127,8 @@ block prepend body
                     a(href="/11000/filmlist/hot")
                         i.n02 
                         | 电影
-                li
-                    a(href="/skippop")
+                li._piaoyouguide
+                    a
                         i.nadd
                 li.flex.newflex
                     a(href="javascript:;")

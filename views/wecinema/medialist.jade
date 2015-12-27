@@ -24,17 +24,23 @@ block prepend body
                                     img._logo(src="#{data.sourceInfo.logoURL}")
                                 span
                             h2._sourceName #{data.sourceInfo.sourceName}
-                            p 
-                                span.flexbox_vh_c.icoplus.m-hide#subscribe
-                                    b +
-                                    em 订阅
+                            p
+                                if data.sourceInfo.isSubscribe && data.sourceInfo.isSubscribe == 'false'
+                                    span.flexbox_vh_c.icoplus.m-hide#subscribe
+                                        b +
+                                        em 订阅
+                                else
+                                    span.flexbox_vh_c.icoplus.m-hide#subscribe
+                                        b.m-hide(style="display:none;") +
+                                        em 已订阅
+
                             p(style="display:none;") 
                                 b.icon_y 原创
                             p.num 
                                 b 票友  
                                 span #{data.sourceInfo.subscribeCount} 
                                 b.mr  |
-                                b 累计阅读
+                                b 总阅读
                                 span  #{data.sourceInfo.AllReadCount}
                             div.medtxt #{data.sourceInfo.summary}
             div.hotmovie.mlist

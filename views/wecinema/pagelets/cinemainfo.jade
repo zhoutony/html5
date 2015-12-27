@@ -1,5 +1,5 @@
 block prepend body
-    include advert
+    
     div._cinema-info_(data-cinemaname="#{data.cinemaInfos.name}" data-cinematel="#{data.cinemaInfos.tel}" data-cinemaisqrcode="#{data.isQrcode}" data-isonlycinema="#{data.isOnlyCinema}")
         if data && data.cinemaInfos
             - var cinemaName;

@@ -48,11 +48,11 @@ var send_request_wx = function(access_token_url,publicsignalshort,cb){
         		// console.debug(my_name,"解析成功了");
                 var open_id = {};
             	//从query里得到的publicsignalshort
-                open_id.public_short = publicsignalshort;
+                // open_id.public_short = publicsignalshort;
                 //从微信的返回里得到的openid
                 if(return_data.hasOwnProperty("openid")){
-                     open_id.openid       = return_data.openid;
-               		 cb(null,open_id);
+                     // open_id       = return_data.openid;
+               		 cb(null,return_data.openid);
                      return;
                 }else{
                     cb(return_data);
@@ -114,12 +114,13 @@ app.route('/oauth2').get(function(req, res) {
 
     model.getDataFromPhp(options, function(err,data) {
         //res.send(data);
+        // console.log('data:', data)
         if(!err){
-                console.debug(my_name,"publicsignalshort_data",data);
+                // console.debug(my_name,"publicsignalshort_data",data);
                 publicsignalshort_data = data;
                     if(if_had_code && if_had_publicsignalshort){
                         var url = build_access_token_url(publicsignalshort);
-                            console.log('url:', url)
+                            // console.log('url:', url)
                             send_request_wx(url,publicsignalshort,function(err,data){
                                 console.log(data);
                                 if(!err){

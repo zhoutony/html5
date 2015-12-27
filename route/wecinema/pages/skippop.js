@@ -10,6 +10,12 @@ var my_name  = hostname + ':' + pid;
 //
 app.get(["/skippop"], function(req, res){
     var render_data = {};
+    
+    render_data.data = {};
+    render_data.data = {
+        reversion: global.reversion,
+        staticBase: global.staticBase,
+    }
     var my_api_addr = "/room";
     var options = {
         uri: my_api_addr,
@@ -20,5 +26,5 @@ app.get(["/skippop"], function(req, res){
             pageSize:   10
         }
     };
-    res.render("wecinema/skippop");
+    res.render("wecinema/skippop", render_data);
 });
