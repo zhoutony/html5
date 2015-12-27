@@ -15,31 +15,33 @@ block prepend body
             div.btnbox
                 a(href="javascript:;", onclick="history.back()") 重新选座
         ul.paylist 
-            li.flexbox
+            li.flexbox_v_c
                 div.main.flex#seats
                     
                 div.priceaside._price
             li.flexbox.txtflex
-                div.main.flex 票友卡¥28+红包¥25
+                div.main.flex 票友卡&nbsp;¥&nbsp;28&nbsp;+&nbsp;红包&nbsp;¥&nbsp;25
                 div.priceaside
             li.redbox
-                a.flexbox.paymid(href="#")
+                a.flexbox.paymid(href="/mask-redbag")
                     p.flex 红包
                     p.select.notlink 无可用
-                a.flexbox.paymid(href="#")   
+                a.flexbox.paymid(href="/mask-redpiao")   
                     p.flex 票友卡
                     p.select.notlink 无可用
             li.telbox
+
                 div.flexbox_v_c.payinfo
                     label 手机号码
-                    input(type="tel" placeholder="请输入手机号").flex 
-                    a.m-hide(href="#")
+                    a(href="/mask-tel") 
+                        input(type="tel" placeholder="请输入手机号").flex 
+                    a.m-hide(href="/mask-tel")
                         i.demo-icon.icon-cancel-circled
                 div.flexbox_v_c.payend
                     div.flex 还需支付
                     div.payprice
                         b._price 
-                        p 已含服务费：¥1/张
+                        p 已含服务费：¥&nbsp;1/张
         div.paytool
             p 
                 i.demo-icon.icon-cancel-circled2
@@ -55,7 +57,7 @@ block prepend body
                     a(href="ordersucc") 立即支付
             div.time 
                 i 
-                | 支付剩余时间
+                | 支付剩余时间&nbsp;
                 span 7:37
             dl.otherinfo
                 dt 购票须知

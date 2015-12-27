@@ -522,7 +522,7 @@ body {
 .ico_edit_top {
 	width: 2.6rem;
 	height: 1.1rem;
-	line-height: 1.1rem;
+	line-height: 1.3rem;
 	color: #fff;
 	font-size: 0.7rem;
 	background: #00948D;
@@ -599,6 +599,7 @@ body {
 	height: 1.2rem;
 	background: url(../images/time.png) no-repeat center center;
 	background-size: cover;
+	margin:-0.3rem 0.5rem 0;
 }
 .sharetool {
 	position: absolute;
@@ -704,6 +705,7 @@ body {
 	top: 0;
 	font-size: 0.8rem;
 	line-height: 1rem;
+	padding-top: 0.1rem;
 }
 .scrollpic1 h2 span {
 	z-index: 1;
@@ -885,6 +887,7 @@ body {
 }
 .hotmovie footer span.ico_edit_top {
 	color: #fff;
+	margin-top:-0.2rem;
 }
 .hotmovie footer span.n_name {
 	color: #25908b;
@@ -911,6 +914,7 @@ body {
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
 }
+.navtool ul{padding:0 0.8rem;}
 .navtool li {
 	text-align: center;
 	position: relative;
@@ -1093,7 +1097,8 @@ body {
 	display: block;
 	width: 3.6rem;
 	height: 1.6rem;
-	line-height: 1.4rem;
+	overflow: hidden;
+	line-height: 1.6rem;
 	font-size: 1rem;
 	text-align: center;
 	color: #00a19b;
@@ -1156,8 +1161,11 @@ body {
 	border: 1px solid #4DB3AE;
 	color: #fff;
 	font-size: 0.8rem;
-	line-height: 1;
-	padding: 0.05rem 0.4rem;
+	line-height: 1.3rem;
+	height: 1.3rem;
+	padding: 0rem 0.4rem;
+	display: inline-block;
+	vertical-align: 0.15rem;
 }
 .movielist .txtmid span:first-child {
 	margin-left: 2rem;
@@ -1222,6 +1230,7 @@ body {
 	font-size: 1.4rem;
 	color: #333;
 	line-height: 1.8;
+	font-weight: bold;
 }
 .filminfo p {
 	font-size: 1.1rem;
@@ -1443,11 +1452,12 @@ body {
 .paybox h2 {
 	font-size: 1.4rem;
 	line-height: 1.6;
+	font-weight: bold;
 }
 .paybox p {
 	color: #707070;
 	font-size: 1.1rem;
-	line-height: 1.6;
+	line-height: 1.8;
 }
 .paybox .btnbox a {
 	display: block;
@@ -1462,7 +1472,7 @@ body {
 	margin-top: 0.2rem;
 }
 .paylist li {
-	padding: 1rem 2rem;
+	padding: 0.5rem 2rem;
 	position: relative;
 }
 .paylist li:after {
@@ -1477,6 +1487,9 @@ body {
 	right: 0;
 	-webkit-transform: scaleY(.6);
 	transform: scaleY(.6);
+}
+.paylist li:first-child:after{
+background: #00968d;height: 2px;top:-1px;
 }
 .paylist li.txtflex {
 	padding: 1rem 2rem 0;
@@ -1501,10 +1514,10 @@ body {
 	display: none;
 }
 .paylist li .priceaside {
-	margin: -0.5rem 0;
 	font-size: 2rem;
 	line-height: 1.2;
 	color: #00958E;
+	margin-top: 0.2rem;
 }
 .paylist li .paymid {
 	padding: 1.25rem 2rem;
@@ -1567,15 +1580,16 @@ body {
 	color: #727272;
 }
 .payinfo label,
-.payend .flex {
+.payend .flex,
+.redbox .flex {
 	color: #00968d;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 .paytool p {
 	text-align: center;
 	font-size: 1rem;
 	color: #727272;
-	padding: 0 0 1rem 0;
+	padding: 1rem 0 1rem 0;
 }
 .paytool p i:last-child {
 	margin-left: 2rem;
@@ -1632,6 +1646,10 @@ body {
 	color: #c8c8c8;
 	font-size: 1rem;
 	line-height: 1.4;
+	padding: 2rem 0 4rem;
+}
+.paytool .otherinfo dd {
+	line-height: 1.8;
 }
 .paytool .otherinfo strong {
 	color: #000;
@@ -2349,7 +2367,7 @@ color:#fff;
 	padding-bottom: 2rem;
 }
 .succ dt {
-	height: 6.9rem;
+	height: 7.8rem;
 	margin: 2rem 0 1rem;
 	background: url(../images/succ_01.png) no-repeat center center;
 	background-size: 6.9rem auto;
@@ -2558,11 +2576,12 @@ color:#fff;
 .onlineinfo .ontext h2 {
 	font-size: 1.4rem;
 	color: #333;
+	font-weight: bold;
 }
 .onlineinfo .ontext p {
 	font-size: 1.1rem;
 	color: #666;
-	line-height: 1.4;
+	line-height: 1.8;
 }
 .onlineinfo .onbtn a {
 	display: block;
@@ -2923,6 +2942,7 @@ color:#fff;
 	font-size: 1.4rem;
 	padding: 1.5rem 0 2rem;
 	color: #595757;
+	font-weight: bold;
 }
 .filmlistbox .boxtxt li {
 	font-size: 1.1rem;
@@ -3074,6 +3094,8 @@ color:#fff;
 .infotxt .infoheader .infotool {
 	margin-right: 0rem;
 	background: #EEEEEF;
+	overflow: hidden;
+	height: 5.6rem;
 }
 .infotit {
 	font-size: 1.6rem;
@@ -3087,7 +3109,7 @@ color:#fff;
 	height: auto;
 }
 .infotool {
-	margin: 0.8rem 0 0 1.8rem;
+	margin: 2.5rem 0 0 1.8rem;
 }
 .infotool .logobox {
 	width: 5.6rem;
@@ -3130,6 +3152,7 @@ color:#fff;
 }
 .infotool .imgbox {
 	padding-left: 1rem;
+	padding-top: 0.3rem;
 }
 .infotool .imgbox h2 {
 	font-size: 1.4rem;
@@ -3172,10 +3195,13 @@ color:#fff;
 	border-radius: 3rem;
 }
 .infotool .txtbox p {
-	color: #00948D;
-	font-size: 1rem;
-	text-align: right;
-	padding: 3rem 1rem 0 0;
+	background:url(../images/text.png) no-repeat right bottom;
+	background-size:60% auto;
+	padding: 0rem 0rem 0 0;
+	text-indent:-1111rem;
+	width:9.7rem;
+	height:4.8rem;
+	margin-right:1rem;
 }
 .infotit,
 .infomenu,
@@ -3778,7 +3804,8 @@ color:#fff;
 	bottom: 0;
 	right: 0;
 	background: rgba(255,255,255,.9);
-	transform: translate3d(0px,100%,0px);
+	transform: translate3d(0px, 0rem, 0px);
+	z-index: 1000;
 }
 .skipbtn {
 	height: 3rem;
@@ -3798,8 +3825,8 @@ color:#fff;
 }
 .skipcont header {
 	font-size: 3.8rem;
-	margin: 12rem 0 3rem;
-	background: url(../images/sk00.png) no-repeat center center;
+	padding: 10rem 0 3rem;
+	background: url(../images/sk00.png) no-repeat center 12rem;
 	background-size: 32rem auto;
 	color: #00948D;
 }
@@ -3813,14 +3840,15 @@ color:#fff;
 .skipcont ul {
 }
 .skipcont li {
-	margin: 0 1.5rem;
+	text-align: center;
+	-webkit-transform: translate3d(0rem, -100rem, 0px);
 }
-.skipcont li a {
+.skipcont li a,
+.skipcont li i {
 	display: block;
 	margin: auto;
 }
 .skipcont li i {
-	display: block;
 	width: 5.5rem;
 	height: 5.5rem;
 }
@@ -3828,7 +3856,7 @@ color:#fff;
 	text-align: center;
 	color: #9E9E9F;
 	font-size: 0.9rem;
-	line-height: 2.4;
+	line-height: 4;
 }
 .skipcont li .skip01 {
 	background: url(../images/skip01.png) no-repeat center center;
@@ -3854,142 +3882,146 @@ color:#fff;
 	background: url(../images/skip06.png) no-repeat center center;
 	background-size: cover;
 }
-
 .am-skippop {
-
-    -webkit-animation-name: skippop;
-    -webkit-animation-duration: .5s;
-    -webkit-animation-timing-function:  ease;
-    -webkit-animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    -webkit-animation-iteration-count: 1;
+	background: rgba(255,255,255,.9);
+	-webkit-animation-name: skippop;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
 }
  @-webkit-keyframes skippop {
-	 0% {
-	  opacity: 0;
-	  transform: translate3d(0px,100%,0px);
-	}
-	  
-	 100% {
-	 opacity: 1;
-	 transform: translate3d(0px,0px,0px);
-	}
+ 0% {
+ opacity: 0;
+ -webkit-transform: translate3d(0px, 0, 0px);
 }
-.am-skippop  header{-webkit-animation-name: am-skul-h;
-    -webkit-animation-duration: .5s;
-    -webkit-animation-timing-function:  ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    -webkit-animation-iteration-count: 1;animation-delay:.1s;
-	-webkit-animation-delay:.1s; }
-
-  @-webkit-keyframes am-skul-h {
-	 0% {
-	  opacity: 0;
-	  transform: translate3d(-100%,0%,0px);
-	}
-	 
-	 100% {
-	 opacity: 1;
-	 transform: translate3d(0px,0px,0px);
-	}
+ 100% {
+ opacity: 1;
+ -webkit-transform: translate3d(0px, 0px, 0px);
 }
-.am-skippop  h2{-webkit-animation-name: am-skul-h2;
-    -webkit-animation-duration: .5s;
-    -webkit-animation-timing-function: ease-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    -webkit-animation-iteration-count: 1;animation-delay:.2s;
-	-webkit-animation-delay:.2s;}
-
-  @-webkit-keyframes am-skul-h2 {
-	 0% {
-	  opacity: 0;
-	  transform: translate3d(100%,0%,0px);
-	}
-	 
-	 100% {
-	 opacity: 1;
-	 transform: translate3d(0px,0px,0px);
-	}
 }
-
-.am-skippop ul {
-
-    -webkit-animation-name: am-skul;
-    -webkit-animation-duration: .5s;
-    -webkit-animation-timing-function:  ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    -webkit-animation-iteration-count: 1;
-    animation-delay:.1s;
-	-webkit-animation-delay:.1s; 
+.am-skippop header {
+	-webkit-animation-name: skippop-h;
+	-webkit-animation-duration: .3s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
 }
- @-webkit-keyframes am-skul {
-	 0% {
-	  opacity: 0;
-	  transform: translate3d(0px,100%,0px);
-	}
-	50% {
-	  opacity: .5;
-	  transform: translate3d(0px,-60%,0px);
-	}
-	  
-	 100% {
-	 opacity: 1;
-	 transform: translate3d(0px,0px,0px);
-	}
+ @-webkit-keyframes skippop-h {
+ 0% {
+ opacity: 0;
+ -webkit-transform: translate3d(-100rem, 0, 0px);
+}
+ 50% {
+ opacity: 0;
+ -webkit-transform: translate3d(80rem, 0, 0px);
+}
+ 100% {
+ opacity: 1;
+ -webkit-transform: translate3d(0rem, 0px, 0px);
+}
+}
+.am-skippop h2 {
+	-webkit-animation-name: skippop-h2;
+	-webkit-animation-duration: .6s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+ @-webkit-keyframes skippop-h2 {
+ 0% {
+ opacity: 0;
+ -webkit-transform: translate3d(100rem, 0, 0px);
+}
+ 50% {
+ opacity: 0;
+ -webkit-transform: translate3d(-80rem, 0, 0px);
+}
+ 100% {
+ opacity: 1;
+ -webkit-transform: translate3d(0rem, 0px, 0px);
+}
+}
+.am-skippop ul li {
+	-webkit-animation-name: skippop-li;
+	-webkit-animation-duration: .6s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+ @-webkit-keyframes skippop-li {
+ 0% {
+ opacity: 0;
+ -webkit-transform: translate3d(0rem, -100rem, 0px);
+}
+ 50% {
+ opacity: 0;
+ -webkit-transform: translate3d(0rem, 30rem, 0px);
+}
+ 100% {
+ opacity: 1;
+ -webkit-transform: translate3d(0rem, 0px, 0px);
+}
+}
+.am-skippop ul.frist li:nth-child(1) {
+	-webkit-animation-delay: 0.1s;
+}
+.am-skippop ul.frist li:nth-child(2) {
+	-webkit-animation-delay: 0.2s;
+}
+.am-skippop ul.frist li:nth-child(3) {
+	-webkit-animation-delay: 0.3s;
+}
+.am-skippop ul:last-child li:nth-child(1) {
+	-webkit-animation-delay: 0.2s;
+}
+.am-skippop ul:last-child li:nth-child(2) {
+	-webkit-animation-delay: 0.3s;
+}
+.am-skippop ul:last-child li:nth-child(3) {
+	-webkit-animation-delay: 0.4s;
 }
 .close1-skippop {
-
-    -webkit-animation-name: closeskippop;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function:  ease;
-    -webkit-animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    -webkit-animation-iteration-count: 1;
+	-webkit-animation-name: closeskippop;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	-webkit-animation-iteration-count: 1;
 }
  @-webkit-keyframes closeskippop {
-	 0% {
-	  opacity: 1;
-	   
-	}
-	  
-	 100% {
-	 opacity: 0;
-	  
-	}
+ 0% {
+ opacity: 1;
 }
-
-.animated{
+ 100% {
+ opacity: 0;
+}
+}
+.animated {
 	-webkit-animation-name: am-tool;
-    -webkit-animation-duration: .5s;
-    -webkit-animation-timing-function:  ease-in;
-    -webkit-animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    -webkit-animation-iteration-count: 1;
-
+	-webkit-animation-duration: .5s;
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	-webkit-animation-iteration-count: 1;
 }
 @-webkit-keyframes am-tool {
-	 0% {
-		-webkit-transform: scale3d(1, 1,1);
-   		 transform: scale3d(1, 1, 1);
-   		 opacity: 1;
-	}
-	  
-	 50% {
-	  -webkit-transform: scale3d(1.3, 1.3, 1.3);
-    	transform: scale3d(1.3, 1.3, 1.3);
-    	opacity: .9;
-	}
-	 100% {
-		-webkit-transform: scale3d(1, 1,1);
-		opacity: 0;
-   		 transform: scale3d(.1, .1, .1);
-	}
+ 0% {
+ -webkit-transform: scale3d(1, 1, 1);
+ transform: scale3d(1, 1, 1);
+ opacity: 1;
 }
-
-
+ 50% {
+ -webkit-transform: scale3d(1.3, 1.3, 1.3);
+ transform: scale3d(1.3, 1.3, 1.3);
+ opacity: .9;
+}
+ 100% {
+ -webkit-transform: scale3d(1, 1, 1);
+ opacity: 0;
+ transform: scale3d(.1, .1, .1);
+}
+}
 ._thirdads {
 	padding: 0.5rem 0rem;
 	overflow: hidden;
@@ -4463,6 +4495,20 @@ line-height;
 .icoplus b {
 	line-height: 1rem;
 }
+.scrollpic1 h2 {
+	padding-top: 0;
+}
+.btn_buy span,
+.btnbar span {
+	line-height: 1.4rem;
+}
+.paylist li .priceaside {
+	margin-top: 0rem;
+}.ico_edit_top {
+	 
+	line-height: 1.2rem;
+	 
+}
 }
 
 /**
@@ -4475,6 +4521,20 @@ line-height;
 .icoplus b {
 	line-height: 1rem;
 }
+.scrollpic1 h2 {
+	padding-top: 0;
+}
+.btn_buy span,
+.btnbar span {
+	line-height: 1.4rem;
+}
+.paylist li .priceaside {
+	margin-top: 0rem;
+}.ico_edit_top {
+	 
+	line-height: 1.2rem;
+	 
+}
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
@@ -4483,5 +4543,20 @@ line-height;
 }
 .icoplus b {
 	line-height: 1rem;
+}
+.scrollpic1 h2 {
+	padding-top: 0;
+}
+.btn_buy span,
+.btnbar span {
+	line-height: 1.4rem;
+}
+.paylist li .priceaside {
+	margin-top: 0rem;
+}
+.ico_edit_top {
+	 
+	line-height: 1.2rem;
+	 
 }
 }
