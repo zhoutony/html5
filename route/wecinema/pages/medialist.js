@@ -7,7 +7,7 @@ var pid      = process.pid;
 var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
-app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], function(req, res){
+app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.isLoggedIn, function(req, res){
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
 
@@ -30,7 +30,7 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], function(re
          }
     };
     render_data.data = {};
-    // console.log(global.reversion,global.staticBase);
+    
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data);
         render_data.data.err = err;

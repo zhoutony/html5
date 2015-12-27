@@ -39,6 +39,8 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
         } else {
 
         }
+        //隐藏工具条
+        render_data.data.isToolHide = true;
         if(!sole){
             res.render("wecinema/filmlist", render_data);
         }else{

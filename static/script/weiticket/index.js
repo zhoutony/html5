@@ -2,6 +2,7 @@
 var $ = require('../lib/zepto.js');
 var mui = require('../lib/mui.js');
 var wxbridge = require('../util/wxbridge');
+var cookie = require('../util/cookie');
 var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 
 /* jshint ignore:end */

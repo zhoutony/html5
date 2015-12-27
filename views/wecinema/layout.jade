@@ -10,8 +10,8 @@ html
         block style
     body
         block body
-        aside.bartool
-            a(href="/")
+        if !data.isToolHide
+            aside.bartool
                 div.bar0
                     ul.subnav
                         li.nav_play

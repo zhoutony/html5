@@ -213,6 +213,21 @@ define([
             }
         }
 
+        function barToolMethod(){
+            var bartool = $('.bartool');
+            if(bartool.length > 0){
+                bartool.on('click', function(evt){
+                    var _el = $(this);
+                    _el.addClass('bounceOut');
+                    _el.addClass('animated');
+                    setTimeout(function(){
+                        location.href = '/';
+                    }, 1000)
+                })
+            }
+        }
+
+        barToolMethod();
         return {
             strShort: strShort,
             getIsMembershipCard: getIsMembershipCard,
@@ -221,7 +236,8 @@ define([
             physicsGoBack: physicsGoBack,
             getCurrentPosition: getCurrentPosition,
             iScrollClick: iScrollClick,
-            is_weixn: is_weixn
+            is_weixn: is_weixn,
+            barToolMethod: barToolMethod
         };
     }
 )
