@@ -32,6 +32,7 @@ app.get(["/movienews/:sourceType/:movieNewId"], chk_login.isLoggedIn, function(r
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;
             render_data.data.sourceType = sourceType;
+            render_data.data.newsId = movieNewId;
             // console.log(data);
             if(data.newsInfo && data.newsInfo.content){
                 var content = new StringBuilder();
@@ -43,7 +44,7 @@ app.get(["/movienews/:sourceType/:movieNewId"], chk_login.isLoggedIn, function(r
         res.render("wecinema/movienews", render_data);
     });
 });
-
+ 
 
 function StringBuilder() {
     this.strings = []

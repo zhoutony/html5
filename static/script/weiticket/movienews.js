@@ -7,6 +7,7 @@ var wxbridge = require('../util/wxbridge');
 
 /* jshint ignore:end */
 $(document).ready(function() {
+    var openId = cookie.getItem('open_id');
     if(window.newscontent){
     	var _html = JSON.stringify(window.newscontent)
         $('._txt').html(window.newscontent);
@@ -34,6 +35,12 @@ $(document).ready(function() {
         title: Util.strShort($('.infotit').html(), 25)  + ' -票友自媒体',
         desc: '荐《' + $('.imgbox').find('h2').html() + '》:' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
         link: window.location.href,
-        imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src
+        imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
+        callback: function(){
+            Util.shearCallback(openId, newsId, 2, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+        }
     })
 }); //END of jquery documet.ready 

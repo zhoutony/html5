@@ -28,9 +28,9 @@ function isLoggedIn(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     // console.log(ua.match(/MicroMessenger/i));
     if(ua.indexOf('micromessenger') >= 0) {
-        console.log('微信里打开');
+        // console.log('微信里打开');
     }else{
-        console.log('非微信里打开');
+        // console.log('非微信里打开');
         return next();
     }
     
@@ -41,7 +41,7 @@ function isLoggedIn(req, res, next) {
     //var cinema_id                            = req.params["cinema_id"];
     //var cinema_id = req.params["cinema_id"];
     //console.log("req.url:::",req.url);
-    console.log('open_id:', open_id)
+    // console.log('open_id:', open_id)
     //调用的接口列表
     var my_api_addr = "/queryWeixinBaseConfigInfo.aspx";
     var req_publicsignalshort = req.publicsignalshort;

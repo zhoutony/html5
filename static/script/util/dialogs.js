@@ -133,6 +133,23 @@ $(document).ready(function() {
 		});
 	}
 
+	/*
+		弹层导读
+		
+	*/
+	function piaoyouGuide(_container){
+		var html = '<div class="skippop flexbox_v am-skippop"><div class="skipcont flex"><header><p>在电影的时光</p><p>读懂自已。</p></header><h2>我们即将出发</h2><ul class="flexbox_vh_c frist"><li class="flex"><a><i class="skip01"></i><p>文章</p></a></li><li class="flex"><a><i class="skip02"></i><p>弹幕</p></a></li><li class="flex"><a><i class="skip03"></i><p>耳语</p></a></li></ul><ul class="flexbox_vh_c am-skul"> <li class="flex"><a><i class="skip04"></i><p> </p></a></li><li class="flex"><a><i class="skip05"></i><p> </p></a></li><li class="flex"><a><i class="skip06"></i><p> </p></a></li></ul></div><div class="skipbtn"><a class="skipclose"><i class="icon-cancel"></i></a></div></div>', 
+			tipObj = {}, container = _container ? _container : body, _el, tipTimeout, closebtn;
+		_el = $(html).appendTo(container);
+		closebtn = _el.find('.skipbtn');
+		closebtn.on('tap', function() {
+			_el.remove();
+			setTimeout(function(){
+				window.isPiaoyouGuide = false;
+			}, 1000)
+		});
+	}
+
 	String.format = function () {
         if (arguments.length == 0)
             return null;
@@ -157,6 +174,7 @@ $(document).ready(function() {
 	exports.tip   = tip;
 	exports.pop   = pop;
 	exports.alert = alert;
+	window.piaoyouGuide = piaoyouGuide;
 	window._alert = alert;
 	window._confirm = confirm;
 });

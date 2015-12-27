@@ -49,7 +49,7 @@ $(document).ready(function () {
         }
 
         if(showtime){
-            $('._price').html( '¥'+ showtime.price * _len / 100 );
+            $('._price').html( '¥&nbsp;'+ showtime.price * _len / 100 );
         }
     }  
 

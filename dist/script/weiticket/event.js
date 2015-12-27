@@ -1,1 +1,18 @@
-webpackJsonp([1,19],[function(n,i,e){null!=open_id&&null!=event_id&&null!=publicsignalshort&&(location.href="http://smart-a.wepiao.com/event/index.html?eventid="+event_id+"&publicsignalshort="+publicsignalshort+"&openid="+open_id+"&rand=1234sadsad5sadad")}]);
+webpackJsonp([1,19],[
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	//跳转
+	if (open_id != null && event_id != null && publicsignalshort != null) {
+	    //alert(111);
+	    location.href = 'http://smart-a.wepiao.com/event/index.html?eventid='
+	        + event_id
+	        + '&publicsignalshort='
+	        + publicsignalshort
+	        + '&openid='
+	        + open_id
+	        + '&rand=1234sadsad5sadad';
+	}
+
+/***/ }
+]);

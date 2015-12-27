@@ -69,15 +69,36 @@ require('./pages/skippop');
 
 //sharepop
 require('./pages/sharepop');
+
 //cinemaorderm
 require('./pages/cinemaorder');
+
 //ordersucc
 require('./pages/ordersucc');
-//ordersucc
+
+//ordereorr
+require('./pages/ordereorr');
+
+//myorder
+require('./pages/myorder');
+
 require('./pages/mask-redbag');
+
+require('./pages/mask-redpiao');
+
+require('./pages/mask-redrule');
+
+require('./pages/mask-tel');
 
 //medialist
 require('./pages/medialist');
+
+//upload
+require('./pages/upload');
+
+
+//skip
+require('./pages/skip');
 
 
 

@@ -78,7 +78,7 @@ block prepend body
                     header.infoheader
                         div.infotool
                             a(href='/medialist/#{data.sourceType}')
-                                div.flexbox_v_c
+                                div.flexbox
                                     div.logobox
                                         p 
                                             img(src="#{data.newsInfo.logoURL}")
@@ -130,7 +130,25 @@ block prepend body
                         i.b_sina
                         span 1
                 div.codeinfo.flexbox
-                    
+                    if(data && data.fourthAds)
+                        div.scrollpic.mui-slider 
+                            ul.mui-slider-group.mui-slider-loop
+                                - var _ad_firstList = data.fourthAds[0];
+                                - var _ad_firstLen = data.fourthAds.length;
+                                - var _ad_lastList = data.fourthAds[_ad_firstLen - 1];
+                                li.mui-slider-item.mui-slider-item-duplicate
+                                    a(href="/110000/ticket/10034")
+                                        if _ad_lastList && _ad_lastList.imageUrl
+                                            img(src="#{_ad_lastList.imageUrl}")
+                                each indexAd in data.fourthAds
+                                    li.mui-slider-item
+                                        a(href="/110000/ticket/10034")
+                                            if indexAd && indexAd.imageUrl
+                                                img(src="#{indexAd.imageUrl}")
+                                li.mui-slider-item.mui-slider-item-duplicate
+                                    a(href="/110000/ticket/10034")
+                                        if _ad_firstList && _ad_firstList.imageUrl
+                                            img(src="#{_ad_firstList.imageUrl}")
                      
                 div.txthot
                     h2.hottie 精彩推荐
@@ -184,6 +202,7 @@ block prepend script
         //- | var title = "#{data.newsInfo.title}";
         | var newscontent = !{JSON.stringify(data.newsInfo.content)};
         | var _summary = "#{data.newsInfo.summary}";
+        | var newsId = "#{data.newsId}";
         //- var newscontent = '#{data.newsInfo.content}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")

@@ -6,12 +6,13 @@ define([
         '../lib/underscore',
         '../util/modal',
         '../util/cookie',
-        '../lib/director',
+        '../lib/director'
     ], function ($,
                  _,
                  Modal,
                  cookie,
-                 director) {
+                 director,
+                 dialogs) {
 
         // 字符串长度限制, 最大长度默认为12
         function strShort(string, maxLength) {
@@ -222,9 +223,43 @@ define([
                     _el.addClass('animated');
                     setTimeout(function(){
                         location.href = '/';
-                    }, 1000)
+                    }, 800)
                 })
             }
+
+            //  导读
+            var piaoyouguide = $('._piaoyouguide');
+            if(piaoyouguide.length > 0){
+                piaoyouguide.on('click', function(evt){
+                    
+                    if(!window.isPiaoyouGuide){
+                        window.isPiaoyouGuide = true;
+                        window.piaoyouGuide();
+                    }
+                })
+            }
+        }
+
+        function shearCallback(openId, sourceId, shareType, callback){
+            // alert(openId);
+            var url = '/yesunion/sharecallback';
+            var options = {
+                openId: openId,
+                id: sourceId,
+                shareType: shareType
+            };
+            
+            $.post(url, options, function(result) {
+                // alert(result);
+                if (result && result.data) {
+                    var return_data = JSON.parse(result.data);
+                    if(return_data.success){
+                        callback && callback(true);
+                    }else{
+                        callback && callback(false);
+                    }
+                }
+            })
         }
 
         barToolMethod();
@@ -237,7 +272,8 @@ define([
             getCurrentPosition: getCurrentPosition,
             iScrollClick: iScrollClick,
             is_weixn: is_weixn,
-            barToolMethod: barToolMethod
+            barToolMethod: barToolMethod,
+            shearCallback: shearCallback
         };
     }
 )

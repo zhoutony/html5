@@ -2,7 +2,9 @@
 var $ = require('../lib/zepto.js');
 var mui = require('../lib/mui.js');
 var wxbridge = require('../util/wxbridge');
+var Util = require('../util/widgets.js');
 var cookie = require('../util/cookie');
+var dialogs = require('../util/dialogs');
 var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 
 /* jshint ignore:end */
@@ -10,6 +12,7 @@ $(document).ready(function() {
     var movienewsPageindex = 1;
     var hotmovie = $('.hotmovie');
     var lock = false;
+    var openId = cookie.getItem('open_id');
     //加载 头条电影列表
     function getMovieNews(){
         var _url = '/hotmovienews/' + movienewsPageindex;
@@ -70,7 +73,13 @@ $(document).ready(function() {
         title: '电影票友 -- 娱乐文化营销自媒体开放平台',
         desc: '在电影的时光读懂自已     www.moviefan.com.cn',
         link: window.location.href,
-        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910'
+        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        callback: function(){
+            Util.shearCallback(openId, 0, 1, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+        }
     })
 
 }); //END of jquery documet.ready 

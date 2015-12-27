@@ -12,8 +12,10 @@ $(document).ready(function() {
     var hotmovie = $('.hotmovie');
     var lock = false;
     var openId = cookie.getItem('open_id');
+    //订阅el
+    var subscribe = $('#subscribe');
     if(Util.is_weixn()){
-        $('#subscribe').removeClass('m-hide');
+        subscribe.removeClass('m-hide');
     }
 
     //加载 头条电影列表
@@ -25,21 +27,7 @@ $(document).ready(function() {
                 return;
             }
             var _el = $('<div></div>').html(data).appendTo(hotmovie);
-            // if(movienewsPageindex == 1){
-            //     appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
-            // }
-            // if(!lock){
-            //     lock = true;
-            //     ScrollBottomPlus.render({
-            //         el: '.hotmovie',
-            //         app_el: '.wrap',
-            //         footer: '.navtool',
-            //         callback: function(){
-            //             movienewsPageindex++;
-            //             getMovieNews();
-            //         }
-            //     })
-            // }
+            
             ScrollBottomPlus.gotoBottomShowed = false;
         });
 
@@ -61,23 +49,53 @@ $(document).ready(function() {
         link: window.location.href,
         imgUrl: $('._logo').attr('src'),
         callback: function(){
-            // if (typeof WeixinJSBridge == 'undefined') return false;   
-            // WeixinJSBridge.invoke('addContact', { 
-            //     webtype: '1',   
-            //     username: 'yesunion'   
-            // }, function(d) {   
-            //     // 返回d.err_msg取值，d还有一个属性是err_desc
-            //     // add_contact:cancel 用户取消   
-            //     // add_contact:fail　关注失败   
-            //     // add_contact:ok 关注成功   
-            //     // add_contact:added 已经关注   
-            //     // WeixinJSBridge.log(d.err_msg);
-            //     // cb && cb(d.err_msg);
-            //     alert(d.err_msg)
-            // });   
-            
-            location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+            // alert();
+            Util.shearCallback(openId, sourceId, 3, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
         }
+    })
+
+    subscribe.on('click', function(evt){
+        
+        var iconEl = $(this).find('b'),
+            emEl = $(this).find('em'),
+            url,isSubscriber;
+        if(!iconEl.hasClass('m-hide')){
+            isSubscriber = true;
+            url = '/yesunion/subscriberWeMedia';
+        }else{
+            isSubscriber = false;
+            url = '/yesunion/unsubscriberWeMedia';
+        }
+        var options = {
+            openId: openId,
+            sourceID: sourceId
+        };
+        // alert(url);
+        $.post(url, options, function(result) {
+            // alert(result);
+            if (result && result.data) {
+                var return_data = JSON.parse(result.data);
+                if(return_data.success){
+                    // alert(isSubscriber);
+                    if(isSubscriber){
+                        iconEl.addClass('m-hide').css({
+                            display: 'none'
+                        });
+                        emEl.html('已订阅');
+                    }else{
+                        iconEl.removeClass('m-hide').css({
+                            display: 'block'
+                        });
+                        emEl.html('订阅');
+                    }
+                }else{
+                    console.log('请求服务器失败')
+                }
+            }
+        })
     })
 
 });
