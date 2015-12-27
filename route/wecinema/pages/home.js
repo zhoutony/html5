@@ -36,7 +36,7 @@ app.get(['/', '/index.html'], function (req, res) {
         thirdAds: []
     }
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data.advertisements);
+        console.log(data.advertisements);
         render_data.data.err = err;
         if (!err && data) {
             var ads = data.advertisements;
