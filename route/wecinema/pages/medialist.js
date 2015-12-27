@@ -10,7 +10,7 @@ var my_name  = hostname + ':' + pid;
 app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.isLoggedIn, function(req, res){
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
-
+    var open_id     = req.cookies.open_id || '';
     var sourceId = req.params["sourceId"];
     var isScrollBottomPlus = false;
     var pageIndex = req.params["pageIndex"];
@@ -26,11 +26,11 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.i
             type:       sourceId,
             pageIndex:  pageIndex,
             pageSize:   10,
-
+            openId: open_id
          }
     };
     render_data.data = {};
-    
+    console.log('open_id:', open_id)
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data);
         render_data.data.err = err;
