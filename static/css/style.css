@@ -3777,7 +3777,8 @@ color:#fff;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: rgba(255,255,255,.9)
+	background: rgba(255,255,255,.9);
+	transform: translate3d(0px,100%,0px);
 }
 .skipbtn {
 	height: 3rem;
@@ -3853,6 +3854,142 @@ color:#fff;
 	background: url(../images/skip06.png) no-repeat center center;
 	background-size: cover;
 }
+
+.am-skippop {
+
+    -webkit-animation-name: skippop;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function:  ease;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+}
+ @-webkit-keyframes skippop {
+	 0% {
+	  opacity: 0;
+	  transform: translate3d(0px,100%,0px);
+	}
+	  
+	 100% {
+	 opacity: 1;
+	 transform: translate3d(0px,0px,0px);
+	}
+}
+.am-skippop  header{-webkit-animation-name: am-skul-h;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function:  ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;animation-delay:.1s;
+	-webkit-animation-delay:.1s; }
+
+  @-webkit-keyframes am-skul-h {
+	 0% {
+	  opacity: 0;
+	  transform: translate3d(-100%,0%,0px);
+	}
+	 
+	 100% {
+	 opacity: 1;
+	 transform: translate3d(0px,0px,0px);
+	}
+}
+.am-skippop  h2{-webkit-animation-name: am-skul-h2;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;animation-delay:.2s;
+	-webkit-animation-delay:.2s;}
+
+  @-webkit-keyframes am-skul-h2 {
+	 0% {
+	  opacity: 0;
+	  transform: translate3d(100%,0%,0px);
+	}
+	 
+	 100% {
+	 opacity: 1;
+	 transform: translate3d(0px,0px,0px);
+	}
+}
+
+.am-skippop ul {
+
+    -webkit-animation-name: am-skul;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function:  ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-delay:.1s;
+	-webkit-animation-delay:.1s; 
+}
+ @-webkit-keyframes am-skul {
+	 0% {
+	  opacity: 0;
+	  transform: translate3d(0px,100%,0px);
+	}
+	50% {
+	  opacity: .5;
+	  transform: translate3d(0px,-60%,0px);
+	}
+	  
+	 100% {
+	 opacity: 1;
+	 transform: translate3d(0px,0px,0px);
+	}
+}
+.close1-skippop {
+
+    -webkit-animation-name: closeskippop;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function:  ease;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+}
+ @-webkit-keyframes closeskippop {
+	 0% {
+	  opacity: 1;
+	   
+	}
+	  
+	 100% {
+	 opacity: 0;
+	  
+	}
+}
+
+.animated{
+	-webkit-animation-name: am-tool;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function:  ease-in;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+
+}
+@-webkit-keyframes am-tool {
+	 0% {
+		-webkit-transform: scale3d(1, 1,1);
+   		 transform: scale3d(1, 1, 1);
+   		 opacity: 1;
+	}
+	  
+	 50% {
+	  -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    	transform: scale3d(1.3, 1.3, 1.3);
+    	opacity: .9;
+	}
+	 100% {
+		-webkit-transform: scale3d(1, 1,1);
+		opacity: 0;
+   		 transform: scale3d(.1, .1, .1);
+	}
+}
+
+
 ._thirdads {
 	padding: 0.5rem 0rem;
 	overflow: hidden;
@@ -4270,7 +4407,7 @@ line-height;
 	margin-left: -1rem;
 }
 .medislist .infomenu .line:last-child {
-	margin-left: 1rem;
+	margin-left: 1.3rem;
 	margin-right: -1rem;
 }
 .medislist .infomenu .line:last-child:before {

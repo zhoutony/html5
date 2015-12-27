@@ -43,7 +43,7 @@ app.get(["/movienews/:sourceType/:movieNewId"], function(req, res){
         res.render("wecinema/movienews", render_data);
     });
 });
-
+ 
 
 function StringBuilder() {
     this.strings = []
