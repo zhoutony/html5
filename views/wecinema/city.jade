@@ -2,6 +2,8 @@ if !data.err && data.citys
     //- citypop
     div.citypop
         div.citybox.city-list
+            div.rulecolse
+                a.btn_cancel(href="")
             div.citytit.flexbox_v_c
                 a.citybtn.flex
                 //-     i.icon-angle-left 
@@ -25,7 +27,7 @@ if !data.err && data.citys
                 div.list-wrapper.citylist
                     h3 热门城市
                     ul
-                        li
+                        li(data-locationid="11000", data-namecn="北京")
                             span 北京
 
                 div.citylist(style="display:non1e")

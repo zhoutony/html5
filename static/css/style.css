@@ -1056,10 +1056,20 @@ body {
 	padding: 0rem 0 0 1rem;
 	font-size: 1.4rem;
 	color: #898989;
+	width:10rem;
 }
 .tabs .city a {
 	color: #888888;
+	display:block;
+	
 }
+.tabs .city a span ,
+.tabs .city a i{display:inline-block; vertical-align: middle;}
+.tabs .city a span{
+	max-width:7rem;
+	font-size:1.2rem;
+	overflow:hidden;white-space:nowrap; text-overflow:ellipsis;}
+	.tabs .city a i{margin-top:.4rem;}
 .movietabs {
 	border: none;
 	margin-top: 1rem;
@@ -1856,9 +1866,10 @@ body {
 	right: 0;
 	z-index: 20;
 }
-.newmask .rulecolse{height:6.8rem;}
-.newmask .rulecolse .btn_cancel{display:block; height:6.8rem;background:url(../images/mask_close.png) no-repeat center center;
-margin:0 auto; background-size: auto 3.4rem;}
+.newmask .rulecolse,.citybox .rulecolse{text-align: center; height:4.4rem;}
+.newmask .rulecolse .btn_cancel,.citybox .rulecolse .btn_cancel{display:inline-block; height:3.4rem;background:url(../images/mask_close.png) no-repeat center center;
+margin:0 auto; background-size: auto 3.4rem;width:6rem;margin:auto;}
+.citybox .rulecolse{position: fixed;left:0;bottom:0;right:0;  z-index: 20;}
 .newmask{background: rgba(255,255,255,.9);}
 .mask .maskbtn {
 	border-bottom: 0.5rem solid #00968d;
@@ -2192,7 +2203,7 @@ color:#fff;
 .citybox .citylist {
 }
 .citybox .citylist dl {
-	padding: 0 1rem;
+	padding: 0 1rem 6.8rem 1rem;
 }
 .citybox .citylist dt {
 	padding: 0 2.5rem;
@@ -2219,6 +2230,9 @@ color:#fff;
 	padding: 0 0.5rem;
 	color: #333;
 	overflow:hidden;white-space:nowrap; text-overflow:ellipsis;
+}
+.citybox .citylist li a:active{
+	background:#f9f9f9;
 }
 .citybox .citylist li:after {
 	content: '';

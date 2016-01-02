@@ -2,9 +2,6 @@
  * Created by yhx at 2016/1/2
  *
  *
- *  var Dialogs = require('../util/dialogs.js');
- *
- *  Dialogs.tip('好的<br>我们的爱');
 
  *  
  */
@@ -55,6 +52,7 @@ var ChooseCity = {
 	initEvents: function () {
 		this.inputEl.on('keyup', this.handerSeachs.bind(this));
         this.inputEl.on('change', this.handerSeachs.bind(this));
+        this.cityEl && this.cityEl.on('click', '.btn_cancel', this.handerClose.bind(this));
         this.cityEl && this.cityEl.on('click', 'li', this.handerClick.bind(this));
 	},
 
@@ -97,6 +95,11 @@ var ChooseCity = {
 			this.cityEl && this.cityEl.remove();
 		}
 
+	},
+
+	handerClose: function(evt){
+		evt.preventDefault();
+		this.cityEl && this.cityEl.remove();
 	}
 
 }

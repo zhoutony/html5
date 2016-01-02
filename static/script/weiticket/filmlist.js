@@ -67,7 +67,7 @@ $(document).ready(function() {
             _type = '';
         if(!_el.hasClass('curr')){
             _type = _el.data('type');
-            $.get('/11000/filmlist/' + _type + '/1', function(_html){
+            $.get('/'+ locationId +'/filmlist/' + _type + '/1', function(_html){
                 if(_html){
                     history.pushState('', '', location.origin + '/'+ locationId +'/filmlist/' + _type);
                     $('#menutop').find('li').removeClass('curr');
