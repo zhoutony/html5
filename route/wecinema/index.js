@@ -82,6 +82,12 @@ require('./pages/ordereorr');
 //myorder
 require('./pages/myorder');
 
+//mypiao
+require('./pages/mypiao');
+
+//myredbag
+require('./pages/myredbag');
+
 require('./pages/mask-redbag');
 
 require('./pages/mask-redpiao');

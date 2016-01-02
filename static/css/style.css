@@ -1394,7 +1394,9 @@ body {
 .orderbox {
 	padding: 1.8rem 1.5rem 0;
 }
-.orderbox dt {
+.ruleline{height:0.5rem;overflow:hidden;background:#00968d;}
+.orderbox dt a{
+	display:block;
 	border: 1px solid #ccc;
 	text-align: center;
 	font-size: 1.4rem;
@@ -1402,8 +1404,9 @@ body {
 	height: 2rem;
 	color: #00978a;
 	border-radius: 4rem;
+	background:url(../images/ruletips.png) no-repeat 27rem center;background-size: auto 80%;
 }
-.orderbox li {
+.orderbox .orderlist li {
 	background: #efefef url(../images/orderbox02.png) no-repeat bottom left;
 	background-size: auto 0.75rem;
 	padding: 1rem 1.5rem;
@@ -1412,7 +1415,7 @@ body {
 	color: #9f9fa1;
 	overflow: hidden;
 }
-.orderbox li strong {
+.orderbox .orderlist  li strong {
 	position: absolute;
 	right: -1.8rem;
 	top: 0.8rem;
@@ -1421,19 +1424,19 @@ body {
 	padding: 0.3rem 2rem;
 	transform: rotate(45deg);
 }
-.orderbox li h2,
-.orderbox li p,
+.orderbox .orderlist  li h2,
+.orderbox .orderlist  li p,
 .orderbox .ordermid {
 	font-size: 1.2rem;
 	line-height: 1.4;
 }
-.orderbox li.new {
+.orderbox .orderlist  li.new {
 	color: #fff;
 	background: #00968d url(../images/orderbox01.png) no-repeat bottom left;
 	background-size: auto 0.75rem;
 	position: relative;
 }
-.orderbox li.new:after {
+.orderbox .orderlist  li.new:after {
 	background: #ea5513;
 	position: absolute;
 	right: 0;
@@ -1448,6 +1451,8 @@ body {
 	color: #ea5513;
 	z-index: 1
 }
+
+.orderbox .cardpop .cardlist li,.orderbox .cardpop  .cardmid li {margin-left:0;margin-right:0;}
 .paybox {
 	padding: 0.6rem 2rem 1.5rem;
 }
@@ -1842,7 +1847,7 @@ body {
 	color: #c6dfdd;
 }
 /**mask**/
-.mask {
+.mask,.newmask {
 	background: rgba(0,0,0,.6);
 	position: fixed;
 	top: 0;
@@ -1851,6 +1856,10 @@ body {
 	right: 0;
 	z-index: 20;
 }
+.newmask .rulecolse{height:6.8rem;}
+.newmask .rulecolse .btn_cancel{display:block; height:6.8rem;background:url(../images/mask_close.png) no-repeat center center;
+margin:0 auto; background-size: auto 3.4rem;}
+.newmask{background: rgba(255,255,255,.9);}
 .mask .maskbtn {
 	border-bottom: 0.5rem solid #00968d;
 	height: 8rem;
@@ -1875,8 +1884,8 @@ body {
 .mask .btn_close i:before {
 	display: none;
 }
-.mask .maskother {
-	background: #efefef;
+.mask .maskother ,.newmask .maskother{
+	 
 	overflow-y: auto;
 }
 .redinfo {
@@ -2428,7 +2437,7 @@ color:#fff;
 	width: 7.8rem;
 	height: 7.8rem;
 	margin: auto;
-	background: url(../images/myphoto.png) no-repeat center center;
+	background: #fff url(../images/myphoto.png) no-repeat center center;
 	background-size: cover;
 }
 .succ .myprice {
