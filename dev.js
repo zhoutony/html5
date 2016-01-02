@@ -19,7 +19,7 @@ process.on('uncaughtException', function(err) {
 });
 
 //git版本
-global.reversion = "6675a60";
+global.reversion = "c2a92bd";
 
 
 global.staticBase = "";//"http://smart-static.wepiao.com";
