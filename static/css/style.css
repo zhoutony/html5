@@ -2216,8 +2216,9 @@ color:#fff;
 .citybox .citylist li a {
 	font-size: 1.1rem;
 	display: block;
-	padding: 0 2.5rem;
+	padding: 0 0.5rem;
 	color: #333;
+	overflow:hidden;white-space:nowrap; text-overflow:ellipsis;
 }
 .citybox .citylist li:after {
 	content: '';
@@ -3597,7 +3598,7 @@ color:#fff;
 .city-list {
 	padding: 0rem 0;
 }
-.city-list h3 {
+.city-list h3 ,.city-list h4{
 	position: relative;
 	margin: -1px 0 0 0;
 	padding: 0 1rem;
@@ -3609,24 +3610,26 @@ color:#fff;
 	font-size: 1.1rem;
 	margin: 0 1rem;
 }
-.city-list h3 + ul {
+.city-list h3 + ul ,.city-list h4 + ul{
 	overflow: hidden;
 	height: auto;
 	margin: 0 1rem;
 }
-.city-list h3 + ul li {
+.city-list h3 + ul li ,.citybox .citylist dd li ,.city-list h4 + ul li{
 	float: left;
-	width: 25%;
+	width: 50%;
 	color: #333;
 	font-size: 1.1rem;
 }
+.city-list h4 + ul li{float:none;width:auto;}
 .city-list h3 + ul li span {
 	display: block;
 	height: 3.3rem;
 	line-height: 3.3rem;
 	border-bottom: 1px solid #f3f3f3;
-	text-align: center;
+	padding:0 0.5rem;
 }
+.citybox .citylist dd ul{overflow:hidden;}
 .city-list h3 + ul li span.no-bottom {
 	border-bottom: none;
 }
