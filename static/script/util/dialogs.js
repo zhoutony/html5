@@ -191,6 +191,6 @@ $(document).ready(function() {
 	window.piaoyouGuide = piaoyouGuide;
 	window._alert = alert;
 	window._confirm = confirm;
-	window.findbox = findbox;
+	// window.findbox = findbox;
 });
 

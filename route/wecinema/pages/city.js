@@ -22,12 +22,13 @@ app.get(["/get/citys"], function(req, res){
     };
     render_data.data = {}
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data.locations.length);
-        if(data.locations){
-            render_data.data = {
-                err: err,
-                citys: group_data(data.locations)
-            }
+        // console.log(data)
+        render_data.data = {
+            err: err,
+            citys: null
+        }
+        if(data && data.locations){
+            render_data.data.citys = group_data(data.locations);
             // console.log(JSON.stringify(render_data.data.citys['A']));
         }
         res.render("wecinema/city", render_data);

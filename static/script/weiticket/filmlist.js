@@ -8,10 +8,19 @@ var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
 var dialogs = require('../util/dialogs');
 var Citys = require('./citys');
+var ChooseCity = require('../util/chooseCity');
 
 /* jshint ignore:end */
 $(document).ready(function() {
-    var cityEl;
+    var _chooseCity = $('#chooseCity'),
+        cityEl,
+        city = cookie.getItem('city'),
+        locationId;
+    if(city){
+        city = JSON.parse(city);
+        _chooseCity.find('span').html(city.name);
+        locationId = city.locationId;
+    }
     if(showtype == 'coming'){
         $('._hot').removeClass('curr');
         $('._coming').addClass('curr');
@@ -60,7 +69,7 @@ $(document).ready(function() {
             _type = _el.data('type');
             $.get('/11000/filmlist/' + _type + '/1', function(_html){
                 if(_html){
-                    history.pushState('', '', location.origin + '/11000/filmlist/' + _type);
+                    history.pushState('', '', location.origin + '/'+ locationId +'/filmlist/' + _type);
                     $('#menutop').find('li').removeClass('curr');
                     _el.addClass('curr');
                     $('.movielist').html(_html);
@@ -76,18 +85,17 @@ $(document).ready(function() {
         }
     })
 
-    $('#chooseCity').on('click', function(evt){
-        var cityHtml = localStorage.getItem('cityHtml');
-        if(cityHtml){
-            cityEl = $(cityHtml).appendTo(document.body);
-        }else{
-            $.get('/get/citys', function(_html){
-                if(_html){
-                    localStorage.setItem('cityHtml', _html);
-                    cityEl = $(_html).appendTo(document.body);
-                }
-            })
-        }
+    _chooseCity.on('click', function(evt){
+        ChooseCity.init(function(city){
+            var cookieExpired = 60 * 60 * 24 * 30; //30天
+            var cookiePath = '/';
+            cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
+            if(showtype == 'coming'){
+                location.href = '/' + city.locationId + '/filmlist/coming';
+            }else{
+                location.href = '/' + city.locationId + '/filmlist/hot';
+            }
+        }.bind(this))
     })
 
 }); //END of jquery documet.ready
