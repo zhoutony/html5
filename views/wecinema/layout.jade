@@ -10,7 +10,7 @@ html
         block style
     body
         block body
-        if !data.isToolHide
+        if data && !data.isToolHide
             aside.bartool
                 div.bar0
                     ul.subnav
