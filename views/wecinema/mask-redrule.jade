@@ -3,33 +3,37 @@ extends ./layout
 block title
         title 电影票友
 block prepend body
-    include ./pagelets/mask.jade
-        dl.redinfo
-            dt 红包规则
-            dd
-                h2 金额：20元
-                ul
-                    li 使用范围
-                    li 影片：蚁人
-                    li 有效期：2015-10-31
-                    li 版本：版本不限
-                    li 影院：全国影院
-                    li 说明：《蚁人》红包
-                h2 使用规则
-                ol
-                    li.
-                        1、红包仅限在电影票友使用，限《蚁人》影片使用、不限版本；
-                    li.
-                        2、红包公用于选座购票影院，不支持兑换券；
-                    li.
-                        3、每个用户限领1张，不可与其它优惠同时使用；
-                    li.
-                        4、红包有效期为：2015年8月16日至10月22日，过期无效；
-                    li.
-                        5、红包面值大于票价时，最低仍需支付0.01元；
-                    li.
-                        *、红包使用流程：进入电影票友选座购票场次，支付时从“可用优惠”中勾选红包即可使用
-                a.btn_back(href="") 返回
+    div.newmask.flexbox_v
+        div.ruleline
+        div.maskother.flex
+            dl.redinfo
+                dt 红包规则
+                dd
+                    h2 金额：20元
+                    ul
+                        li 使用范围
+                        li 影片：蚁人
+                        li 有效期：2015-10-31
+                        li 版本：版本不限
+                        li 影院：全国影院
+                        li 说明：《蚁人》红包
+                    h2 使用规则
+                    ol
+                        li.
+                            1、红包仅限在电影票友使用，限《蚁人》影片使用、不限版本；
+                        li.
+                            2、红包公用于选座购票影院，不支持兑换券；
+                        li.
+                            3、每个用户限领1张，不可与其它优惠同时使用；
+                        li.
+                            4、红包有效期为：2015年8月16日至10月22日，过期无效；
+                        li.
+                            5、红包面值大于票价时，最低仍需支付0.01元；
+                        li.
+                            *、红包使用流程：进入电影票友选座购票场次，支付时从“可用优惠”中勾选红包即可使用
+        
+        div.rulecolse
+            a.btn_cancel(href="") 
          
 
 block prepend footer

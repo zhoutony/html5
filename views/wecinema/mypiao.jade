@@ -10,9 +10,9 @@ block prepend body
         div.orderbox
             dt 
                 a(href="/mask-redrule")
-                    电影订单
-            dd.orderlist 
-                ul 
+                    票友卡
+            dd 
+                  
                 //- if data && !data.err  
                 //-     each data, index in data
                 //-         li.new
@@ -22,7 +22,7 @@ block prepend body
                 //-             div.flexbox.ordermid
                 //-                 div.ordercode.flex #{data.orders.orderID }
                 //-                 div.ordertxt #{data.orders.cinemaName}
-                include orders
+                include redpiaolist
 
 block prepend footer
 

@@ -9,19 +9,19 @@ if !data.err && data.citys
             div.citysearch.flexbox
                 input.flex.txt(type="text",placeholder="输入城市名或拼音查询")
             div.citylist.m-hide
-                h3 搜索结果
+                h4 搜索结果
                 ul
                     each citisFirstArray,UpperCityKey in data.citys
                         if citisFirstArray && citisFirstArray.length > 0
                             each city in citisFirstArray
                                 li(data-cityid="#{city.locationID}", data-serchstr="#{city.namePinyinShort}#{city.nameCN}")
                                     span #{city.nameCN}
-            div.list-wrapper.m-hide
+            div.list-wrapper.citylist.m-hide
                 h3 最近访问
                 ul
                     li
                         span 北京
-            div.list-wrapper
+            div.list-wrapper.citylist
                 h3 热门城市
                 ul
                     li
