@@ -11,6 +11,7 @@ var Citys = require('./citys');
 
 /* jshint ignore:end */
 $(document).ready(function() {
+    var cityEl;
     if(showtype == 'coming'){
         $('._hot').removeClass('curr');
         $('._coming').addClass('curr');
@@ -75,4 +76,18 @@ $(document).ready(function() {
         }
     })
 
-}); //END of jquery documet.ready 
+    $('#chooseCity').on('click', function(evt){
+        var cityHtml = localStorage.getItem('cityHtml');
+        if(cityHtml){
+            cityEl = $(cityHtml).appendTo(document.body);
+        }else{
+            $.get('/get/citys', function(_html){
+                if(_html){
+                    localStorage.setItem('cityHtml', _html);
+                    cityEl = $(_html).appendTo(document.body);
+                }
+            })
+        }
+    })
+
+}); //END of jquery documet.ready

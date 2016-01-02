@@ -4,15 +4,18 @@ if !data.err && data.citys
         div.citybox.city-list
             div.citytit.flexbox_v_c
                 a.citybtn.flex
-                    i.icon-angle-left 
-                    | 返回
+                //-     i.icon-angle-left 
+                //-     | 返回
             div.citysearch.flexbox
                 input.flex.txt(type="text",placeholder="输入城市名或拼音查询")
-            div.list-wrapper.m-hide
+            div.citylist.m-hide
                 h3 搜索结果
                 ul
-                    li
-                        span 北京
+                    each citisFirstArray,UpperCityKey in data.citys
+                        if citisFirstArray && citisFirstArray.length > 0
+                            each city in citisFirstArray
+                                li(data-cityid="#{city.locationID}", data-serchstr="#{city.namePinyinShort}#{city.nameCN}")
+                                    span #{city.nameCN}
             div.list-wrapper.m-hide
                 h3 最近访问
                 ul
@@ -26,12 +29,15 @@ if !data.err && data.citys
 
             div.citylist(style="display:non1e")
                 dl
-                    dt A
-                    dd
-                        ul
-                            li
-                                a(href="#") 北京
-
+                    each citisFirstArray,UpperCityKey in data.citys
+                        if citisFirstArray && citisFirstArray.length > 0
+                            dt #{UpperCityKey}
+                                dd
+                                    ul
+                                        each city in citisFirstArray
+                                            li(data-cityid="#{city.locationID}")
+                                                a
+                                                    | #{city.nameCN}
 
         
 

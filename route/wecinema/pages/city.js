@@ -22,12 +22,43 @@ app.get(["/get/citys"], function(req, res){
     };
     render_data.data = {}
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data);
-        render_data.data = {
-            err: err,
-            citys: data
+        // console.log(data.locations.length);
+        if(data.locations){
+            render_data.data = {
+                err: err,
+                citys: group_data(data.locations)
+            }
+            // console.log(JSON.stringify(render_data.data.citys['A']));
         }
         res.render("wecinema/city", render_data);
     });
     
 });
+
+
+var group_data = function (city_list) {
+    if(!city_list) return;
+    //-先将city_list排序
+    city_list.sort(getSortFun('asc', 'namePinyin'));
+
+    var UpperMap = {};
+    var hotCity = {};
+    for (var i = 0; i < city_list.length; i++) {
+        var city_obj = city_list[i];
+        var UpperFirst = city_obj.namePinyin.toUpperCase().substr(0, 1);
+        if (UpperMap[UpperFirst] === undefined) {
+            UpperMap[UpperFirst] = [];
+            UpperMap[UpperFirst].push(city_obj);
+        } else {
+            UpperMap[UpperFirst].push(city_obj);
+        }
+    }
+
+    return UpperMap;
+};
+
+var getSortFun = function (order, sortBy) {
+    var ordAlpah = (order == 'asc') ? '>' : '<';
+    var sortFun = new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
+    return sortFun;
+}
