@@ -143,12 +143,26 @@ $(document).ready(function() {
 		_el = $(html).appendTo(container);
 		closebtn = _el.find('.skipbtn');
 		closebtn.on('tap', function() {
-			_el.remove();
+			_el.removeClass('am-skippop').addClass('close-skippop');
 			setTimeout(function(){
-				window.isPiaoyouGuide = false;
-			}, 1000)
+				_el.remove();
+				setTimeout(function(){
+					window.isPiaoyouGuide = false;
+				}, 1000)
+			}, 2000);
+				
 		});
 	}
+
+	// function findbox(_container){
+	// 	var _findbox = $('#findbox ');
+	//     _findbox.on('click',function(){
+	//          _findbox.addClass('showtips')  ;
+	//          setTimeout(function(){
+	//                _findbox.removeClass('showtips')  ;
+	//             }, 1000);    
+	//     })
+	// }
 
 	String.format = function () {
         if (arguments.length == 0)
@@ -177,5 +191,6 @@ $(document).ready(function() {
 	window.piaoyouGuide = piaoyouGuide;
 	window._alert = alert;
 	window._confirm = confirm;
+	window.findbox = findbox;
 });
 

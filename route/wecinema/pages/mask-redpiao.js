@@ -8,17 +8,35 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/mask-redpiao"], function(req, res){
+app.get(["/my/mask-redpiao"], function(req, res){
     var render_data = {};
-    var my_api_addr = "/room";
+    var my_api_addr = "/queryOrder.aspx";
+    
     var options = {
         uri: my_api_addr,
         args: {
-            locationID: 110000,
-            type:       1,
-            pageIndex:  1,
-            pageSize:   10
+             
         }
     };
-    res.render("wecinema/mask-redpiao");
+    render_data.data = {
+        
+    }
+   
+    // console.log(orders.orderID );
+    // res.render("wecinema/cinemaorder", render_data);
+    model.getDataFromPhp(options, function (err, data) {
+        console.log(data);
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+            render_data.data.reversion = global.reversion;
+            render_data.data.staticBase = global.staticBase;
+            
+        }
+         
+        res.render("wecinema/mask-redpiao", render_data);
+        
+    });
+     
+   
 });

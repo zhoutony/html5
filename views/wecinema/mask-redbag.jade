@@ -5,43 +5,7 @@ block title
 block prepend body
     include ./pagelets/mask.jade
         div.cardpop 
-            nav
-                ul.flexbox
-                    li.flex.curr 未使用(1)
-                    li.flex 已过期(1)
-                    li.flex 已使用(1)
-            ul.cardmid(style="display:no1ne;")
-                li.new
-                    a(href="/myorder")
-                        div.cardlay
-                            div.cardinfo.flexbox_v_c
-                                div.flex.main
-                                    p 红包
-                                    p ￥51
-                                div.aside
-                                    p 仅可购买电影票
-                                    p 满50元可用
-                        div.cardend.flexbox
-                            div.flex.main 限平台
-                            div.aside 2015-12-23到期
-                                span （仅剩3天）
-                li
-                    div.cardlay
-                        div.cardinfo.flexbox_v_c
-                            div.flex.main
-                                p 红包
-                                p ￥51
-                            div.aside
-                                p 仅可购买电影票
-                                p 满50元可用
-                    div.cardend.flexbox
-                        div.flex.main 限平台
-                        div.aside 2015-12-23到期
-                            span （仅剩3天）
-            div.redempty(style="display:none;")
-                p 
-                    i
-                    | 还没有红包哦
+           include redbaglist 
 
 block prepend footer
 block prepend script

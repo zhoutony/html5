@@ -52,6 +52,8 @@ $(document).ready(function() {
         $(_txtbox[_i]).removeClass('m-hide').addClass('m-show');
     });
 
+    
+
     function appendThirdAds(el, _index){
         var _sections = el.find('section'),
             _section = $(_sections[_index]);
@@ -80,6 +82,15 @@ $(document).ready(function() {
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
         }
+    })
+
+
+    var _findbox = $('#findbox ');
+    _findbox.on('click',function(){
+        _findbox.addClass('showtips')  ;
+        setTimeout(function(){
+            _findbox.removeClass('showtips')  ;
+        }, 1000);    
     })
 
 }); //END of jquery documet.ready 
