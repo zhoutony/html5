@@ -28,3 +28,126 @@ app.get(['/my/index'], chk_login.isLoggedIn, function (req, res) {//
     render_data.data.isToolHide = true;
     res.render("wecinema/my", render_data);
 });
+
+
+app.get(["/my/myorders"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "/queryOrder.aspx";
+    
+    var options = {
+        uri: my_api_addr,
+        args: {
+             
+        }
+    };
+    render_data.data = {};
+   
+    // console.log(orders.orderID );
+    // res.render("wecinema/cinemaorder", render_data);
+    model.getDataFromPhp(options, function (err, data) {
+        // console.log(data);
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+        }
+         
+        res.render("wecinema/myorders", render_data);
+        
+    });
+});
+
+app.get(["/my/mask_myorder"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "";
+    
+    var options = {
+        uri: my_api_addr,
+        args: {
+             
+        }
+    };
+    render_data.data = {};
+    res.render("wecinema/mask-orderrule", render_data);
+});
+
+
+app.get(["/my/mypiao"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "/queryOrder.aspx";
+    
+    var options = {
+        uri: my_api_addr,
+        args: {
+             
+        }
+    };
+    render_data.data = {};
+   
+    // console.log(orders.orderID );
+    // res.render("wecinema/cinemaorder", render_data);
+    model.getDataFromPhp(options, function (err, data) {
+        // console.log(data);
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+        }
+         
+        res.render("wecinema/mypiao", render_data);
+        
+    });
+});
+
+app.get(["/my/mask_mypiao"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "";
+    
+    var options = {
+        uri: my_api_addr,
+        args: {
+             
+        }
+    };
+    render_data.data = {};
+    res.render("wecinema/mask-piaorule", render_data);
+});
+
+
+app.get(["/my/myredbag"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "/queryOrder.aspx";
+    
+    var options = {
+        uri: my_api_addr,
+        args: {
+             
+        }
+    };
+    render_data.data = {};
+   
+    // console.log(orders.orderID );
+    // res.render("wecinema/cinemaorder", render_data);
+    model.getDataFromPhp(options, function (err, data) {
+        // console.log(data);
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+        }
+         
+        res.render("wecinema/myredbag", render_data);
+        
+    });
+});
+
+app.get(["/my/mask_myredbag"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "";
+    
+    var options = {
+        uri: my_api_addr,
+        args: {
+             
+        }
+    };
+    render_data.data = {};
+    res.render("wecinema/mask-redrule", render_data);
+});

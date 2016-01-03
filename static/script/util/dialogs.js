@@ -71,10 +71,10 @@ $(document).ready(function() {
 	**/
 	function pop(message, _container){
 		var html = '', tipObj = {}, container = _container ? _container : body, _el, tipTimeout, closebtn,
-			template = '<div class="maskbtn "><a class="btn_close"><i class="demo-icon  icon-cancel"></i></a></div><div class="maskother flex">{0}</div>';
-
-		_el = $('<div class="mask flexbox_v"><div>').html(String.format( template, message)).css({ zIndex: requestZIndex() }).appendTo(container);
-		closebtn = _el.find('.btn_close');
+			template = '<div class="mask flexbox_v"><div class="maskbtn"><a class="btn_close"><i class="icon-cancel"></i></a></div><div class="maskother flex">{0}</div></div>';
+			
+		_el = $(String.format( template, message)).css({ zIndex: requestZIndex() }).appendTo(container);
+		closebtn = _el.find('.maskbtn');
 		closebtn.on('tap', function() {
 			_el.remove();
 		});
@@ -134,6 +134,40 @@ $(document).ready(function() {
 	}
 
 	/*
+		loading
+		var loading = new Loading()
+
+		关闭：
+		loading(true) //淡出
+		loading(false) 无效果 
+	*/
+	function Loading(_container){
+		var html = '', tipObj = {}, container = _container ? _container : body, _el, tipTimeout;
+
+		_el = $('<div class="mask flexbox_v wait"><div class="waitbox"></div></div>').css({ zIndex: requestZIndex()+20, opacity: 0 }).appendTo(container);
+		setTimeout(function(){
+			_el.addClass('m-show').css({opacity: 1});
+		}, 20);
+		
+
+		return function (options) {
+			_el.css({opacity: 0});
+			
+			if(options){
+				_el.remove();
+			}else{
+				delay = delay || 2e3;
+				tipTimeout = setTimeout(function () {
+					_el.css({opacity: 0});
+					setTimeout(function(){
+						_el.remove();
+					}, 500)
+				}, delay);
+			}
+		};
+	}
+
+	/*
 		弹层导读
 		
 	*/
@@ -188,6 +222,7 @@ $(document).ready(function() {
 	exports.tip   = tip;
 	exports.pop   = pop;
 	exports.alert = alert;
+	exports.Loading = Loading;
 	window.piaoyouGuide = piaoyouGuide;
 	window._alert = alert;
 	window._confirm = confirm;

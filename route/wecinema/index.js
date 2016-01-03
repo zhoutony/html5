@@ -30,7 +30,7 @@ require('./util');
 require('./pages/checkbincard');
 
 //mycards
-require('./pages/mycards');
+// require('./pages/mycards');
 
 //filmlist
 require('./pages/filmlist');
@@ -79,14 +79,6 @@ require('./pages/ordersucc');
 //ordereorr
 require('./pages/ordereorr');
 
-//myorder
-require('./pages/myorder');
-
-//mypiao
-require('./pages/mypiao');
-
-//myredbag
-require('./pages/myredbag');
 
 require('./pages/mask-redbag');
 

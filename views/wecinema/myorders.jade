@@ -1,33 +1,19 @@
-extends ./layout
+div.orderbox
+    dt
+        a
+            | 电影订单
+    dd.orderlist 
+        ul 
+        //- if data && !data.err  
+        //-     each data, index in data
+        //-         li.new
+        //-             strong 已放映
+        //-             h2 #{data.orders.movieName }
+        //-             p #{data.orders.movieVersions} | #{data.orders.showTime}
+        //-             div.flexbox.ordermid
+        //-                 div.ordercode.flex #{data.orders.orderID }
+        //-                 div.ordertxt #{data.orders.cinemaName}
+        include orders
 
-block title
-        title 我的定单
-
-block prepend body
-    
-    //wrap
-    div.wrap
-        div.orderbox
-            dt 
-                a(href="/mask-redrule")
-                    电影订单
-            dd.orderlist 
-                ul 
-                //- if data && !data.err  
-                //-     each data, index in data
-                //-         li.new
-                //-             strong 已放映
-                //-             h2 #{data.orders.movieName }
-                //-             p #{data.orders.movieVersions} | #{data.orders.showTime}
-                //-             div.flexbox.ordermid
-                //-                 div.ordercode.flex #{data.orders.orderID }
-                //-                 div.ordertxt #{data.orders.cinemaName}
-                include orders
-
-block prepend footer
-
-block prepend script
-    script
-        
 
 
