@@ -2,12 +2,16 @@
 var $ = require('../lib/zepto.js');
 var countdown = require('./util/countdown');
 var iScroll = require('../lib/iscroll');
-var dialogs = require('../util/dialogs');
+var Dialogs = require('../util/dialogs');
 var widgets = require("../util/widgets.js");
+var MyPopup = require("../util/myPopup");
 /* jshint ignore:end */
 
 $(document).ready(function () {
-    var cinema, showtime, movie, seats;
+    var cinema, showtime, movie, seats,
+        payment = $('#payment'),
+        inputEl = $('#inputTel'),
+        mymenuEl = $('.redbox');
     function init(){
         initSeatControl();
     }
@@ -51,7 +55,26 @@ $(document).ready(function () {
         if(showtime){
             $('._price').html( '¥&nbsp;'+ showtime.price * _len / 100 );
         }
-    }  
+    }
+
+    // 监听输入电话号码
+    inputEl.on('keyup', handerSeachs);
+    inputEl.on('change', handerSeachs);
+
+    function handerSeachs(evt){
+        var _value = this.value;
+        if(/^1[23456789]\d{9}$/.test(_value)){
+            payment.removeClass('notlink');
+        }
+    }
+
+    // 票友卡和红包弹出
+    mymenuEl.on('click', 'a', function(evt){
+        var el = $(this),
+            item = el.data('item');
+        MyPopup.itemMethod(item);
+    })
+
 
     var wechatPay = function (param, redirectUrl, modal) {
         window.WeixinJSBridge.invoke('getBrandWCPayRequest', param, function (res) {

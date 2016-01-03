@@ -21,6 +21,14 @@ var viewColor;
 app.get(['/', '/index.html'], chk_login.isLoggedIn, function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
+    var city = req.cookies.city,
+        locationId = 11000;
+    if(city){
+        city = JSON.parse(city);
+        if(city.locationId){
+            locationId = city.locationId;
+        }
+    }
     var options = {
         uri: my_api_addr,
         args: {
@@ -33,7 +41,8 @@ app.get(['/', '/index.html'], chk_login.isLoggedIn, function (req, res) {
         staticBase: global.staticBase,
         firstAds: [],
         secondAds: [],
-        thirdAds: []
+        thirdAds: [],
+        locationId: locationId
     }
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data.advertisements);

@@ -4745,8 +4745,8 @@ line-height;
 }
 }
 .animated {
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
+	-webkit-animation-duration: .8s;
+	animation-duration: .8s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 }
@@ -4800,6 +4800,43 @@ line-height;
 .bounceOut {
 	-webkit-animation-name: bounceOut;
 	animation-name: bounceOut;
+}
+
+@-webkit-keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(.2, .2, .2);
+    transform: scale3d(.2, .2, .2);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(.2, .2, .2);
+    transform: scale3d(.2, .2, .2);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.zoomOut {
+  -webkit-animation-name: zoomOut;
+  animation-name: zoomOut;
 }
 .showtips .navtips {
 	opacity: 1;

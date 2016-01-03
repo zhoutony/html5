@@ -89,12 +89,12 @@ $(document).ready(function() {
 	* callback
 	**/
 	function alert(message, callback, btnLabel, _container){
-		btnLabel = btnLabel || '确定';
+		btnLabel = btnLabel || '我知道了';
 		var html = '', tipObj = {}, container = _container ? _container : body, _el, tipTimeout, closebtn,
-			template = '<section class="pop-wrapper m-ide"><section class="mask"></section><section class="pop-btn-box"><div class="mod-bd">{0}</div><div class="btn-solid btn-theme">{1}</div></section></section>';
+			template = String.format('<div class="mask flexbox_v wait"><div class="hottips"><p>{0}</p><a class="_btn-solid">{1}</a></div></div>', message, btnLabel);
 
-		_el = $('<section class="pop-wrapper"><section>').html(String.format( template, message, btnLabel )).css({ zIndex: requestZIndex() }).appendTo(container);
-		closebtn = _el.find('.btn-solid');
+		_el = $(template).css({ zIndex: requestZIndex() }).appendTo(container);
+		closebtn = _el.find('._btn-solid');
 		closebtn.on('tap', function() {
 			callback && callback();
 			_el.remove();
@@ -141,7 +141,7 @@ $(document).ready(function() {
 		loading(true) //淡出
 		loading(false) 无效果 
 	*/
-	function Loading(_container){
+	function Loading(_container, delay){
 		var html = '', tipObj = {}, container = _container ? _container : body, _el, tipTimeout;
 
 		_el = $('<div class="mask flexbox_v wait"><div class="waitbox"></div></div>').css({ zIndex: requestZIndex()+20, opacity: 0 }).appendTo(container);
@@ -151,7 +151,7 @@ $(document).ready(function() {
 		
 
 		return function (options) {
-			_el.css({opacity: 0});
+			// _el.css({opacity: 0});
 			
 			if(options){
 				_el.remove();
@@ -182,7 +182,7 @@ $(document).ready(function() {
 				_el.remove();
 				setTimeout(function(){
 					window.isPiaoyouGuide = false;
-				}, 1000)
+				}, 100)
 			}, 2000);
 				
 		});

@@ -25,7 +25,7 @@ block prepend body
             section.movielist
                 ul
                     each movie, index in data.movies
-                        li.flexbox(data-url="/110000/ticket/#{movie.movieID}")
+                        li.flexbox(data-url="/#{data.locationId}/ticket/#{movie.movieID}")
                             div.picmid
                                 a(href="javascript:;")
                                     img(src="#{movie.movieImage}")
@@ -49,10 +49,10 @@ block prepend body
              ul.flexbox
                 li.flex
                     a(href="/")
-                        i.n01 
+                        i.n01
                         | 头条
                 li.flex.newflex.curr 
-                    a(href="/11000/filmlist/hot")
+                    a(href="javascript:;")
                         i.n02 
                         | 电影
                 li._piaoyouguide
