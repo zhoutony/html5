@@ -32,7 +32,7 @@ $(document).ready(function() {
 			$.get(url, function(return_html){
 				setTimeout(function(){
 					loading(true);
-				}, 1000)
+				}, 800)
 				
 				Dialogs.pop(return_html);
 				maskMethod();
