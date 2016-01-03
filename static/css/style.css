@@ -3492,9 +3492,8 @@ color:#fff;
 	text-align: center;
 }
 .codeinfo {
-	background: url(../images/infobg.jpg) no-repeat center center;
-	background-size: 100% auto;
-	padding: 0.8rem 1.5rem;
+	 
+	padding: 0.8rem 0rem;
 }
 .codeinfo .imgbox {
 	width: 9.5rem;
