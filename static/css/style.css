@@ -211,9 +211,9 @@ flexbox_vh_c 横向纵向居中
 .flexbox_v_c,
 .flexbox_vh_c {
 	width: 100%;
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
+	display: -webkit-box!important;
+	display: -moz-box!important;
+	display: box!important;
 }
 .flexbox {
 	padding: 0;
@@ -1896,7 +1896,7 @@ margin:0 auto; background-size: auto 3.4rem;width:6rem;margin:auto;}
 	display: none;
 }
 .mask .maskother ,.newmask .maskother{
-	 
+	background:#fff; 
 	overflow-y: auto;
 }
 .redinfo {
