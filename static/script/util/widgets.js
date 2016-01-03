@@ -219,7 +219,7 @@ define([
             if(bartool.length > 0){
                 bartool.on('click', function(evt){
                     var _el = $(this);
-                    _el.addClass('bounceOut');
+                    _el.addClass('zoomOut');
                     _el.addClass('animated');
                     setTimeout(function(){
                         location.href = '/';

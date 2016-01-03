@@ -1,17 +1,11 @@
+
 var $ = require('../lib/zepto.js');
 var Util = require('../util/widgets.js');
 var Dialogs = require('../util/dialogs');
 
 
 $(document).ready(function() {
-	var mymenuEl = $('.mymenu'),
-		itemMask, itemMaskEl;
-
-	mymenuEl.on('click', 'li', function(evt){
-		var el = $(this),
-			item = el.data('item');
-		itemMethod(item);
-	})
+	var itemMask, itemMaskEl;
 
 	function itemMethod(item){
 		switch(item){
@@ -72,5 +66,7 @@ $(document).ready(function() {
 		}
 
 	}
+	exports.itemMethod  = itemMethod;
+
 
 })

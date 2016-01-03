@@ -27,7 +27,8 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
     render_data.data = {
         reversion: global.reversion,
         staticBase: global.staticBase,
-        showtype: showtype
+        showtype: showtype,
+        locationId: _locationID
     }
     // console.log(JSON.stringify(options))
     model.getDataFromPhp(options, function (err, data) {
