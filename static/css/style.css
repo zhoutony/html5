@@ -253,8 +253,60 @@ flexbox_vh_c 横向纵向居中
 .wait .waitbox {
 	width: 11.9rem;
 	height: 7.3rem;
-	background: url(../images/wait.png) no-repeat center center;
 	background-size: cover;
+	-webkit-animation-name: waitbox;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+}
+ 
+ @-webkit-keyframes waitbox {
+ 0% {
+  background: url(../images/wait01.png) no-repeat center center;
+	background-size: cover;
+}
+ 10% {
+  background: url(../images/wait02.png) no-repeat center center;
+	background-size: cover;
+}
+20% {
+  background: url(../images/wait03.png) no-repeat center center;
+	background-size: cover;
+}
+30% {
+  background: url(../images/wait04.png) no-repeat center center;
+	background-size: cover;
+}
+40% {
+  background: url(../images/wait05.png) no-repeat center center;
+	background-size: cover;
+}
+50% {
+  background: url(../images/wait06.png) no-repeat center center;
+	background-size: cover;
+}
+60% {
+  background: url(../images/wait07.png) no-repeat center center;
+	background-size: cover;
+}
+70% {
+  background: url(../images/wait08.png) no-repeat center center;
+	background-size: cover;
+}
+80% {
+  background: url(../images/wait09.png) no-repeat center center;
+	background-size: cover;
+}
+90% {
+  background: url(../images/wait01.png) no-repeat center center;
+	background-size: cover;
+}
+100% {
+  background: url(../images/wait01.png) no-repeat center center;
+	background-size: cover;
+}
+  
 }
 .wait .waittxt {
 	color: #fff;
@@ -1860,12 +1912,34 @@ body {
 .mask,.newmask {
 	background: rgba(0,0,0,.6);
 	position: fixed;
-	top: 0;
+	top:0; 
 	left: 0;
 	bottom: 0;
 	right: 0;
 	z-index: 20;
 }
+/*
+.mask {
+	-webkit-animation-name: mask;
+	-webkit-animation-duration: .6s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+ @-webkit-keyframes mask {
+ 0% {
+ opacity: 1;
+ -webkit-transform: translate3d(0rem, 100rem, 0px);
+}
+ 50% {
+ opacity: 0;
+ -webkit-transform: translate3d(0rem, 0rem, 0px);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: translate3d(0rem, 0rem, 0px);
+}
+}*/
 .newmask .rulecolse,.citybox .rulecolse{text-align: center; height:4.4rem;}
 .newmask .rulecolse .btn_cancel,.citybox .rulecolse .btn_cancel{display:inline-block; height:3.4rem;background:url(../images/mask_close.png) no-repeat center center;
 margin:0 auto; background-size: auto 3.4rem;width:6rem;margin:auto;}
