@@ -78,13 +78,7 @@ require('./pages/ordersucc');
 
 //ordereorr
 require('./pages/ordereorr');
-
-
-require('./pages/mask-redbag');
-
-require('./pages/mask-redpiao');
-
-require('./pages/mask-redrule');
+ 
 
 require('./pages/mask-tel');
 
