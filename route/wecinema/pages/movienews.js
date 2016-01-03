@@ -45,7 +45,28 @@ app.get(["/movienews/:sourceType/:movieNewId"], chk_login.isLoggedIn, function(r
     });
 });
  
+// 顶部广告
+app.get(['/get/queryadvertisements'], function (req, res) {
+    var render_data = {};
+    var my_api_addr = "/queryAdvertisements.aspx";
+    var options = {
+        uri: my_api_addr,
+        args: {
+            type: '5'
+        }
+    };
+    render_data.data = {};
+    model.getDataFromPhp(options, function (err, data) {
+        render_data.data.err = err;
+        if (!err && data && data.advertisements) {
+            render_data.data.fourthAds = data.advertisements;
+            
+        } else {
 
+        }
+        res.render("wecinema/filmlistAds", render_data);
+    });
+});
 function StringBuilder() {
     this.strings = []
 }

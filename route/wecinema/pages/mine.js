@@ -18,14 +18,22 @@ var my_name  = hostname + ':' + pid;
 // 首页
 app.get(['/my/index'], chk_login.isLoggedIn, function (req, res) {//
     var render_data = {};
-    
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
         staticBase: global.staticBase,
     }
+    var city = req.cookies.city,
+        locationId = 11000;
+    if(city){
+        city = JSON.parse(city);
+        if(city.locationId){
+            locationId = city.locationId;
+        }
+    }
     //隐藏工具条
     render_data.data.isToolHide = true;
+    render_data.data.locationId = locationId;
     res.render("wecinema/my", render_data);
 });
 
