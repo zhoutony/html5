@@ -17654,3 +17654,291 @@ Cannot read property 'content' of undefined
     movieID: 0,
     intro: '',
     movie: null } ]
+[2016-01-07 10:20:04.430] [INFO] console - Listening on port 80
+[2016-01-07 10:20:10.675] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:13.417] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:14.166] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:14.448] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:14.548] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:14.714] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:17.450] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:17.856] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:32.757] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:32.960] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:33.169] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:20:33.267] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:21:09.956] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:21:10.704] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:150
+    148|     script
+    149|         | var data = !{JSON.stringify(data)};
+  > 150|         | var thirdIndex = !{data.baseData.thirdIndex};
+    151|     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    152|     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
+    153| 
+
+Cannot read property 'thirdIndex' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1262:62)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1300:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/home.js:67:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:198:13)
+[2016-01-07 10:21:31.612] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/movienews.jade:185
+    183|     script
+    184|         //- | var title = "#{data.newsInfo.title}";
+  > 185|         | var newscontent = !{JSON.stringify(data.newsInfo.content)};
+    186|         | var _summary = "#{data.newsInfo.summary}";
+    187|         | var newsId = "#{data.newsId}";
+    188|         //- var newscontent = '#{data.newsInfo.content}';
+
+Cannot read property 'content' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1807:78)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1855:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/movienews.js:44:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:173:21)
+[2016-01-07 10:21:39.347] [INFO] console - open_id: 
+[2016-01-07 10:22:01.301] [INFO] console - open_id: 
