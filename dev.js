@@ -19,6 +19,7 @@ process.on('uncaughtException', function(err) {
 });
 
 //git版本
+
 global.reversion = "4316262";
 
 
