@@ -61,7 +61,9 @@ $(document).ready(function() {
         
         var iconEl = $(this).find('b'),
             emEl = $(this).find('em'),
-            url,isSubscriber;
+            url,isSubscriber,
+            subscribeEl = $('._subscribe'),
+            subscribeCount = subscribeEl.data('subscribecount');
         if(!iconEl.hasClass('m-hide')){
             isSubscriber = true;
             url = '/yesunion/subscriberWeMedia';
@@ -85,11 +87,14 @@ $(document).ready(function() {
                             display: 'none'
                         });
                         emEl.html('已订阅');
+                        subscribeCount += 1;
+                        subscribeEl.html(subscribeCount)
                     }else{
                         iconEl.removeClass('m-hide').css({
                             display: 'block'
                         });
                         emEl.html('订阅');
+                        subscribeEl.html(subscribeCount)
                     }
                 }else{
                     console.log('请求服务器失败')
