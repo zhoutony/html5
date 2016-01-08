@@ -25,7 +25,7 @@ $(document).ready(function() {
         $('._hot').removeClass('curr');
         $('._coming').addClass('curr');
     }
-    $.get('/get/queryadvertisements', function(adsHtml){
+    $.get('/get/queryadvertisements/4', function(adsHtml){
         var _addimg = $('.addimg').html(adsHtml);
 
 

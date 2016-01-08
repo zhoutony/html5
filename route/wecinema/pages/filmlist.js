@@ -52,17 +52,20 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
 });
 
 // 顶部广告
-app.get(['/get/queryadvertisements'], function (req, res) {
+app.get(['/get/queryadvertisements/:type'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
+    var _type = parseInt(req.params["type"]);
+    console.log('_type', _type)
     var options = {
         uri: my_api_addr,
         args: {
-            type: '4'
+            type: _type
         }
     };
     render_data.data = {};
     model.getDataFromPhp(options, function (err, data) {
+        console.log(data)
         render_data.data.err = err;
         if (!err && data && data.advertisements) {
             render_data.data.fourthAds = data.advertisements;

@@ -38,7 +38,8 @@ block prepend body
                                 b.icon_y 原创
                             p.num 
                                 b 票友  
-                                span &nbsp;#{data.sourceInfo.subscribeCount} 
+                                span &nbsp;
+                                span._subscribe(data-subscribecount="#{data.sourceInfo.subscribeCount}") #{data.sourceInfo.subscribeCount} 
                                 b.mr  |
                                 b 总阅读
                                 span  &nbsp;#{data.sourceInfo.AllReadCount}
