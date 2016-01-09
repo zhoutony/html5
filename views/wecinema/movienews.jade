@@ -88,8 +88,12 @@ block prepend body
                                     
                                     p.flexbox_v_c
                                         //- b.icon_y(style="display:none") 原创
-                                        b.join +
-                                        em 订阅
+                                        if data.newsInfo.isSubscribe && data.newsInfo.isSubscribe == 'false'
+                                            b.join +
+                                            em 订阅
+                                        else 
+                                            b.join.m-hide(style="display:none;") +
+                                            em 已订阅
                                 div.txtbox
                                     a(href='/medialist/#{data.sourceId}')
                                         p 在电影的时光读懂自已
