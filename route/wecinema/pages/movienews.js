@@ -14,10 +14,12 @@ app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req
     var my_api_addr = "/queryMovieNewsByID.aspx";
     var movieNewId = req.params["movieNewId"];
     var sourceId = req.params["sourceId"];
+    var open_id     = req.cookies.open_id || '';
     var options = {
         uri: my_api_addr,
         args: {
-            newsID: movieNewId
+            newsID: movieNewId,
+            openId: open_id
         }
     };
     render_data.data = {};
@@ -27,6 +29,7 @@ app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req
     }
     // console.log(global.reversion,global.staticBase);
     model.getDataFromPhp(options, function (err, data) {
+        // console.log(data)
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;
