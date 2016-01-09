@@ -137,7 +137,7 @@ body
 {
 	font-family: "Helvetica Neue", Helvetica, "\5FAE\8F6F\96C5\9ED1", sans-serif;
 	color: #666;
-	font-size: 0.14rem;
+	 
 }
 body,
 html
@@ -941,7 +941,7 @@ body { }
 }
 .hotmovie footer
 {
-	padding: 0.5rem 0 0;
+	padding: 0.8rem 0 0;
 	font-size: 1rem;
 }
 .hotmovie footer span,
@@ -4962,3 +4962,4 @@ line-height;
 	background: rgba(0,0,0,.6) url(../images/maskshare.png) no-repeat 0 0;
 	background-size: 100% auto;
 }
+
