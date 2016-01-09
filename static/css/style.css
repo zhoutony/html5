@@ -378,7 +378,7 @@ body { }
 	background: #aaa;
 	border-radius: 50%;
 }
-.mui-slider-indicator .mui-active.mui-indicator { background: none; }
+.mui-slider-indicator .mui-active.mui-indicator { background: #00948D; }
 .mui-slider-indicator .mui-icon
 {
 	width: 40px;
@@ -710,7 +710,7 @@ body { }
 	border: 0.1rem solid #00948D;
 	margin: 0 0.1rem;
 	border-radius: 1rem;
-	background: #00948D;
+	background:none;
 	display: inline-block;
 	vertical-align: middle;
 	overflow: hidden;
@@ -3363,7 +3363,7 @@ color:#fff;
 {
 	 
 }
-.infotool .imgbox p:last-child { font-size: 1.2rem; }
+.infotool .imgbox p:last-child { font-size: 1.2rem; height:1.6rem;}
 .infotool .imgbox p:last-child span{display:inline-block;  }
 .infotool .imgbox p a span { color: #00948D; }
 .infotool .imgbox p   b.join
@@ -3374,7 +3374,7 @@ color:#fff;
 	line-height:1.2rem;
 	 
 }
-.infotool .imgbox p   em
+.infotool .imgbox p    em
 {
 	font-style: normal;
 	 
