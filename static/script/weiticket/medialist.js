@@ -42,7 +42,7 @@ $(document).ready(function() {
             getMovieNews();
         }
     })
-
+    alert(wxbridge);
     wxbridge.share({
         title: $('._sourceName').html() + ' -票友自媒体',
         desc: $('.medtxt').html(),

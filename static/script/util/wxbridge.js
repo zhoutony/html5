@@ -36,9 +36,10 @@ function getcap(_force,_debug){
                 });
 
                 wx.error(function(res){
-                    //alert(JSON.stringify(res));
+                    
                     //签名过期导致验证失败
                     if(res.errMsg != 'config:ok' && index <= 2){//如果签名失效，不读缓存，强制获取新的签名
+                        // alert('签名失效');
                         console.log("签名失效");
                         wx_verif(1,false);
                     }
