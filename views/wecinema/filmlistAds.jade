@@ -18,6 +18,7 @@ if(data && data.fourthAds)
                 a(href="/110000/ticket/10034")
                     if _ad_firstList && _ad_firstList.imageUrl
                         img(src="#{_ad_firstList.imageUrl}")
-        div.currbox.mui-slider-indicator
-            each indexAd, index in data.fourthAds
-                span.mui-indicator
+        if data.isIndicator
+            div.currbox.mui-slider-indicator
+                each indexAd, index in data.fourthAds
+                    span.mui-indicator

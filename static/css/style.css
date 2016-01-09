@@ -3363,7 +3363,11 @@ color:#fff;
 {
 	 
 }
+<<<<<<< HEAD
 .infotool .imgbox p:last-child { font-size: 1.2rem; height:1.6rem;}
+=======
+.infotool .imgbox p:last-child { font-size: 1.2rem;height:1.8rem; }
+>>>>>>> 3ac38112540e8802118a6b0db9f6fc7c88625eb3
 .infotool .imgbox p:last-child span{display:inline-block;  }
 .infotool .imgbox p a span { color: #00948D; }
 .infotool .imgbox p   b.join
