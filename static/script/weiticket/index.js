@@ -73,7 +73,8 @@ $(document).ready(function() {
     //分享
     // var shareImgs = $('.infocon').find('img');
     wxbridge.share({
-        title: '电影票友 -- 娱乐文化营销自媒体开放平台',
+        title: '电影票友 --人人娱乐 人人收益 自媒体共享平台',
+        timelineTitle: '电影票友 --人人娱乐 人人收益 自媒体共享平台',
         desc: '在电影的时光读懂自已     www.moviefan.com.cn',
         link: window.location.href,
         imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',

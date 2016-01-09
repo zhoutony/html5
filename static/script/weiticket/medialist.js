@@ -44,7 +44,8 @@ $(document).ready(function() {
     })
 
     wxbridge.share({
-        title: $('._sourceName').html() + ' -票友自媒体',
+        title: $('._sourceName').html() + ' -[电影票友]荐',
+        timelineTitle: $('._sourceName').html() + ' -[电影票友]荐',
         desc: $('.medtxt').html(),
         link: window.location.href,
         imgUrl: $('._logo').attr('src'),

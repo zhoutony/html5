@@ -87,7 +87,7 @@ block prepend body
                                     h2 #{data.newsInfo.weMediaName}
                                     
                                     p.flexbox_v_c
-                                        b.icon_y(style="display:none") 原创
+                                        //- b.icon_y(style="display:none") 原创
                                         b.join +
                                         em 订阅
                                 div.txtbox
@@ -185,9 +185,10 @@ block prepend footer
 block prepend script
     script
         //- | var title = "#{data.newsInfo.title}";
-        | var newscontent = !{JSON.stringify(data.newsInfo.content)};
+        | var newscontent = !{JSON.stringify(data.newsInfo.content ? data.newsInfo.content : '' )};
         | var _summary = "#{data.newsInfo.summary}";
         | var newsId = "#{data.newsId}";
+        | var weMediaName = '#{data.newsInfo.weMediaName}';
         | var sourceId = "#{data.sourceId}";
         //- var newscontent = '#{data.newsInfo.content}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")

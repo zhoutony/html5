@@ -42,7 +42,7 @@ $(document).ready(function() {
         $(indicator[0]).addClass('mui-active');
         var gallery = mui('.mui-slider');
         gallery.slider({
-            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
         });
     })
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
         $(indicator[0]).addClass('mui-active');
         var gallery = mui('.mui-slider');
         gallery.slider({
-            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
         });
     })
 
@@ -67,8 +67,9 @@ $(document).ready(function() {
     //分享
     var shareImgs = $('.infocon').find('img');
     wxbridge.share({
-        title: Util.strShort($('.infotit').html(), 25)  + ' -票友自媒体',
-        desc: '荐《' + $('.imgbox').find('h2').html() + '》:' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
+        title: Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
+        timelineTitle: '[电影票友]荐：' + Util.strShort($('.infotit').html(), 20) + ' -' + weMediaName,
+        desc: '[电影票友]荐：' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
         link: window.location.href,
         imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
         callback: function(){

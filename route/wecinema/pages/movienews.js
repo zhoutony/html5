@@ -1,6 +1,7 @@
 var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
+var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
 
 var os       = require('os');
 var pid      = process.pid;
@@ -29,6 +30,7 @@ app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;
+            render_data.data.newsInfo.publishtime = DateMethod.movieNewsDate(render_data.data.newsInfo.publishtime);
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;
             render_data.data.sourceId = sourceId;

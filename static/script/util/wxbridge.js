@@ -56,6 +56,7 @@ function getcap(_force,_debug){
 function share(param){
     var _param = {
         title : param.title || '',// 分享标题
+        timelineTitle: param.timelineTitle || '', // 朋友圈分享标题
         link : param.link || '',// 分享链接
         imgUrl : param.imgUrl || '',// 分享图标
         desc : param.desc || '',// 分享描述,分享给朋友时用
@@ -89,12 +90,11 @@ function share(param){
         });
         //分享到朋友圈
         wx.onMenuShareTimeline({
-            title : _param.title,
+            title : _param.timelineTitle,
             desc : _param.desc,
             link : _param.link,
             imgUrl : _param.imgUrl,
             success : function (res) {
-                alert();
                 // 用户确认分享后执行的回调函数
                 _param.callback();
 

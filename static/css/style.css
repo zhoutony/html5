@@ -3363,7 +3363,7 @@ color:#fff;
 {
 	 
 }
-.infotool .imgbox p:last-child { font-size: 1.2rem; }
+.infotool .imgbox p:last-child { font-size: 1.2rem;height:1.8rem; }
 .infotool .imgbox p:last-child span{display:inline-block;  }
 .infotool .imgbox p a span { color: #00948D; }
 .infotool .imgbox p   b.join
