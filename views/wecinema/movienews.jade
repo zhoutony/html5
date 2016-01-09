@@ -183,7 +183,7 @@ block prepend footer
 block prepend script
     script
         //- | var title = "#{data.newsInfo.title}";
-        | var newscontent = !{JSON.stringify(data.newsInfo.content)};
+        | var newscontent = !{JSON.stringify(data.newsInfo.content ? data.newsInfo.content : '' )};
         | var _summary = "#{data.newsInfo.summary}";
         | var newsId = "#{data.newsId}";
         | var weMediaName = '#{data.newsInfo.weMediaName}';

@@ -42,7 +42,7 @@ $(document).ready(function() {
         $(indicator[0]).addClass('mui-active');
         var gallery = mui('.mui-slider');
         gallery.slider({
-            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
         });
     })
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
         $(indicator[0]).addClass('mui-active');
         var gallery = mui('.mui-slider');
         gallery.slider({
-            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
         });
     })
 

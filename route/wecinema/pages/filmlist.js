@@ -69,6 +69,7 @@ app.get(['/get/queryadvertisements/:type'], function (req, res) {
         render_data.data.err = err;
         if (!err && data && data.advertisements) {
             render_data.data.fourthAds = data.advertisements;
+            render_data.data.isIndicator = _type == 4 ? true : false;
             
         } else {
 
