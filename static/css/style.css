@@ -736,8 +736,8 @@ body { }
 }
 .scrollpic1 h2
 {
-	width:2.5rem;
-	height:4rem;
+	width:4rem;
+	height:3rem;
 	background: url(../images/er.png) no-repeat center center;
 	background-size:100% auto;
 	left: 0.5rem;
@@ -755,7 +755,7 @@ body { }
 	height: 1rem;
 	width: 0.1rem;
 	content: '';
-	display: bock;
+	 
 	position: absolute;
 	right: -4px;
 	z-index: 0;
