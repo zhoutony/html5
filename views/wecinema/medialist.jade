@@ -10,7 +10,7 @@ block prepend body
     //wrap
     div.wrap
         div.medislist
-            if data && !data.err 
+            if data && !data.err && data.sourceInfo
                 section.meditool 
                     div.imgbox
                         if data.sourceInfo.backImageURL== ''

@@ -80,7 +80,7 @@ block prepend body
                         div.infotool
                             div.flexbox_v_c
                                 div.logobox
-                                    a(href='/medialist/#{data.sourceType}')
+                                    a(href='/medialist/#{data.sourceId}')
                                         p 
                                             img(src="#{data.newsInfo.logoURL}")
                                 div.imgbox.flex#subscribe
@@ -91,7 +91,7 @@ block prepend body
                                         b.join +
                                         em 订阅
                                 div.txtbox
-                                    a(href='/medialist/#{data.sourceType}')
+                                    a(href='/medialist/#{data.sourceId}')
                                         p 在电影的时光读懂自已
                                  
                 if data.newsInfo.title
