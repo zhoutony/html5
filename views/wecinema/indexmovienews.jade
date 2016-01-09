@@ -9,16 +9,15 @@ if data && data.movieNews
 						ul.flexbox_v_c
 							li.flex
 								h2 #{movieNew.title}
-								p
-									span.ico_edit_top 推广
-									span.n_name #{movieNew.weMediaName}
+								
 							li
 								if movieNew.image1 != ''
 									img(src="#{movieNew.image1}")
 						footer.flexbox
-							div.main.flex 置顶
+							div.main.flex.flexbox_v_c 
+								span.ico_edit_top 置顶
 								span.n_name #{movieNew.weMediaName}
-								span.num
+								span.num 阅读
 									b #{movieNew.readCount} 
 								time #{_date}
 			else
@@ -35,7 +34,7 @@ if data && data.movieNews
 							li.flex 
 								img(src="#{movieNew.image3}")
 						footer.flexbox 
-							div.main.flex
+							div.main.flex.flexbox_v_c
 								if movieNew.isTop
 									span.ico_edit_top 置顶
 									span.n_name #{movieNew.weMediaName}
@@ -53,7 +52,7 @@ if data && data.movieNews
 								if movieNew.image1 != ''
 									img(src="#{movieNew.image1}")
 						footer.flexbox
-							div.main.flex
+							div.main.flex.flexbox_v_c
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
@@ -72,7 +71,7 @@ if data && data.movieNews
 							li.flex 
 								img(src="#{movieNew.image3}")
 						footer.flexbox 
-							div.main.flex
+							div.main.flex.flexbox_v_c
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
