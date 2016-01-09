@@ -94,6 +94,7 @@ function share(param){
             link : _param.link,
             imgUrl : _param.imgUrl,
             success : function (res) {
+                alert();
                 // 用户确认分享后执行的回调函数
                 _param.callback();
 

@@ -6,7 +6,7 @@ block title
 
 
 block prepend body
-    
+    //- div.maskshare
     //- wrap
     div.wrap
         div.succ
@@ -55,8 +55,8 @@ block prepend body
         h2 客服电话：4008-188-188
         p 电影票友服务由北京亚视联合在线科技有限公司提供
     div.navtool
-             ul.flexbox_v_c
-                li.flex.curr 
+             ul.flexbox
+                li.flex
                     a(href="/")
                         i.n01 
                         | 头条
@@ -67,11 +67,13 @@ block prepend body
                 li._piaoyouguide
                     a
                         i.nadd
-                li.flex
-                    a(href="javascript:;")
+                li.flex.newflex
+                    //.showtips
+                    a(href="javascript:;")#findbox 
                         i.n03 
                         | 发现
-                li.flex
+                        div.navtips
+                li.flex.curr 
                     a(href="javascript:;")
                         i.n04 
                         | 我的

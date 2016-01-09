@@ -72,5 +72,13 @@ $(document).ready(function() {
 		}
 
 	}
+	//-发现弹出 即将开启
+	var _findbox = $('#findbox ');
+    _findbox.on('click',function(){
+        _findbox.addClass('showtips')  ;
+        setTimeout(function(){
+            _findbox.removeClass('showtips')  ;
+        }, 1000);    
+    })
 
 })

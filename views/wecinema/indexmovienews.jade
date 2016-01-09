@@ -1,26 +1,29 @@
 if data && data.movieNews
 	each movieNew, index in data.movieNews
 		if movieNew.isTop
+			- var topTxt = (movieNew.isTop == 1) ? '置顶' : (movieNew.isTop == 2) ? '力荐' : (movieNew.isTop == 3) ? '热门' : '置顶';
+			- var topClass = (movieNew.isTop == 1) ? 'first' : (movieNew.isTop == 2) ? 'second' : (movieNew.isTop == 3) ? 'thirdads' : 'first';
 			if movieNew.image2 == '' || movieNew.image3 == ''
-				section.first.imgtxt
+				section(class="imgtxt #{topClass}")
 					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						ul.flexbox_v_c
 							li.flex
 								h2 #{movieNew.title}
-								p
-									span.ico_edit_top 推广
-									span.n_name #{movieNew.weMediaName}
+								
 							li
 								if movieNew.image1 != ''
 									img(src="#{movieNew.image1}")
 						footer.flexbox
-							div.main.flex 置顶
+							div.main.flex.flexbox_v_c 
+								span.ico_edit_top 
+									| #{topTxt}
 								span.n_name #{movieNew.weMediaName}
-								span.num
+								span.num 
+									| 阅读
 									b #{movieNew.readCount} 
 								time #{movieNew.publishtime}
 			else
-				section.first
+				section(class="#{topClass}")
 					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						div.flexbox_v_c
 							h2.flex #{movieNew.title}
@@ -33,8 +36,9 @@ if data && data.movieNews
 							li.flex 
 								img(src="#{movieNew.image3}")
 						footer.flexbox 
-							div.main.flex
-								span.ico_edit_top 置顶
+							div.main.flex.flexbox_v_c
+								span.ico_edit_top
+									| #{topTxt} 
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
@@ -50,7 +54,7 @@ if data && data.movieNews
 								if movieNew.image1 != ''
 									img(src="#{movieNew.image1}")
 						footer.flexbox
-							div.main.flex
+							div.main.flex.flexbox_v_c
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
@@ -69,7 +73,7 @@ if data && data.movieNews
 							li.flex 
 								img(src="#{movieNew.image3}")
 						footer.flexbox 
-							div.main.flex
+							div.main.flex.flexbox_v_c
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 

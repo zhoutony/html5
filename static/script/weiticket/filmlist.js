@@ -97,5 +97,13 @@ $(document).ready(function() {
             }
         }.bind(this))
     })
+    //-发现弹出 即将开启
+    var _findbox = $('#findbox ');
+    _findbox.on('click',function(){
+        _findbox.addClass('showtips')  ;
+        setTimeout(function(){
+            _findbox.removeClass('showtips')  ;
+        }, 1000);    
+    })
 
 }); //END of jquery documet.ready

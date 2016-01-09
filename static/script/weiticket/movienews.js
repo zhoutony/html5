@@ -4,10 +4,12 @@ var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var Util = require('../util/widgets.js');
 var wxbridge = require('../util/wxbridge');
+var Dialogs = require('../util/dialogs');
 
 /* jshint ignore:end */
 $(document).ready(function() {
-    var openId = cookie.getItem('open_id');
+    var openId = cookie.getItem('open_id'),
+        shareTip;
     if(window.newscontent){
     	var _html = JSON.stringify(window.newscontent)
         $('._txt').html(window.newscontent);
@@ -21,6 +23,14 @@ $(document).ready(function() {
             oScript.src = _url;
             oHead.appendChild(oScript);
         }
+    }
+
+    //分享提示操作  shareTip
+    if(Util.is_weixn()){
+        $('.info03').on('click', function(evt){
+            evt.preventDefault()
+            shareTip = Dialogs.shareTip();
+        })
     }
 
     //广告5
@@ -62,6 +72,7 @@ $(document).ready(function() {
         link: window.location.href,
         imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
         callback: function(){
+            shareTip();
             Util.shearCallback(openId, newsId, 2, function(){
                 console.log('分享成功，并发送服务器');
             })
