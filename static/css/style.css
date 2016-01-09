@@ -736,15 +736,13 @@ body { }
 }
 .scrollpic1 h2
 {
-	background: #00948D;
-	padding: 0 1rem;
-	height: 1rem;
-	color: #fff;
-	left: 0;
-	top: 0;
-	font-size: 0.8rem;
-	line-height: 1rem;
-	padding-top: 0.1rem;
+	width:2.5rem;
+	height:4rem;
+	background: url(../images/er.png) no-repeat center center;
+	background-size:100% auto;
+	left: 0.5rem;
+	top: 0.5rem;
+	text-indent:-9999rem;
 }
 .scrollpic1 h2 span
 {
@@ -753,6 +751,7 @@ body { }
 }
 .scrollpic1 h2:after
 {
+	display:none;
 	height: 1rem;
 	width: 0.1rem;
 	content: '';
@@ -4827,7 +4826,7 @@ line-height;
 .btn_buy span,
 .btnbar span { line-height: 1.4rem; }
 .paylist li .priceaside { margin-top: 0rem; }
-.hotmovie footer span.ico_edit_top { margin-top: -0.1rem; }
+.hotmovie footer span.ico_edit_top { margin-top: -0.2rem; }
 /* 
 .hotmovie .n_name,
 .hotmovie .num{margin-top:-0.2rem;}*/
