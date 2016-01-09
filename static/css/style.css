@@ -137,7 +137,6 @@ body
 {
 	font-family: "Helvetica Neue", Helvetica, "\5FAE\8F6F\96C5\9ED1", sans-serif;
 	color: #666;
-	font-size: 0.14rem;
 }
 body,
 html
@@ -378,7 +377,7 @@ body { }
 	background: #aaa;
 	border-radius: 50%;
 }
-.mui-slider-indicator .mui-active.mui-indicator { background: none; }
+.mui-slider-indicator .mui-active.mui-indicator { background: #00948D; }
 .mui-slider-indicator .mui-icon
 {
 	width: 40px;
@@ -710,7 +709,7 @@ body { }
 	border: 0.1rem solid #00948D;
 	margin: 0 0.1rem;
 	border-radius: 1rem;
-	background: #00948D;
+	background: none;
 	display: inline-block;
 	vertical-align: middle;
 	overflow: hidden;
@@ -736,13 +735,13 @@ body { }
 }
 .scrollpic1 h2
 {
-	width:4rem;
-	height:3rem;
+	width: 4rem;
+	height: 3rem;
 	background: url(../images/er.png) no-repeat center center;
-	background-size:100% auto;
+	background-size: 100% auto;
 	left: 0.5rem;
 	top: 0.5rem;
-	text-indent:-9999rem;
+	text-indent: -9999rem;
 }
 .scrollpic1 h2 span
 {
@@ -751,11 +750,10 @@ body { }
 }
 .scrollpic1 h2:after
 {
-	display:none;
+	display: none;
 	height: 1rem;
 	width: 0.1rem;
 	content: '';
-	 
 	position: absolute;
 	right: -4px;
 	z-index: 0;
@@ -941,7 +939,7 @@ body { }
 }
 .hotmovie footer
 {
-	padding: 0.5rem 0 0;
+	padding: 0.8rem 0 0;
 	font-size: 1rem;
 }
 .hotmovie footer span,
@@ -3357,34 +3355,29 @@ color:#fff;
 {
 	font-size: 1.4rem;
 	line-height: 1.3;
-	margin-bottom:0.5rem;
+	margin-bottom: 0.5rem;
 }
-.infotool .imgbox p
+.infotool .imgbox p { }
+.infotool .imgbox p:last-child
 {
-	 
+	font-size: 1.2rem;
+	height: 1.6rem;
 }
-.infotool .imgbox p:last-child { font-size: 1.2rem;height:1.8rem; }
-.infotool .imgbox p:last-child span{display:inline-block;  }
+.infotool .imgbox p:last-child span { display: inline-block; }
 .infotool .imgbox p a span { color: #00948D; }
-.infotool .imgbox p   b.join
+.infotool .imgbox p b.join
 {
 	color: #666666;
 	font-size: 1.8rem;
-	height:1.6rem;
-	line-height:1.2rem;
-	 
+	height: 1.6rem;
+	line-height: 1.2rem;
 }
-.infotool .imgbox p   em
-{
-	font-style: normal;
-	 
-}
+.infotool .imgbox p em { font-style: normal; }
 .infotool .imgbox p b,
 .infotool .imgbox p span
 {
 	margin: 0 0.3rem 0 0;
-	display:  block;
-
+	display: block;
 }
 .icon_y
 {
@@ -4480,7 +4473,7 @@ a.notbtn
 	padding: 0.6rem 0;
 	color: #fff;
 	font-size: 1.4rem;
-line-height;
+ 
 	text-align: center;
 }
 .prompt-pop-up i
