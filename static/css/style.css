@@ -3351,37 +3351,40 @@ color:#fff;
 .infotool .imgbox
 {
 	padding-left: 1rem;
-	padding-top: 0.3rem;
+	padding-top: 0rem;
 }
 .infotool .imgbox h2
 {
 	font-size: 1.4rem;
 	line-height: 1.3;
+	margin-bottom:0.5rem;
 }
 .infotool .imgbox p
 {
-	font-size: 1rem;
-	line-height: 1.5;
+	 
 }
 .infotool .imgbox p:last-child { font-size: 1.2rem; }
+.infotool .imgbox p:last-child span{display:inline-block;  }
 .infotool .imgbox p a span { color: #00948D; }
-.infotool .imgbox p span b
+.infotool .imgbox p   b.join
 {
 	color: #666666;
 	font-size: 1.8rem;
-	line-height: 1;
+	height:1.6rem;
+	line-height:1.2rem;
+	 
 }
-.infotool .imgbox p span em
+.infotool .imgbox p   em
 {
 	font-style: normal;
-	line-height: 1;
-	vertical-align: 0.2rem;
+	 
 }
 .infotool .imgbox p b,
 .infotool .imgbox p span
 {
 	margin: 0 0.3rem 0 0;
-	display: inline-block;
+	display:  block;
+
 }
 .icon_y
 {
@@ -3437,7 +3440,7 @@ color:#fff;
 .infomenu .main a b sup
 {
 	background: none;
-	color: rgba(0,0,0,.4);
+	color: #666666;
 	left: 0;
 	top: -0.9rem;
 }
@@ -4797,7 +4800,7 @@ line-height;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
-.infotool .imgbox p span em { vertical-align: 0.1rem; }
+/*.infotool .imgbox p span em { vertical-align: 0.1rem; }*/
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
 .btn_buy span,
@@ -4810,7 +4813,7 @@ line-height;
  *  iPhone 5/5s landscape & portrait
  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-.infotool .imgbox p span em { vertical-align: 0.1rem; }
+/*.infotool .imgbox p span em { vertical-align: 0.1rem; }*/
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
 .btn_buy span,
@@ -4820,7 +4823,7 @@ line-height;
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-.infotool .imgbox p span em { vertical-align: 0.1rem; }
+/*.infotool .imgbox p span em { vertical-align: 0.1rem; }*/
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
 .btn_buy span,

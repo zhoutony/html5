@@ -78,32 +78,34 @@ block prepend body
                 else
                     header.infoheader
                         div.infotool
-                            a(href='/medialist/#{data.sourceType}')
-                                div.flexbox
-                                    div.logobox
+                            div.flexbox_v_c
+                                div.logobox
+                                    a(href='/medialist/#{data.sourceType}')
                                         p 
                                             img(src="#{data.newsInfo.logoURL}")
-                                    div.imgbox.flex
-                                        h2 #{data.newsInfo.weMediaName}
-                                        p #{data.newsInfo.publishtime}
-                                        p
-                                            b.icon_y(style="display:none") 原创
-                                            span 
-                                                b +
-                                                em 订阅
-                                    div.txtbox
+                                div.imgbox.flex#subscribe
+                                    h2 #{data.newsInfo.weMediaName}
+                                    
+                                    p.flexbox_v_c
+                                        b.icon_y(style="display:none") 原创
+                                        b.join +
+                                        em 订阅
+                                div.txtbox
+                                    a(href='/medialist/#{data.sourceType}')
                                         p 在电影的时光读懂自已
                                  
                 if data.newsInfo.title
                     h2.infotit #{data.newsInfo.title}
-                
+
                 div.infomenu.flexbox_v_c
                     div.main.flex
                         a(href="/").flexbox_v_c
                             img(src="/images/img_ico.png")
-                            span 开放平台
+                            span 共享平台
                             b 
                                 sup + 
+                            span
+                                time #{data.newsInfo.publishtime}
                     a.info05(style="display:none; ")
                             sup #{data.newsInfo.readCount}
                             //- #{data.newsInfo.readCount}
@@ -186,6 +188,7 @@ block prepend script
         | var newscontent = !{JSON.stringify(data.newsInfo.content)};
         | var _summary = "#{data.newsInfo.summary}";
         | var newsId = "#{data.newsId}";
+        | var sourceId = "#{data.sourceId}";
         //- var newscontent = '#{data.newsInfo.content}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")
