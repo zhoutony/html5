@@ -1,7 +1,5 @@
 if data && data.movieNews
 	each movieNew, index in data.movieNews
-		- var _time = Math.floor( (new Date() - new Date(movieNew.publishtime)) / 1000 / 60 )
-		- var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
 		if movieNew.isTop
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.first.imgtxt
@@ -19,7 +17,7 @@ if data && data.movieNews
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读
 									b #{movieNew.readCount} 
-								time #{_date}
+								time #{movieNew.publishtime}
 			else
 				section.first
 					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
@@ -40,7 +38,7 @@ if data && data.movieNews
 									span.n_name #{movieNew.weMediaName}
 									span.num 阅读 
 										b #{movieNew.readCount} 
-									time #{_date}
+									time #{movieNew.publishtime}
 		else
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.imgtxt
@@ -56,7 +54,7 @@ if data && data.movieNews
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
-								time #{_date}
+								time #{movieNew.publishtime}
 			else
 				section
 					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
@@ -75,4 +73,4 @@ if data && data.movieNews
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
-								time #{_date}
+								time #{movieNew.publishtime}

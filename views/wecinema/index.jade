@@ -19,30 +19,33 @@ block prepend body
                             a(href="#{_ad_lastList.url}")
                                 img(src="#{_ad_lastList.imageUrl}")
                     each indexAd in data.firstAds
-                        li.mui-slider-item
-                            a(href="#{indexAd.url}")
-                                img(src="#{indexAd.imageUrl}")
+                        if indexAd
+                            li.mui-slider-item
+                                a(href="#{indexAd.url}")
+                                    img(src="#{indexAd.imageUrl}")
                     if _ad_firstList
                         li.mui-slider-item.mui-slider-item-duplicate
                             a(href="#{_ad_firstList.url}")
                                 img(src="#{_ad_firstList.imageUrl}")
                 div.currbox.mui-slider-indicator
                     each indexAd, index in data.firstAds
-                        span.mui-indicator
+                        if indexAd
+                            span.mui-indicator
 
             div._txtboxs_
                 each indexAd, index in data.firstAds
-                    - var _class_name = index == 0 ? "txtbox" : "txtbox m-hide";
-                    - var _link = '/110000/ticket/' + indexAd.movieID;
-                    div.txtbox(class="#{_class_name}")
-                        h2 #{indexAd.movie.movieNameCN}
-                        div.txtmid
-                            p #{indexAd.movie.intro}
-                        div.sharetool
-                            
-                                a(href='#{_link}').ico_ticket
-                            
-                                a.ico_price(style="display:none;")
+                    if indexAd && indexAd.movie
+                        - var _class_name = index == 0 ? "txtbox" : "txtbox m-hide";
+                        - var _link = '/110000/ticket/' + indexAd.movieID;
+                        div.txtbox(class="#{_class_name}")
+                            h2 #{indexAd.movie.movieNameCN}
+                            div.txtmid
+                                p #{indexAd.movie.intro}
+                            div.sharetool
+                                
+                                    a(href='#{_link}').ico_ticket
+                                
+                                    a.ico_price(style="display:none;")
 
         //轮刷2广告
         div.scrollpic1
