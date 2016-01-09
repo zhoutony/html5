@@ -176,7 +176,7 @@ $(document).ready(function() {
 			tipObj = {}, container = _container ? _container : body, _el, tipTimeout, closebtn;
 		_el = $(html).appendTo(container);
 		closebtn = _el.find('.skipbtn');
-		closebtn.on('tap', function() {
+		closebtn.on('click', function() {
 			_el.removeClass('am-skippop').addClass('close-skippop');
 			setTimeout(function(){
 				_el.remove();
@@ -186,6 +186,23 @@ $(document).ready(function() {
 			}, 2000);
 				
 		});
+	}
+
+	/*
+		分享提示
+	*/
+	function shareTip(_container){
+		//
+		var html = '<div class="maskshare"></div>', 
+			tipObj = {}, container = _container ? _container : body, _el, tipTimeout, closebtn;
+		_el = $(html).appendTo(container);
+
+		_el.on('click', function() {
+			_el.remove();
+		});
+		return function () {
+			_el && _el.remove();
+		}
 	}
 
 	// function findbox(_container){
@@ -223,6 +240,7 @@ $(document).ready(function() {
 	exports.pop   = pop;
 	exports.alert = alert;
 	exports.Loading = Loading;
+	exports.shareTip = shareTip;
 	window.piaoyouGuide = piaoyouGuide;
 	window._alert = alert;
 	window._confirm = confirm;

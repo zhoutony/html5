@@ -56,7 +56,7 @@ app.get(['/get/queryadvertisements/:type'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
     var _type = parseInt(req.params["type"]);
-    console.log('_type', _type)
+    // console.log('_type', _type)
     var options = {
         uri: my_api_addr,
         args: {
@@ -65,7 +65,7 @@ app.get(['/get/queryadvertisements/:type'], function (req, res) {
     };
     render_data.data = {};
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data)
+        // console.log(data)
         render_data.data.err = err;
         if (!err && data && data.advertisements) {
             render_data.data.fourthAds = data.advertisements;
