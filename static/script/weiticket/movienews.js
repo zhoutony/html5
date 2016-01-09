@@ -120,7 +120,7 @@ $(document).ready(function() {
                         iconEl.removeClass('m-hide').css({
                             display: 'block'
                         });
-                        
+                        emEl.html('订阅');
                     }
                 }else{
                     console.log('请求服务器失败')

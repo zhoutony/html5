@@ -3348,6 +3348,7 @@ color:#fff;
 }
 .infotool .imgbox
 {
+	color:#333;
 	padding-left: 1rem;
 	padding-top: 0rem;
 }
@@ -3362,6 +3363,9 @@ color:#fff;
 {
 	font-size: 1.2rem;
 	height: 1.6rem;
+}
+ .infomenu span time {
+    color: #b9b9ba;
 }
 .infotool .imgbox p:last-child span { display: inline-block; }
 .infotool .imgbox p a span { color: #00948D; }
