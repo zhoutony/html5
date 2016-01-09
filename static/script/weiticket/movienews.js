@@ -80,4 +80,52 @@ $(document).ready(function() {
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
         }
     })
+    //订阅el
+    var subscribe = $('#subscribe');
+    if(Util.is_weixn()){
+        subscribe.removeClass('m-hide');
+    }
+    subscribe.on('click', function(evt){
+        
+        var iconEl = $(this).find('b'),
+            emEl = $(this).find('em'),
+            url,isSubscriber,
+            subscribeEl = $('._subscribe'),
+            subscribeCount = subscribeEl.data('subscribecount');
+        if(!iconEl.hasClass('m-hide')){
+            isSubscriber = true;
+            url = '/yesunion/subscriberWeMedia';
+        }else{
+            isSubscriber = false;
+            url = '/yesunion/unsubscriberWeMedia';
+        }
+        var options = {
+            openId: openId,
+            sourceID: sourceId
+        };
+        // alert(url);
+        $.post(url, options, function(result) {
+            // alert(result);
+            if (result && result.data) {
+                var return_data = JSON.parse(result.data);
+                if(return_data.success){
+                    // alert(isSubscriber);
+                    if(isSubscriber){
+                        iconEl.addClass('m-hide').css({
+                            display: 'none'
+                        });
+                        emEl.html('已订阅');
+                         
+                    }else{
+                        iconEl.removeClass('m-hide').css({
+                            display: 'block'
+                        });
+                        
+                    }
+                }else{
+                    console.log('请求服务器失败')
+                }
+            }
+        })
+    })
 }); //END of jquery documet.ready 

@@ -1,6 +1,7 @@
 var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
+var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
 
 var os       = require('os');
 var pid      = process.pid;
@@ -8,11 +9,11 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/movienews/:sourceType/:movieNewId"], chk_login.isLoggedIn, function(req, res){
+app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req, res){
     var render_data = {};
     var my_api_addr = "/queryMovieNewsByID.aspx";
     var movieNewId = req.params["movieNewId"];
-    var sourceType = req.params["sourceType"];
+    var sourceId = req.params["sourceId"];
     var options = {
         uri: my_api_addr,
         args: {
@@ -29,9 +30,10 @@ app.get(["/movienews/:sourceType/:movieNewId"], chk_login.isLoggedIn, function(r
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;
+            render_data.data.newsInfo.publishtime = DateMethod.movieNewsDate(render_data.data.newsInfo.publishtime);
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;
-            render_data.data.sourceType = sourceType;
+            render_data.data.sourceId = sourceId;
             render_data.data.newsId = movieNewId;
             // console.log(data);
             if(data.newsInfo && data.newsInfo.content){
