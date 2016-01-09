@@ -9,6 +9,7 @@ block title
 block prepend body
     
     //- //wrap
+    
     div.wrap
         if data && !data.err && data.newsInfo
             div.infotxt
@@ -148,7 +149,7 @@ block prepend body
                                                 li
                                                     img(src="#{movieNew.image1}")
                                             footer.flexbox
-                                                div.main.flex
+                                                div.main.flex.flexbox_v_c
                                                     span.n_name #{movieNew.weMediaName}
                                                     span.num 阅读 
                                                         b #{movieNew.readCount} 
@@ -167,7 +168,7 @@ block prepend body
                                                 li.flex 
                                                     img(src="#{movieNew.image3}")
                                             footer.flexbox 
-                                                div.main.flex
+                                                div.main.flex.flexbox_v_c
                                                     span.n_name #{movieNew.weMediaName}
                                                     span.num 阅读 
                                                         b #{movieNew.readCount} 

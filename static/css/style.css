@@ -926,10 +926,11 @@ body {
 }
 .hotmovie footer span,
 .hotmovie footer time {
-	display: inline-block;
-	vertical-align: middle;
+	display:  block;
+	 
 	margin-right: 0.3rem;
-	color: #b2b2b2
+	color: #b2b2b2;
+	line-height:1;
 }
 .hotmovie footer span b {
 	font-weight: normal;
@@ -939,7 +940,8 @@ body {
 }
 .hotmovie footer span.ico_edit_top {
 	color: #fff;
-	margin-top: -0.2rem;
+	line-height:1.1rem;
+	 
 }
 .hotmovie footer span.n_name {
 	color: #25908b;
@@ -4736,9 +4738,12 @@ line-height;
 .paylist li .priceaside {
 	margin-top: 0rem;
 }
-.ico_edit_top {
-	line-height: 1.2rem;
+.hotmovie footer span.ico_edit_top{
+	margin-top:-0.1rem;
 }
+/* 
+.hotmovie .n_name,
+.hotmovie .num{margin-top:-0.2rem;}*/
 }
 .animated {
 	-webkit-animation-duration: .8s;
@@ -4854,4 +4859,10 @@ line-height;
 	-o-transition: .5s all;
 	-ms-transition: .5s all;
 	transition: .5s all;
+}
+
+/**微信分享提示**/
+.maskshare{ position: fixed;top:0;left:0;bottom:0;right:0; z-index: 100;
+background:rgba(0,0,0,.6) url(../images/maskshare.png) no-repeat 0 0;
+background-size:100% auto;
 }
