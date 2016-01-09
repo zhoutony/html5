@@ -17942,3 +17942,115 @@ Cannot read property 'content' of undefined
     at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:173:21)
 [2016-01-07 10:21:39.347] [INFO] console - open_id: 
 [2016-01-07 10:22:01.301] [INFO] console - open_id: 
+[2016-01-09 14:59:57.925] [INFO] console - Listening on port 80
+[2016-01-09 14:59:57.930] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-09 15:05:04.690] [INFO] console - _type 5
+[2016-01-09 15:05:05.014] [INFO] console - { advertisements: [], thirdIndex: 3 }
+[2016-01-09 15:05:05.047] [INFO] console - _type 6
+[2016-01-09 15:05:05.077] [INFO] console - { advertisements: [], thirdIndex: 3 }
+[2016-01-09 15:16:47.052] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/indexmovienews.jade:12
+    10| 			else if movieNew.isTop == 3
+    11| 				- topTxt = '热门'; topClass = 'thirdads'
+  > 12|             else
+    13|                 - topTxt = '置顶'; topClass = 'first'
+    14| 			if movieNew.image2 == '' || movieNew.image3 == ''
+    15| 				section(class="imgtxt #{topClass}")
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.parseCode (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:359:30)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:235:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseCode (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:361:25)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:235:21)
+[2016-01-09 15:18:40.226] [INFO] console - Listening on port 80
+[2016-01-09 15:18:40.230] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-09 15:18:46.322] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/indexmovienews.jade:12
+    10| 			else if movieNew.isTop == 3
+    11| 				- topTxt = '热门'; topClass = 'thirdads'
+  > 12|             else
+    13|                 - topTxt = '置顶'; topClass = 'first'
+    14| 			if movieNew.image2 == '' || movieNew.image3 == ''
+    15| 				section(class="imgtxt #{topClass}")
+
+Invalid indentation, you can use tabs or spaces but not both
+    at Object.Lexer.indent (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:775:15)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:924:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.parseCode (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:359:30)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:235:21)
+    at Parser.block (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:708:25)
+    at Parser.parseCode (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:361:25)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:235:21)
+[2016-01-09 15:22:41.460] [INFO] console - Listening on port 80
+[2016-01-09 15:22:41.466] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-09 15:23:30.454] [INFO] console - Listening on port 80
+[2016-01-09 15:23:30.459] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-09 15:30:00.455] [INFO] console - Listening on port 80
+[2016-01-09 15:30:00.460] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-09 15:33:59.344] [INFO] console - _type 4
+[2016-01-09 15:33:59.374] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2015-12-29/635869996480921160.jpg',
+       url: 'moviefan.com.cn',
+       movieID: 17,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3 }
+[2016-01-09 15:35:52.167] [INFO] console - _type 5
+[2016-01-09 15:35:52.171] [INFO] console - _type 6
+[2016-01-09 15:35:52.209] [INFO] console - { advertisements: [], thirdIndex: 3 }
+[2016-01-09 15:35:53.200] [INFO] console - { advertisements: [], thirdIndex: 3 }

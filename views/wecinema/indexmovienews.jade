@@ -1,8 +1,10 @@
 if data && data.movieNews
 	each movieNew, index in data.movieNews
 		if movieNew.isTop
+			- var topTxt = (movieNew.isTop == 1) ? '置顶' : (movieNew.isTop == 2) ? '力荐' : (movieNew.isTop == 3) ? '热门' : '置顶';
+			- var topClass = (movieNew.isTop == 1) ? 'first' : (movieNew.isTop == 2) ? 'second' : (movieNew.isTop == 3) ? 'thirdads' : 'first';
 			if movieNew.image2 == '' || movieNew.image3 == ''
-				section.first.imgtxt
+				section(class="imgtxt #{topClass}")
 					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						ul.flexbox_v_c
 							li.flex
@@ -13,13 +15,15 @@ if data && data.movieNews
 									img(src="#{movieNew.image1}")
 						footer.flexbox
 							div.main.flex.flexbox_v_c 
-								span.ico_edit_top 置顶
+								span.ico_edit_top 
+									| #{topTxt}
 								span.n_name #{movieNew.weMediaName}
-								span.num 阅读
+								span.num 
+									| 阅读
 									b #{movieNew.readCount} 
 								time #{movieNew.publishtime}
 			else
-				section.first
+				section(class="#{topClass}")
 					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						div.flexbox_v_c
 							h2.flex #{movieNew.title}
@@ -33,12 +37,12 @@ if data && data.movieNews
 								img(src="#{movieNew.image3}")
 						footer.flexbox 
 							div.main.flex.flexbox_v_c
-								if movieNew.isTop
-									span.ico_edit_top 置顶
-									span.n_name #{movieNew.weMediaName}
-									span.num 阅读 
-										b #{movieNew.readCount} 
-									time #{movieNew.publishtime}
+								span.ico_edit_top
+									| #{topTxt} 
+								span.n_name #{movieNew.weMediaName}
+								span.num 阅读 
+									b #{movieNew.readCount} 
+								time #{movieNew.publishtime}
 		else
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.imgtxt
