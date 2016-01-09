@@ -6,7 +6,8 @@ var model           = require(process.cwd() + "/libs/model.js");
 
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
 
-var cinemaInfoData  = require(process.cwd() + "/route/wecinema/util/cinemaInfoData.js");
+
+var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
 
 // var returnErrorPage = model.returnErrorPage;
 
@@ -85,10 +86,15 @@ app.get(['/hotmovienews/:pageindex'], function (req, res) {
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data);
         render_data.data.err = err;
-        if (!err && data) {
+        if (!err && data && data.movieNews) {
             if(data.movieNews.length == 0){
                 res.send('');
             }else{
+                var len = data.movieNews.length;
+                for(var i = 0; i < len; i++){
+                    var publishtime = data.movieNews[i].publishtime
+                    data.movieNews[i].publishtime = DateMethod.movieNewsDate(publishtime)
+                }
                 render_data.data.movieNews = data.movieNews;
                 res.render("wecinema/indexmovienews", render_data);
             }

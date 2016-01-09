@@ -2,6 +2,8 @@ var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
 
+var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
+
 var os       = require('os');
 var pid      = process.pid;
 var hostname = os.hostname();
@@ -30,11 +32,18 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.i
          }
     };
     render_data.data = {};
-    console.log('open_id:', open_id)
+    // console.log('open_id:', open_id)
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
+            if(data.movieNews && data.movieNews.length > 0){
+                var len = data.movieNews.length;
+                for(var i = 0; i < len; i++){
+                    var publishtime = data.movieNews[i].publishtime
+                    data.movieNews[i].publishtime = DateMethod.movieNewsDate(publishtime)
+                }
+            }
             render_data.data = data;
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;

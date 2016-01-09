@@ -21,9 +21,10 @@ $(document).ready(function() {
                 ScrollBottomPlus.remove();
                 return;
             }
-            var _el = $('<div></div>').html(data).appendTo(hotmovie);
+            hotmovie.html(hotmovie.html() + data)
+            // var _el = $('<div></div>').html(data).appendTo(hotmovie);
             if(movienewsPageindex == 1){
-                appendThirdAds(_el, thirdIndex ? thirdIndex -1 : 1);
+                appendThirdAds(hotmovie, thirdIndex ? thirdIndex -1 : 1);
             }
             if(!lock){
                 lock = true;
