@@ -15,7 +15,7 @@ $(document).ready(function() {
     var openId = cookie.getItem('open_id');
     //加载 头条电影列表
     function getMovieNews(){
-        var _url = '/hotmovienews/' + movienewsPageindex;
+        var _url = '/'+ publicsignal +'/hotmovienews/' + movienewsPageindex;
         $.get(_url, function(data) {
             if(data == ""){
                 ScrollBottomPlus.remove();

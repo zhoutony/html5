@@ -151,6 +151,7 @@ block prepend script
     script
         | var data = !{JSON.stringify(data)};
         | var thirdIndex = !{data.baseData.thirdIndex};
+        | var publicsignal = '#{data.publicsignal}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
 
