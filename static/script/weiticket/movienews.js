@@ -83,7 +83,7 @@ $(document).ready(function() {
     //订阅el
     var subscribe = $('#subscribe');
     if(Util.is_weixn()){
-        subscribe.find('.subscribe').removeClass('m-hide');
+        subscribe.find('.flexbox_v_c').removeClass('m-hide');
         subscribe.on('click', function(evt){
             
             var iconEl = $(this).find('b'),
