@@ -2,6 +2,7 @@ var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
 var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 
 var os       = require('os');
 var pid      = process.pid;
@@ -9,12 +10,12 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req, res){
+app.get(["/movienews/:sourceId/:movieNewId", "/:publicsignal/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req, res){
     var render_data = {};
     var my_api_addr = "/queryMovieNewsByID.aspx";
     var movieNewId = req.params["movieNewId"];
     var sourceId = req.params["sourceId"];
-    var open_id     = req.cookies.open_id || '';
+    var open_id     = req.cookies.openids || '';
     var options = {
         uri: my_api_addr,
         args: {
@@ -22,6 +23,18 @@ app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req
             openId: open_id
         }
     };
+    var city = req.cookies.city,
+        locationId = 110100;
+    if(city){
+        city = JSON.parse(city);
+        if(city.locationId){
+            locationId = city.locationId;
+        }
+    }
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
@@ -38,6 +51,8 @@ app.get(["/movienews/:sourceId/:movieNewId"], chk_login.isLoggedIn, function(req
             render_data.data.staticBase = global.staticBase;
             render_data.data.sourceId = sourceId;
             render_data.data.newsId = movieNewId;
+            render_data.data.publicsignal = publicsignal;
+            render_data.data.locationId = locationId;
             // console.log(data);
             if(data.newsInfo && data.newsInfo.content){
                 var content = new StringBuilder();

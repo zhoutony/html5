@@ -18,7 +18,7 @@ block prepend body
                             a(href="")
                                 i.ico_firend
                                 span 好友买单
-                            a(href="#")
+                            a(href="")
                                 i.ico_redbag
                                 span 邀红包 
                     div.arrow
@@ -46,7 +46,7 @@ block prepend body
                                 ul
                                     each one_schedule in schedule1.shows
                                         li
-                                            a.flexbox_v_c(href= one_schedule.stopSellTime ? "/room/#{one_schedule.showtimeID}" : "")
+                                            a.flexbox_v_c(href= one_schedule.stopSellTime ? "/#{data.publicsignal}/room/#{one_schedule.showtimeID}" : "")
                                                 div.toolmid
                                                     i.demo-icon.icon-sun
                                                 div.timemid
@@ -75,6 +75,7 @@ block prepend script
         | var shows = !{JSON.stringify(data.shows)};
         | var movies = !{JSON.stringify(data.movies)};
         | var cinema = !{JSON.stringify(data.cinema)};
+        | window.publicsignal = "#{data.publicsignal}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/schedule.js?#{data.reversion}")
         

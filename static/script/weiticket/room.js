@@ -108,7 +108,7 @@ $(document).ready(function() {
             option.mobile     = ''
             $.post('/lockseats/' + showtimeId, option, function(reture_data){
                 localStorage.setItem('seats', JSON.stringify( selected_seats ));
-                location.href = '/payment';
+                location.href = '/'+ publicsignal +'/payment';
             })
         }
     }

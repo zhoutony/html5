@@ -6,7 +6,7 @@ var model           = require(process.cwd() + "/libs/model.js");
 
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
 
-
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
 
 // var returnErrorPage = model.returnErrorPage;
@@ -19,17 +19,22 @@ var viewColor;
 
 
 // 首页
-app.get(['/', '/index.html'], chk_login.isLoggedIn, function (req, res) {
+app.get(['/', '/index.html', '/:publicsignal'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
     var city = req.cookies.city,
-        locationId = 11000;
+        locationId = 110100;
     if(city){
         city = JSON.parse(city);
         if(city.locationId){
             locationId = city.locationId;
         }
     }
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
+    // console.log('publicsignal:', publicsignal)
     var options = {
         uri: my_api_addr,
         args: {
@@ -43,7 +48,8 @@ app.get(['/', '/index.html'], chk_login.isLoggedIn, function (req, res) {
         firstAds: [],
         secondAds: [],
         thirdAds: [],
-        locationId: locationId
+        locationId: locationId,
+        publicsignal: publicsignal
     }
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data.advertisements);
@@ -70,7 +76,7 @@ app.get(['/', '/index.html'], chk_login.isLoggedIn, function (req, res) {
 });
 
 // 头条电影列表
-app.get(['/hotmovienews/:pageindex'], function (req, res) {
+app.get(['/hotmovienews/:pageindex', '/:publicsignal/hotmovienews/:pageindex'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
     var _pageIndex = req.params["pageindex"];
@@ -82,7 +88,13 @@ app.get(['/hotmovienews/:pageindex'], function (req, res) {
             pageSize: 5
         }
     };
-    render_data.data = {};
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
+    render_data.data = {
+        publicsignal: publicsignal
+    };
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data);
         render_data.data.err = err;
@@ -108,7 +120,7 @@ app.get(['/hotmovienews/:pageindex'], function (req, res) {
 
 //微信jsSDK签名
 app.post(['/publicsignal/queryJsapiticket'], function(req, res) {
-    var publicsignalshort = req.params["publicsignal"];
+    // var publicsignalshort = req.params["publicsignal"];
     
     var options = {
         uri: '/queryWeixinRightConfig.aspx',

@@ -69,6 +69,8 @@ block prepend body
 block prepend footer
 
 block prepend script
+    script
+        | window.publicsignal = "#{data.publicsignal}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/payment.js?#{data.reversion}")
         

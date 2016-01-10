@@ -8,7 +8,7 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/login"], function(req, res){
+app.get(["/login/index"], function(req, res){
     var render_data = {};
     var my_api_addr = "/room";
     var options = {

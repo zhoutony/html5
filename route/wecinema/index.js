@@ -5,9 +5,6 @@
 //home
 require('./pages/home');
 
-//choose cinema
-require('./pages/choose_cinema');
-
 //schedule
 require('./pages/schedule');
 
@@ -26,8 +23,6 @@ require('./pages/result');
 //util
 require('./util');
 
-//checkbincard
-require('./pages/checkbincard');
 
 //mycards
 // require('./pages/mycards');
@@ -49,8 +44,6 @@ require('./pages/setcookie');
 //myecoupons
 require('./pages/myecoupons');
 
-//event
-require('./pages/event');
 
 //movienews
 require('./pages/movienews');
@@ -74,11 +67,8 @@ require('./pages/sharepop');
 require('./pages/cinemaorder');
 
 //ordersucc
-require('./pages/ordersucc');
+require('./pages/orderresult');
 
-//ordereorr
-require('./pages/ordereorr');
- 
 
 require('./pages/mask-tel');
 

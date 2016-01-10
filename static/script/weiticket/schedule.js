@@ -52,7 +52,8 @@ $(document).ready(function() {
             width: dateContainerLi.width() * dateContainerLiLen,
             overflow: 'hidden'
         })
-        if(!DateIScroll){
+        var tabstime = $('.tabstime');
+        if(!DateIScroll && tabstime.length > 0){
             DateIScroll = new IScroll('.tabstime', {
                 scrollX: true,
                 scrollY: false,
@@ -69,7 +70,7 @@ $(document).ready(function() {
         $('.moviescroll').css({
             width: _movieWidth
         })
-        if(!MoviesIScroll){
+        if(!MoviesIScroll && _movieLen > 0){
             MoviesIScroll = new IScroll('.filmscroll', {
                 scrollX: true,
                 scrollY: false,

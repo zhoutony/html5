@@ -95,6 +95,7 @@ block prepend script
         | var cinema = !{JSON.stringify(data.cinema)};
         | var movie = !{JSON.stringify(data.movie)};
         | var showtime = !{JSON.stringify(data.show)};
-        | var showtimeId = "#{data.show.showtimeID}"
+        | var showtimeId = "#{data.show.showtimeID}";
+        | window.publicsignal = "#{data.publicsignal}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/room.js?#{data.reversion}")

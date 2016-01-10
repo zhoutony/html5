@@ -35,7 +35,7 @@ function isLoggedIn(req, res, next) {
     }
     
     var publicsignalshort_in_cookie          = "url";
-    var open_id                              = req.cookies.open_id;
+    var open_id                              = req.cookies.openids;
     var public_short_in_openid_cookie        = "";
     var openid_in_openid_cookie              = "";
     //var cinema_id                            = req.params["cinema_id"];

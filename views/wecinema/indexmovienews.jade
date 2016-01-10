@@ -5,7 +5,7 @@ if data && data.movieNews
 			- var topClass = (movieNew.isTop == 1) ? 'first' : (movieNew.isTop == 2) ? 'second' : (movieNew.isTop == 3) ? 'thirdads' : 'first';
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section(class="imgtxt #{topClass}")
-					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+					a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						ul.flexbox_v_c
 							li.flex
 								h2 #{movieNew.title}
@@ -24,7 +24,7 @@ if data && data.movieNews
 								time #{movieNew.publishtime}
 			else
 				section(class="#{topClass}")
-					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+					a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						div.flexbox_v_c
 							h2.flex #{movieNew.title}
 							
@@ -46,7 +46,7 @@ if data && data.movieNews
 		else
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.imgtxt
-					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+					a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						ul.flexbox_v_c
 							li.flex
 								h2 #{movieNew.title}
@@ -61,7 +61,7 @@ if data && data.movieNews
 								time #{movieNew.publishtime}
 			else
 				section
-					a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+					a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
 						div.flexbox_v_c
 							h2.flex #{movieNew.title}
 							

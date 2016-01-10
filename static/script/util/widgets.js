@@ -218,11 +218,12 @@ define([
             var bartool = $('.bartool');
             if(bartool.length > 0){
                 bartool.on('click', function(evt){
-                    var _el = $(this);
+                    var _el = $(this),
+                        publicsignal = window.publicsignal ? window.publicsignal : '';
                     _el.addClass('zoomOut');
                     _el.addClass('animated');
                     setTimeout(function(){
-                        location.href = '/';
+                        location.href = '/' + publicsignal;
                     }, 800)
                 })
             }

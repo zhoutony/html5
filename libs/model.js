@@ -118,10 +118,10 @@ var getDataFromPhp = function(options, callback) {
     };
 
     //console.debug(my_name,"=====logs from modules libs/model.js========");
-    //console.info(my_name,"request args",options_for_requst);
+    // console.info(my_name,"request args",options_for_requst);
 
     request.post(options_for_requst, function(error, response, body) {
-
+        // console.log("请求结束：",body);
         if(response){
             build_res_status_map(options_for_requst.uri,response.statusCode);
         }
@@ -138,7 +138,7 @@ var getDataFromPhp = function(options, callback) {
 
             //判断是否是成功返回，如果是已经解析好了的json，直接返回
             body = JSON.parse(body);
-            // console.log(body.data);
+            
             if (body.success) {
                 // console.debug(my_name,"I am in first level if....");
                 // console.debug(my_name,"====get res from module  model.js=====");

@@ -1,7 +1,7 @@
 var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
-
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 var DateMethod      = require(process.cwd() + "/route/wecinema/util/date.js");
 
 var os       = require('os');
@@ -9,10 +9,12 @@ var pid      = process.pid;
 var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
-app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.isLoggedIn, function(req, res){
+app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex",
+        "/:publicsignal/medialist/:sourceId", 
+        "/:publicsignal/medialist/:sourceId/:pageIndex"], chk_login.isLoggedIn, function(req, res){
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
-    var open_id     = req.cookies.open_id || '';
+    var open_id     = req.cookies.openids || '';
     var sourceId = req.params["sourceId"];
     var isScrollBottomPlus = false;
     var pageIndex = req.params["pageIndex"];
@@ -20,6 +22,10 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.i
         isScrollBottomPlus = true;
     }else{
         pageIndex = 1;
+    }
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
     }
     // var showtype = sourceID;
     var options = {
@@ -48,6 +54,7 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex"], chk_login.i
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;
             render_data.data.sourceId = sourceId;
+            render_data.data.publicsignal = publicsignal;
         }
         if(isScrollBottomPlus){
             res.render("wecinema/one_medialist", render_data);
