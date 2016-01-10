@@ -95,9 +95,9 @@ app.post(['/yesunion/subscriberWeMedia'], function (req, res) {
     };
 
     render_data.data = {};
-    console.log('subscriberWeMedia');
+    // console.log('subscriberWeMedia');
     model.getDataFromPhp(options, function (err, data) {
-        console.log('data:', data);
+        // console.log('data:', data);
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;
