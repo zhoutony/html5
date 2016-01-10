@@ -26,8 +26,8 @@ $(document).ready(function() {
                 ScrollBottomPlus.remove();
                 return;
             }
-            var _el = $('<div></div>').html(data).appendTo(hotmovie);
-            
+            // var _el = $('<div></div>').html(data).appendTo(hotmovie);
+            hotmovie.html(hotmovie.html() + data)
             ScrollBottomPlus.gotoBottomShowed = false;
         });
 
