@@ -8,7 +8,7 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/ordersucc"], function(req, res){
+app.get(["/payment/succeed"], function(req, res){
     var render_data = {};
     var my_api_addr = "/room";
     var options = {
@@ -21,4 +21,20 @@ app.get(["/ordersucc"], function(req, res){
         }
     };
     res.render("wecinema/ordersucc");
+});
+
+
+app.get(["/payment/eorr"], function(req, res){
+    var render_data = {};
+    var my_api_addr = "/room";
+    var options = {
+        uri: my_api_addr,
+        args: {
+            locationID: 110000,
+            type:       1,
+            pageIndex:  1,
+            pageSize:   10
+        }
+    };
+    res.render("wecinema/ordereorr");
 });

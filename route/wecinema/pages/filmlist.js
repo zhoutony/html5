@@ -1,13 +1,17 @@
 var util = require('util');
 var model = require(process.cwd() + "/libs/model.js");
 var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 
 var os = require('os');
 var pid = process.pid;
 var hostname = os.hostname();
 var my_name = hostname + ':' + pid;
 
-app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:sole'], function (req, res) {
+app.get(['/:locationID/filmlist/:showtype', 
+        '/:locationID/filmlist/:showtype/:sole',
+        '/:publicsignal/:locationID/filmlist/:showtype',
+        '/:publicsignal/:locationID/filmlist/:showtype/:sole'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryMovies.aspx";
     var _locationID = req.params["locationID"];
@@ -18,17 +22,20 @@ app.get(['/:locationID/filmlist/:showtype', '/:locationID/filmlist/:showtype/:so
         uri: my_api_addr,
         args: {
             locationID: _locationID,//110000
-            type:       type,
-            pageIndex:  1,
-            pageSize:   10
+            type:       type
         }
     };
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
         staticBase: global.staticBase,
         showtype: showtype,
-        locationId: _locationID
+        locationId: _locationID,
+        publicsignal: publicsignal
     }
     // console.log(JSON.stringify(options))
     model.getDataFromPhp(options, function (err, data) {

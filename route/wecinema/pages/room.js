@@ -6,6 +6,7 @@ var model = require(process.cwd() + "/libs/model.js");
 
 var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
 var dataProcess = require(process.cwd() + "/route/wecinema/util/data.js");
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 var returnErrorPage = model.returnErrorPage;
 var _ = require("underscore");
 
@@ -14,7 +15,7 @@ var pid = process.pid;
 var hostname = os.hostname();
 var my_name = hostname + ':' + pid;
 
-app.get(['/room/:ticketId'], function(req, res){
+app.get(['/room/:ticketId', '/:publicsignal/room/:ticketId'], function(req, res){
 
     var render_data = {};
     var my_api_addr = "/queryShowSeats.aspx";
@@ -25,6 +26,10 @@ app.get(['/room/:ticketId'], function(req, res){
             ticketId: ticketId
         }
     };
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,

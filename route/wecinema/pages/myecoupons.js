@@ -8,7 +8,7 @@ app.get(['/:publicsignalshort/member/myecoupons'], chk_login.isLoggedIn, functio
         uri: '/cardticket/list',
         args: {
             publicsignalshort: req.params["publicsignalshort"],
-            openid: req.cookies.open_id.openid
+            openid: req.cookies.openids
         }
     };
 

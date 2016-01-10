@@ -36,7 +36,7 @@ block prepend body
                 each indexAd, index in data.firstAds
                     if indexAd && indexAd.movie
                         - var _class_name = index == 0 ? "txtbox" : "txtbox m-hide";
-                        - var _link = '/110000/ticket/' + indexAd.movieID;
+                        - var _link = '/#{data.publicsignal}/#{data.locationId}/ticket/' + indexAd.movieID;
                         div.txtbox(class="#{_class_name}")
                             h2 #{indexAd.movie.movieNameCN}
                             div.txtmid
@@ -127,7 +127,7 @@ block prepend body
                         i.n01 
                         | 头条
                 li.flex.newflex
-                    a(href="/#{data.locationId}/filmlist/hot")
+                    a(href="/#{data.publicsignal}/#{data.locationId}/filmlist/hot")
                         i.n02 
                         | 电影
                 li._piaoyouguide
@@ -140,7 +140,7 @@ block prepend body
                         | 发现
                         div.navtips
                 li.flex
-                    a(href="/my/index")
+                    a(href="/#{data.publicsignal}/my/index")
                         i.n04 
                         | 我的
 

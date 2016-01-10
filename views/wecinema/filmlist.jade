@@ -25,7 +25,7 @@ block prepend body
             section.movielist
                 ul
                     each movie, index in data.movies
-                        li.flexbox(data-url="/#{data.locationId}/ticket/#{movie.movieID}")
+                        li.flexbox(data-url="/#{data.publicsignal}/#{data.locationId}/ticket/#{movie.movieID}")
                             div.picmid
                                 a(href="javascript:;")
                                     img(src="#{movie.movieImage}")
@@ -66,7 +66,7 @@ block prepend body
                         | 发现
                         div.navtips
                 li.flex
-                    a(href="/my/index")
+                    a(href="/#{data.publicsignal}/my/index")
                         i.n04 
                         | 我的
 

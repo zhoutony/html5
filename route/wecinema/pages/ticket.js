@@ -2,9 +2,9 @@ var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 
-
-app.get(['/:cityId/ticket/:movieId'], function(req, res){
+app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], function(req, res){
     var render_data = {};
     var my_api_addr = "/queryCinemas.aspx";
     var cityId = req.params["cityId"];
@@ -18,15 +18,20 @@ app.get(['/:cityId/ticket/:movieId'], function(req, res){
             pageSize: 100
         }
     };
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
         staticBase: global.staticBase,
         cinemas: [],
-        movie: []
+        movie: [],
+        publicsignal: publicsignal
     }
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data.movie);
+        // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
             render_data.data.cinemas = getCinemas(data.cinemas);

@@ -124,7 +124,7 @@ app.route('/oauth2').get(function(req, res) {
                             send_request_wx(url,publicsignalshort,function(err,data){
                                 console.log(data);
                                 if(!err){
-                                    res.cookie('open_id', data, {
+                                    res.cookie('openids', data, {
                                         maxAge: 1000 * 60 * 60 * 24 * 30,
                                         path: '/'
                                     });

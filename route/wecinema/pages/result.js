@@ -35,7 +35,7 @@ app.get('/:publicsignalshort/order_detail/:order_id', function(req, res, next) {
   var options = {
     uri: '/order/detail',
     args: {
-      user_id: req.cookies.open_id.openid,
+      user_id: req.cookies.openids,
       publicSignalShort: req.params['publicsignalshort'],
       order_id: req.params['order_id']
     }

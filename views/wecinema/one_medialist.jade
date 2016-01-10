@@ -2,7 +2,7 @@ if data && !data.err && data.movieNews
     each movieNew, index in data.movieNews
         if movieNew.image1 == '' &&  movieNew.image2 == '' && movieNew.image3 == ''
             section
-                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+                a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                     ul.flexbox
                         li.medtxt.flex
                             h2 #{movieNew.title}
@@ -18,7 +18,7 @@ if data && !data.err && data.movieNews
                     div.line.flex
         else if movieNew.image2 == '' || movieNew.image3 == ''
             section
-                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+                a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                     ul.flexbox
                         li.medtxt.flex
                             h2 #{movieNew.title}
@@ -36,7 +36,7 @@ if data && !data.err && data.movieNews
                     div.line.flex
         else
             section
-                a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+                a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                     ul.flexbox
                         li.flex
                             img(src="#{movieNew.image1}")

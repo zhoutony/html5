@@ -7,7 +7,7 @@ var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
 var dialogs = require('../util/dialogs');
-var Citys = require('./citys');
+// var Citys = require('./citys');
 var ChooseCity = require('../util/chooseCity');
 
 /* jshint ignore:end */
@@ -77,7 +77,7 @@ $(document).ready(function() {
             });
         }
     })
-    $('.movielist').on('tap', 'li', function(evt){
+    $('.movielist').on('click', 'li', function(evt){
         var _el = $(evt.currentTarget),
             _url = _el.data('url');
         if(_url){
@@ -91,9 +91,9 @@ $(document).ready(function() {
             var cookiePath = '/';
             cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
             if(showtype == 'coming'){
-                location.href = '/' + city.locationId + '/filmlist/coming';
+                location.href = '/'+ window.publicsignal + '/' + city.locationId + '/ticket/';
             }else{
-                location.href = '/' + city.locationId + '/filmlist/hot';
+                location.href = '/'+ window.publicsignal + '/' + city.locationId + '/filmlist/hot';
             }
         }.bind(this))
     })

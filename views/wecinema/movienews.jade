@@ -31,7 +31,7 @@ block prepend body
                                                 p #{_ad_firstList.movieVersions}
                                                 p #{_ad_firstList.intro}
                                         div.btnbox
-                                            a(href="/110000/ticket/#{_ad_firstList.movieID}").new 
+                                            a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_firstList.movieID}").new 
                                                 i.btn_tick
                                                 p 购票
                                 each indexAd in _items
@@ -45,7 +45,7 @@ block prepend body
                                                     p #{indexAd.movieVersions}
                                                     p #{indexAd.intro}
                                             div.btnbox
-                                                a(href="/110000/ticket/#{indexAd.movieID}").new 
+                                                a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{indexAd.movieID}").new 
                                                     i.btn_tick
                                                     p 购票
                                 li.mui-slider-item.mui-slider-item-duplicate
@@ -58,7 +58,7 @@ block prepend body
                                                 p #{_ad_lastList.movieVersions}
                                                 p #{_ad_lastList.intro}
                                         div.btnbox
-                                            a(href="/110000/ticket/#{_ad_lastList.movieID}").new 
+                                            a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
                                                 i.btn_tick
                                                 p 购票
                     else
@@ -72,7 +72,7 @@ block prepend body
                                         p #{indexAd.movieVersions}
                                         p #{indexAd.intro}
                                 div.btnbox
-                                    a(href="/110000/ticket/#{indexAd.movieID}").new 
+                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{indexAd.movieID}").new 
                                         i.btn_tick
                                         p 购票
                 else
@@ -80,7 +80,7 @@ block prepend body
                         div.infotool
                             div.flexbox_v_c
                                 div.logobox
-                                    a(href='/medialist/#{data.sourceId}')
+                                    a(href='/#{data.publicsignal}/medialist/#{data.sourceId}')
                                         p 
                                             img(src="#{data.newsInfo.logoURL}")
                                 div.imgbox#subscribe
@@ -95,7 +95,7 @@ block prepend body
                                             b.join.m-hide(style="display:none;") +
                                             em 已订阅
                                 div.txtbox.flex
-                                    a(href='/medialist/#{data.sourceId}')
+                                    a(href='/#{data.publicsignal}/medialist/#{data.sourceId}')
                                         p 在电影的时光读懂自已
                                  
                 if data.newsInfo.title
@@ -148,7 +148,7 @@ block prepend body
                                 - var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
                                 if movieNew.image2 == '' || movieNew.image3 == ''
                                     section.imgtxt
-                                        a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+                                        a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                                             ul.flexbox_v_c
                                                 li.flex
                                                     h2 #{movieNew.title}
@@ -162,7 +162,7 @@ block prepend body
                                                     time #{_date}
                                 else
                                     section
-                                        a(href="/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
+                                        a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                                             div.flexbox_v_c
                                                 h2.flex #{movieNew.title}
                                                 
@@ -196,6 +196,7 @@ block prepend script
         | var newsId = "#{data.newsId}";
         | var weMediaName = '#{data.newsInfo.weMediaName}';
         | var sourceId = "#{data.sourceId}";
+        | window.publicsignal = "#{data.publicsignal}";
         //- var newscontent = '#{data.newsInfo.content}';
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")

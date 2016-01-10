@@ -14,7 +14,7 @@ var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
 // var my_name = hostname + ':' + pid;
 
 
-app.get(['/payment'], function (req, res) {
+app.get(['/payment/index'], function (req, res) {
     //渲染准备用数据
     var render_data = {};
     // QueryWeixinPlayParam.aspx
