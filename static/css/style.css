@@ -3092,8 +3092,7 @@ color:#fff;
 .hottips .telinput{margin:0;padding:0;}
 .hottips .telinput input{font-size:1.4rem;border-radius:5px 5px 0 0;color:#333;transition: 1s all;
 	text-align:center;display:block;border:none; padding:1.4rem 0; }
-.hottips .telinput input:focus{background:#00958E; color:#fff;}
-.hottips .telinput input:focus::-webkit-input-placeholder{color:#fff;}
+ 
 .hottips .tipsbtn a:first-child{ position: relative;}
 .hottips   .tipsbtn a:first-child:after{
 	content: '';
