@@ -88,6 +88,8 @@ require('./pages/medialist');
 //upload
 require('./pages/upload');
 
+//upload
+require('./pages/selflist');
 
 //skip
 require('./pages/skip');
