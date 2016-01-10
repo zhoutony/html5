@@ -30,14 +30,15 @@ block prepend body
                                 a(href="javascript:;")
                                     img(src="#{movie.movieImage}")
                             div.txtmid.flex 
-                                a(href="javascript:;")
-                                    h2 #{movie.movieNameCN}
+                                div.flexbox
+                                    h2.flex #{movie.movieNameCN}
                                         span #{movie.movieVersions}
                                         span.curr 巨幕
-                                    p #{movie.intro}
+                                    a(href="javascript:;").btn_buy
+                                        span 购票
+                                p #{movie.intro}
                             div.toolmid
-                                a(href="javascript:;").btn_buy
-                                    span 购票
+
                                 div.btnbar
                                     a(href="/")
                                         i.ico_firend
