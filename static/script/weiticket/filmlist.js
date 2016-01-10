@@ -91,9 +91,9 @@ $(document).ready(function() {
             var cookiePath = '/';
             cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
             if(showtype == 'coming'){
-                location.href = '/' + city.locationId + '/filmlist/coming';
+                location.href = '/'+ window.publicsignal + '/' + city.locationId + '/ticket/';
             }else{
-                location.href = '/' + city.locationId + '/filmlist/hot';
+                location.href = '/'+ window.publicsignal + '/' + city.locationId + '/filmlist/hot';
             }
         }.bind(this))
     })

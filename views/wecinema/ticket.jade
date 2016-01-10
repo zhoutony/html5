@@ -25,7 +25,7 @@ block prepend body
             div.tabs.serachmid
                 div.flexbox
                     div.city
-                        a(href="#") 北京
+                        a 北京市
                         i.demo-icon.icon-down-open-mini
                     div.flex.searchbox.flexbox
                         div.flex.searchtxt
@@ -59,6 +59,10 @@ block prepend footer
 block prepend script
     script
         | window.publicsignal = "#{data.publicsignal}";
+        if data.movie && data.movie.movieID
+            | var movieId = "#{data.movie.movieID}";
+        else
+            | var movieId = "0";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/ticket.js?#{data.reversion}")
 

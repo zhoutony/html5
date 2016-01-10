@@ -6,6 +6,7 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
+var ChooseCity = require('../util/chooseCity');
 
 /* jshint ignore:end */
 $(document).ready(function() {
@@ -46,5 +47,15 @@ $(document).ready(function() {
         return;
     })
 
+
+    $('.city').on('click', function(evt){
+        ChooseCity.init(function(city){
+            var cookieExpired = 60 * 60 * 24 * 30; //30天
+            var cookiePath = '/';
+            cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
+            location.href = '/'+ window.publicsignal + '/' + city.locationId + '/ticket/' + movieId;
+
+        }.bind(this))
+    })
 
 }); //END of jquery documet.ready 
