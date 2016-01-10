@@ -83,7 +83,7 @@ block prepend body
                                     a(href='/medialist/#{data.sourceId}')
                                         p 
                                             img(src="#{data.newsInfo.logoURL}")
-                                div.imgbox.flex#subscribe
+                                div.imgbox#subscribe
                                     h2 #{data.newsInfo.weMediaName}
                                     
                                     p.flexbox_v_c
@@ -94,7 +94,7 @@ block prepend body
                                         else 
                                             b.join.m-hide(style="display:none;") +
                                             em 已订阅
-                                div.txtbox
+                                div.txtbox.flex
                                     a(href='/medialist/#{data.sourceId}')
                                         p 在电影的时光读懂自已
                                  
