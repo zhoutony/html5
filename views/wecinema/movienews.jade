@@ -86,7 +86,7 @@ block prepend body
                                 div.imgbox#subscribe
                                     h2 #{data.newsInfo.weMediaName}
                                     
-                                    p.flexbox_v_c
+                                    p.flexbox_v_c.m-hide
                                         //- b.icon_y(style="display:none") 原创
                                         if data.newsInfo.isSubscribe && data.newsInfo.isSubscribe == 'false'
                                             b.join +
