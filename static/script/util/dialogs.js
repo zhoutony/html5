@@ -117,17 +117,19 @@ $(document).ready(function() {
 		yesBtnLabel = yesBtnLabel || '确定';
 		noBtnLabel = noBtnLabel || '取消';
 		var html = '', tipObj = {}, container = _container ? _container : body, _el, tipTimeout, closebtn,
-			template = '<section class="pop-wrapper m-ide"><section class="mask"></section><section class="pop-btn-box"><div class="mod-bd">{0}</div><div class="btns"><div class="btn-solid btn-theme fl">{1}</div><div class="btn-solid btn-theme fr">{2}</div></div></section></section>';
+			template = '<div class="mask flexbox_v wait"><div class="hottips">{0}<div class="tipsbtn flexbox"><a class="flex fl">{1}</a><a class="flex fr">{2}</a></div></div></div>';
 
-		_el = $('<section class="pop-wrapper"><section>').html(String.format( template, message, yesBtnLabel, noBtnLabel )).css({ zIndex: requestZIndex() }).appendTo(container);
+		_el = $(String.format( template, message, yesBtnLabel, noBtnLabel )).css({ zIndex: requestZIndex() }).appendTo(container);
 		yesbtn = _el.find('.fl');
 		nobtn = _el.find('.fr');
-		yesbtn.on('tap', function() {
+		yesbtn.on('click', function(evt) {
+			evt.preventDefault();
 			yesCallback && yesCallback();
 			_el.remove();
 		});
 
-		nobtn.on('tap', function() {
+		nobtn.on('click', function(evt) {
+			evt.preventDefault();
 			noCallback && noCallback();
 			_el.remove();
 		});

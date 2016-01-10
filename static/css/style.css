@@ -214,11 +214,11 @@ flexbox_vh_c 横向纵向居中
 }
 .wait .waitbox
 {
-	width: 11.9rem;
-	height: 7.3rem;
+	width: 12rem;
+	height: 21.2rem;
 	background-size: cover;
 	-webkit-animation-name: waitbox;
-	-webkit-animation-duration: .5s;
+	-webkit-animation-duration: 1s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: infinite;
@@ -252,22 +252,11 @@ flexbox_vh_c 横向纵向居中
  background: url(../images/wait07.png) no-repeat center center;
  background-size: cover;
 }
-70% {
+100% {
  background: url(../images/wait08.png) no-repeat center center;
  background-size: cover;
 }
-80% {
- background: url(../images/wait09.png) no-repeat center center;
- background-size: cover;
-}
-90% {
- background: url(../images/wait01.png) no-repeat center center;
- background-size: cover;
-}
-100% {
- background: url(../images/wait01.png) no-repeat center center;
- background-size: cover;
-}
+ 
 }
 .wait .waittxt
 {
@@ -716,8 +705,6 @@ body { }
 }
 .addimg
 {
-	height: 12.29rem;
-!important;
 	background: #f2f2f2;
 	overflow: hidden;
 	position: relative;
@@ -950,7 +937,11 @@ body { }
 	color: #b2b2b2;
 	line-height: 1;
 }
-.hotmovie footer span b { font-weight: normal; }
+.hotmovie footer span b
+{
+	font-weight: normal;
+	padding: 0 0.1rem;
+}
 .hotmovie footer span.num { padding: 0 0.3rem; }
 .hotmovie footer span.ico_edit_top
 {
@@ -1154,7 +1145,13 @@ body { }
 	border: none;
 	margin-top: 1rem;
 }
-.serachmid .city { padding: 1rem 0 0 1rem; }
+.serachmid
+{
+	height: auto;
+	line-height: 1;
+	margin-bottom: 0;
+}
+.serachmid .city { padding: 1rem 0 1rem 1rem; }
 .tabs li
 {
 	text-align: center;
@@ -1177,15 +1174,15 @@ body { }
 .tabs li.curr { color: #00968e; }
 .tabs li:last-child:after { display: none; }
 /**movelist **/
-.btn_buy { padding: 1rem; }
+.btn_buy { padding: 1rem 1rem 0; }
 .btn_buy span,
 .btnbar span
 {
 	display: block;
-	width: 3.6rem;
-	height: 1.6rem;
+	width: 36px;
+	height: 16px;
 	overflow: hidden;
-	line-height: 1.6rem;
+	line-height: 15px;
 	font-size: 1rem;
 	text-align: center;
 	color: #00a19b;
@@ -1223,7 +1220,7 @@ body { }
 {
 	position: relative;
 	position: relative;
-	padding: 0.5rem 0;
+	padding: 0.5rem 0 3.5rem;
 }
 .movielist li:last-child { border-bottom: none; }
 .movielist .picmid
@@ -1233,6 +1230,7 @@ body { }
 	margin-right: 1rem;
 	margin-left: 1rem;
 	overflow: hidden;
+	margin-top: 1.1rem;
 }
 .movielist .txtmid h2
 {
@@ -1242,12 +1240,17 @@ body { }
 .movielist .txtmid a h2 { color: #595757; }
 .movielist .txtmid p
 {
-	padding: 0.5rem 0;
+	padding: 1rem 1rem 0.5rem 0;
 	font-size: 1.1rem;
-	line-height: 1.4;
+	line-height: 1.6;
 	color: #898989;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
-.movielist .txtmid span
+.movielist .txtmid h2 span
 {
 	background: #4DB3AE;
 	border: 1px solid #4DB3AE;
@@ -1259,7 +1262,7 @@ body { }
 	display: inline-block;
 	vertical-align: 0.15rem;
 }
-.movielist .txtmid span:first-child { margin-left: 2rem; }
+.movielist .txtmid h2 span:first-child { margin-left: 2rem; }
 .movielist .txtmid .curr
 {
 	background: #fff;
@@ -1657,11 +1660,8 @@ body { }
 	font-size: 1.2rem;
 	padding: 0.5rem 0.3rem;
 }
-.payinfo
-{
-	padding-top: 0;
-	padding-bottom: 0;
-}
+.payinfo { padding-bottom: 1rem; }
+.payinfo p { font-size: 1.6rem; }
 .payinfo a
 {
 	display: block;
@@ -1787,6 +1787,7 @@ body { }
 	color: #00968d;
 	text-align: center;
 }
+.serachmid .city a { display: inline-block; }
 .serachmid .btn_search
 {
 	display: block;
@@ -1799,15 +1800,12 @@ body { }
 .filmlist { padding: 0rem 0; }
 .filmlist dt
 {
-	position: relative;
-	padding-left: 1.8rem;
-	padding-right: 1.8rem;
-}
-.filmlist dt
-{
 	background: #f7f7f7;
 	line-height: 2.5rem;
 	height: 2.5rem;
+	position: relative;
+	padding-left: 1.8rem;
+	padding-right: 1.8rem;
 	font-size: 1.4rem;
 }
 .filmlist dt i
@@ -1840,7 +1838,7 @@ body { }
 	position: absolute;
 	top: 0;
 	left: -1rem;
-	right: -1rem;
+	right: 0rem;
 	content: '';
 	height: 1px;
 	background: #cecece;
@@ -3088,6 +3086,37 @@ color:#fff;
 	font-size: 1.4rem;
 	color: #00958E;
 	padding: 1rem 0;
+}
+.hottips .telinput
+{
+	margin: 0;
+	padding: 0;
+}
+.hottips .telinput input
+{
+	font-size: 1.4rem;
+	border-radius: 5px 5px 0 0;
+	color: #333;
+	transition: 1s all;
+	text-align: center;
+	display: block;
+	border: none;
+	padding: 1.4rem 0;
+}
+.hottips .tipsbtn a:first-child { position: relative; }
+.hottips .tipsbtn a:first-child:after
+{
+	content: '';
+	display: block;
+	width: 1px;
+	overflow: hidden;
+	background: #cecece;
+	position: absolute;
+	top: -1rem;
+	bottom: -1rem;
+	right: 0rem;
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
 }
 .hot
 {
@@ -4811,8 +4840,6 @@ a.notbtn
 /*.infotool .imgbox p span em { vertical-align: 0.1rem; }*/
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
-.btn_buy span,
-.btnbar span { line-height: 1.4rem; }
 .paylist li .priceaside { margin-top: 0rem; }
 .ico_edit_top { line-height: 1.2rem; }
 }
@@ -4824,8 +4851,6 @@ a.notbtn
 /*.infotool .imgbox p span em { vertical-align: 0.1rem; }*/
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
-.btn_buy span,
-.btnbar span { line-height: 1.4rem; }
 .paylist li .priceaside { margin-top: 0rem; }
 .ico_edit_top { line-height: 1.2rem; }
 }
@@ -4834,8 +4859,6 @@ a.notbtn
 /*.infotool .imgbox p span em { vertical-align: 0.1rem; }*/
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
-.btn_buy span,
-.btnbar span { line-height: 1.4rem; }
 .paylist li .priceaside { margin-top: 0rem; }
 .hotmovie footer span.ico_edit_top { margin-top: -0.2rem; }
 /* 
@@ -4969,4 +4992,125 @@ a.notbtn
 	z-index: 100;
 	background: rgba(0,0,0,.6) url(../images/maskshare.png) no-repeat 0 0;
 	background-size: 100% auto;
+}
+/**自媒体列表**/
+.selflist,
+.hauto { height: 100%; }
+.selflist { padding-top: 1rem; }
+.selful { padding: 0rem 0 0rem 3.5rem; }
+.selful .imgbox
+{
+	width: 4.4rem;
+	height: 4.4rem;
+	border-radius: 4.4rem;
+	overflow: hidden;
+	margin-right: 1.3rem;
+}
+.selful .textbox .selfinfo,
+.selful .textbox h2
+{
+	color: #00948D;
+	font-size: 1rem;
+	line-height: 1;
+}
+.selful .textbox .selfinfo
+{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.selful .textbox .selftip { padding: 0.5rem 0; }
+.selful .textbox .selftip span
+{
+	padding: 0 0.2rem;
+	font-size: 0.8rem;
+	color: #888;
+}
+.selful .textbox .selftip span:first-child { padding-left: 0; }
+.selful .toolbox .selftip { padding: 0.5rem 0; }
+.selful .btn_join,
+.selful .btn_join span { display: block; }
+.selful .btn_join { padding: 1.5rem 3.5rem 1.5rem 1.5rem; }
+.selful .btn_join span
+{
+	width: 3rem;
+	height: 3rem;
+	text-align: center;
+	line-height: 2.4rem;
+	background: #EEEEEF;
+	color: #fff;
+	font-size: 2.4rem;
+}
+.selfcont { border-top: .5rem solid #DBDCDC; }
+.selfcont .seltit
+{
+	padding: 1.5rem 4.5rem;
+	font-size: 1rem;
+	color: #00948D;
+}
+.selfcont .seltit i
+{
+	display: inline-block;
+	vertical-align: middle;
+	background: #00948D;
+	width: 0.7rem;
+	height: 0.7rem;
+	overflow: hidden;
+	border-radius: 1rem;
+	margin-right: 0.5rem;
+}
+.selfcont li { position: relative; }
+.selfcont li .selful .textbox .selfinfo,
+.selfcont li .selful .textbox h2 { color: #231815; }
+.selflist footer
+{
+	text-align: center;
+	color: #00948D;
+	height: 3rem;
+	line-height: 3rem;
+	font-size: 1.2rem;
+	border-top: 1px solid #00948D;
+	background: #EEEEEF;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.selfcont li:after
+{
+	content: '';
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #cecece;
+	position: absolute;
+	top: 0;
+	left: 0rem;
+	right: 0rem;
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+}
+.selfcont .showmore
+{
+	margin-bottom: 3rem;
+	display: block;
+	text-align: center;
+	position: relative;
+	padding: 1.1rem 0;
+	color: #C8C9CA;
+	font-size: 1rem;
+}
+.selfcont .showmore:before
+{
+	content: '';
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #cecece;
+	position: absolute;
+	top: 0;
+	left: 0rem;
+	right: 0rem;
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
 }
