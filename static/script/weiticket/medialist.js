@@ -74,7 +74,8 @@ $(document).ready(function() {
         }
         var options = {
             openId: openId,
-            sourceID: sourceId
+            sourceID: sourceId,
+            wxtype: publicsignal
         };
         // alert(url);
         $.post(url, options, function(result) {

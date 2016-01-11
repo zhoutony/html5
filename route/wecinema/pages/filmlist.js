@@ -18,17 +18,20 @@ app.get(['/:locationID/filmlist/:showtype',
     var showtype = req.params["showtype"];//coming
     var type = showtype == "hot" ? 1 : 2;
     var sole = req.params["sole"];
-    var options = {
-        uri: my_api_addr,
-        args: {
-            locationID: _locationID,//110000
-            type:       type
-        }
-    };
+    
     var publicsignal = req.params["publicsignal"];
     if(!publicsignal){
         publicsignal = constant.str.PUBLICSIGNAL;
     }
+    var options = {
+        uri: my_api_addr,
+        args: {
+            locationID: _locationID,//110000
+            type:       type,
+            wxtype: publicsignal
+        }
+    };
+    
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,

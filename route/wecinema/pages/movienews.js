@@ -16,11 +16,16 @@ app.get(["/movienews/:sourceId/:movieNewId", "/:publicsignal/movienews/:sourceId
     var movieNewId = req.params["movieNewId"];
     var sourceId = req.params["sourceId"];
     var open_id     = req.cookies.openids || '';
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
             newsID: movieNewId,
-            openId: open_id
+            openId: open_id,
+            wxtype:publicsignal
         }
     };
     var city = req.cookies.city,
@@ -31,10 +36,7 @@ app.get(["/movienews/:sourceId/:movieNewId", "/:publicsignal/movienews/:sourceId
             locationId = city.locationId;
         }
     }
-    var publicsignal = req.params["publicsignal"];
-    if(!publicsignal){
-        publicsignal = constant.str.PUBLICSIGNAL;
-    }
+    
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,

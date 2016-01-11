@@ -38,7 +38,8 @@ app.get(['/', '/index.html', '/:publicsignal'], function (req, res) {
     var options = {
         uri: my_api_addr,
         args: {
-            type: '1,2,3'
+            type: '1,2,3',
+            wxtype: publicsignal
         }
     };
     render_data.data = {};
@@ -80,18 +81,20 @@ app.get(['/hotmovienews/:pageindex', '/:publicsignal/hotmovienews/:pageindex'], 
     var render_data = {};
     var my_api_addr = "/queryTopLineMovieNews.aspx";
     var _pageIndex = req.params["pageindex"];
+    
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
             type: '-1',
             pageIndex: _pageIndex,
-            pageSize: 5
+            pageSize: 5,
+            wxtype: publicsignal
         }
     };
-    var publicsignal = req.params["publicsignal"];
-    if(!publicsignal){
-        publicsignal = constant.str.PUBLICSIGNAL;
-    }
     render_data.data = {
         publicsignal: publicsignal
     };
@@ -127,7 +130,7 @@ app.post(['/publicsignal/queryJsapiticket'], function(req, res) {
         passType: 'send',
         args: req.body
     };
-    // console.log('url:',options.args.url)
+    // console.log('url:',options.args)
     model.getDataFromPhp(options, function(err, data) {
         // console.log(err, data)
         res.send({'err': err, 'data': data});

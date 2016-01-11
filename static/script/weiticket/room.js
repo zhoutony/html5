@@ -105,7 +105,8 @@ $(document).ready(function() {
             option.seatIDs    = seatIDs.join(',');
             option.seatNames  = seatNames.join(',');
             option.showtimeID = showtimeId;
-            option.mobile     = ''
+            option.mobile     = '';
+            option.wxtype     = publicsignal;
             $.post('/lockseats/' + showtimeId, option, function(reture_data){
                 localStorage.setItem('seats', JSON.stringify( selected_seats ));
                 location.href = '/'+ publicsignal +'/payment';

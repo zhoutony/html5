@@ -20,16 +20,18 @@ app.get(['/room/:ticketId', '/:publicsignal/room/:ticketId'], function(req, res)
     var render_data = {};
     var my_api_addr = "/queryShowSeats.aspx";
     var ticketId = req.params["ticketId"];
-    var options = {
-        uri: my_api_addr,
-        args: {
-            ticketId: ticketId
-        }
-    };
     var publicsignal = req.params["publicsignal"];
     if(!publicsignal){
         publicsignal = constant.str.PUBLICSIGNAL;
     }
+    var options = {
+        uri: my_api_addr,
+        args: {
+            ticketId: ticketId,
+            wxtype: publicsignal
+        }
+    };
+    
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,

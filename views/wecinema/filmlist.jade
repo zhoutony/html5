@@ -1,13 +1,13 @@
 extends ./layout
 
 block title
-        title 电影票友
+    title 电影票友
 
 
 
 block prepend body
 
-    //wrap
+    //- wrap
     div.wrap
         div.tabs.movietabs
             div.flexbox
@@ -78,6 +78,7 @@ block prepend footer
 block prepend script
     script
         | var showtype = "#{data.showtype}";
+        | window.publicsignal = "#{data.publicsignal}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/filmlist.js?#{data.reversion}")
 

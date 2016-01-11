@@ -34,7 +34,8 @@ app.get(["/medialist/:sourceId", "/medialist/:sourceId/:pageIndex",
             type:       sourceId,
             pageIndex:  pageIndex,
             pageSize:   10,
-            openId: open_id
+            openId: open_id,
+            wxtype:publicsignal
          }
     };
     render_data.data = {};

@@ -16,7 +16,8 @@ function wx_verif(force,debug){
 function getcap(_force,_debug){
     var url = '/publicsignal/queryJsapiticket';
     var option = {
-        "url": window.location.href.split('#')[0]
+        "url": window.location.href.split('#')[0],
+        "wxtype": publicsignal ? publicsignal : ''
     };
     
     $.post(url, option, function(result) {
