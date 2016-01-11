@@ -8,7 +8,7 @@ var Dialogs = require('../util/dialogs');
 
 /* jshint ignore:end */
 $(document).ready(function() {
-    var openId = cookie.getItem('open_id'),
+    var openId = cookie.getItem('openids'),
         shareTip;
     if(window.newscontent){
     	var _html = JSON.stringify(window.newscontent)
