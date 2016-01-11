@@ -73,7 +73,7 @@ function isLoggedIn(req, res, next) {
         //     cinemaId = '_' + cinema_id;
         // }
 
-        var callback_url    =  '/oauth2?publicsignalshort='+publicsignalshort + '_' + encodeURIComponent(req.url);
+        var callback_url    =  '/oauth2/toget?publicsignalshort='+publicsignalshort + '_' + encodeURIComponent(req.url);
         //console.log('callback_url:::'+callback_url);
         var encoded_callback_url = callback_host+callback_url;
 

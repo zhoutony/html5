@@ -70,7 +70,7 @@ var send_request_wx = function(access_token_url,publicsignalshort,cb){
     });//END of request.................................................
 };
 
-app.route('/oauth2').get(function(req, res) {
+app.route('/oauth2/toget').get(function(req, res) {
     var if_had_code                        = req.query.hasOwnProperty("code");
     var if_had_publicsignalshort           = req.query.hasOwnProperty("publicsignalshort");
     var code                               = req.query.code;
