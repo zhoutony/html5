@@ -12,7 +12,7 @@ $(document).ready(function() {
     var movienewsPageindex = 1;
     var hotmovie = $('.hotmovie');
     var lock = false;
-    var openId = cookie.getItem('open_id');
+    var openId = cookie.getItem('openids');
     //加载 头条电影列表
     function getMovieNews(){
         var _url = '/'+ publicsignal +'/hotmovienews/' + movienewsPageindex;
