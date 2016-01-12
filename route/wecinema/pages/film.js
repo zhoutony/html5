@@ -15,18 +15,20 @@ app.get(["/schedule/:cinemaId/:movieId", "/:publicsignal/schedule/:cinemaId/:mov
     var cinemaId = req.params["cinemaId"];
     var movieId = req.params["movieId"];
     var dateTime = req.params["dateTime"];
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
             cinemaID: cinemaId,
             movieID: movieId,
-            dateTime: ''
+            dateTime: '',
+            wxtype: publicsignal
         }
     };
-    var publicsignal = req.params["publicsignal"];
-    if(!publicsignal){
-        publicsignal = constant.str.PUBLICSIGNAL;
-    }
+    
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,

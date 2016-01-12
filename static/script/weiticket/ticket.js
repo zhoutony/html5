@@ -31,6 +31,13 @@ $(document).ready(function() {
 
     var filmlists = $('.filmlist');
     var _len = filmlists.length;
+    var _chooseCity = $('.city'),
+        city = cookie.getItem('city');
+    if(city){
+        city = JSON.parse(city);
+        _chooseCity.find('span').html(city.name);
+        locationId = city.locationId;
+    }
 
     for(var i = 0; i < _len; i++){
         if(i > 1){
@@ -48,7 +55,7 @@ $(document).ready(function() {
     })
 
 
-    $('.city').on('click', function(evt){
+    _chooseCity.on('click', function(evt){
         ChooseCity.init(function(city){
             var cookieExpired = 60 * 60 * 24 * 30; //30天
             var cookiePath = '/';

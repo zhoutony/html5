@@ -9,19 +9,21 @@ app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], 
     var my_api_addr = "/queryCinemas.aspx";
     var cityId = req.params["cityId"];
     var movieId = req.params["movieId"];
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
             locationID: cityId,
             movieID: movieId,
             pageIndex: 1,
-            pageSize: 100
+            pageSize: 100,
+            wxtype: publicsignal
         }
     };
-    var publicsignal = req.params["publicsignal"];
-    if(!publicsignal){
-        publicsignal = constant.str.PUBLICSIGNAL;
-    }
+    
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
