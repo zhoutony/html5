@@ -18054,3 +18054,20 @@ Error: getaddrinfo ENOTFOUND localhost localhost:3091
 [2016-01-09 15:35:52.171] [INFO] console - _type 6
 [2016-01-09 15:35:52.209] [INFO] console - { advertisements: [], thirdIndex: 3 }
 [2016-01-09 15:35:53.200] [INFO] console - { advertisements: [], thirdIndex: 3 }
+[2016-01-12 11:42:26.579] [ERROR] console - Error caught in uncaughtException event: { [Error: listen EADDRINUSE :::80]
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 80 }
+Error: listen EADDRINUSE :::80
+    at Object.exports._errnoException (util.js:874:11)
+    at exports._exceptionWithHostPort (util.js:897:20)
+    at Server._listen2 (net.js:1234:14)
+    at listen (net.js:1270:10)
+    at Server.listen (net.js:1366:5)
+    at EventEmitter.app.listen (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:595:24)
+    at Object.<anonymous> (/Users/mapollo06/Documents/movikr-work/html5/dev.js:54:18)
+    at Module._compile (module.js:435:26)
+    at Object.Module._extensions..js (module.js:442:10)
+    at Module.load (module.js:356:32)
