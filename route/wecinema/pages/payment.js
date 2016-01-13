@@ -4,6 +4,7 @@
 var util = require('util');
 var model = require(process.cwd() + "/libs/model.js");
 
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
 // var returnErrorPage = model.returnErrorPage;
 
@@ -14,7 +15,11 @@ var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
 // var my_name = hostname + ':' + pid;
 
 
-app.get(['/payment/index'], function (req, res) {
+app.get(['/payment/index', '/:publicsignal/payment/index'], function (req, res) {
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     //渲染准备用数据
     var render_data = {};
     // QueryWeixinPlayParam.aspx
