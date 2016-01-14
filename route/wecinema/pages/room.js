@@ -39,15 +39,18 @@ app.get(['/room/:ticketId', '/:publicsignal/room/:ticketId'], function(req, res)
     }
 
     model.getDataFromPhp(options, function (err, data) {
+
         render_data.data.err = err;
         if (!err && data && data.seats) {
             render_data.data = data;
             render_data.data.seats = setSeats(data.seats);
             render_data.data.reversion = global.reversion;
             render_data.data.staticBase = global.staticBase;
+            render_data.data.publicsignal = publicsignal;
         } else {
 
         }
+        // console.log('data:', JSON.stringify(render_data.data.seats));
         res.render("wecinema/onlineseat", render_data);
     });
 });

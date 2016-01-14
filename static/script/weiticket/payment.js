@@ -55,6 +55,9 @@ $(document).ready(function () {
         if(showtime){
             $('._price').html( '¥&nbsp;'+ showtime.price * _len / 100 );
         }
+
+        var localTel = localStorage.getItem('tel') || '';
+        $('#tel').html(localTel);
     }
 
     // 监听输入电话号码
