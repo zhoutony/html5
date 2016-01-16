@@ -122,7 +122,7 @@ app.route('/oauth2/toget').get(function(req, res) {
                         var url = build_access_token_url(publicsignalshort);
                             // console.log('url:', url)
                             send_request_wx(url,publicsignalshort,function(err,data){
-                                console.log(data);
+                                // console.log('openids:', data);
                                 if(!err){
                                     res.cookie('openids', data, {
                                         maxAge: 1000 * 60 * 60 * 24 * 30,

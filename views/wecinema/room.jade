@@ -51,17 +51,17 @@ block prepend body
                                         each seats, index in data.seats
                                             li
                                                 each seat in seats
-                                                    - var _className = seat.status == 0 ? 'seat seat_null' : (seat.status == 1 ? 'seat seat_ture' : seat.status == 2 ? 'seat seat_false' : 'seat seat_null');
-                                                    span(class="#{_className}", data-seatid="#{seat.seatID}", data-seatname="#{seat.seatName}")
+                                                    - var _className = seat.status == 0 ? 'seat seat_false' : (seat.status == 1 ? 'seat seat_ture' : seat.status == 2 ? 'seat seat_null' : 'seat seat_false');
+                                                    span(class="#{_className}", data-seatid="#{seat.seatID}", data-seatname="#{seat.seatName}" data-status="#{seat.status}")
                                                         i.m-hide
-                                                            | #{seat.colNum}排
+                                                            | #{seat.rowNum}排
                                                             <br>
-                                                            | #{seat.rowNum}座
+                                                            | #{seat.colNum}座
                             div.row_num
                                 ul.lines
                                     each seat, index in data.seats
                                         if seat.length > 0
-                                            - var _colNum = seat[0].colNum;
+                                            - var _colNum = seat[0].rowNum;
                                             - var _desc = seat[0].desc;
                                             if _desc != 'vacant_seat'
                                                 if seat[0].rowStatus
@@ -95,7 +95,7 @@ block prepend script
         | var cinema = !{JSON.stringify(data.cinema)};
         | var movie = !{JSON.stringify(data.movie)};
         | var showtime = !{JSON.stringify(data.show)};
-        | var showtimeId = "#{data.show.showtimeID}";
+        //- | var showtimeId = "#{data.show.showtimeID}";
         | window.publicsignal = "#{data.publicsignal}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/room.js?#{data.reversion}")
