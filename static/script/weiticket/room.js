@@ -7,6 +7,7 @@ var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
 var seatRender = require('./modul/seatrender');
 
+
 /* jshint ignore:end */
 $(document).ready(function() {
     window.dialogs = dialogs;
@@ -108,10 +109,11 @@ $(document).ready(function() {
         function lockSeats(selected_seats, _len, tel){
             var option    = {},
                 seatIDs   = [],
-                seatNames = [];
+                seatNames = [],
+                showtimeId = showtime.showtimeID || '';
             
             for(var i = 0; i < _len; i++){
-                var _item = selected_seats[i].split('|');
+                var _item = selected_seats[i].split('#');
                 seatIDs.push(_item[0]);
                 seatNames.push(_item[1]);
             }; 
@@ -122,8 +124,12 @@ $(document).ready(function() {
             option.mobile     = tel;
             option.wxtype     = publicsignal;
             $.post('/lockseats/' + showtimeId, option, function(reture_data){
-                localStorage.setItem('seats', JSON.stringify( selected_seats ));
-                location.href = '/'+ publicsignal +'/payment/index';
+                if(reture_data && reture_data.data && reture_data.success){
+                    localStorage.setItem('seats_' + showtimeId, JSON.stringify( selected_seats ));
+                    localStorage.setItem('lockseats_' + showtimeId, JSON.stringify( reture_data.data ));
+                    var orderId = reture_data.data.orderID || '0';
+                    location.href = '/payment/order/';
+                }
             })
         }
     }

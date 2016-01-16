@@ -4,7 +4,7 @@ var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
 var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 
-app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], function(req, res){
+app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], chk_login.isLoggedIn, function(req, res){
     var render_data = {};
     var my_api_addr = "/queryCinemas.aspx";
     var cityId = req.params["cityId"];

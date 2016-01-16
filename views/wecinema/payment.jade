@@ -52,12 +52,13 @@ block prepend body
                     a(href="#") 微信付款
                 li.m-hide
                     a(href="#") 支付宝付款
-                li.notlink#payment
-                    a(href="ordersucc") 立即支付
+                li#payment
+                    a 立即支付
             div.time 
                 i 
                 | 支付剩余时间&nbsp;
-                span 7:37
+                span#payment-countdown
+                    | 10分00秒
             dl.otherinfo
                 dt 购票须知
                 dd 1、选座票由
@@ -72,6 +73,8 @@ block prepend footer
 block prepend script
     script
         | window.publicsignal = "#{data.publicsignal}";
+        | var orderId = "#{data.orderId}";
+        | var showtimeId = "#{data.showtimeId}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/payment.js?#{data.reversion}")
         

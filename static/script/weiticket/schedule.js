@@ -16,10 +16,11 @@ $(document).ready(function() {
         MoviesIScroll,
         filmscroll         = $('.filmscroll'),
         filmtxt            = $('.filmtxt'),
-        moviescrollLi      = $('.moviescroll').find('li');
+        moviescrollLi      = $('.moviescroll').find('li'),
+        filmlist           = $('.filmlist');
 
     //切换日期
-    dateContainer.on('click', 'li', function(e) {
+    filmlist.on('click', 'li', function(e) {
         var _el       = $(e.currentTarget),
             _index    = _el.data('index'),
             _timeboxs = $('.timebox');
@@ -32,7 +33,8 @@ $(document).ready(function() {
     //切换影片
     filmscroll.on('click', 'li', function(e) {
         var _el       = $(e.currentTarget),
-            movieId    = _el.data('movieid');
+            movieId    = _el.data('movieid'),
+            url = '/' + publicsignal + '/one_movie_schedule/1/' + cinema.cinemaID + '/' + movieId;
         moviescrollLi.removeClass('curr');
         _el.addClass('curr');
         filmtxt.find('p').html(_el.data('intro'));
@@ -40,6 +42,14 @@ $(document).ready(function() {
         if(MoviesIScroll){
             MoviesIScroll.scrollToElement(_el[0], 500, -5);
         }
+        $.get(url, function(result){
+            history.pushState('', '', location.origin +'/'+ publicsignal + '/schedule/' + cinema.cinemaID + '/' + movieId);
+            // console.log(result);
+            filmlist.html(result);
+            dateContainer      = $('#date_container');
+            dateContainerLi    = dateContainer.find('li');
+            dateContainerLiLen = dateContainerLi.length;
+        })
         
     });
 

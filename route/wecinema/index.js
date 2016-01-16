@@ -31,9 +31,6 @@ require('./util');
 require('./pages/filmlist');
 
 
-//film
-require('./pages/film');
-
 //ticket
 require('./pages/ticket');
 
