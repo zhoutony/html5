@@ -1174,21 +1174,22 @@ body { }
 .tabs li.curr { color: #00968e; }
 .tabs li:last-child:after { display: none; }
 /**movelist **/
-.btn_buy { padding: 1rem 1rem 0; }
-.btn_buy span,
+.btn_buy {margin-right:1rem;   }
+.btn_buy  ,
 .btnbar span
 {
 	display: block;
 	width: 36px;
 	height: 16px;
 	overflow: hidden;
-	line-height: 15px;
+	line-height: 14px;
 	font-size: 1rem;
 	text-align: center;
 	color: #00a19b;
 	border: 1px solid #00a19b;
 	border-radius: 0.3rem;
 }
+ 
 .btnbar
 {
 	position: absolute;
@@ -1216,6 +1217,8 @@ body { }
 	vertical-align: middle;
 	padding: 1rem 0.3rem 0;
 }
+.molist{height:100%;}
+.movielist{overflow-y:scroll; margin-bottom:4.4rem;-webkit-overflow-scrolling: touch;}
 .movielist li
 {
 	position: relative;
@@ -1232,10 +1235,15 @@ body { }
 	overflow: hidden;
 	margin-top: 1.1rem;
 }
+.movielist .txtmid  .flexbox {
+	padding: 1rem 0 0;
+}
+.movielist .txtmid   .btn_buy{display:block;padding-top:0;}
 .movielist .txtmid h2
 {
-	padding: 1rem 0 0;
+	
 	font-size: 1.4rem;
+	line-height:16px;
 }
 .movielist .txtmid a h2 { color: #595757; }
 .movielist .txtmid p
@@ -1250,18 +1258,27 @@ body { }
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 }
+.movielist .txtmid h2 span,
+.movielist .txtmid h2 b{
+	display: inline-block;
+	vertical-align: top;
+}
+.movielist .txtmid h2 b{margin-right:0.5rem;}
 .movielist .txtmid h2 span
 {
 	background: #4DB3AE;
 	border: 1px solid #4DB3AE;
 	color: #fff;
 	font-size: 0.8rem;
-	line-height: 1.3rem;
-	height: 1.3rem;
+	 
+	height:16px;
+	line-height:14px;
 	padding: 0rem 0.4rem;
-	display: inline-block;
-	vertical-align: 0.15rem;
+	 
+	
+	 
 }
+ 
 .movielist .txtmid h2 span:first-child { margin-left: 2rem; }
 .movielist .txtmid .curr
 {
@@ -2532,7 +2549,7 @@ color:#fff;
 .succ dt
 {
 	height: 7.8rem;
-	margin: 2rem 0 1rem;
+	margin: 4rem 0 1rem;
 	background: url(../images/succ_01.png) no-repeat center center;
 	background-size: 6.9rem auto;
 }
