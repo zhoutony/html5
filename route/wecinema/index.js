@@ -66,6 +66,8 @@ require('./pages/cinemaorder');
 //ordersucc
 require('./pages/orderresult');
 
+//ordersucc
+require('./pages/orderwait');
 
 require('./pages/mask-tel');
 

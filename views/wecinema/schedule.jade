@@ -8,7 +8,7 @@ block title
 block prepend body
     if data && !data.err
         //- wrap
-        div.wrap.bgfooter
+        div.wrap.bgfooter.flexbox_v
             if data.cinema
                 div.filminfo.flexbox_v_c(data-cinemaid="#{data.cinema.cinemaID}")
                     div.flex
@@ -34,7 +34,7 @@ block prepend body
                     div.flexbox.filmtxt
                         p.flex 
             if data.shows
-                div.filmlist
+                div.filmlist.flex
                     div.tabstime
                         ul.flexbox#date_container
                             each schedule, index in data.shows

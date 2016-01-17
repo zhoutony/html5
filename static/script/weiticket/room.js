@@ -6,6 +6,7 @@ var widgets = require('../util/widgets.js');
 var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
 var seatRender = require('./modul/seatrender');
+var wxbridge = require('../util/wxbridge');
 
 
 /* jshint ignore:end */
@@ -135,4 +136,19 @@ $(document).ready(function() {
     }
 
     init();
+
+    //分享
+    wxbridge.share({
+        title: '想去'+ cinema.cinemaName +'看《' + movie.movieNameCN +'》，有空吗？-电影票友',
+        timelineTitle: '想去 万达电影院CBD店 看 8点40 场《老炮儿》有空吗？-电影票友',
+        desc: '1     www.moviefan.com.cn',
+        link: window.location.href,
+        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        callback: function(){
+            Util.shearCallback(publicsignal, openId, showtype, 7, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+        }
+    })
 }); //END of jquery documet.ready 

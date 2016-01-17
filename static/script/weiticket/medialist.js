@@ -51,7 +51,7 @@ $(document).ready(function() {
         imgUrl: $('._logo').attr('src'),
         callback: function(){
             // alert();
-            Util.shearCallback(openId, sourceId, 3, function(){
+            Util.shearCallback(publicsignal, openId, sourceId, 3, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';

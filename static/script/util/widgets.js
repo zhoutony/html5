@@ -243,13 +243,14 @@ define([
              
         }
 
-        function shearCallback(openId, sourceId, shareType, callback){
+        function shearCallback(publicsignal, openId, sourceId, shareType, callback){
             // alert(openId);
             var url = '/yesunion/sharecallback';
             var options = {
                 openId: openId,
                 id: sourceId,
-                shareType: shareType
+                shareType: shareType,
+                wxtype: publicsignal
             };
             
             $.post(url, options, function(result) {
