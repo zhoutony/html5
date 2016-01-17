@@ -74,7 +74,7 @@ $(document).ready(function() {
         imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
         callback: function(){
             shareTip();
-            Util.shearCallback(openId, newsId, 2, function(){
+            Util.shearCallback(publicsignal, openId, newsId, 2, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
