@@ -18,28 +18,35 @@ var my_name  = hostname + ':' + pid;
 // 首页
 app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function (req, res) {//
     var render_data = {};
-    render_data.data = {};
-    render_data.data = {
-        reversion: global.reversion,
-        staticBase: global.staticBase,
-    }
-    var city = req.cookies.city,
-        locationId = 110100;
-    if(city){
-        city = JSON.parse(city);
-        if(city.locationId){
-            locationId = city.locationId;
-        }
-    }
+    var my_api_addr = "/QueryWeiXinUser.aspx";
+    var open_id     = req.cookies.openids || '';
     var publicsignal = req.params["publicsignal"];
     if(!publicsignal){
         publicsignal = constant.str.PUBLICSIGNAL;
     }
+    var options = {
+        uri: my_api_addr,
+        args: {
+            openID: open_id,
+            wxType: publicsignal
+        }
+    };
+    render_data.data = {};
+    render_data.data.reversion = global.reversion;
+    render_data.data.staticBase = global.staticBase;
     //隐藏工具条
     render_data.data.publicsignal = publicsignal;
     render_data.data.isToolHide = true;
-    render_data.data.locationId = locationId;
-    res.render("wecinema/my", render_data);
+
+    // console.log('reversion:', reversion);
+    model.getDataFromPhp(options, function (err, data) {
+        console.log(data)
+        if(!err && data){
+            render_data.data.uses = data;
+        }
+        res.render("wecinema/my", render_data);
+    });
+    
 });
 
 

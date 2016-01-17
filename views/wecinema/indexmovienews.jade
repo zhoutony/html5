@@ -15,12 +15,12 @@ if data && data.movieNews
 									img(src="#{movieNew.image1}")
 						footer.flexbox
 							div.main.flex.flexbox_v_c 
-								span.ico_edit_top 
-									| #{topTxt}
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
 								time #{movieNew.publishtime}
+								span.ico_edit_top 
+									| #{topTxt}
 			else
 				section(class="#{topClass}")
 					a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
@@ -36,12 +36,12 @@ if data && data.movieNews
 								img(src="#{movieNew.image3}")
 						footer.flexbox 
 							div.main.flex.flexbox_v_c
-								span.ico_edit_top
-									| #{topTxt} 
 								span.n_name #{movieNew.weMediaName}
 								span.num 阅读 
 									b #{movieNew.readCount} 
 								time #{movieNew.publishtime}
+								span.ico_edit_top
+									| #{topTxt} 
 		else
 			if movieNew.image2 == '' || movieNew.image3 == ''
 				section.imgtxt

@@ -10,12 +10,20 @@ block prepend body
     //- wrap
     div.wrap
         div.succ
-            dl
-                dt.myphoto
-                    i
-                dd
-                    b LIUDAQ1007
-                    p.myprice 余额：0.00元
+            if data && !data.err
+                dl
+                    if data.uses
+                        dt.myphoto
+                            img(src="#{data.uses.headImgurl}")
+                        dd
+                            b #{data.uses.nick}
+                            p.myprice 余额：0.00元
+                    else
+                        dt.myphoto
+                           
+                        dd
+                            b 
+                            p.myprice 余额：0.00元
             nav.mynav.m-hide
                 ul.flexbox_v_c
                     li.flex
@@ -51,9 +59,9 @@ block prepend body
                         a
                             i.n06
                             p 设置
-    footer.footer
-        h2 客服电话：4008-188-188
-        p 电影票友服务由北京亚视联合在线科技有限公司提供
+        footer.footer.myfoot
+            h2 客服电话：4008-188-188
+            p 电影票友服务由北京亚视联合在线科技有限公司提供
     div.navtool
              ul.flexbox
                 li.flex
