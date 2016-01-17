@@ -850,17 +850,35 @@ body { }
 	-webkit-box-ordinal-group : 1;
 	box-ordinal-group : 1;
 }
+.hotmovie section  .ico_edit_top{width:2.6rem;
+	height:1.1rem;
+	text-indent:-9999rem;}
+.hotmovie section.first .ico_edit_top{
+	background:url(../images/hot01.png) no-repeat center center;
+	background-size:cover;
+	
+}
 .hotmovie section.second
 {
 	-moz-box-ordinal-group : 2;
 	-webkit-box-ordinal-group : 2;
 	box-ordinal-group : 2;
 }
+.hotmovie section.second .ico_edit_top{
+	background:url(../images/hot02.png) no-repeat center center;
+	background-size:cover;
+	
+}
 .hotmovie section.thirdads
 {
 	-moz-box-ordinal-group : 3;
 	-webkit-box-ordinal-group : 3;
 	box-ordinal-group : 3;
+}
+.hotmovie section.thirdads .ico_edit_top{
+	background:url(../images/hot03.png) no-repeat center center;
+	background-size:cover;
+	
 }
 .hotmovie section:last-child { padding-bottom: 1rem; }
 .hotmovie header
@@ -1325,8 +1343,9 @@ body { }
 .filminfo
 {
 	position: relative;
-	padding: 0.6rem 1rem 0;
+	padding: 0.6rem 1rem  ;
 }
+
 .filminfo:after
 {
 	position: absolute;
@@ -1352,7 +1371,7 @@ body { }
 .filmscroll
 {
 	overflow: hidden;
-	padding: 0.5rem 0 0;
+	padding: 1.5rem 0 0;
 	position: relative;
 }
 /*.filmscroll ul { width: 1200px; }*/
@@ -1418,7 +1437,7 @@ body { }
 	padding: 0.2rem 0.4rem;
 	display: inlne-block;
 	vertical-align: middle;
-	background: #fff;
+	 
 }
 .tabstime li.curr span
 {
@@ -1814,7 +1833,8 @@ body { }
 	background-size: 1.2rem auto;
 	margin: 0 0.5rem;
 }
-.filmlist { padding: 0rem 0; }
+.filmlist { padding: 0rem 0;  }
+.bgfooter{background:#F7F7F7;min-height:100%;}
 .filmlist dt
 {
 	background: #f7f7f7;
@@ -3596,7 +3616,7 @@ color:#fff;
 	bottom: 0;
 	right: 0;
 	top: 0;
-	-webkit-filter: blur(10px)
+/*	-webkit-filter: blur(10px)*/
 }
 .addticketbox .imgbox
 {
@@ -5131,3 +5151,4 @@ a.notbtn
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
 }
+.myfoot{padding-bottom:6.4rem;  }

@@ -13,8 +13,8 @@ block prepend body
     div.wrap
         if data && !data.err && data.newsInfo
             div.infotxt
-                if data.movies && data.movies.Items && data.movies.Items.length > 0
-                    - var _items = data.movies.Items;
+                if data.movies && data.movies && data.movies.length > 0
+                    - var _items = data.movies;
                     - var _len = _items.length;
                     - var _ad_firstList = _items[0];
                     - var _ad_lastList = _items[_len - 1];
@@ -23,7 +23,7 @@ block prepend body
                             ul.mui-slider-group.mui-slider-loop
                                 li.mui-slider-item.mui-slider-item-duplicate
                                     div.addticketbox.flexbox_v_c
-                                        div.bigimgbox(style="background:url(#{_ad_firstList.movieImage}) center center no-repeat; background-size:100% auto;")
+                                        div.bigimgbox(style="background:#00958E")
                                         div.imgbox
                                             img(src="#{_ad_firstList.movieImage}")
                                         div.txtbox.flex
@@ -37,7 +37,7 @@ block prepend body
                                 each indexAd in _items
                                     li.mui-slider-item.mui-slider-item-duplicate
                                         div.addticketbox.flexbox_v_c
-                                            div.bigimgbox(style="background:url(#{indexAd.movieImage}) center center no-repeat; background-size:100% auto;")
+                                            div.bigimgbox(style="background:#00958E")
                                             div.imgbox
                                                 img(src="#{indexAd.movieImage}")
                                             div.txtbox.flex
@@ -50,7 +50,7 @@ block prepend body
                                                     p 购票
                                 li.mui-slider-item.mui-slider-item-duplicate
                                     div.addticketbox.flexbox_v_c
-                                        div.bigimgbox(style="background:url(#{_ad_lastList.movieImage}) center center no-repeat; background-size:100% auto;")
+                                        div.bigimgbox(style="background:#00958E")
                                         div.imgbox
                                             img(src="#{_ad_lastList.movieImage}")
                                         div.txtbox.flex
@@ -64,7 +64,7 @@ block prepend body
                     else
                         each indexAd in _items
                             div.addticketbox.flexbox_v_c
-                                div.bigimgbox(style="background:url(#{indexAd.movieImage}) center center no-repeat; background-size:300% auto;")
+                                div.bigimgbox(style="background:#00958E")
                                 div.imgbox
                                     img(src="#{indexAd.movieImage}")
                                 div.txtbox.flex

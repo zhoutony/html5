@@ -8,7 +8,7 @@ block title
 block prepend body
     if data && !data.err
         //- wrap
-        div.wrap
+        div.wrap.bgfooter
             if data.cinema
                 div.filminfo.flexbox_v_c(data-cinemaid="#{data.cinema.cinemaID}")
                     div.flex
@@ -62,7 +62,7 @@ block prepend body
                                                     else
                                                         p 已关闭订票
                                         
-                footer.footer
+                footer.footer.bgfooter
                     h2 客服电话：4008-188-188
                     p 电影票友服务由北京亚视联合在线科技有限公司提供
 
