@@ -6,6 +6,7 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
+var wxbridge = require('../util/wxbridge');
 var dialogs = require('../util/dialogs');
 // var Citys = require('./citys');
 var ChooseCity = require('../util/chooseCity');
@@ -105,5 +106,38 @@ $(document).ready(function() {
             _findbox.removeClass('showtips')  ;
         }, 1000);    
     })
+
+
+
+    //分享
+    wxbridge.share({
+        title: '今天热映的电影有几部还值得一看哦，有空吗？',
+        timelineTitle: '今天热映的电影有几部还值得一看哦，有空吗？',
+        desc: '今日热映 - 电影票友 moviefan.com.cn',
+        link: window.location.href,
+        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        callback: function(){
+            Util.shearCallback(publicsignal, openId, showtype, 4, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+        }
+    })
+
+    // var shareImgs = $('.infocon').find('img');
+    // wxbridge.share({
+    //     title: Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
+    //     timelineTitle: '[电影票友]荐：' + Util.strShort($('.infotit').html(), 20) + ' -' + weMediaName,
+    //     desc: '[电影票友]荐：' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
+    //     link: window.location.href,
+    //     imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
+    //     callback: function(){
+    //         shareTip();
+    //         Util.shearCallback(publicsignal, openId, newsId, 2, function(){
+    //             console.log('分享成功，并发送服务器');
+    //         })
+    //         // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+    //     }
+    // })
 
 }); //END of jquery documet.ready

@@ -6,6 +6,7 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var widgets = require('../util/widgets.js');
+var wxbridge = require('../util/wxbridge');
 var ChooseCity = require('../util/chooseCity');
 
 /* jshint ignore:end */
@@ -64,5 +65,37 @@ $(document).ready(function() {
 
         }.bind(this))
     })
+
+    //分享
+    var shareImgs = $('.infocon').find('img');
+    wxbridge.share({
+        title: '觉得《老炮儿》值得一看哦，有空吗？',
+        timelineTitle: '觉得《老炮儿》值得一看哦，有空吗？',
+        desc: '觉得《老炮儿》值得一看哦，有空吗？',
+        link: window.location.href,
+        imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
+        callback: function(){
+            Util.shearCallback(publicsignal, openId, showtype, 5, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+        }
+    })
+    // var shareImgs = $('.infocon').find('img');
+    // wxbridge.share({
+    //     title: Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
+    //     timelineTitle: '[电影票友]荐：' + Util.strShort($('.infotit').html(), 20) + ' -' + weMediaName,
+    //     desc: '[电影票友]荐：' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
+    //     link: window.location.href,
+    //     imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
+    //     callback: function(){
+    //         shareTip();
+    //         Util.shearCallback(publicsignal, openId, newsId, 2, function(){
+    //             console.log('分享成功，并发送服务器');
+    //         })
+    //         // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+    //     }
+    // })
+
 
 }); //END of jquery documet.ready 

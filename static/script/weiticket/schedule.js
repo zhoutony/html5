@@ -5,6 +5,7 @@ var _ = require('../lib/underscore');
 var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
+var wxbridge = require('../util/wxbridge');
 var widgets = require('../util/widgets.js');
 
 /* jshint ignore:end */
@@ -100,5 +101,19 @@ $(document).ready(function() {
             }
         }
     }
+    //分享
+    wxbridge.share({
+        title: '想去'+ cinema.cinemaName +'看《老炮儿》，有空吗？-电影票友',
+        timelineTitle: '想去万达电影院CBD店看《老炮儿》，有空吗？-电影票友',
+        desc: '在电影的时光读懂自已     www.moviefan.com.cn',
+        link: window.location.href,
+        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        callback: function(){
+            Util.shearCallback(publicsignal, openId, showtype, 6, function(){
+                console.log('分享成功，并发送服务器');
+            })
+            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+        }
+    })
 
 }); //END of jquery documet.ready 

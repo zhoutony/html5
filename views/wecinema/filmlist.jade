@@ -8,7 +8,8 @@ block title
 block prepend body
 
     //- wrap
-    div.wrap
+    div.wrap.flexbox_v.molist
+         
         div.tabs.movietabs
             div.flexbox
                 div.city 
@@ -22,7 +23,7 @@ block prepend body
         div.addimg.fmaddimg
 
         if (data && !data.err && data.movies)
-            section.movielist
+            section.movielist.flex
                 ul
                     each movie, index in data.movies
                         li.flexbox(data-url="/#{data.publicsignal}/#{data.locationId}/ticket/#{movie.movieID}")
@@ -31,14 +32,14 @@ block prepend body
                                     img(src="#{movie.movieImage}")
                             div.txtmid.flex 
                                 div.flexbox
-                                    h2.flex #{movie.movieNameCN}
+                                    h2.flex 
+                                        b #{movie.movieNameCN}
                                         span #{movie.movieVersions}
-                                        span.curr 巨幕
+                                        //- span.curr 巨幕
                                     a(href="javascript:;").btn_buy
                                         span 购票
                                 p #{movie.intro}
                             div.toolmid
-
                                 div.btnbar
                                     a(href="/")
                                         i.ico_firend
