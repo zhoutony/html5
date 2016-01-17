@@ -46,7 +46,7 @@ app.get(['/:locationID/filmlist/:showtype',
         render_data.data.err = err;
         if (!err && data && data.movies) {
             render_data.data.movies = data.movies;
-            
+            render_data.data.shareInfo = data.shareInfo;
         } else {
 
         }
@@ -77,7 +77,7 @@ app.get(['/get/queryadvertisements/:type', '/:publicsignal/get/queryadvertisemen
             wxtype: publicsignal
         }
     };
-    console.log('options:', options)
+    // console.log('options:', options)
     render_data.data = {};
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data)

@@ -27,7 +27,7 @@ block prepend body
                 div.filmscroll
                     ul.flexbox.moviescroll
                         each movie, index in data.movies
-                            li(data-movieid="#{movie.movieID}" id="movie-#{movie.movieID}" data-intro="#{movie.intro}")
+                            li(data-movieid="#{movie.movieID}" data-moviename="#{movie.movieNameCN}" id="movie-#{movie.movieID}" data-intro="#{movie.intro}" data-movieimage="#{movie.movieImage}")
                                 a
                                     img(src="#{movie.movieImage}")
                                     i.demo-icon.icon-up-micro
@@ -76,6 +76,7 @@ block prepend script
         | var movies = !{JSON.stringify(data.movies)};
         | var cinema = !{JSON.stringify(data.cinema)};
         | window.publicsignal = "#{data.publicsignal}";
+        | var shareInfo = !{JSON.stringify(data.shareInfo)};
     script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/schedule.js?#{data.reversion}")
         

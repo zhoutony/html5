@@ -244,7 +244,7 @@ $(document).ready(function() {
 	exports.Loading = Loading;
 	exports.shareTip = shareTip;
 	exports.confirm = confirm;
-	// window.piaoyouGuide = piaoyouGuide;
+	window.piaoyouGuide = piaoyouGuide;
 	// window._alert = alert;
 	window._confirm = confirm;
 	// window.findbox = findbox;

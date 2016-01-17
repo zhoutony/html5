@@ -109,12 +109,16 @@ $(document).ready(function() {
 
 
     //分享
+    var _shareInfo = shareInfo && shareInfo;
+    if(!_shareInfo){
+        _shareInfo = {};
+    }
     wxbridge.share({
-        title: '今天热映的电影有几部还值得一看哦，有空吗？',
-        timelineTitle: '今天热映的电影有几部还值得一看哦，有空吗？',
-        desc: '今日热映 - 电影票友 moviefan.com.cn',
+        title: _shareInfo.title ? _shareInfo.title : '今天热映的电影有几部还值得一看哦，有空吗？',
+        timelineTitle: _shareInfo.timelineTitle ? _shareInfo.timelineTitle : '今天热映的电影有几部还值得一看哦，有空吗？',
+        desc: _shareInfo.desc ? _shareInfo.desc : '今日热映 - 电影票友 moviefan.com.cn',
         link: window.location.href,
-        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : 'http://p2.pstatp.com/large/3245/1852234910',
         callback: function(){
             Util.shearCallback(publicsignal, openId, showtype, 4, function(){
                 console.log('分享成功，并发送服务器');
