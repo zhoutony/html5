@@ -7,6 +7,7 @@ var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
 var seatRender = require('./modul/seatrender');
 
+
 /* jshint ignore:end */
 $(document).ready(function() {
     window.dialogs = dialogs;
@@ -85,19 +86,34 @@ $(document).ready(function() {
         $('.submit').on('click', function(evt){
             var _el = $(evt.currentTarget);
             var _len = selected_seats && selected_seats.length;
-            if(_len){
-                lockSeats(selected_seats, _len);
-            }
+            var localTel = localStorage.getItem('tel') || '';
+            dialogs.confirm('<p class="telinput flexbox"><input id="tel" type="tel" placeholder="请输入手机号" class="flex" value="'+localTel+'"></p>',
+                function(){
+                    var inputTel = $('#tel'),
+                        tel = inputTel.val();
+                    if(/^1[23456789]\d{9}$/.test(tel)){
+                        localStorage.setItem('tel', tel);
+                        if(_len){
+                            lockSeats(selected_seats, _len, tel);
+                        }
+                    }else{
+                        dialogs.tip('手机号不正确，请再试');
+                    }
+                }
+            )
+            
+            
         })
 
         //锁座
-        function lockSeats(selected_seats, _len){
+        function lockSeats(selected_seats, _len, tel){
             var option    = {},
                 seatIDs   = [],
-                seatNames = [];
+                seatNames = [],
+                showtimeId = showtime.showtimeID || '';
             
             for(var i = 0; i < _len; i++){
-                var _item = selected_seats[i].split('|');
+                var _item = selected_seats[i].split('#');
                 seatIDs.push(_item[0]);
                 seatNames.push(_item[1]);
             }; 
@@ -105,11 +121,15 @@ $(document).ready(function() {
             option.seatIDs    = seatIDs.join(',');
             option.seatNames  = seatNames.join(',');
             option.showtimeID = showtimeId;
-            option.mobile     = '';
+            option.mobile     = tel;
             option.wxtype     = publicsignal;
             $.post('/lockseats/' + showtimeId, option, function(reture_data){
-                localStorage.setItem('seats', JSON.stringify( selected_seats ));
-                location.href = '/'+ publicsignal +'/payment';
+                if(reture_data && reture_data.data && reture_data.success){
+                    localStorage.setItem('seats_' + showtimeId, JSON.stringify( selected_seats ));
+                    localStorage.setItem('lockseats_' + showtimeId, JSON.stringify( reture_data.data ));
+                    var orderId = reture_data.data.orderID || '0';
+                    location.href = '/payment/order/';
+                }
             })
         }
     }

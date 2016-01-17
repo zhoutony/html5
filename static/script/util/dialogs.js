@@ -243,8 +243,9 @@ $(document).ready(function() {
 	exports.alert = alert;
 	exports.Loading = Loading;
 	exports.shareTip = shareTip;
-	window.piaoyouGuide = piaoyouGuide;
-	window._alert = alert;
+	exports.confirm = confirm;
+	// window.piaoyouGuide = piaoyouGuide;
+	// window._alert = alert;
 	window._confirm = confirm;
 	// window.findbox = findbox;
 });

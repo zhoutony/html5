@@ -35,7 +35,7 @@ block prepend body
                     label 手机号码
                     //- input(type="tel" placeholder="请输入手机号" maxlength="11").flex#inputTel
                     //- i.demo-icon.icon-cancel-circled.m-hide
-                    p 13811984958
+                    p#tel
                 div.flexbox_v_c.payend
                     div.flex 还需支付
                     div.payprice
@@ -52,12 +52,13 @@ block prepend body
                     a(href="#") 微信付款
                 li.m-hide
                     a(href="#") 支付宝付款
-                li.notlink#payment
-                    a(href="ordersucc") 立即支付
+                li#payment
+                    a 立即支付
             div.time 
                 i 
                 | 支付剩余时间&nbsp;
-                span 7:37
+                span#payment-countdown
+                    | 10分00秒
             dl.otherinfo
                 dt 购票须知
                 dd 1、选座票由
@@ -72,6 +73,8 @@ block prepend footer
 block prepend script
     script
         | window.publicsignal = "#{data.publicsignal}";
+        | var orderId = "#{data.orderId}";
+        | var showtimeId = "#{data.showtimeId}";
     script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/payment.js?#{data.reversion}")
         

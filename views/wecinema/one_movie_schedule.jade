@@ -1,0 +1,27 @@
+if data.shows
+    div.tabstime
+        ul.flexbox#date_container
+            each schedule, index in data.shows
+                li(class=index == 0 ? "curr" : "", data-index="#{index}")
+                    span #{schedule.Date}
+    div.tabscont
+        each schedule1, index in data.shows
+            div(data-index="#{index}", class= index == 0 ? "timebox" : "timebox m-hide")
+                ul
+                    each one_schedule in schedule1.shows
+                        li
+                            a.flexbox_v_c(href= one_schedule.stopSellTime ? "/#{data.publicsignal}/room/#{one_schedule.showtimeID}" : "")
+                                div.toolmid
+                                    i.demo-icon.icon-sun
+                                div.timemid
+                                    h2 #{one_schedule.ticketStartTime}
+                                    p #{one_schedule.ticketEndTime}
+                                div.vermid.flex
+                                    h2 #{one_schedule.language} #{one_schedule.version}
+                                    p #{one_schedule.hallName}
+                                div.pricemid
+                                    if one_schedule.stopSellTime
+                                        - var price = one_schedule.price / 100;
+                                        p.pricetxt ¥#{price}
+                                    else
+                                        p 已关闭订票

@@ -11,7 +11,7 @@ var my_name = hostname + ':' + pid;
 app.get(['/:locationID/filmlist/:showtype', 
         '/:locationID/filmlist/:showtype/:sole',
         '/:publicsignal/:locationID/filmlist/:showtype',
-        '/:publicsignal/:locationID/filmlist/:showtype/:sole'], function (req, res) {
+        '/:publicsignal/:locationID/filmlist/:showtype/:sole'], chk_login.isLoggedIn, function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryMovies.aspx";
     var _locationID = req.params["locationID"];

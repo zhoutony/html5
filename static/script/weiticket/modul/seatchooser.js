@@ -101,6 +101,7 @@ define([
                     isCorrectSeat = seatPolicy('deselect', $seatDom); // 检查取消选择后是否和规则
                     $seatDom.removeClass(s_selectname);
                     $seatDom.addClass(a_selectname);
+                    $seatDom.find('i').addClass('m-hide');
                     if (!isCorrectSeat) {
                         return isCorrectSeat;
                     }
@@ -468,7 +469,7 @@ define([
                     var seatid = $(item).data('seatid');
                     if (seatid) {
                         
-                        selected_seats.push(seatid +'|'+seatname);
+                        selected_seats.push(seatid +'#'+seatname);
                         // $(selectedTemplaste).html(seatname).appendTo(locking_seats_dom);
                     }
                 });
