@@ -33,17 +33,23 @@ $(document).ready(function() {
         })
     }
 
+    // more
+    $('.infocon .more').on('click',function(){
+        $('.infocon').addClass('autobox');
+        
+    })
+
     //广告5
     $.get('/'+ publicsignal +'/get/queryadvertisements/5', function(adsHtml){
         var _addimg = $('.codeinfo').html(adsHtml);
          var _addimg = $('.infoaddimg').html(adsHtml);
         //顶部轮播
-        var indicator = $('.mui-slider');
-        $(indicator[0]).addClass('mui-active');
-        var gallery = mui('.mui-slider');
-        gallery.slider({
-            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
-        });
+        // var indicator = $('.mui-slider');
+        // $(indicator[0]).addClass('mui-active');
+        // var gallery = mui('.mui-slider');
+        // gallery.slider({
+        //     interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+        // });
     })
 
     //广告6
@@ -54,7 +60,7 @@ $(document).ready(function() {
         $(indicator[0]).addClass('mui-active');
         var gallery = mui('.mui-slider');
         gallery.slider({
-            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
+            interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
         });
     })
 
