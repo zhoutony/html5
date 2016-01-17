@@ -34,7 +34,7 @@ $(document).ready(function() {
     }
 
     //广告5
-    $.get('/get/queryadvertisements/5', function(adsHtml){
+    $.get('/'+ publicsignal +'/get/queryadvertisements/5', function(adsHtml){
         var _addimg = $('.codeinfo').html(adsHtml);
          var _addimg = $('.infoaddimg').html(adsHtml);
         //顶部轮播
@@ -47,7 +47,7 @@ $(document).ready(function() {
     })
 
     //广告6
-    $.get('/get/queryadvertisements/6', function(adsHtml){
+    $.get('/'+ publicsignal +'/get/queryadvertisements/6', function(adsHtml){
         var _addimg = $('.infoaddimg').html(adsHtml);
         //顶部轮播
         var indicator = $('.mui-slider');
@@ -64,14 +64,19 @@ $(document).ready(function() {
     if(!Util.is_weixn()){
     	$('.sharetoolbox').removeClass('m-hide');
     }
+
     //分享
+    var _shareInfo = shareInfo && shareInfo ;
+    if(!_shareInfo){
+        _shareInfo = {};
+    }
     var shareImgs = $('.infocon').find('img');
     wxbridge.share({
-        title: Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
-        timelineTitle: '[电影票友]荐：' + Util.strShort($('.infotit').html(), 20) + ' -' + weMediaName,
-        desc: '[电影票友]荐：' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
+        title: _shareInfo.title ? _shareInfo.title : Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
+        timelineTitle: _shareInfo.timelineTitle ? _shareInfo.timelineTitle : '[电影票友]荐：' + Util.strShort($('.infotit').html(), 20) + ' -' + weMediaName,
+        desc: _shareInfo.desc ? _shareInfo.desc : '[电影票友]荐：' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
         link: window.location.href,
-        imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
+        imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
         callback: function(){
             shareTip();
             Util.shearCallback(publicsignal, openId, newsId, 2, function(){

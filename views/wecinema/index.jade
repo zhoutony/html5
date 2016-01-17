@@ -5,9 +5,9 @@ block title
 
 block prepend body
     
-    //wrap
+    //- wrap
     div.wrap
-        //轮刷1广告
+        //- 轮刷1广告
         if(data && data.firstAds && data.firstAds.length >0)
             div.scrollpic.mui-slider.imgico
                 ul.mui-slider-group.mui-slider-loop
@@ -36,7 +36,7 @@ block prepend body
                 each indexAd, index in data.firstAds
                     if indexAd && indexAd.movie
                         - var _class_name = index == 0 ? "txtbox" : "txtbox m-hide";
-                        - var _link = '/#{data.publicsignal}/#{data.locationId}/ticket/' + indexAd.movieID;
+                        - var _link = '/'+ data.publicsignal +'/'+ data.locationId +'/ticket/' + indexAd.movieID;
                         div.txtbox(class="#{_class_name}")
                             h2 #{indexAd.movie.movieNameCN}
                             div.txtmid
@@ -151,7 +151,8 @@ block prepend script
     script
         | var data = !{JSON.stringify(data)};
         | var thirdIndex = !{data.baseData.thirdIndex};
-        | var publicsignal = '#{data.publicsignal}';
+        | window.publicsignal = '#{data.publicsignal}';
+        | var shareInfo = !{JSON.stringify(data.baseData.shareInfo)};
     script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")
 

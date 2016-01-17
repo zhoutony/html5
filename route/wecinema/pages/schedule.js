@@ -58,6 +58,7 @@ app.get(["/schedule/:cinemaId/:movieId",
             render_data.data.shows = data.shows;
             render_data.data.movies = data.movies;
             render_data.data.cinema = data.cinema;
+            render_data.data.shareInfo = data.shareInfo;
         }
         if(isShowtime == 'true'){
             res.render("wecinema/one_movie_schedule", render_data);

@@ -38,6 +38,7 @@ app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], 
         if (!err && data) {
             render_data.data.cinemas = getCinemas(data.cinemas);
             render_data.data.movie = data.movie;
+            render_data.data.shareInfo = data.shareInfo;
         }
         res.render("wecinema/ticket", render_data);
     });

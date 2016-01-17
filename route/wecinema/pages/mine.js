@@ -50,14 +50,18 @@ app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function
 });
 
 
-app.get(["/my/myorders"], function(req, res){
+app.get(["/my/myorders", "/:publicsignal/my/myorders"], function(req, res){
     var render_data = {};
     var my_api_addr = "/queryOrder.aspx";
-    
+
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
-             
+             wxtype: publicsignal
         }
     };
     render_data.data = {};

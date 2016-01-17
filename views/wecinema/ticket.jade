@@ -60,9 +60,11 @@ block prepend script
     script
         | window.publicsignal = "#{data.publicsignal}";
         if data.movie && data.movie.movieID
+            | var movie = !{JSON.stringify(data.movie)};
             | var movieId = "#{data.movie.movieID}";
         else
             | var movieId = "0";
+        | var shareInfo = !{JSON.stringify(data.shareInfo)};
     script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/ticket.js?#{data.reversion}")
 
