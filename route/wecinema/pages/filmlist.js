@@ -62,17 +62,22 @@ app.get(['/:locationID/filmlist/:showtype',
 });
 
 // 顶部广告
-app.get(['/get/queryadvertisements/:type'], function (req, res) {
+app.get(['/get/queryadvertisements/:type', '/:publicsignal/get/queryadvertisements/:type'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
     var _type = parseInt(req.params["type"]);
-    // console.log('_type', _type)
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
-            type: _type
+            type: _type,
+            wxtype: publicsignal
         }
     };
+    console.log('options:', options)
     render_data.data = {};
     model.getDataFromPhp(options, function (err, data) {
         // console.log(data)

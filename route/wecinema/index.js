@@ -12,7 +12,7 @@ require('./pages/schedule');
 require('./pages/payment');
 
 //room
-require('./pages/room');
+require('./pages/onlineseat');
 
 //mine
 require('./pages/mine');

@@ -42,13 +42,17 @@ $(document).ready(function() {
             getMovieNews();
         }
     })
-
+    
+    var _shareInfo = shareInfo && shareInfo ;
+    if(!_shareInfo){
+        _shareInfo = {};
+    }
     wxbridge.share({
-        title: $('._sourceName').html() + ' -[电影票友]荐',
-        timelineTitle: $('._sourceName').html() + ' -[电影票友]荐',
-        desc: $('.medtxt').html(),
+        title: _shareInfo.title ? _shareInfo.title : $('._sourceName').html() + ' -[电影票友]荐',
+        timelineTitle: _shareInfo.timelineTitle ? _shareInfo.timelineTitle : $('._sourceName').html() + ' -[电影票友]荐',
+        desc: _shareInfo.desc ? _shareInfo.desc : $('.medtxt').html(),
         link: window.location.href,
-        imgUrl: $('._logo').attr('src'),
+        imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : $('._logo').attr('src'),
         callback: function(){
             // alert();
             Util.shearCallback(publicsignal, openId, sourceId, 3, function(){

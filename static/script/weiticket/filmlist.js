@@ -25,9 +25,8 @@ $(document).ready(function() {
         $('._hot').removeClass('curr');
         $('._coming').addClass('curr');
     }
-    $.get('/get/queryadvertisements/4', function(adsHtml){
+    $.get('/get/queryadvertisements/4', {type: 4, wxtype: publicsignal}, function(adsHtml){
         var _addimg = $('.addimg').html(adsHtml);
-
 
         //顶部轮播
         var indicator = $('.mui-slider');
@@ -36,7 +35,7 @@ $(document).ready(function() {
         gallery.slider({
             interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
         });
-        var myCitys = Citys.render();
+        // var myCitys = Citys.render();
     })
     //定位城市
     function getCurrentPosition () {

@@ -72,12 +72,16 @@ $(document).ready(function() {
 
     //分享
     // var shareImgs = $('.infocon').find('img');
+    var _shareInfo = shareInfo && shareInfo ;
+    if(!_shareInfo){
+        _shareInfo = {};
+    }
     wxbridge.share({
-        title: '电影票友 --人人娱乐 人人收益 自媒体共享平台',
-        timelineTitle: '电影票友 --人人娱乐 人人收益 自媒体共享平台',
-        desc: '在电影的时光读懂自已     www.moviefan.com.cn',
+        title: _shareInfo.title ? _shareInfo.title : '电影票友 --人人娱乐 人人收益 自媒体共享平台',
+        timelineTitle: _shareInfo.timelineTitle ? _shareInfo.timelineTitle : '电影票友 --人人娱乐 人人收益 自媒体共享平台',
+        desc: _shareInfo.desc ? _shareInfo.desc : '在电影的时光读懂自已     www.moviefan.com.cn',
         link: window.location.href,
-        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : 'http://p2.pstatp.com/large/3245/1852234910',
         callback: function(){
             Util.shearCallback(publicsignal, openId, 0, 1, function(){
                 console.log('分享成功，并发送服务器');

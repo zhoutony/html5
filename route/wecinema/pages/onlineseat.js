@@ -53,7 +53,7 @@ app.get(['/room/:showtimeId', '/:publicsignal/room/:showtimeId'],chk_login.isLog
 
         }
         // console.log('data:', JSON.stringify(render_data.data.seats));
-        res.render("wecinema/room", render_data);
+        res.render("wecinema/onlineseat", render_data);
     });
 });
 

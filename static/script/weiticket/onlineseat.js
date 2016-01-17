@@ -29,9 +29,11 @@ $(document).ready(function() {
             width: '100%',
             overflow: 'hidden'
         });
-        setTimeout(function () {
-            seatRender.init({root: $root});
-        }, 300)
+        if($room){
+            setTimeout(function () {
+                seatRender.init({root: $root});
+            }, 300)
+        }
         setTimeout(function (){
             $room.css({
                 visibility: 'visible'

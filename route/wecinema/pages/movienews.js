@@ -68,13 +68,18 @@ app.get(["/movienews/:sourceId/:movieNewId", "/:publicsignal/movienews/:sourceId
 });
  
 // 顶部广告
-app.get(['/get/queryadvertisements'], function (req, res) {
+app.get(['/get/queryadvertisements', '/:publicsignal/get/queryadvertisements'], function (req, res) {
     var render_data = {};
     var my_api_addr = "/queryAdvertisements.aspx";
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
     var options = {
         uri: my_api_addr,
         args: {
-            type: '5'
+            type: '5',
+            wxtype: publicsignal
         }
     };
     render_data.data = {};
