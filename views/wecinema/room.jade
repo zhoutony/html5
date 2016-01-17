@@ -97,5 +97,5 @@ block prepend script
         | var showtime = !{JSON.stringify(data.show)};
         //- | var showtimeId = "#{data.show.showtimeID}";
         | window.publicsignal = "#{data.publicsignal}";
-    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/room.js?#{data.reversion}")
