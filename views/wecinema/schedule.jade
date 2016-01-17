@@ -76,7 +76,7 @@ block prepend script
         | var movies = !{JSON.stringify(data.movies)};
         | var cinema = !{JSON.stringify(data.cinema)};
         | window.publicsignal = "#{data.publicsignal}";
-    script(src="#{data.staticBase}/script/weiticket/common.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/schedule.js?#{data.reversion}")
         
 

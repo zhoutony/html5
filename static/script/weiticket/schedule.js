@@ -20,7 +20,7 @@ $(document).ready(function() {
         filmlist           = $('.filmlist');
 
     //切换日期
-    filmlist.on('click', 'li', function(e) {
+    filmlist.on('click', '.flexbox li', function(e) {
         var _el       = $(e.currentTarget),
             _index    = _el.data('index'),
             _timeboxs = $('.timebox');

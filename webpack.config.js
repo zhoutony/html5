@@ -1,6 +1,6 @@
 var config = require(process.cwd() + '/config/gulp');
 var webpack = require('webpack');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('main.js');
 
 var minifyPlugin = new webpack.optimize.MinChunkSizePlugin({
     compress: {
@@ -41,5 +41,5 @@ module.exports = {
         path: config.dist.js + '/weiticket',
         filename: '[name].js'
     },
-    plugins: [commonsPlugin, uglifyJsPlugin]
+    plugins: [commonsPlugin, minifyPlugin]
 };
