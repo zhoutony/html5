@@ -2595,6 +2595,7 @@ color:#fff;
 }
 .succ dt.myphoto{
 	background:#f6f6f6;
+	margin-top:0;
 }
  
  
@@ -2661,12 +2662,20 @@ color:#fff;
 	background: #fff url(../images/myphoto.png) no-repeat center center;
 	background-size: cover;
 }
+.mytool dl{padding-top:3rem;}
+.mytool .myheader{height:17.1rem;}
+.mytool dd b{color:#00948D;
+font-size:1.4rem;}
+.mytool dd .myprice{color:#00948D;}
 .succ .myprice
 {
 	color: #727272;
 	font-size: 1.2rem;
 	padding: 0.5rem 0 0;
 }
+.mynavbox li{text-align:center;font-size:1.2rem;color:#DBDCDC;
+	border-bottom:2px solid #DBDCDC;line-height:2.6rem;}
+	.mynavbox li.curr{color:#00948D;border-bottom:2px solid #00948D;}
 .mynav
 {
 	border: 1px solid #dcdedd;
@@ -3318,7 +3327,7 @@ color:#fff;
 	transition: .10s all
 }
 /**内容页**/
-.infotxt { padding: 0rem 0rem 1rem; }
+.infotxt { padding: 0rem 0rem 1rem;width:100%;overflow:hidden; }
 .infotxt .infocon img:first-child { margin-top: 1rem; }
 .infotxt .infocon img { max-width: 100%; }
 .infotxt .infocon p1 strong
@@ -3329,6 +3338,13 @@ color:#fff;
 	position: relative;
 }
 .infotxt .formtxt a { color: #00948D; }
+.infotxt .infocon ._txt{height:18rem;overflow:hidden;}
+.infotxt .autobox ._txt{height:auto;}
+.infotxt .autobox .more{display:none!important;}
+.infotxt .infocon .more{font-size:1.4rem;color:#0B8E87; padding:1rem 0;text-align:center;}
+.infotxt .infocon .more b,
+.infotxt .infocon .more span{display:block;}
+.infotxt .infocon .more b{padding:0 0.4rem;margin-top:-0.2rem;}
 .infotxt .formtxt .main
 {
 	color: #a1a1a1;
@@ -3754,7 +3770,7 @@ color:#fff;
 .txthot .hotmovie section
 {
 	background: #fff;
-	padding-top: 0;
+	 
 }
 .txthot .hotmovie section:after
 {
@@ -5198,3 +5214,42 @@ a.notbtn
 	transform: scaleY(.5);
 }
 .myfoot { padding-bottom: 6.4rem; }
+
+.mylistbox li{ position: relative;padding:2.2rem 1.5rem;}
+.mylistbox li:after{position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #cecece;
+    -webkit-transform: scaleY(0.5);
+    overflow: hidden;
+} 
+.timeico{display:block;width:1.2rem;height:1.2rem;
+	background:url(../images/timeico.png) no-repeat center center;
+background-size:cover;}
+
+.mylistbox li header time,
+.mylistbox li header p,
+.mylistbox li header p.myclose i{display: block;}
+.mylistbox li header time {margin:0 0.5rem;}
+.mylistbox li header p.myclose{padding:1rem 0;}
+.mylistbox li header p.myclose i{width:1.2rem;height:1.2rem;
+	background:url(../images/icoclose.png) no-repeat center center;
+background-size:cover;}
+.mylistbox li  section h2:after{display:none;}
+.mylistbox li  section .txtbox{margin:0;}
+.mylistbox li  section .txtbox h2{font-size:1.6rem;padding-top:0;height:4rem;margin-bottom:0.2rem;line-height:1.2;text-align:left;
+	overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;}
+ .mylistbox li  section .txtbox p{height:3.3rem;font-size:1.2rem;overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;}
+  .mylistbox li  section .imgbox{margin-left:1rem;}
+.mylistbox li  section .imgbox p{width:11.5rem;height:7.8rem;background:#333;}
