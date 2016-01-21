@@ -30,9 +30,11 @@ $(document).ready(function() {
             width: '100%',
             overflow: 'hidden'
         });
-        setTimeout(function () {
-            seatRender.init({root: $root});
-        }, 300)
+        if($room){
+            setTimeout(function () {
+                seatRender.init({root: $root});
+            }, 300)
+        }
         setTimeout(function (){
             $room.css({
                 visibility: 'visible'
@@ -138,12 +140,16 @@ $(document).ready(function() {
     init();
 
     //分享
+    var _shareInfo = shareInfo && shareInfo;
+    if(!_shareInfo){
+        _shareInfo = {};
+    }
     wxbridge.share({
-        title: '想去'+ cinema.cinemaName +'看《' + movie.movieNameCN +'》，有空吗？-电影票友',
-        timelineTitle: '想去 万达电影院CBD店 看 8点40 场《老炮儿》有空吗？-电影票友',
-        desc: '1     www.moviefan.com.cn',
+        title: _shareInfo.title ? _shareInfo.title : '想去 '+ cinema.cinemaName +' 看 '+ showtime.ticketStartTime +' 场《' + movie.movieNameCN +'》有空吗？-电影票友',
+        timelineTitle: _shareInfo.timelineTitle ? _shareInfo.timelineTitle : '想去 '+ cinema.cinemaName +' 看 '+ showtime.ticketStartTime +' 场《' + movie.movieNameCN +'》有空吗？-电影票友',
+        desc: _shareInfo.desc ? _shareInfo.title : '[电影票友]荐：' + movie.intro,
         link: window.location.href,
-        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
+        imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : movie.movieImage,
         callback: function(){
             Util.shearCallback(publicsignal, openId, showtype, 7, function(){
                 console.log('分享成功，并发送服务器');

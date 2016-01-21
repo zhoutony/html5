@@ -21,7 +21,7 @@ module.exports = {
         login: config.src.js + '/weiticket/util/login.js',
         choose_cinema: config.src.js + '/weiticket/choose_cinema.js',
         schedule: config.src.js + '/weiticket/schedule.js',
-        room: config.src.js + '/weiticket/room.js',
+        onlineseat: config.src.js + '/weiticket/onlineseat.js',
         mine: config.src.js + '/weiticket/mine.js',
         payment: config.src.js + '/weiticket/payment.js',
         result: config.src.js + '/weiticket/result.js',
@@ -41,5 +41,5 @@ module.exports = {
         path: config.dist.js + '/weiticket',
         filename: '[name].js'
     },
-    plugins: [commonsPlugin, minifyPlugin]
+    plugins: [commonsPlugin, uglifyJsPlugin]
 };

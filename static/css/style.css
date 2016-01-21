@@ -5238,6 +5238,11 @@ background-size:cover;}
 .mylistbox li header p.myclose i{width:1.2rem;height:1.2rem;
 	background:url(../images/icoclose.png) no-repeat center center;
 background-size:cover;}
+/*=======
+.timeico{display:block;background:url(../images/timeico.png);}
+.mylistbox li header time,
+.mylistbox li header p{display: block;}
+>>>>>>> c63315f24633a195fd63f2fd3b45ae5fd5aae9f3*/
 .mylistbox li  section h2:after{display:none;}
 .mylistbox li  section .txtbox{margin:0;}
 .mylistbox li  section .txtbox h2{font-size:1.6rem;padding-top:0;height:4rem;margin-bottom:0.2rem;line-height:1.2;text-align:left;
@@ -5252,4 +5257,6 @@ background-size:cover;}
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;}
   .mylistbox li  section .imgbox{margin-left:1rem;}
-.mylistbox li  section .imgbox p{width:11.5rem;height:7.8rem;background:#333;}
+/*=======
+>>>>>>> c63315f24633a195fd63f2fd3b45ae5fd5aae9f3
+.mylistbox li  section .imgbox p{width:11.5rem;height:7.8rem;background:#333;}*/

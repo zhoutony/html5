@@ -53,7 +53,7 @@ app.get(['/room/:showtimeId', '/:publicsignal/room/:showtimeId'],chk_login.isLog
 
         }
         // console.log('data:', JSON.stringify(render_data.data.seats));
-        res.render("wecinema/room", render_data);
+        res.render("wecinema/onlineseat", render_data);
     });
 });
 
@@ -97,7 +97,7 @@ function setSeats(seats){
 
 var prepard_seat = function (seat_list) {
 
-    if (!seat_list)return;
+    if (!seat_list && sSeatInfo.length > 0)return;
     var sSeatInfo = seat_list;
     var collen = sSeatInfo.length;
     var rowlen = sSeatInfo[0].length; //取得row数据

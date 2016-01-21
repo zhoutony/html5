@@ -18,7 +18,8 @@ $(document).ready(function() {
         filmscroll         = $('.filmscroll'),
         filmtxt            = $('.filmtxt'),
         moviescrollLi      = $('.moviescroll').find('li'),
-        filmlist           = $('.filmlist');
+        filmlist           = $('.filmlist'),
+        movie              = {};
 
     //切换日期
     filmlist.on('click', '.flexbox li', function(e) {
@@ -39,7 +40,12 @@ $(document).ready(function() {
         moviescrollLi.removeClass('curr');
         _el.addClass('curr');
         filmtxt.find('p').html(_el.data('intro'));
-        
+        movie = {
+            movieName: _el.data('moviename'),
+            intro: _el.data('intro'),
+            movieImage: _el.data('movieimage')
+        }
+        setShare();
         if(MoviesIScroll){
             MoviesIScroll.scrollToElement(_el[0], 500, -5);
         }
@@ -57,6 +63,8 @@ $(document).ready(function() {
     //设置滑动条
     setTimeout(function(){
         initIScroll();
+
+        setShare();
     }, 500);
     function initIScroll(){
         dateContainer.css({
@@ -96,24 +104,36 @@ $(document).ready(function() {
                 _movie.addClass('curr');
                 filmtxt.find('p').html(_movie.data('intro'));
                 MoviesIScroll.scrollToElement(_movie[0], 500, -5);
+                movie = {
+                    movieName: _movie.data('moviename'),
+                    intro: _movie.data('intro'),
+                    movieImage: _movie.data('movieimage')
+                }
             } else {
                 $(_movies[0]).addClass('curr');
             }
         }
     }
-    //分享
-    wxbridge.share({
-        title: '想去'+ cinema.cinemaName +'看《老炮儿》，有空吗？-电影票友',
-        timelineTitle: '想去万达电影院CBD店看《老炮儿》，有空吗？-电影票友',
-        desc: '在电影的时光读懂自已     www.moviefan.com.cn',
-        link: window.location.href,
-        imgUrl: 'http://p2.pstatp.com/large/3245/1852234910',
-        callback: function(){
-            Util.shearCallback(publicsignal, openId, showtype, 6, function(){
-                console.log('分享成功，并发送服务器');
-            })
-            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+    
+    function setShare(){
+        //分享
+        var _shareInfo = shareInfo && shareInfo;
+        if(!_shareInfo){
+            _shareInfo = {};
         }
-    })
+        wxbridge.share({
+            title: _shareInfo.title ? _shareInfo.title : '想去'+ cinema.cinemaName +'看《'+ movie.movieName +'》，有空吗？-电影票友',
+            timelineTitle: _shareInfo.timelineTitle ? _shareInfo.timelineTitle : '想去'+ cinema.cinemaName +'看《'+ movie.movieName +'》，有空吗？-电影票友',
+            desc: _shareInfo.desc ? _shareInfo.desc : '[电影票友]荐：' + movie.intro,
+            link: window.location.href,
+            imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : movie.movieImage,
+            callback: function(){
+                Util.shearCallback(publicsignal, openId, showtype, 6, function(){
+                    console.log('分享成功，并发送服务器');
+                })
+                // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+            }
+        })
+    }
 
 }); //END of jquery documet.ready 

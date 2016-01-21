@@ -53,7 +53,7 @@ app.get(['/', '/index.html', '/:publicsignal'], function (req, res) {
         publicsignal: publicsignal
     }
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data.advertisements);
+        // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
             var ads = data.advertisements;

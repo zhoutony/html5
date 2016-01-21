@@ -67,20 +67,26 @@ $(document).ready(function() {
     })
 
     //分享
+    var _shareInfo = shareInfo && shareInfo;
+    if(!_shareInfo){
+        _shareInfo = {};
+    }
     var shareImgs = $('.infocon').find('img');
-    wxbridge.share({
-        title: '觉得《老炮儿》值得一看哦，有空吗？',
-        timelineTitle: '觉得《老炮儿》值得一看哦，有空吗？',
-        desc: '觉得《老炮儿》值得一看哦，有空吗？',
-        link: window.location.href,
-        imgUrl: shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
-        callback: function(){
-            Util.shearCallback(publicsignal, openId, showtype, 5, function(){
-                console.log('分享成功，并发送服务器');
-            })
-            // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
-        }
-    })
+    if(movie){
+        wxbridge.share({
+            title: _shareInfo.title ? _shareInfo.title : '觉得《'+ movie.movieNameCN +'》值得一看哦，有空吗？',
+            timelineTitle: _shareInfo.title ? _shareInfo.title : '觉得《'+ movie.movieNameCN +'》值得一看哦，有空吗？',
+            desc: _shareInfo.title ? _shareInfo.title : '[电影票友]荐：' +movie.intro,
+            link: window.location.href,
+            imgUrl: _shareInfo.title ? _shareInfo.title : movie.movieImage,
+            callback: function(){
+                Util.shearCallback(publicsignal, openId, showtype, 5, function(){
+                    console.log('分享成功，并发送服务器');
+                })
+                // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
+            }
+        })
+    }
     // var shareImgs = $('.infocon').find('img');
     // wxbridge.share({
     //     title: Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
