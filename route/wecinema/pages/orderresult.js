@@ -1,6 +1,7 @@
 var util            = require('util');
 var model           = require(process.cwd()+"/libs/model.js");
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
+var constant      = require(process.cwd() + "/route/wecinema/util/constant.js");
 
 var os       = require('os');
 var pid      = process.pid;
@@ -8,33 +9,31 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/payment/succeed"], function(req, res){
+app.get(["/order/succeed", "/:publicsignal/order/succeed"], function(req, res){
     var render_data = {};
-    var my_api_addr = "/room";
-    var options = {
-        uri: my_api_addr,
-        args: {
-            locationID: 110000,
-            type:       1,
-            pageIndex:  1,
-            pageSize:   10
-        }
-    };
-    res.render("wecinema/ordersucc");
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
+    render_data.data = {
+        publicsignal: publicsignal,
+        reversion: global.reversion,
+        staticBase: global.staticBase
+    }
+    res.render("wecinema/ordersucc", render_data);
 });
 
 
-app.get(["/payment/eorr"], function(req, res){
+app.get(["/order/eorr", "/:publicsignal/order/eorr"], function(req, res){
     var render_data = {};
-    var my_api_addr = "/room";
-    var options = {
-        uri: my_api_addr,
-        args: {
-            locationID: 110000,
-            type:       1,
-            pageIndex:  1,
-            pageSize:   10
-        }
-    };
-    res.render("wecinema/ordereorr");
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
+    render_data.data = {
+        publicsignal: publicsignal,
+        reversion: global.reversion,
+        staticBase: global.staticBase
+    }
+    res.render("wecinema/ordereorr", render_data);
 });

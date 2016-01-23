@@ -52,7 +52,7 @@ app.get(["/schedule/:cinemaId/:movieId",
     }
     // console.log('one_movie_schedule2');
     model.getDataFromPhp(options, function (err, data) {
-        // console.log('data:', data);
+        // console.log('data:', JSON.stringify(data));
         render_data.data.err = err;
         if (!err && data) {
             render_data.data.shows = data.shows;

@@ -19,6 +19,8 @@ $(document).ready(function() {
         filmtxt            = $('.filmtxt'),
         moviescrollLi      = $('.moviescroll').find('li'),
         filmlist           = $('.filmlist'),
+        firendbtn          = $('#firendbtn'),
+        redbagbtn          = $('#redbagbtn'),
         movie              = {};
 
     //切换日期
@@ -40,6 +42,17 @@ $(document).ready(function() {
         moviescrollLi.removeClass('curr');
         _el.addClass('curr');
         filmtxt.find('p').html(_el.data('intro'));
+        //好友买单 邀红包  设置
+        if(_el.data('isfriendspay') == 'true'){
+            firendbtn.removeClass('m-hide');
+        }else{
+            firendbtn.addClass('m-hide');
+        }
+        if(_el.data('ismoneymacket') == 'true'){
+            redbagbtn.removeClass('m-hide');
+        }else{
+            redbagbtn.addClass('m-hide');
+        }
         movie = {
             movieName: _el.data('moviename'),
             intro: _el.data('intro'),
@@ -56,6 +69,7 @@ $(document).ready(function() {
             dateContainer      = $('#date_container');
             dateContainerLi    = dateContainer.find('li');
             dateContainerLiLen = dateContainerLi.length;
+            initIScroll();
         })
         
     });
@@ -72,7 +86,7 @@ $(document).ready(function() {
             overflow: 'hidden'
         })
         var tabstime = $('.tabstime');
-        if(!DateIScroll && tabstime.length > 0){
+        if(tabstime.length > 0){
             DateIScroll = new IScroll('.tabstime', {
                 scrollX: true,
                 scrollY: false,
@@ -103,6 +117,19 @@ $(document).ready(function() {
                 var _movie = $('#movie-' + movieId);
                 _movie.addClass('curr');
                 filmtxt.find('p').html(_movie.data('intro'));
+
+                //好友买单 邀红包  设置
+                if(_movie.data('isfriendspay') == 'true'){
+                    firendbtn.removeClass('m-hide');
+                }else{
+                    firendbtn.addClass('m-hide');
+                }
+                if(_movie.data('ismoneymacket') == 'true'){
+                    redbagbtn.removeClass('m-hide');
+                }else{
+                    redbagbtn.addClass('m-hide');
+                }
+
                 MoviesIScroll.scrollToElement(_movie[0], 500, -5);
                 movie = {
                     movieName: _movie.data('moviename'),

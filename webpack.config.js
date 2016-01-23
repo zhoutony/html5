@@ -35,7 +35,9 @@ module.exports = {
         ticket: config.src.js + '/weiticket/ticket.js',
         login: config.src.js + '/weiticket/login.js',
         movienews: config.src.js + '/weiticket/movienews.js',
-        medialist: config.src.js + '/weiticket/medialist.js'
+        medialist: config.src.js + '/weiticket/medialist.js',
+        orderwait: config.src.js + '/weiticket/orderwait.js',
+        orderResult: config.src.js + '/weiticket/orderResult.js'
     },
     output: {
         path: config.dist.js + '/weiticket',
