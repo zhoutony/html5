@@ -64,6 +64,12 @@ $(document).ready(function() {
         });
     })
 
+    // more
+    $('.infocon .more').on('click',function(){
+        $('.infocon').addClass('autobox');
+        
+    })
+
     if(window.title){
     	$('.infotit').html('<div>'+window.title+'</div>');
     }

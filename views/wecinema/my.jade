@@ -10,20 +10,22 @@ block prepend body
     //- wrap
     div.wrap
         div.succ.mytool
-            if data && !data.err
-                dl
-                    if data.uses
-                        dt.myphoto
-                            img(src="#{data.uses.headImgurl}")
-                        dd
-                            b #{data.uses.nick}
-                            p.myprice 余额：0.00元
-                    else
-                        dt.myphoto
-                           
-                        dd
-                            b 
-                            p.myprice 余额：0.00元
+            div.myheader(style="background:url(/images/mybg.jpg) no-repeat center top;background-size:100% auto;")
+                if data && !data.err
+                    dl
+                        if data.uses
+                            dt.myphoto
+                                img(src="#{data.uses.headImgurl}")
+                            dd
+                                b #{data.uses.nick}
+                                p.myprice 余额：0.00元
+                        else
+                            dt.myphoto
+                               
+                            dd
+                                b 
+                                p.myprice 余额：0.00元
+
             nav.mynav.m-hide
                 ul.flexbox_v_c
                     li.flex
@@ -32,6 +34,37 @@ block prepend body
                         i.ico_io
                     li.flex
                         a(href="") 注册
+            ul.mylistbox(style="display:none;")
+                li
+                    header.flexbox_v_c
+                        i.timeico
+                        time.flex 2小时前
+                        p.myclose
+                            i  
+                    section.flexbox
+                        div.txtbox.flex
+                            h2.
+                                男子在结冰的湖面发现了神奇的景象，让人看一眼就头皮发麻！
+                            p.
+                                这简直是密集恐惧症患者的噩梦！冬天气温下降后，湖面被厚厚的冰层覆盖，美国犹他州的两名网友却在上面发现了奇怪的现象
+                        div.imgbox
+                            p
+                            //- img(src="http://p2.pstatp.com/list/9d0003ed6bf65b2cc6")
+                li
+                    header.flexbox_v_c
+                        i.timeico
+                        time.flex 2小时前
+                        p.myclose
+                            i  
+                    section.flexbox
+                        div.txtbox.flex
+                            h2.
+                                男子在结冰的湖面发现了神奇的景象，让人看一眼就头皮发麻！
+                            p.
+                                这简直是密集恐惧症患者的噩梦！冬天气温下降后，湖面被厚厚的冰层覆盖，美国犹他州的两名网友却在上面发现了奇怪的现象
+                        div.imgbox
+                            p
+                            //- img(src="http://p2.pstatp.com/list/9d0003ed6bf65b2cc6")
             div.mymenu
                 ul.flexbox
                     li(data-item="myorders")
