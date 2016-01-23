@@ -11,8 +11,11 @@ $(document).ready(function() {
     var openId = cookie.getItem('openids'),
         shareTip;
     if(window.newscontent){
-    	var _html = JSON.stringify(window.newscontent)
-        $('._txt').html(window.newscontent);
+    	var _html = JSON.stringify(window.newscontent),
+            newsContent = $('#newsContent'),
+            newsContenttxt = $('._txt'),
+            moreBtn = $('.more');
+        newsContenttxt.html(window.newscontent);
 
         var _url = $('._txt').find('link').attr('src');
 
@@ -34,10 +37,17 @@ $(document).ready(function() {
     }
 
     // more
-    $('.infocon .more').on('click',function(){
-        $('.infocon').addClass('autobox');
+    if(newsContenttxt.height() > 1440){
+        newsContent.removeClass('hidden');
+        moreBtn.removeClass('m-hide');
+        moreBtn.on('click',function(){
+            newsContent.addClass('autobox');
+            
+        })
+    }else{
+        newsContent.removeClass('hidden');
+    }
         
-    })
 
     //广告5
     $.get('/'+ publicsignal +'/get/queryadvertisements/5', function(adsHtml){
@@ -79,9 +89,12 @@ $(document).ready(function() {
 
     //分享
     var _shareInfo = shareInfo && shareInfo ;
+
     if(!_shareInfo){
         _shareInfo = {};
     }
+    //暂时只取js的分享内容
+    _shareInfo = {};
     var shareImgs = $('.infocon').find('img');
     wxbridge.share({
         title: _shareInfo.title ? _shareInfo.title : Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,

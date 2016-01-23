@@ -116,9 +116,9 @@ block prepend body
                     a.info02
                     a.info03
 
-                div.infocon
+                div.infocon.hidden#newsContent
                     div._txt
-                    a.more.flexbox_vh_c 
+                    a.more.flexbox_vh_c.m-hide
                         b + 
                         span 阅读全文
                 div.formtxt 
@@ -192,16 +192,20 @@ block prepend footer
 block prepend script
     script
         //- | var title = "#{data.newsInfo.title}";
-        if data && data.newsInfo && data.newsInfo.content
-            | var newscontent = !{JSON.stringify(data.newsInfo.content ? data.newsInfo.content : '' )};
-        
-        | var _summary = "#{data.newsInfo.summary}";
-        | var newsId = "#{data.newsId}";
-        | var weMediaName = '#{data.newsInfo.weMediaName}';
-        | var sourceId = "#{data.sourceId}";
-        | window.publicsignal = "#{data.publicsignal}";
+        if data
+            if data.newsInfo
+                if data.newsInfo.content
+                    | var newscontent = !{JSON.stringify(data.newsInfo.content ? data.newsInfo.content : '' )};
+                if data.newsInfo.summary
+                    | var _summary = "#{data.newsInfo.summary}";
+                if data.newsInfo.weMediaName
+                    | var weMediaName = '#{data.newsInfo.weMediaName}';
+                | var shareInfo = !{JSON.stringify(data.shareInfo)};
+            | var newsId = "#{data.newsId}";
+            | var sourceId = "#{data.sourceId}";
+            | window.publicsignal = "#{data.publicsignal}";
         //- var newscontent = '#{data.newsInfo.content}';
-        | var shareInfo = !{JSON.stringify(data.shareInfo)};
+        
     script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/movienews.js?#{data.reversion}")
 

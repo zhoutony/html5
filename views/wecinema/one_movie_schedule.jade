@@ -12,7 +12,8 @@ if data.shows
                         li
                             a.flexbox_v_c(href= one_schedule.stopSellTime ? "/#{data.publicsignal}/room/#{one_schedule.showtimeID}" : "")
                                 div.toolmid
-                                    i.demo-icon.icon-sun
+                                    - var dateIcon = one_schedule.isSun ? "icon-sun" : "icon-moon";
+                                    i.demo-icon(class="#{dateIcon}")
                                 div.timemid
                                     h2 #{one_schedule.ticketStartTime}
                                     p #{one_schedule.ticketEndTime}

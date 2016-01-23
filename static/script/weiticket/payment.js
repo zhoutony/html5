@@ -112,7 +112,7 @@ $(document).ready(function () {
     var config_wx_and_pay = function (sPayCertificate) {
         var orderId = sPayCertificate.iOrderID;
 
-        var callback_url = location.origin + '/' + publicsignal + "/order";
+        var callback_url = location.origin + '/' + publicsignal +"/pay/orderwait/" + lockseats.orderID;
         //var _modal       = new Modal();
         wechatPay(sPayCertificate, callback_url);
 

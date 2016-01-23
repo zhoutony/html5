@@ -17,25 +17,22 @@ block prepend body
                     b LIUDAQ1007
                     p 购买失败
             div.succinfo
-                h2 蚁人
-                p 北京沃美影城（常营店）
-                p 3D | 今天（10月17日） 18:20
-                p
-                    i.ico_tick 1排7座
-            a.succlink(href="succlink") 查看订单详情
-            div.succimg
+                #{data.orderInfo}
+                //- h2 蚁人
+                //- p 北京沃美影城（常营店）
+                //- p 3D | 今天（10月17日） 18:20
+                //- p
+                //-     i.ico_tick 1排7座
+            a.succlink(href="/#{data.publicsignal}") 返回首页
+            div.succimg.m-hide
                 img(src="http://dummyimage.com/628x140&amp;text=1")
-        footer.footer
-            h2 客服电话：4008-188-188
-            p 电影票友服务由北京亚视联合在线科技有限公司提供
-
+        include ./pagelets/footer.jade
 
 
 
 block prepend footer
 
 block prepend script
-    script
-        
-
+    script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/orderResult.js?#{data.reversion}")
 

@@ -15,10 +15,10 @@ block prepend body
                         h2 #{data.cinema.cinemaName}
                         p #{data.cinema.cinemaAddress}
                         div.btnbar
-                            a(href="")
+                            a.m-hide#firendbtn
                                 i.ico_firend
                                 span 好友买单
-                            a(href="")
+                            a.m-hide#redbagbtn
                                 i.ico_redbag
                                 span 邀红包 
                     div.arrow
@@ -27,7 +27,7 @@ block prepend body
                 div.filmscroll
                     ul.flexbox.moviescroll
                         each movie, index in data.movies
-                            li(data-movieid="#{movie.movieID}" data-moviename="#{movie.movieNameCN}" id="movie-#{movie.movieID}" data-intro="#{movie.intro}" data-movieimage="#{movie.movieImage}")
+                            li(data-movieid="#{movie.movieID}" data-moviename="#{movie.movieNameCN}" id="movie-#{movie.movieID}" data-intro="#{movie.intro}" data-movieimage="#{movie.movieImage}" data-isfriendspay="#{movie.isFriendsPay}" data-ismoneymacket="#{movie.isMoneyPacket}")
                                 a
                                     img(src="#{movie.movieImage}")
                                     i.demo-icon.icon-up-micro
@@ -48,7 +48,8 @@ block prepend body
                                         li
                                             a.flexbox_v_c(href= one_schedule.stopSellTime ? "/#{data.publicsignal}/room/#{one_schedule.showtimeID}" : "")
                                                 div.toolmid
-                                                    i.demo-icon.icon-sun
+                                                    - var dateIcon = one_schedule.isSun ? "icon-sun" : "icon-moon";
+                                                    i.demo-icon(class="#{dateIcon}")
                                                 div.timemid
                                                     h2 #{one_schedule.ticketStartTime}
                                                     p #{one_schedule.ticketEndTime}
@@ -73,7 +74,7 @@ block prepend script
     script
         | var movieId = "#{data.movieId}";
         | var shows = !{JSON.stringify(data.shows)};
-        | var movies = !{JSON.stringify(data.movies)};
+        //- | var movies = !{JSON.stringify(data.movies)};
         | var cinema = !{JSON.stringify(data.cinema)};
         | window.publicsignal = "#{data.publicsignal}";
         | var shareInfo = !{JSON.stringify(data.shareInfo)};

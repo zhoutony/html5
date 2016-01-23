@@ -1473,7 +1473,19 @@ body { }
 	width: 4rem;
 	text-align: center;
 }
-.toolmid .icon-sun,
+.toolmid .icon-sun{
+	margin: auto;
+	width: 2rem;
+	height: 2rem;
+	text-align: center;
+	line-height: 2rem;
+	display: block;
+	font-size: 1.2rem;
+	background: url(../images/icosun.png) no-repeat;
+	background-size:cover;
+	color: #fff;
+	border-radius: 10rem;
+}
 .toolmid .icon-moon
 {
 	margin: auto;
@@ -1483,7 +1495,7 @@ body { }
 	line-height: 2rem;
 	display: block;
 	font-size: 1.2rem;
-	background: url(../images/icosun.png) no-repeat;
+	background: url(../images/icomoon.png) no-repeat;
 	background-size:cover;
 	color: #fff;
 	border-radius: 10rem;
@@ -3344,7 +3356,8 @@ font-size:1.4rem;}
 	position: relative;
 }
 .infotxt .formtxt a { color: #00948D; }
-.infotxt .infocon ._txt{height:18rem;overflow:hidden;}
+.infotxt .infocon ._txt{height:120rem;overflow:hidden;}
+.infotxt .hidden  ._txt{height:auto;visibility: hidden;}
 .infotxt .autobox ._txt{height:auto;}
 .infotxt .autobox .more{display:none!important;}
 .infotxt .infocon .more{font-size:1.4rem;color:#0B8E87; padding:1rem 0;text-align:center;}
