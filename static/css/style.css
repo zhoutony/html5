@@ -1843,7 +1843,7 @@ body { }
 	width: 2rem;
 	height: 3.3rem;
 	background: url(../images/search.png) no-repeat center center;
-	background-size: 1.2rem auto;
+	background-size: 1.8rem auto;
 	margin: 0 0.5rem;
 }
 .filmlist { padding: 0rem 0; }
@@ -1861,7 +1861,9 @@ body { }
 	padding-left: 1.8rem;
 	padding-right: 1.8rem;
 	font-size: 1.4rem;
+	color:#0B8E87;
 }
+
 .filmlist dt i
 {
 	color: #00968d;
@@ -1899,6 +1901,7 @@ body { }
 	-webkit-transform: scaleY(0.5);
 	overflow: hidden;
 }
+
 .hidefilm:last-child dt:before
 {
 	bottom: 0;
@@ -2337,7 +2340,7 @@ body { }
 {
 	display: block;
 	height: 2rem;
-	line-height: 2rem;
+ 
 	color: #afd1d0;
 	font-size: 1.2rem;
 	padding: 0 0.5rem;
@@ -2347,16 +2350,17 @@ body { }
 	background-size: 1.3rem auto;
 	border: 1px dotted #afd1d0;
 	border-radius: 10rem;
-}
-.citysearch .txt:focus
-{
-	background: url(../images/citysearch.png) no-repeat 1rem center;
-	background-size: 1.3rem auto;
 	-webkit-transition: .4s all;
 	-moz-transition: .4s all;
 	-o-transition: .4s all;
 	-ms-transition: .4s all;
 	transition: .4s all;
+}
+.citysearch .txt:focus
+{
+	background: url(../images/citysearch.png) no-repeat 1rem center;
+	background-size: 1.3rem auto;
+	
 	text-align: left;
 }
  .citysearch .txt:focus::-webkit-input-placeholder {
@@ -2467,6 +2471,7 @@ color:#fff;
 	border-radius: 2rem;
 	padding-bottom: 1rem;
 }
+.cardpop .cardlist li:last-child{padding-bottom:2rem;}
 .cardpop .cardlist .cardtxt
 {
 	border-bottom: 1px dotted #898989;
@@ -2516,8 +2521,8 @@ color:#fff;
 {
 	content: '';
 	display: block;
-	width: 4rem;
-	height: 4rem;
+	width: 8rem;
+	height: 8rem;
 	position: absolute;
 	right: 1rem;
 	top: 0;
@@ -3156,6 +3161,7 @@ font-size:1.4rem;}
 	border-bottom: 2px solid #fff;
 	padding: 2rem 0 2rem;
 	line-height: 1.4;
+
 }
 .hottips a
 {
@@ -3193,7 +3199,7 @@ font-size:1.4rem;}
 	text-align: center;
 	display: block;
 	border: none;
-	padding: 1.4rem 0;
+	padding: 1.4rem 0;background:#0B8E87;color:#fff;
 }
 .hottips .tipsbtn a:first-child { position: relative; }
 .hottips .tipsbtn a:first-child:after
@@ -4344,6 +4350,12 @@ font-size:1.4rem;}
 .am-skippop ul:last-child li:nth-child(1) { -webkit-animation-delay: 0.2s; }
 .am-skippop ul:last-child li:nth-child(2) { -webkit-animation-delay: 0.3s; }
 .am-skippop ul:last-child li:nth-child(3) { -webkit-animation-delay: 0.4s; }
+
+.am-skippop ul.frist li:nth-child(1),.am-skippop ul:last-child li:nth-child(1) {
+padding-left:2rem; }
+ .am-skippop ul.frist li:nth-child(3) ,
+ .am-skippop ul:last-child li:nth-child(3) {padding-right: 2rem;}
+
 .close-skippop
 {
 	background: rgba(255,255,255,.9);
