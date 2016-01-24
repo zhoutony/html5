@@ -95,6 +95,13 @@ define([
                     var $seats = $table.find('.seat');
                     that.scroll.scrollBy(0, -0.5 * ($table.width() - $table.height()));
                     that.scroll.zoom(that.scroll.scale + .0001); //hack the hIndicator
+                    var _x = that.$roomTable.width() / 2;
+                    var _y = that.$roomTable.height() / 2;
+                    if(that.scroll.scale < .3){
+                        setTimeout(function(){
+                            that.scroll.zoom(.5, _x, _y+150, 2000);
+                        }, 1000)
+                    }
                 });
 
             },

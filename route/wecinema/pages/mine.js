@@ -20,6 +20,14 @@ app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function
     var render_data = {};
     var my_api_addr = "/QueryWeiXinUser.aspx";
     var open_id     = req.cookies.openids || '';
+    var city = req.cookies.city,
+        locationId = 110100;
+    if(city){
+        city = JSON.parse(city);
+        if(city.locationId){
+            locationId = city.locationId;
+        }
+    }
     var publicsignal = req.params["publicsignal"];
     if(!publicsignal){
         publicsignal = constant.str.PUBLICSIGNAL;
@@ -36,11 +44,12 @@ app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function
     render_data.data.staticBase = global.staticBase;
     //隐藏工具条
     render_data.data.publicsignal = publicsignal;
+    render_data.data.locationId = locationId;
     render_data.data.isToolHide = true;
 
     // console.log('reversion:', reversion);
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data)
+        // console.log(data)
         if(!err && data){
             render_data.data.uses = data;
         }
@@ -53,7 +62,7 @@ app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function
 app.get(["/my/myorders", "/:publicsignal/my/myorders"], function(req, res){
     var render_data = {};
     var my_api_addr = "/queryOrder.aspx";
-
+    var openId      = req.cookies.openids || '';
     var publicsignal = req.params["publicsignal"];
     if(!publicsignal){
         publicsignal = constant.str.PUBLICSIGNAL;
@@ -61,7 +70,8 @@ app.get(["/my/myorders", "/:publicsignal/my/myorders"], function(req, res){
     var options = {
         uri: my_api_addr,
         args: {
-             wxtype: publicsignal
+            openID: openId,
+            wxtype: publicsignal
         }
     };
     render_data.data = {};

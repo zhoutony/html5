@@ -41,10 +41,12 @@ block prepend body
                                 p #{movie.intro}
                             div.toolmid
                                 div.btnbar
-                                    a(href="/")
+                                    - var firendClass = movie.isFriendsPay ? '' : 'm-hide';
+                                    - var redbagClass = movie.isMoneyPacket ? '' : 'm-hide';
+                                    a(class="#{firendClass}")
                                         i.ico_firend
                                         span 好友买单
-                                    a(href="/")
+                                    a(class="#{redbagClass}")
                                         i.ico_redbag
                                         span 邀红包
         div.navtool

@@ -5,6 +5,7 @@ var Util = require('../util/widgets')
 var wxbridge = require('../util/wxbridge');
 var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 var cookie = require('../util/cookie');
+var Dialogs = require('../util/dialogs');
 
 /* jshint ignore:end */
 $(document).ready(function() {
@@ -42,6 +43,14 @@ $(document).ready(function() {
             getMovieNews();
         }
     })
+
+    //分享提示操作  shareTip
+    if(Util.is_weixn()){
+        $('.info03').on('click', function(evt){
+            evt.preventDefault()
+            shareTip = Dialogs.shareTip();
+        })
+    }
     
     var _shareInfo = shareInfo && shareInfo ;
     if(!_shareInfo){

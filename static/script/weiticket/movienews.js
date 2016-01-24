@@ -45,7 +45,7 @@ $(document).ready(function() {
             
         })
     }else{
-        newsContent.removeClass('hidden');
+        newsContent.removeClass('hidden').addClass('autobox');
     }
         
 

@@ -101,6 +101,7 @@ var prepard_seat = function (seat_list) {
     var sSeatInfo = seat_list;
     var collen = sSeatInfo.length;
     var rowlen = sSeatInfo[0].length; //取得row数据
+    var rowNullCount = 0;
     
     sSeatInfo[collen - 1][0].rowStatus = 'last';
     var new_arr = [],
@@ -109,6 +110,7 @@ var prepard_seat = function (seat_list) {
         for (var i = 0; i < collen; i++){
             if( sSeatInfo[i][0].rowNum != ''){
                 sSeatInfo[i][0].rowStatus = 'first';
+                rowNullCount = i;
                 break;
             }else{
                 sSeatInfo[i][0].desc = 'vacant_seat';
@@ -130,18 +132,29 @@ var prepard_seat = function (seat_list) {
         yCoord: '',
         desc: 'vacant_seat'
     }
+
+    // console.log('rowNullCount:',rowNullCount)
+    // console.log(JSON.stringify(seat_list))
+    // console.log(rowlen, collen)
     for (var j = 0; j < rowlen; j++) {
         new_arr.push(new_row);
     }
-    if (rowlen > collen) {
-        // console.log(rowlen+'::::'+collen)
-        var _num = Math.floor((rowlen - collen) / 2);
-        _num += _num % 2;
-        for (j = 0; j < _num; j++) {
-            sSeatInfo.unshift(new_arr);
-        }
-        for (j = 0; j < _num; j++) {
+    if(rowNullCount > 3){
+        for (j = 0; j < rowNullCount; j++) {
             sSeatInfo.push(new_arr);
+        }
+    }else{
+        if (rowlen > collen) {
+            // console.log(rowlen+'::::'+collen)
+            var _num = Math.floor((rowlen - collen) / 2);
+            _num += _num % 2;
+            // console.log('_num:', _num)
+            for (j = 0; j < _num; j++) {
+                sSeatInfo.unshift(new_arr);
+            }
+            for (j = 0; j < _num; j++) {
+                sSeatInfo.push(new_arr);
+            }
         }
     }
     return sSeatInfo;

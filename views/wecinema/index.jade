@@ -150,7 +150,7 @@ block prepend footer
 block prepend script
     script
         | var data = !{JSON.stringify(data)};
-        | var thirdIndex = !{data.baseData.thirdIndex};
+        | var thirdIndex = '#{data.baseData.thirdIndex}';
         | window.publicsignal = '#{data.publicsignal}';
         | var shareInfo = !{JSON.stringify(data.baseData.shareInfo)};
     script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
