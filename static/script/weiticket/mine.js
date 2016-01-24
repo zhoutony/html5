@@ -87,4 +87,15 @@ $(document).ready(function() {
      	$('.subtablist').eq($('.navmy li').index(this)).show().siblings('.subtablist').hide();
     })
 
+    //-删除我的足迹
+    var myli = $('.mylistbox li');
+    var mylen = myli.length;
+    $('.myclose').on('click',function(){
+    	$(this).parent().parent().remove();
+    	if(mylen == 1){
+    		$('.empty').show();
+    	} 
+    	mylen--;
+    })
+
 })
