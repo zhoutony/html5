@@ -948,7 +948,9 @@ body { }
 {
 	padding: 0.8rem 0 0;
 	font-size: 1rem;
+	
 }
+.hotmovie footer .main{height:1.4rem;}
 .hotmovie footer span,
 .hotmovie footer time
 {
@@ -1159,7 +1161,7 @@ body { }
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.tabs .city a i { margin-top: .4rem; }
+ 
 .movietabs
 {
 	border: none;
@@ -1543,6 +1545,7 @@ body { }
 }
 .orderbox dt a
 {
+	position: relative;
 	display: block;
 	border: 1px solid #ccc;
 	text-align: center;
@@ -1551,8 +1554,18 @@ body { }
 	height: 2rem;
 	color: #00978a;
 	border-radius: 4rem;
-	background: url(../images/ruletips.png) no-repeat 27rem center;
+	
+}
+.orderbox dt a:before{
+	content: '';
+	display:block;
+	background: url(../images/ruletips.png) no-repeat center center;
 	background-size: auto 80%;
+	width:2rem;height:2rem;
+	position: absolute;
+	top:50%;
+	margin-top:-1rem;
+	right:.5rem;
 }
 .orderbox .orderlist li
 {
@@ -1596,8 +1609,8 @@ body { }
 	top: 0;
 	content: '';
 	display: block;
-	width: 1.6rem;
-	height: 1.6rem;
+	width: 2.2rem;
+	height: 2.2rem;
 	z-index: 0;
 }
 .orderbox li.new strong
@@ -1611,7 +1624,7 @@ body { }
 	margin-left: 0;
 	margin-right: 0;
 }
-.paybox { padding: 0.6rem 2rem 1.5rem; }
+.paybox { padding: 1.6rem 2rem 1.5rem; }
 .paybox h2
 {
 	font-size: 1.4rem;
@@ -1639,9 +1652,12 @@ body { }
 }
 .paylist li
 {
-	padding: 0.5rem 2rem;
+	 
+
+	padding: 0rem 2rem;
 	position: relative;
 }
+.paylist li:first-child{padding-top:1rem;padding-bottom:1rem;}
 .paylist li:after
 {
 	content: '';
@@ -1678,7 +1694,8 @@ body { }
 	padding-left: 0rem;
 	padding-top: 0;
 	padding-right: 0rem;
-	border-top: 1px dotted #bababa
+	background:url(../images/dot.png) repeat-x 0 0;
+	background-size: auto 4px;
 }
 .paylist li.telbox:after { display: none; }
 .paylist li.txtflex:after,
@@ -1692,8 +1709,9 @@ body { }
 }
 .paylist li .paymid
 {
-	padding: 1.25rem 2rem;
-	border-top: 1px dotted #bababa;
+	padding: 1.4rem 2rem;
+	background:url(../images/dot.png) repeat-x 0 0;
+	background-size: auto 4px;
 	font-size: 1.1rem;
 	color: #00968d;
 }
@@ -1707,9 +1725,10 @@ body { }
 .payinfo,
 .payend
 {
-	padding: 0.5rem 2rem;
+	padding: 1.3rem 2rem;
 	font-size: 1.1rem;
 }
+.payend{padding:.8rem 2rem;}
 .payinfo label,
 .payinfo input { display: block; }
 .payinfo label { margin-right: 1rem; }
@@ -1719,8 +1738,7 @@ body { }
 	font-size: 1.2rem;
 	padding: 0.5rem 0.3rem;
 }
-.payinfo { padding-bottom: 1rem; }
-.payinfo p { font-size: 1.6rem; }
+ .payinfo p { font-size: 1.6rem;color:#aaa; }
 .payinfo a
 {
 	display: block;
@@ -1728,7 +1746,8 @@ body { }
 	color: #9e9ea0;
 }
 .payinfo a i { font-size: 1.6rem; }
-.payend { border-top: 1px dotted #bababa; }
+.payend { background:url(../images/dot.png) repeat-x 0 0;
+	background-size: auto 4px;}
 .payend .payprice { text-align: right; }
 .payend .payprice b
 {
@@ -1777,6 +1796,7 @@ body { }
 .paytool li a
 {
 	display: block;
+	font-weight: bold;
 	color: #fff;
 	text-align: center;
 	background: #00968d;
@@ -1804,7 +1824,7 @@ body { }
 	color: #c8c8c8;
 	font-size: 1rem;
 	line-height: 1.4;
-	padding: 2rem 0 4rem;
+	padding: 4rem 0 4rem;
 }
 .paytool .otherinfo dd { line-height: 1.8; }
 .paytool .otherinfo strong { color: #000; }
@@ -1849,7 +1869,7 @@ body { }
 .serachmid .city a { display: inline-block; }
 .serachmid .btn_search
 {
-	display: block;
+	display: none;
 	width: 2rem;
 	height: 3.3rem;
 	background: url(../images/search.png) no-repeat center center;
@@ -1981,6 +2001,8 @@ body { }
 	color: #00968d;
 	font-size: 1.6rem;
 }
+.filmlist .pricebox .newprice b{font-size:1rem;font-weight: normal;
+color:#ccc;padding:0 0 0 .3rem;}
 .filmlist .infobox span
 {
 	background: #00968e;
@@ -2347,21 +2369,21 @@ body { }
 .citysearch .txt
 {
 	display: block;
-	height: 2rem;
+	 
 	color: #afd1d0;
-	font-size: 1.2rem;
-	padding: 0 0.5rem;
+	font-size: 1.4rem;
+	padding: .3rem 0.5rem;
 	text-align: center;
 	text-indent: 2.5rem;
 	background: url(../images/citysearch.png) no-repeat 7rem center;
 	background-size: 1.3rem auto;
 	border: 1px dotted #afd1d0;
 	border-radius: 10rem;
-	-webkit-transition: .4s all;
-	-moz-transition: .4s all;
-	-o-transition: .4s all;
-	-ms-transition: .4s all;
-	transition: .4s all;
+	-webkit-transition: .2s background;
+	-moz-transition: .2s background;
+	-o-transition: .2s background;
+	-ms-transition: .4s background;
+	transition: .2s background;
 }
 .citysearch .txt:focus
 {
@@ -2394,12 +2416,12 @@ color:#fff;
 .citybox .citylist dl { padding: 0 1rem 6.8rem 1rem; }
 .citybox .citylist dt
 {
-	padding: 0 2.5rem;
-	height: 2rem;
-	line-height: 2rem;
+	padding: 0 1.5rem;
+	height: 3rem;
+	line-height: 3rem;
 	background: #f7f7f7;
 	color: #00968d;
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 }
 .citybox .citylist dt.hot
 {
@@ -2410,13 +2432,13 @@ color:#fff;
 {
 	height: 3.2rem;
 	line-height: 3.2rem;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	color: #898989;
 	position: relative;
 }
 .citybox .citylist li a
 {
-	font-size: 1.1rem;
+	font-size: 1.4rem;
 	display: block;
 	padding: 0 0.5rem;
 	color: #333;
@@ -2456,7 +2478,7 @@ color:#fff;
 	text-align: center;
 	font-size: 0.6rem;
 	color: #fff;
-	padding: 0.45rem 0;
+	padding: 0.39rem 0 0.4rem;
 }
 .cardpop header,
 .cardpop nav li
@@ -2477,7 +2499,7 @@ color:#fff;
 	border-radius: 2rem;
 	padding-bottom: 1rem;
 }
-.cardpop .cardlist li:last-child { padding-bottom: 2rem; }
+.cardpop .cardlist li:last-child { margin-bottom: 2rem; }
 .cardpop .cardlist .cardtxt
 {
 	border-bottom: 1px dotted #898989;
@@ -3390,10 +3412,10 @@ color:#fff;
 .infotxt .autobox .more { display: none!important; }
 .infotxt .infocon .more
 {
-	font-size: 1.4rem;
-	color: #0B8E87;
-	padding: 1rem 0;
-	text-align: center;
+	text-indent:-9999rem;
+	height:2rem;margin:3rem 0 2rem;
+	background:url(../images/more.png) no-repeat center center;
+	background-size: auto 2rem;
 }
 .infotxt .infocon .more b,
 .infotxt .infocon .more span { display: block; }
@@ -3407,7 +3429,7 @@ color:#fff;
 	color: #a1a1a1;
 	text-align: left;
 	font-size: 1.4rem;
-	padding-bottom: 1.5rem;
+	padding-bottom: 2.5rem;
 }
 .infotxt .formtxt .aside
 {
@@ -3419,7 +3441,7 @@ color:#fff;
 {
 	color: #666;
 	line-height: 1.6;
-	padding: 1rem 1.8rem 1rem 1.8rem;
+	padding: 1rem 1.8rem 1.8rem 1.8rem;
 	text-align: right;
 	font-size: .8rem;
 }
@@ -3470,7 +3492,8 @@ color:#fff;
 .infotxt .infoheader .infotool
 {
 	margin-right: 0rem;
-	background: #EEEEEF;
+	background:#efefef;
+	 
 	overflow: hidden;
 	height: 5.6rem;
 }
@@ -3480,7 +3503,7 @@ color:#fff;
 	font-weight: bold;
 	color: #333;
 	line-height: 1.4;
-	margin: 2rem 0 1.5rem;
+	margin: 1.5rem 0 1.5rem;
 }
 .infotool img
 {
@@ -3503,7 +3526,7 @@ color:#fff;
 .infotool .logobox p,
 .infotool .logobox p img { border-radius: 6rem; }
 .infotool .logobox p img
-{
+{border:1px solid #f8f8f8;
 	width: 5.4rem;
 	height: 5.4rem;
 }
@@ -3537,15 +3560,19 @@ color:#fff;
 	padding-left: 1rem;
 	padding-top: 0rem;
 }
+.infotool .imgbox time{
+	display:block;
+	line-height:1.4;
+}
 .infotool .imgbox h2
 {
 	font-size: 1.4rem;
 	line-height: 1.3;
-	margin-bottom: 0.5rem;
+	 
 }
 .infotool .imgbox p:last-child
 {
-	font-size: 1.2rem;
+	font-size: 1rem;
 	height: 1.6rem;
 }
 .infomenu span time
@@ -3558,7 +3585,7 @@ color:#fff;
 .infotool .imgbox p b.join
 {
 	color: #25908b;
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	height: 1.6rem;
 	line-height: 1.2rem;
 }
@@ -3585,11 +3612,12 @@ color:#fff;
 	text-align: center;
 	border-radius: 3rem;
 }
-.infotool .txtbox a
+.infotool .txtbox  a 
 {
-	display: block;
-	min-height: 5rem;
+	  margin:0 1rem 0 0;
+
 }
+
 .infotool .txtbox p
 {
 	background: url(../images/text.png) no-repeat right bottom;
@@ -3611,7 +3639,7 @@ color:#fff;
 .infomenu
 {
 	padding-bottom: 0.4rem;
-	margin-bottom: 2rem;
+ 	margin-bottom: 2rem;
 }
 .infomenu img,
 .infomenu span,
@@ -3721,9 +3749,9 @@ color:#fff;
 .infomenu i.info02 { display: none; }
 .addticketbox
 {
-	margin: 0.8em 0 0;
-	padding: 0.5rem 0;
-	overflow: hidden;
+	margin: 0em 0 0;
+	padding: 0rem 0;
+	 
 	position: relative;
 }
 .addticketbox .bigimgbox
@@ -3734,26 +3762,36 @@ color:#fff;
 	bottom: 0;
 	right: 0;
 	top: 0;
-	background: url(../images/maskbg.png) no-repeat center center;
+	background: url(../images/maskbg.jpg) no-repeat center center;
 	background-size: cover;/*	-webkit-filter: blur(10px)*/
 }
 .addticketbox .imgbox
 {
-	width: 6rem;
+	width: 6.2rem;
 	margin-left: 1.8rem;
 }
+.addticketbox .imgbox img{display:block; vertical-align: top;}
 .addticketbox .imgbox,
-.addticketbox .txtbox,
+.addticketbox .txtbox ,
 .addticketbox .btnbox
 {
 	position: relative;
 	z-index: 1;
 }
+.addticketbox .btnbox .t{
+	background:url(../images/t.png) no-repeat center center;
+	background-size: cover;
+	width:1.7rem;
+	height:.7rem;
+	position: absolute;
+	right:.2rem;
+	top:1.8rem;
+}
 .addticketbox .txtbox h3
 {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	line-height: 1.4;
-	padding: 0 0 0.5rem 0;
+	padding: 0 0 0.3rem 0;
 	color: #fff;
 }
 .addticketbox .txtbox
@@ -3764,17 +3802,28 @@ color:#fff;
 .addticketbox .btnbox a i { position: relative; }
 .addticketbox .txtbox p
 {
-	line-height: 1.6;
+	line-height: 1.8;
 	height: auto;
 	color: #fff;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
-.addticketbox .btnbox a
-{
+ .addticketbox .btnbox{height:8.7rem;}
+.addticketbox .btnbox a  {
+	background:url(../images/cinemabut.png) no-repeat center center;
+	background-size:cover;
+	width:4rem;
+	height:5.5rem;
 	display: block;
-	position: relative;
-	padding: 1.8rem;
+	position: absolute;
+	right:1rem;
+	bottom:-.4rem; 
+	 
+	color:#fff;
 }
+.addticketbox .btnbox h3{color:#b4dedc;font-size:1.6rem;padding:1.6rem 1.6rem 0;}
+
+.addticketbox .btnbox a p{padding-top:3.8rem;color:#fff;}
+.addticketbox .btnbox a  i.btn_tick{display:none;}
 .addticketbox .btnbox a i:after
 {
 	content: '';
@@ -3986,6 +4035,7 @@ color:#fff;
 	left: 0;
 	bottom: 0;
 	right: 0;
+	-webkit-overflow-scrolling: touch;
 }
 .city-list { padding: 0rem 0; }
 .city-list h3,
@@ -3996,11 +4046,14 @@ color:#fff;
 	padding: 0 1rem;
 	font-weight: normal;
 	color: #00948D;
-	height: 2rem;
-	line-height: 2rem;
+	height: 3rem;
+	line-height: 3rem;
 	background: #f2f2f2;
 	font-size: 1.1rem;
 	margin: 0 1rem;
+}
+.city-list h3{
+	font-size:1.6rem;
 }
 .city-list h3 + ul,
 .city-list h4 + ul
@@ -4028,7 +4081,7 @@ color:#fff;
 	display: block;
 	height: 3.3rem;
 	line-height: 3.3rem;
-	border-bottom: 1px solid #f3f3f3;
+	 
 	padding: 0 0.5rem;
 }
 .citybox .citylist dd ul { overflow: hidden; }
@@ -4226,7 +4279,7 @@ color:#fff;
 }
 .skipbtn i
 {
-	font-size: 2rem;
+	font-size: 3rem;
 	color: #fff;
 }
 .skipcont header,
@@ -4239,8 +4292,8 @@ color:#fff;
 .skipcont header
 {
 	font-size: 3.8rem;
-	padding: 10rem 0 3rem;
-	background: url(../images/sk00.png) no-repeat center 12rem;
+	padding: 6rem 0 3rem;
+	background: url(../images/sk00.png) no-repeat center 8rem;
 	background-size: 32rem auto;
 	color: #00948D;
 }
@@ -4273,7 +4326,7 @@ color:#fff;
 {
 	text-align: center;
 	color: #9E9E9F;
-	font-size: 0.9rem;
+	font-size: 1.2rem;
 	line-height: 4;
 }
 .skipcont li .skip01
@@ -4997,7 +5050,7 @@ a.notbtn
 .scrollpic1 h2 { padding-top: 0; }
 .paylist li .priceaside { margin-top: 0rem; }
 .ico_edit_top { line-height: 1.2rem; }
-.hotmovie section .ico_edit_top { margin-top: -0.4rem; }
+ 
 }
 
 /**
@@ -5016,7 +5069,7 @@ a.notbtn
 .icoplus b { line-height: 1rem; }
 .scrollpic1 h2 { padding-top: 0; }
 .paylist li .priceaside { margin-top: 0rem; }
-.hotmovie footer span.ico_edit_top { margin-top: -0.2rem; }
+ 
 /* 
 .hotmovie .n_name,
 .hotmovie .num{margin-top:-0.2rem;}*/
@@ -5356,6 +5409,7 @@ a.notbtn
 	color: #00948D;
 	border-bottom: 2px solid #00948D;
 }
+.myadd{padding:0.5rem 0 0;}
 .myadd strong,
 .myadd span,
 .myadd em
@@ -5386,3 +5440,17 @@ a.notbtn
 	color: #000;
 	padding: 0.5rem 0 0;
 }
+.setline{
+	background:url(../images/setline.png) repeat-y 0 0;
+	background-size:cover;
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:50%;
+	width:6px;
+	margin-left:10px;
+}
+.empty{background:url(../images/empty.png) no-repeat center center;
+	height:32rem;
+	background-size:auto 90%;
+	 }

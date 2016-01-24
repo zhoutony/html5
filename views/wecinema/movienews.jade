@@ -9,7 +9,24 @@ block title
 block prepend body
     
     //- //wrap
-    
+    //- div.wrap
+    //-     div.addticketbox.flexbox_v_c
+    //-         div.bigimgbox 
+    //-         div.imgbox
+    //-              img(src="/tempimages/cinema.jpg")
+    //-         div.txtbox.flex
+    //-             h3 007
+    //-             p 导演：郑保瑞
+    //-             p 演员：托尼·贾  吴京   张晋   林嘉华   蔡瀚亿
+    //-             p 日期：2015年上映
+    //-             p 时长：120分钟
+                 
+    //-         div.btnbox
+    //-             h3 ¥25
+    //-             b.t
+    //-             a(href="/#").new 
+    //-                 i.btn_tick
+    //-                 p 购票
     div.wrap
         if data && !data.err && data.newsInfo
             div.infotxt
@@ -98,8 +115,8 @@ block prepend body
                                     a(href='/#{data.publicsignal}/medialist/#{data.sourceId}')
                                         p 在电影的时光读懂自已
                                  
-                if data.newsInfo.title
-                    h2.infotit #{data.newsInfo.title}
+                    if data.newsInfo.title
+                        h2.infotit #{data.newsInfo.title}
 
                 div.infomenu.flexbox_v_c
                     div.main.flex
