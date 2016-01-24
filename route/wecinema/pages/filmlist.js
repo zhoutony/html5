@@ -42,7 +42,7 @@ app.get(['/:locationID/filmlist/:showtype',
     }
     // console.log(JSON.stringify(options))
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data)
+        // console.log(JSON.stringify(data))
         render_data.data.err = err;
         if (!err && data && data.movies) {
             render_data.data.movies = data.movies;
