@@ -81,4 +81,10 @@ $(document).ready(function() {
         }, 1000);    
     })
 
+    //- 我的页面切换
+    $('.navmy li').on('click',function(){
+    	$(this).addClass('curr').siblings().removeClass('curr'); 
+     	$('.subtablist').eq($('.navmy li').index(this)).show().siblings('.subtablist').hide();
+    })
+
 })
