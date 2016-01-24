@@ -9558,3 +9558,6 @@ Cannot read property 'thirdIndex' of undefined
   sex: 0,
   balance: 0 }
 [2016-01-24 19:43:08.747] [INFO] console - Listening on port 80
+[2016-01-24 20:21:12.703] [INFO] console - Listening on port 80
+[2016-01-24 20:27:04.120] [INFO] console - Listening on port 80
+[2016-01-24 20:39:47.812] [INFO] console - Listening on port 80
