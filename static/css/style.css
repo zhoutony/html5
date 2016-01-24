@@ -1249,7 +1249,7 @@ body { }
 {
 	position: relative;
 	position: relative;
-	padding: 0.5rem 0 3.5rem;
+	padding: 0.5rem 0 1.5rem;
 }
 .movielist li:last-child { border-bottom: none; }
 .movielist .picmid
@@ -1373,7 +1373,7 @@ body { }
 	font-weight: bold;
 }
 .filminfo p { font-size: 1.1rem; }
-.filminfo .btnbar { position: inherit; }
+.filminfo .btnbar { position: inherit;height:1rem; }
 .filminfo .btnbar a { margin-right: 1rem; }
 .filmscroll
 {
