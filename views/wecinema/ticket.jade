@@ -44,7 +44,9 @@ block prepend body
                                             div.infobox.flex 
                                                 h2 #{_cinemas.cinemaName}
                                                 p #{_cinemas.cinemaAddress}
-                                                p #{_cinemas.showTimeCount}
+                                                p 最近场次：
+                                                    | #{_cinemas.showTimeCount}
+                                                    | 场
                                                     if _cinemas.voucherNote != ''
                                                         b #{_cinemas.voucherNote}
                                             div.pricebox
@@ -52,7 +54,9 @@ block prepend body
                                                     if _cinemas.isTicket
                                                         span 座
                                                 p.del ￥#{_cinemas.retailPrice}
-                                                p.newprice ￥#{_cinemas.limitPrice}
+                                                p.newprice 
+                                                    | ￥#{_cinemas.limitPrice}
+                                                    b 起
 
 block prepend footer
 
