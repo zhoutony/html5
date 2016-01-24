@@ -12,19 +12,29 @@ $(document).ready(function() {
     var movienewsPageindex = 1;
     var hotmovie = $('.hotmovie');
     var lock = false;
-    var openId = cookie.getItem('openids');
+    var openId = cookie.getItem('openids'),
+        isIndexMovieNewsHtml = false;
+
     //加载 头条电影列表
     function getMovieNews(){
-        var _url = '/'+ publicsignal +'/hotmovienews/' + movienewsPageindex;
-        $.get(_url, function(data) {
-            if(data == ""){
-                ScrollBottomPlus.remove();
-                return;
+        //缓存时间1000 * 60 * 15  15分钟 900000
+        var indexMovieNewsHtmlStarttime = localStorage.getItem('indexMovieNewsHtmlStarttime');
+
+        if(indexMovieNewsHtmlStarttime && indexMovieNewsHtmlStarttime != ''){
+            var _time = new Date() * 1 - parseInt(indexMovieNewsHtmlStarttime);
+            if(_time > 90000){
+                localStorage.removeItem('indexMovieNewsHtml')
+                
             }
-            hotmovie.html(hotmovie.html() + data)
-            // var _el = $('<div></div>').html(data).appendTo(hotmovie);
-            if(movienewsPageindex == 1){
-                appendThirdAds(hotmovie, thirdIndex ? thirdIndex -1 : 1);
+        }
+        var indexMovieNewsHtml = localStorage.getItem('indexMovieNewsHtml');
+
+        if(indexMovieNewsHtml && !isIndexMovieNewsHtml){
+            isIndexMovieNewsHtml = true;
+            hotmovie.html(indexMovieNewsHtml);
+            var indexScrollTop = localStorage.getItem('indexScrollTop');
+            if(indexScrollTop && indexScrollTop != ''){
+                window.scrollTo(0,parseInt(indexScrollTop));
             }
             if(!lock){
                 lock = true;
@@ -38,8 +48,36 @@ $(document).ready(function() {
                     }
                 })
             }
-            ScrollBottomPlus.gotoBottomShowed = false;
-        });
+        }else{
+            
+            var _url = '/'+ publicsignal +'/hotmovienews/' + movienewsPageindex;
+            $.get(_url, function(data) {
+                if(data == ""){
+                    ScrollBottomPlus.remove();
+                    return;
+                }
+                hotmovie.html(hotmovie.html() + data)
+                // var _el = $('<div></div>').html(data).appendTo(hotmovie);
+                if(movienewsPageindex == 1){
+                    appendThirdAds(hotmovie, thirdIndex ? thirdIndex -1 : 1);
+                }
+                if(!lock){
+                    lock = true;
+                    ScrollBottomPlus.render({
+                        el: '.hotmovie',
+                        app_el: '.wrap',
+                        footer: '.navtool',
+                        callback: function(){
+                            movienewsPageindex++;
+                            getMovieNews();
+                        }
+                    })
+                }
+                ScrollBottomPlus.gotoBottomShowed = false;
+                localStorage.setItem('indexMovieNewsHtml', hotmovie.html());
+                localStorage.setItem('indexMovieNewsHtmlStarttime', new Date() * 1);
+            });
+        }
 
     }
     getMovieNews();

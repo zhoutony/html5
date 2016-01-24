@@ -22,7 +22,7 @@ $(document).ready(function() {
         _chooseCity.find('span').html(city.name);
         locationId = city.locationId;
     }
-    if(showtype == 'coming'){
+    if(window.showtype == 'coming'){
         $('._hot').removeClass('curr');
         $('._coming').addClass('curr');
     }
@@ -90,7 +90,7 @@ $(document).ready(function() {
             var cookieExpired = 60 * 60 * 24 * 30; //30天
             var cookiePath = '/';
             cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
-            if(showtype == 'coming'){
+            if(window.showtype == 'coming'){
                 location.href = '/'+ window.publicsignal + '/' + city.locationId + '/ticket/';
             }else{
                 location.href = '/'+ window.publicsignal + '/' + city.locationId + '/filmlist/hot';
@@ -120,7 +120,7 @@ $(document).ready(function() {
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : 'http://p2.pstatp.com/large/3245/1852234910',
         callback: function(){
-            Util.shearCallback(publicsignal, openId, showtype, 4, function(){
+            Util.shearCallback(publicsignal, openId, window.showtype, 4, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';

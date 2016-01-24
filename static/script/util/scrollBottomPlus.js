@@ -41,6 +41,7 @@ var ScrollBottomPlus = {
     },
 
     checkScroll: function(){
+        localStorage.setItem('indexScrollTop', document.body.scrollTop);
         var scrollHeight = document.body.scrollTop + this.clientHeight,
             bodyOffsetHeight = this.app.height() - this.footerHeight;
         //alert(scrollHeight + ':' + bodyOffsetHeight);

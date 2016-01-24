@@ -144,7 +144,7 @@ $(document).ready(function() {
     
     function setShare(){
         //分享
-        var _shareInfo = shareInfo && shareInfo;
+        var _shareInfo = window.shareInfo && window.shareInfo;
         if(!_shareInfo){
             _shareInfo = {};
         }

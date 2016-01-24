@@ -67,12 +67,12 @@ $(document).ready(function() {
     })
 
     //分享
-    var _shareInfo = shareInfo && shareInfo;
+    var _shareInfo = window.shareInfo && window.shareInfo;
     if(!_shareInfo){
         _shareInfo = {};
     }
     var shareImgs = $('.infocon').find('img');
-    if(movie){
+    if(window.movie){
         wxbridge.share({
             title: _shareInfo.title ? _shareInfo.title : '觉得《'+ movie.movieNameCN +'》值得一看哦，有空吗？',
             timelineTitle: _shareInfo.title ? _shareInfo.title : '觉得《'+ movie.movieNameCN +'》值得一看哦，有空吗？',
