@@ -49,7 +49,7 @@ app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function
 
     // console.log('reversion:', reversion);
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data)
+        // console.log(data)
         if(!err && data){
             render_data.data.uses = data;
         }

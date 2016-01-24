@@ -9527,3 +9527,34 @@ Cannot read property 'thirdIndex' of undefined
        sourceType: 16,
        isSubscribe: 'false' } ],
   shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-01-24 19:41:46.261] [INFO] console - Listening on port 3000
+[2016-01-24 19:41:50.942] [INFO] console - Listening on port 80
+[2016-01-24 19:42:21.536] [INFO] console - { weixinBaseID: 1,
+  openID: '',
+  userID: 0,
+  unionID: '',
+  subscribeTime: '1970-00-01 08:00:00',
+  unsubscribeTime: null,
+  status: 1,
+  nick: '',
+  country: '',
+  province: '',
+  city: '',
+  headImgurl: '',
+  sex: 0,
+  balance: 0 }
+[2016-01-24 19:42:27.401] [INFO] console - { weixinBaseID: 1,
+  openID: '',
+  userID: 0,
+  unionID: '',
+  subscribeTime: '1970-00-01 08:00:00',
+  unsubscribeTime: null,
+  status: 1,
+  nick: '',
+  country: '',
+  province: '',
+  city: '',
+  headImgurl: '',
+  sex: 0,
+  balance: 0 }
+[2016-01-24 19:43:08.747] [INFO] console - Listening on port 80

@@ -2699,7 +2699,7 @@ color:#fff;
 	background-size: cover;
 }
 .mytool dl { padding-top: 2.5rem; }
-.mytool .myheader { height: 17.1rem; }
+.mytool .myheader { /*height: 17.1rem;*/ }
 .mytool dd b
 {
 	color: #00948D;
