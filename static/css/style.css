@@ -226,35 +226,35 @@ flexbox_vh_c 横向纵向居中
  @-webkit-keyframes waitbox {
  0% {
  background: url(../images/wait01.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
  10% {
  background: url(../images/wait02.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 20% {
  background: url(../images/wait03.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 30% {
  background: url(../images/wait04.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 40% {
  background: url(../images/wait05.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 50% {
  background: url(../images/wait06.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 60% {
  background: url(../images/wait07.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 100% {
  background: url(../images/wait08.png) no-repeat center center;
- background-size: cover;
+ background-size: 80% auto;
 }
 }
 .wait .waittxt
@@ -1264,9 +1264,9 @@ body { }
 {
 	display: block;
 	padding-top: 0;
-	background:url(../images/pay_buy.png) no-repeat center center;
-	background-size:4rem auto;
-	text-indent:-12121212rem;
+	background: url(../images/pay_buy.png) no-repeat center center;
+	background-size: 4rem auto;
+	text-indent: -12121212rem;
 }
 .movielist .txtmid h2
 {
@@ -1473,7 +1473,8 @@ body { }
 	width: 4rem;
 	text-align: center;
 }
-.toolmid .icon-sun{
+.toolmid .icon-sun
+{
 	margin: auto;
 	width: 2rem;
 	height: 2rem;
@@ -1482,7 +1483,7 @@ body { }
 	display: block;
 	font-size: 1.2rem;
 	background: url(../images/icosun.png) no-repeat;
-	background-size:cover;
+	background-size: cover;
 	color: #fff;
 	border-radius: 10rem;
 }
@@ -1496,17 +1497,14 @@ body { }
 	display: block;
 	font-size: 1.2rem;
 	background: url(../images/icomoon.png) no-repeat;
-	background-size:cover;
+	background-size: cover;
 	color: #fff;
 	border-radius: 10rem;
 }
 .toolmid .icon-sun:before,
-.toolmid .icon-moon:before{
-	display:none;
-}
+.toolmid .icon-moon:before { display: none; }
 .toolmid .icon-moon
 {
-	 
 	width: 1.6rem;
 	height: 1.6rem;
 	line-height: 1.6rem;
@@ -1873,9 +1871,8 @@ body { }
 	padding-left: 1.8rem;
 	padding-right: 1.8rem;
 	font-size: 1.4rem;
-	color:#0B8E87;
+	color: #0B8E87;
 }
-
 .filmlist dt i
 {
 	color: #00968d;
@@ -1913,7 +1910,6 @@ body { }
 	-webkit-transform: scaleY(0.5);
 	overflow: hidden;
 }
-
 .hidefilm:last-child dt:before
 {
 	bottom: 0;
@@ -2352,7 +2348,6 @@ body { }
 {
 	display: block;
 	height: 2rem;
- 
 	color: #afd1d0;
 	font-size: 1.2rem;
 	padding: 0 0.5rem;
@@ -2372,7 +2367,6 @@ body { }
 {
 	background: url(../images/citysearch.png) no-repeat 1rem center;
 	background-size: 1.3rem auto;
-	
 	text-align: left;
 }
  .citysearch .txt:focus::-webkit-input-placeholder {
@@ -2483,7 +2477,7 @@ color:#fff;
 	border-radius: 2rem;
 	padding-bottom: 1rem;
 }
-.cardpop .cardlist li:last-child{padding-bottom:2rem;}
+.cardpop .cardlist li:last-child { padding-bottom: 2rem; }
 .cardpop .cardlist .cardtxt
 {
 	border-bottom: 1px dotted #898989;
@@ -2603,20 +2597,23 @@ color:#fff;
 .succ dt
 {
 	height: 6.9rem;
-	width:6.9rem;
+	width: 6.9rem;
 	margin: 4rem auto 1rem;
 	background: url(../images/succ_01.png) no-repeat center center;
 	background-size: 6.9rem auto;
-	border-radius:6.9rem;
-	overflow:hidden;
+	border-radius: 6.9rem;
+	overflow: hidden;
 }
-.succ dt.myphoto{
-	background:#f6f6f6;
-	margin-top:0;
+.succ dt.myphoto
+{
+	background: #f6f6f6;
+	margin-top: 0;
 }
- 
- 
-.succ dt  img{width:100%;border-radius:6.9rem;}
+.succ dt img
+{
+	width: 100%;
+	border-radius: 6.9rem;
+}
 .orderwait dt
 {
 	background: url(../images/payorderwait.png) no-repeat center center;
@@ -2679,20 +2676,33 @@ color:#fff;
 	background: #fff url(../images/myphoto.png) no-repeat center center;
 	background-size: cover;
 }
-.mytool dl{padding-top:3rem;}
-.mytool .myheader{height:17.1rem;}
-.mytool dd b{color:#00948D;
-font-size:1.4rem;}
-.mytool dd .myprice{color:#00948D;}
+.mytool dl { padding-top: 2.5rem; }
+.mytool .myheader { height: 17.1rem; }
+.mytool dd b
+{
+	color: #00948D;
+	font-size: 1.4rem;
+}
+.mytool dd .myprice { color: #00948D; }
 .succ .myprice
 {
 	color: #727272;
 	font-size: 1.2rem;
 	padding: 0.5rem 0 0;
 }
-.mynavbox li{text-align:center;font-size:1.2rem;color:#DBDCDC;
-	border-bottom:2px solid #DBDCDC;line-height:2.6rem;}
-	.mynavbox li.curr{color:#00948D;border-bottom:2px solid #00948D;}
+.mynavbox li
+{
+	text-align: center;
+	font-size: 1.2rem;
+	color: #DBDCDC;
+	border-bottom: 2px solid #DBDCDC;
+	line-height: 2.6rem;
+}
+.mynavbox li.curr
+{
+	color: #00948D;
+	border-bottom: 2px solid #00948D;
+}
 .mynav
 {
 	border: 1px solid #dcdedd;
@@ -2719,8 +2729,8 @@ font-size:1.4rem;}
 	border-radius: 10rem;
 	overflow: hidden;
 }
-.mymenu { margin: 1.5rem; }
-.mymenu ul { margin-bottom: 0.5rem; }
+.mymenu { margin: 2rem 1.5rem 1.5rem; }
+.mymenu ul { margin-bottom: .5rem; }
 .mymenu li:nth-child(2) { margin: 0 0.5rem; }
 .mymenu li
 {
@@ -3173,7 +3183,6 @@ font-size:1.4rem;}
 	border-bottom: 2px solid #fff;
 	padding: 2rem 0 2rem;
 	line-height: 1.4;
-
 }
 .hottips a
 {
@@ -3182,20 +3191,21 @@ font-size:1.4rem;}
 	color: #fff;
 	padding: 1rem 0;
 	position: relative;
-	zoom:1;
+	zoom: 1;
 }
-.hottips a:first-child:after{
+.hottips a:first-child:after
+{
 	content: '';
-    display: block;
-    width: 1px;
-    overflow: hidden;
-    background: #cecece;
-    position: absolute;
-    top: .3rem;
-    bottom: .3rem;
-    right: 0rem;
-    -webkit-transform: scaleY(.5);
-    transform: scaleY(.5);
+	display: block;
+	width: 1px;
+	overflow: hidden;
+	background: #cecece;
+	position: absolute;
+	top: .3rem;
+	bottom: .3rem;
+	right: 0rem;
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
 }
 .hottips .telinput
 {
@@ -3211,7 +3221,12 @@ font-size:1.4rem;}
 	text-align: center;
 	display: block;
 	border: none;
-	padding: 1.4rem 0;background:#0B8E87;color:#fff;
+	padding: 1.4rem 0;
+	background: #0B8E87;
+	color: #fff;
+}
+.hottips .telinput input::-webkit-input-placeholder {
+color:#fff;
 }
 .hottips .tipsbtn a:first-child { position: relative; }
 .hottips .tipsbtn a:first-child:after
@@ -3345,7 +3360,12 @@ font-size:1.4rem;}
 	transition: .10s all
 }
 /**内容页**/
-.infotxt { padding: 0rem 0rem 1rem;width:100%;overflow:hidden; }
+.infotxt
+{
+	padding: 0rem 0rem 1rem;
+	width: 100%;
+	overflow: hidden;
+}
 .infotxt .infocon img:first-child { margin-top: 1rem; }
 .infotxt .infocon img { max-width: 100%; }
 .infotxt .infocon p1 strong
@@ -3356,14 +3376,32 @@ font-size:1.4rem;}
 	position: relative;
 }
 .infotxt .formtxt a { color: #00948D; }
-.infotxt .infocon ._txt{height:120rem;overflow:hidden;}
-.infotxt .hidden  ._txt{height:auto;visibility: hidden;}
-.infotxt .autobox ._txt{height:auto;}
-.infotxt .autobox .more{display:none!important;}
-.infotxt .infocon .more{font-size:1.4rem;color:#0B8E87; padding:1rem 0;text-align:center;}
+.infotxt .infocon ._txt
+{
+	height: 120rem;
+	overflow: hidden;
+}
+.infotxt .hidden ._txt
+{
+	height: auto;
+	visibility: hidden;
+}
+.infotxt .autobox ._txt { height: auto; }
+.infotxt .autobox .more { display: none!important; }
+.infotxt .infocon .more
+{
+	font-size: 1.4rem;
+	color: #0B8E87;
+	padding: 1rem 0;
+	text-align: center;
+}
 .infotxt .infocon .more b,
-.infotxt .infocon .more span{display:block;}
-.infotxt .infocon .more b{padding:0 0.4rem;margin-top:-0.2rem;}
+.infotxt .infocon .more span { display: block; }
+.infotxt .infocon .more b
+{
+	padding: 0 0.4rem;
+	margin-top: -0.2rem;
+}
 .infotxt .formtxt .main
 {
 	color: #a1a1a1;
@@ -3786,11 +3824,7 @@ font-size:1.4rem;}
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
 }
-.txthot .hotmovie section
-{
-	background: #fff;
-	 
-}
+.txthot .hotmovie section { background: #fff; }
 .txthot .hotmovie section:after
 {
 	top: auto;
@@ -4363,12 +4397,10 @@ font-size:1.4rem;}
 .am-skippop ul:last-child li:nth-child(1) { -webkit-animation-delay: 0.2s; }
 .am-skippop ul:last-child li:nth-child(2) { -webkit-animation-delay: 0.3s; }
 .am-skippop ul:last-child li:nth-child(3) { -webkit-animation-delay: 0.4s; }
-
-.am-skippop ul.frist li:nth-child(1),.am-skippop ul:last-child li:nth-child(1) {
-padding-left:2rem; }
- .am-skippop ul.frist li:nth-child(3) ,
- .am-skippop ul:last-child li:nth-child(3) {padding-right: 2rem;}
-
+.am-skippop ul.frist li:nth-child(1),
+.am-skippop ul:last-child li:nth-child(1) { padding-left: 2rem; }
+.am-skippop ul.frist li:nth-child(3),
+ .am-skippop ul:last-child li:nth-child(3) { padding-right: 2rem; }
 .close-skippop
 {
 	background: rgba(255,255,255,.9);
@@ -5239,49 +5271,118 @@ a.notbtn
 	transform: scaleY(.5);
 }
 .myfoot { padding-bottom: 6.4rem; }
-
-.mylistbox li{ position: relative;padding:2.2rem 1.5rem;}
-.mylistbox li:after{position: absolute;
-    bottom: 0;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: #cecece;
-    -webkit-transform: scaleY(0.5);
-    overflow: hidden;
-} 
-.timeico{display:block;width:1.2rem;height:1.2rem;
-	background:url(../images/timeico.png) no-repeat center center;
-background-size:cover;}
-
+.mylistbox li
+{
+	position: relative;
+	padding: 2.2rem 1.5rem;
+}
+.mylistbox li:after
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 100%;
+	height: 1px;
+	background: #cecece;
+	-webkit-transform: scaleY(0.5);
+	overflow: hidden;
+}
+.mylistbox { padding-bottom: 4.4rem; }
+.timeico
+{
+	display: block;
+	width: 1.2rem;
+	height: 1.2rem;
+	background: url(../images/timeico.png) no-repeat center center;
+	background-size: cover;
+}
 .mylistbox li header time,
 .mylistbox li header p,
-.mylistbox li header p.myclose i{display: block;}
-.mylistbox li header time {margin:0 0.5rem;}
-.mylistbox li header p.myclose{padding:1rem 0;}
-.mylistbox li header p.myclose i{width:1.2rem;height:1.2rem;
-	background:url(../images/icoclose.png) no-repeat center center;
-background-size:cover;}
-/*=======
-.timeico{display:block;background:url(../images/timeico.png);}
-.mylistbox li header time,
-.mylistbox li header p{display: block;}
->>>>>>> c63315f24633a195fd63f2fd3b45ae5fd5aae9f3*/
-.mylistbox li  section h2:after{display:none;}
-.mylistbox li  section .txtbox{margin:0;}
-.mylistbox li  section .txtbox h2{font-size:1.6rem;padding-top:0;height:4rem;margin-bottom:0.2rem;line-height:1.2;text-align:left;
+.mylistbox li header p.myclose i { display: block; }
+.mylistbox li header time { margin: 0 0.5rem; }
+.mylistbox li header p.myclose { padding: 1rem 0; }
+.mylistbox li header p.myclose i
+{
+	width: 1.2rem;
+	height: 1.2rem;
+	background: url(../images/icoclose.png) no-repeat center center;
+	background-size: cover;
+}
+.mylistbox li section h2:after { display: none; }
+.mylistbox li section .txtbox { margin: 0; }
+.mylistbox li section .txtbox h2
+{
+	font-size: 1.6rem;
+	padding-top: 0;
+	max-height: 4rem;
+	margin-bottom: 0.2rem;
+	line-height: 1.2;
+	text-align: left;
 	overflow : hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;}
- .mylistbox li  section .txtbox p{height:3.3rem;font-size:1.2rem;overflow : hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;}
-  .mylistbox li  section .imgbox{margin-left:1rem;}
-/*=======
->>>>>>> c63315f24633a195fd63f2fd3b45ae5fd5aae9f3
-.mylistbox li  section .imgbox p{width:11.5rem;height:7.8rem;background:#333;}*/
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.mylistbox li section .txtbox p
+{
+	height: 2.9rem;
+	font-size: 1.2rem;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	line-height: 1.2;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.mylistbox li section .imgbox { margin-left: 1rem; }
+.mylistbox li section .imgbox p
+{
+	width: 11.5rem;
+	height: 7.8rem;
+	background: #f2f2f2;
+}
+.navmy li
+{
+	text-align: center;
+	line-height: 3.2rem;
+	font-size: 1rem;
+	border-bottom: 2px solid #DBDCDC;
+	cursor: pointer;
+}
+.navmy li.curr
+{
+	color: #00948D;
+	border-bottom: 2px solid #00948D;
+}
+.myadd strong,
+.myadd span,
+.myadd em
+{
+	display: block;
+	background: #00948D;
+	color: #fff;
+	font-style: normal;
+	padding: 0.1rem .5rem;
+	height: 1.2rem;
+	overflow: hidden;
+	font-size: 0.8rem;
+}
+.myadd span
+{
+	background: none;
+	color: #00948D;
+}
+.myadd em
+{
+	font-size: 1.2rem;
+	line-height: .8rem;
+}
+.succ dd p.mytxt
+{
+	font-size: 1rem;
+	line-height: 1;
+	color: #000;
+	padding: 0.5rem 0 0;
+}

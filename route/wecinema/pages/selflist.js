@@ -8,7 +8,7 @@ var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
 
 //
-app.get(["/selflist"], function(req, res){
+app.get(["/selflist" , "/:publicsignal/selflist"], function(req, res){
     var render_data = {};
     var my_api_addr = "/room";
     var options = {
