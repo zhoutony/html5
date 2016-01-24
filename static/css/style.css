@@ -1361,7 +1361,7 @@ body { }
 	right: 0rem;
 	content: '';
 	height: 1px;
-	background: #cecece;
+	background: #068D86;
 	-webkit-transform: scaleY(0.5);
 	overflow: hidden;
 }
@@ -1585,6 +1585,10 @@ body { }
 	background: #fff;
 	color: #efefef;
 	padding: 0.3rem 2rem;
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 	/* Opera */
 	transform: rotate(45deg);
 }
 .orderbox .orderlist li h2,
@@ -1773,7 +1777,7 @@ body { }
 	text-align: center;
 	font-size: 1rem;
 	color: #727272;
-	padding: 1rem 0 1rem 0;
+	padding: 3rem 0 1rem 0;
 }
 .paytool p i:last-child { margin-left: 2rem; }
 .payend { position: relative; }
@@ -1855,7 +1859,7 @@ body { }
 	right: -1rem;
 	content: '';
 	height: 1px;
-	background: #cecece;
+	background: #068D86;
 	-webkit-transform: scaleY(0.5);
 	overflow: hidden;
 }
@@ -2698,13 +2702,15 @@ color:#fff;
 	background: #fff url(../images/myphoto.png) no-repeat center center;
 	background-size: cover;
 }
-.mytool dl { padding-top: 2.5rem; }
+.mytool dl { padding-top: 1.5rem; }
 .mytool .myheader { /*height: 17.1rem;*/ }
 .mytool dd b
 {
 	color: #00948D;
 	font-size: 1.4rem;
 }
+.mytool dd b a{color: #00948D;margin-top:-.6rem; position: relative;
+display:inline-block;}
 .mytool dd .myprice { color: #00948D; }
 .succ .myprice
 {
@@ -2872,7 +2878,7 @@ color:#fff;
 	right: 0rem;
 	content: '';
 	height: 1px;
-	border-bottom: 1px solid #cecece;
+	border-bottom: 1px solid #068D86;
 	-webkit-transform: scaleY(0.5);
 	overflow: hidden;
 }
