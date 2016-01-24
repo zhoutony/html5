@@ -18,13 +18,29 @@ block prepend body
                                 img(src="#{data.uses.headImgurl}")
                             dd
                                 b #{data.uses.nick}
+                                div.myadd
+                                    a.flexbox_vh_c(href="/#{data.publicsignal}/selflist")
+                                        strong 订阅
+                                        span 0
+                                        em +
                                 p.myprice 余额：0.00元
+                                p.mytxt 在电影的时光读懂自已！
                         else
                             dt.myphoto
-                               
                             dd
-                                b 
+                                b
+                                div.myadd.flexbox_vh_c
+                                    a.flexbox_vh_c(href="/#{data.publicsignal}/selflist")
+                                        strong 订阅
+                                        span 0
+                                        em +
                                 p.myprice 余额：0.00元
+                                p.mytxt 在电影的时光读懂自已！
+
+            ul.navmy.flexbox
+                li.curr.flex 我的足迹
+                li.flex 我的中心
+
 
             nav.mynav.m-hide
                 ul.flexbox_v_c
@@ -34,67 +50,69 @@ block prepend body
                         i.ico_io
                     li.flex
                         a(href="") 注册
-            ul.mylistbox(style="display:none;")
-                li
-                    header.flexbox_v_c
-                        i.timeico
-                        time.flex 2小时前
-                        p.myclose
-                            i  
-                    section.flexbox
-                        div.txtbox.flex
-                            h2.
-                                男子在结冰的湖面发现了神奇的景象，让人看一眼就头皮发麻！
-                            p.
-                                这简直是密集恐惧症患者的噩梦！冬天气温下降后，湖面被厚厚的冰层覆盖，美国犹他州的两名网友却在上面发现了奇怪的现象
-                        div.imgbox
-                            p
-                            //- img(src="http://p2.pstatp.com/list/9d0003ed6bf65b2cc6")
-                li
-                    header.flexbox_v_c
-                        i.timeico
-                        time.flex 2小时前
-                        p.myclose
-                            i  
-                    section.flexbox
-                        div.txtbox.flex
-                            h2.
-                                男子在结冰的湖面发现了神奇的景象，让人看一眼就头皮发麻！
-                            p.
-                                这简直是密集恐惧症患者的噩梦！冬天气温下降后，湖面被厚厚的冰层覆盖，美国犹他州的两名网友却在上面发现了奇怪的现象
-                        div.imgbox
-                            p
-                            //- img(src="http://p2.pstatp.com/list/9d0003ed6bf65b2cc6")
-            div.mymenu
-                ul.flexbox
-                    li(data-item="myorders")
-                        a
-                            i.n01
-                            p 订单
-                    li(data-item="")
-                        a
-                            i.n02
-                            p 衍生品
-                    li(data-item="mypiao")
-                        a
-                            i.n03
-                            p 卡包
-                ul.flexbox
-                    li(data-item="myredbag")
-                        a
-                            i.n04
-                            p 红包
-                    li(data-item="")
-                        a
-                            i.n05
-                            p 活动
-                    li(data-item="")
-                        a
-                            i.n06
-                            p 设置
-        footer.footer.myfoot
-            h2 客服电话：4008-188-188
-            p 电影票友服务由北京亚视联合在线科技有限公司提供
+            div.subtablist
+                ul.mylistbox(style="display:n1one;")
+                    li
+                        header.flexbox_v_c
+                            i.timeico
+                            time.flex 2小时前
+                            p.myclose
+                                i  
+                        section.flexbox_v_c
+                            div.txtbox.flex
+                                h2.
+                                    男子在结冰的湖面发现了神奇的景象，让人看一眼就头皮发麻！
+                                p.
+                                    这简直是密集恐惧症患者的噩梦！冬天气温下降后，湖面被厚厚的冰层覆盖，美国犹他州的两名网友却在上面发现了奇怪的现象
+                            div.imgbox
+                                p
+                                //- img(src="http://p2.pstatp.com/list/9d0003ed6bf65b2cc6")
+                    li
+                        header.flexbox_v_c
+                            i.timeico
+                            time.flex 2小时前
+                            p.myclose
+                                i  
+                        section.flexbox_v_c
+                            div.txtbox.flex
+                                h2.
+                                    男子在结 
+                                p.
+                                    这简直是密集恐惧症患者的噩梦！冬天气温下降后，湖面被厚厚的冰层覆盖， 
+                            div.imgbox
+                                p
+                                //- img(src="http://p2.pstatp.com/list/9d0003ed6bf65b2cc6")
+            div.subtablist(style="display:none;")
+                div.mymenu
+                    ul.flexbox
+                        li(data-item="myorders")
+                            a
+                                i.n01
+                                p 订单
+                        li(data-item="")
+                            a
+                                i.n02
+                                p 衍生品
+                        li(data-item="mypiao")
+                            a
+                                i.n03
+                                p 卡包
+                    ul.flexbox
+                        li(data-item="myredbag")
+                            a
+                                i.n04
+                                p 红包
+                        li(data-item="")
+                            a
+                                i.n05
+                                p 活动
+                        li(data-item="")
+                            a
+                                i.n06
+                                p 设置
+                footer.footer.myfoot
+                    h2 客服电话：4008-188-188
+                    p 电影票友服务由北京亚视联合在线科技有限公司提供
     div.navtool
              ul.flexbox
                 li.flex
