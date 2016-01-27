@@ -147,11 +147,11 @@ $(document).ready(function () {
 
     function setHtml(){
         $('#ticketinfo').html(String.format('<h2>{0}</h2><p>{1}</p><p>{2}{3}{4}</p>',
-                                            window.movie ? window.movie.movieNameCN : '',
-                                            window.cinema ? window.cinema.cinemaName : '',
-                                            window.movie ? window.movie.movieVersions + ' | ' : '',
-                                            window.showtime ? window.showtime.hallName + ' | ': '',
-                                            window.showtime ? window.showtime.showTime : ''
+                                            movie ? movie.movieNameCN : '',
+                                            cinema ? cinema.cinemaName : '',
+                                            movie ? movie.movieVersions + ' | ' : '',
+                                            showtime ? showtime.hallName + ' | ': '',
+                                            showtime ? showtime.showTime : ''
         ));
 
         var _html = '',
