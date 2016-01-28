@@ -86,3 +86,4 @@ Cannot read property 'logoURL' of undefined
     at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:173:21)
 [2016-01-28 00:25:04.870] [INFO] console - Listening on port 80
 [2016-01-28 09:46:21.411] [INFO] console - Listening on port 80
+[2016-01-28 11:37:05.389] [INFO] console - Listening on port 80
