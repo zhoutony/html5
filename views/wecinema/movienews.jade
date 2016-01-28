@@ -128,14 +128,16 @@ block prepend body
                             div.addticketbox.flexbox_v_c
                                 div.bigimgbox 
                                 div.imgbox
-                                    img(src="#{indexAd.movieImage}")
+                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}")
+                                        img(src="#{indexAd.movieImage}")
                                 div.txtbox.flex
-                                    h3 #{indexAd.movieNameCN}
-                                    p 导演：#{indexAd.director}
-                                    p.
-                                        演员：#{indexAd.actors}
-                                    p 日期：#{indexAd.releaseTime}
-                                    p 时长：#{indexAd.filmLength}分
+                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}")
+                                        h3 #{indexAd.movieNameCN}
+                                        p 导演：#{indexAd.director}
+                                        p.
+                                            演员：#{indexAd.actors}
+                                        p 日期：#{indexAd.releaseTime}
+                                        p 时长：#{indexAd.filmLength}分
                                 div.btnbox
                                     h3(style="display:none;") ¥#{indexAd.price}
                                     b(style="display:none;").t
@@ -331,14 +333,16 @@ block prepend body
                                             div.flexbox_v_c
                                                 div.bigimgbox 
                                                 div.imgbox
-                                                    img(src="#{indexAd.movieImage}")
+                                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}")
+                                                        img(src="#{indexAd.movieImage}")
                                                 div.txtbox.flex
-                                                    h3 #{indexAd.movieNameCN}
-                                                    p 导演：#{indexAd.director}
-                                                    p.
-                                                        演员：#{indexAd.actors}
-                                                    p 日期：#{indexAd.releaseTime}
-                                                    p 时长：#{indexAd.filmLength}分
+                                                        a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}")
+                                                        h3 #{indexAd.movieNameCN}
+                                                        p 导演：#{indexAd.director}
+                                                        p.
+                                                            演员：#{indexAd.actors}
+                                                        p 日期：#{indexAd.releaseTime}
+                                                        p 时长：#{indexAd.filmLength}分
                                                 div.btnbox
                                                     h3(style="display:none;") ¥#{indexAd.price}
                                                     b(style="display:none;").t

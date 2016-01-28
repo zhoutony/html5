@@ -3803,6 +3803,7 @@ color:#fff;
 .addticketbox .txtbox
 {
 	margin: 0 1rem;
+	padding-right:5rem;
 	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
 }
 .addticketbox .btnbox a i { position: relative; }
@@ -5539,3 +5540,9 @@ a.notbtn
 .conttxt .addticketbox .btnbox a p{padding-top:5.6rem;}
 .conttxt .addticketbox .btnbox h3,
 .conttxt .addticketbox .btnbox .t{display:none;}
+.conttxt .addticketbox .txtbox
+{
+	 
+	padding-right:0rem;
+	 
+}
