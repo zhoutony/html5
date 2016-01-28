@@ -84,6 +84,7 @@ app.get(['/get/queryadvertisements', '/:publicsignal/get/queryadvertisements'], 
     };
     render_data.data = {};
     model.getDataFromPhp(options, function (err, data) {
+        console.log(data);
         render_data.data.err = err;
         if (!err && data && data.advertisements) {
             render_data.data.fourthAds = data.advertisements;

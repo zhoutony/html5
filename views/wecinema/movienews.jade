@@ -9,24 +9,54 @@ block title
 block prepend body
     
     //- //wrap
-    //- div.wrap
-    //-     div.addticketbox.flexbox_v_c
-    //-         div.bigimgbox 
-    //-         div.imgbox
-    //-              img(src="/tempimages/cinema.jpg")
-    //-         div.txtbox.flex
-    //-             h3 007
-    //-             p 导演：郑保瑞
-    //-             p 演员：托尼·贾  吴京   张晋   林嘉华   蔡瀚亿
-    //-             p 日期：2015年上映
-    //-             p 时长：120分钟
-                 
-    //-         div.btnbox
-    //-             h3 ¥25
-    //-             b.t
-    //-             a(href="/#").new 
-    //-                 i.btn_tick
-    //-                 p 购票
+    //- div.addticketbox.flexbox_v_c
+    //-     div.bigimgbox 
+    //-     div.imgbox
+    //-          img(src="/tempimages/cinema.jpg")
+    //-     div.txtbox.flex
+    //-         h3 007
+    //-         p 导演：郑保瑞
+    //-         p 演员：托尼·贾  吴京   张晋   林嘉华   蔡瀚亿
+    //-         p 日期：2015年上映
+    //-         p 时长：120分钟
+             
+    //-     div.btnbox
+    //-         h3 ¥25
+    //-         b.t
+    //-         a(href="/#").new 
+    //-             i.btn_tick
+    //-             p 购票
+    //- div.addtickinfo.flexbox_v_c
+    //-     div.imgbox
+    //-         a(href='/#{data.publicsignal}/medialist/#{data.sourceId}')
+    //-             p 
+    //-                 img(src="#{data.newsInfo.logoURL}")
+    //-     div.txtbox
+    //-         h3 #{data.newsInfo.weMediaName}
+    //-         time #{data.newsInfo.publishtime}
+    //-         div.intol.m-hide 
+    //-             //- b.icon_y(style="display:none") 原创
+    //-             if data.newsInfo.isSubscribe && data.newsInfo.isSubscribe == 'false'
+    //-                 b.join +
+    //-                 em 订阅
+    //-             else 
+    //-                 b.join.m-hide(style="display:none;") +
+    //-                 em 已订阅
+    //-     div.infomenu.flex
+    //-         div.main
+    //-             a(href="/").flexbox_v_c
+    //-                 img(src="/images/img_ico.png")
+    //-                 span 共享平台
+    //-                 b 
+    //-                     sup + 
+                     
+    //-     div.toolbox
+    //-         div.flexbox_v_c
+    //-             a.info02
+    //-             a.info03
+
+    //- if data.newsInfo.title
+    //-     h2.infotit #{data.newsInfo.title}
     div.wrap
         if data && !data.err && data.newsInfo
             div.infotxt
@@ -45,9 +75,14 @@ block prepend body
                                             img(src="#{_ad_lastList.movieImage}")
                                         div.txtbox.flex
                                             h3 #{_ad_lastList.movieNameCN}
-                                                p #{_ad_lastList.movieVersions}
-                                                p #{_ad_lastList.intro}
+                                            p 导演：#{_ad_lastList.director}
+                                            p.
+                                                演员：#{_ad_lastList.actors}
+                                            p 日期：#{_ad_lastList.releaseTime}
+                                            p 时长：#{_ad_lastList.filmLength}分
                                         div.btnbox
+                                            h3(style="display:none;") ¥#{indexAd.price}
+                                            b(style="display:none;").t
                                             a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
                                                 i.btn_tick
                                                 p 购票
@@ -59,10 +94,15 @@ block prepend body
                                                 img(src="#{indexAd.movieImage}")
                                             div.txtbox.flex
                                                 h3 #{indexAd.movieNameCN}
-                                                    p #{indexAd.movieVersions}
-                                                    p #{indexAd.intro}
+                                                p 导演：#{indexAd.director}
+                                                p.
+                                                    演员：#{indexAd.actors}
+                                                p 日期：#{indexAd.releaseTime}
+                                                p 时长：#{indexAd.filmLength}分
                                             div.btnbox
-                                                a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{indexAd.movieID}").new 
+                                                h3(style="display:none;") ¥#{indexAd.price}
+                                                b(style="display:none;").t
+                                                a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
                                                     i.btn_tick
                                                     p 购票
                                 li.mui-slider-item.mui-slider-item-duplicate
@@ -72,10 +112,15 @@ block prepend body
                                             img(src="#{_ad_firstList.movieImage}")
                                         div.txtbox.flex
                                             h3 #{_ad_firstList.movieNameCN}
-                                                p #{_ad_firstList.movieVersions}
-                                                p #{_ad_firstList.intro}
+                                            p 导演：#{_ad_firstList.director}
+                                            p.
+                                                演员：#{_ad_firstList.actors}
+                                            p 日期：#{_ad_firstList.releaseTime}
+                                            p 时长：#{_ad_firstList.filmLength}分
                                         div.btnbox
-                                            a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_firstList.movieID}").new 
+                                            h3(style="display:none;") ¥#{indexAd.price}
+                                            b(style="display:none;").t
+                                            a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
                                                 i.btn_tick
                                                 p 购票
                     else
@@ -86,12 +131,48 @@ block prepend body
                                     img(src="#{indexAd.movieImage}")
                                 div.txtbox.flex
                                     h3 #{indexAd.movieNameCN}
-                                        p #{indexAd.movieVersions}
-                                        p #{indexAd.intro}
+                                    p 导演：#{indexAd.director}
+                                    p.
+                                        演员：#{indexAd.actors}
+                                    p 日期：#{indexAd.releaseTime}
+                                    p 时长：#{indexAd.filmLength}分
                                 div.btnbox
-                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{indexAd.movieID}").new 
+                                    h3(style="display:none;") ¥#{indexAd.price}
+                                    b(style="display:none;").t
+                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
                                         i.btn_tick
                                         p 购票
+                    div.addtickinfo.flexbox_v_c
+                        div.imgbox
+                            a(href='/#{data.publicsignal}/medialist/#{data.sourceId}')
+                                p 
+                                    img(src="#{data.newsInfo.logoURL}")
+                        div.txtbox
+                            h3 #{data.newsInfo.weMediaName}
+                            time #{data.newsInfo.publishtime}
+                            div.intol.m-hide 
+                                //- b.icon_y(style="display:none") 原创
+                                if data.newsInfo.isSubscribe && data.newsInfo.isSubscribe == 'false'
+                                    b.join +
+                                    em 订阅
+                                else 
+                                    b.join.m-hide(style="display:none;") +
+                                    em 已订阅
+                        div.infomenu.flex
+                            div.main
+                                a(href="/").flexbox_v_c
+                                    img(src="/images/img_ico.png")
+                                    span 共享平台
+                                    b 
+                                        sup + 
+                                     
+                        div.toolbox
+                            div.flexbox_v_c
+                                a.info02
+                                a.info03
+                    if data.newsInfo.title
+                        h2.infotit #{data.newsInfo.title}
+                
                 else
                     header.infoheader
                         div.infotool
@@ -116,22 +197,22 @@ block prepend body
                                         p 在电影的时光读懂自已
                                  
                     if data.newsInfo.title
-                        h2.infotit #{data.newsInfo.title}
+                            h2.infotit #{data.newsInfo.title}
 
-                div.infomenu.flexbox_v_c
-                    div.main.flex
-                        a(href="/").flexbox_v_c
-                            img(src="/images/img_ico.png")
-                            span 共享平台
-                            b 
-                                sup + 
-                            span
-                                time #{data.newsInfo.publishtime}
-                    a.info05(style="display:none; ")
-                            sup #{data.newsInfo.readCount}
-                            //- #{data.newsInfo.readCount}
-                    a.info02
-                    a.info03
+                    div.infomenu.flexbox_v_c
+                        div.main.flex
+                            a(href="/").flexbox_v_c
+                                img(src="/images/img_ico.png")
+                                span 共享平台
+                                b 
+                                    sup + 
+                                span
+                                    time #{data.newsInfo.publishtime}
+                        a.info05(style="display:none; ")
+                                sup #{data.newsInfo.readCount}
+                                //- #{data.newsInfo.readCount}
+                        a.info02
+                        a.info03
 
                 div.infocon.hidden#newsContent
                     div._txt
@@ -157,7 +238,113 @@ block prepend body
                         i.b_sina
                         span 1
                 div.codeinfo.flexbox
-                    
+                //- div.addticketbox
+                //-     div.flexbox_v_c
+                //-         div.bigimgbox 
+                //-         div.imgbox
+                //-              img(src="/tempimages/cinema.jpg")
+                //-         div.txtbox.flex
+                //-             h3 007
+                //-             p 导演：郑保瑞
+                //-             p 演员：托尼·贾  吴京   张晋   林嘉华   蔡瀚亿
+                //-             p 日期：2015年上映
+                //-             p 时长：120分钟
+                             
+                //-         div.btnbox
+                //-             h3 ¥25
+                //-             b.t
+                //-             a(href="/#").new 
+                //-                 i.btn_tick
+                //-                 p 购票 
+                div.conttxt
+                    if data && !data.err && data.newsInfo
+                        div.infotxt
+                            if data.movies && data.movies && data.movies.length > 0
+                                - var _items = data.movies;
+                                - var _len = _items.length;
+                                - var _ad_firstList = _items[0];
+                                - var _ad_lastList = _items[_len - 1];
+                                if _len > 1
+                                    div.mui-slider
+                                        ul.mui-slider-group.mui-slider-loop
+                                            li.mui-slider-item.mui-slider-item-duplicate
+                                                div.addticketbox
+                                                    div.flexbox_v_c
+                                                        div.bigimgbox 
+                                                        div.imgbox
+                                                            img(src="#{_ad_lastList.movieImage}")
+                                                        div.txtbox.flex
+                                                            h3 #{_ad_lastList.movieNameCN}
+                                                            p 导演：#{_ad_lastList.director}
+                                                            p.
+                                                                演员：#{_ad_lastList.actors}
+                                                            p 日期：#{_ad_lastList.releaseTime}
+                                                            p 时长：#{_ad_lastList.filmLength}
+                                                        div.btnbox
+                                                            h3(style="display:none;") ¥#{indexAd.price}
+                                                            b(style="display:none;").t
+                                                            a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
+                                                                i.btn_tick
+                                                                p 购票
+                                            each indexAd in _items
+                                                li.mui-slider-item.mui-slider-item-duplicate
+                                                    div.addticketbox
+                                                        div.flexbox_v_c
+                                                            div.bigimgbox 
+                                                            div.imgbox
+                                                                img(src="#{indexAd.movieImage}")
+                                                            div.txtbox.flex
+                                                                h3 #{indexAd.movieNameCN}
+                                                                p 导演：#{indexAd.director}
+                                                                p.
+                                                                    演员：#{indexAd.actors}
+                                                                p 日期：#{indexAd.releaseTime}
+                                                                p 时长：#{indexAd.filmLength}
+                                                            div.btnbox
+                                                                h3(style="display:none;") ¥#{indexAd.price}
+                                                                b(style="display:none;").t
+                                                                a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
+                                                                    i.btn_tick
+                                                                    p 购票
+                                            li.mui-slider-item.mui-slider-item-duplicate
+                                                div.addticketbox
+                                                    div.flexbox_v_c
+                                                        div.bigimgbox 
+                                                        div.imgbox
+                                                            img(src="#{_ad_firstList.movieImage}")
+                                                        div.txtbox.flex
+                                                            h3 #{_ad_firstList.movieNameCN}
+                                                            p 导演：#{_ad_firstList.director}
+                                                            p.
+                                                                演员：#{_ad_firstList.actors}
+                                                            p 日期：#{_ad_firstList.releaseTime}
+                                                            p 时长：#{_ad_firstList.filmLength}分
+                                                        div.btnbox
+                                                            h3(style="display:none;") ¥#{indexAd.price}
+                                                            b(style="display:none;").t
+                                                            a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
+                                                                i.btn_tick
+                                                                p 购票
+                                else
+                                    each indexAd in _items
+                                        div.addticketbox
+                                            div.flexbox_v_c
+                                                div.bigimgbox 
+                                                div.imgbox
+                                                    img(src="#{indexAd.movieImage}")
+                                                div.txtbox.flex
+                                                    h3 #{indexAd.movieNameCN}
+                                                    p 导演：#{indexAd.director}
+                                                    p.
+                                                        演员：#{indexAd.actors}
+                                                    p 日期：#{indexAd.releaseTime}
+                                                    p 时长：#{indexAd.filmLength}分
+                                                div.btnbox
+                                                    h3(style="display:none;") ¥#{indexAd.price}
+                                                    b(style="display:none;").t
+                                                    a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
+                                                        i.btn_tick
+                                                            p 购票   
                      
                 div.txthot
                     h2.hottie 精彩推荐
