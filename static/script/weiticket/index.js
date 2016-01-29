@@ -22,7 +22,7 @@ $(document).ready(function() {
 
         if(indexMovieNewsHtmlStarttime && indexMovieNewsHtmlStarttime != ''){
             var _time = new Date() * 1 - parseInt(indexMovieNewsHtmlStarttime);
-            if(_time > 90000){
+            if(_time > 900000){
                 localStorage.removeItem('indexMovieNewsHtml')
                 
             }
@@ -48,6 +48,7 @@ $(document).ready(function() {
                     }
                 })
             }
+            ScrollBottomPlus.gotoBottomShowed = false;
         }else{
             
             var _url = '/'+ publicsignal +'/hotmovienews/' + movienewsPageindex;
@@ -81,6 +82,21 @@ $(document).ready(function() {
 
     }
     getMovieNews();
+    //设置下拉组件
+    // setTimeout(function(){
+    //     if(!lock){
+    //         lock = true;
+    //         ScrollBottomPlus.render({
+    //             el: '.hotmovie',
+    //             app_el: '.wrap',
+    //             footer: '.navtool',
+    //             callback: function(){
+    //                 movienewsPageindex++;
+    //                 getMovieNews();
+    //             }
+    //         })
+    //     }
+    // }, 2000)
 
     
     var _txtbox = $('.txtbox');
