@@ -91,7 +91,7 @@ app.get(['/hotmovienews/:pageindex', '/:publicsignal/hotmovienews/:pageindex'], 
         args: {
             type: '-1',
             pageIndex: _pageIndex,
-            pageSize: 5,
+            pageSize: 10,
             wxtype: publicsignal
         }
     };
