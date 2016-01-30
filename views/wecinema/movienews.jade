@@ -80,6 +80,7 @@ block prepend body
                                                 演员：#{_ad_lastList.actors}
                                             p 日期：#{_ad_lastList.releaseTime}
                                             p 时长：#{_ad_lastList.filmLength}分
+                                            p 影评：#{_ad_lastList.intro}
                                         div.btnbox
                                             h3(style="display:none;") ¥#{indexAd.price}
                                             b(style="display:none;").t
@@ -99,6 +100,7 @@ block prepend body
                                                     演员：#{indexAd.actors}
                                                 p 日期：#{indexAd.releaseTime}
                                                 p 时长：#{indexAd.filmLength}分
+                                                p 影评：#{indexAd.intro}
                                             div.btnbox
                                                 h3(style="display:none;") ¥#{indexAd.price}
                                                 b(style="display:none;").t
@@ -117,6 +119,7 @@ block prepend body
                                                 演员：#{_ad_firstList.actors}
                                             p 日期：#{_ad_firstList.releaseTime}
                                             p 时长：#{_ad_firstList.filmLength}分
+                                            p 影评：#{_ad_firstList.intro}
                                         div.btnbox
                                             h3(style="display:none;") ¥#{indexAd.price}
                                             b(style="display:none;").t
@@ -138,6 +141,7 @@ block prepend body
                                             演员：#{indexAd.actors}
                                         p 日期：#{indexAd.releaseTime}
                                         p 时长：#{indexAd.filmLength}分
+                                        p 影评：#{indexAd.intro}
                                 div.btnbox
                                     h3(style="display:none;") ¥#{indexAd.price}
                                     b(style="display:none;").t
@@ -282,6 +286,7 @@ block prepend body
                                                                 演员：#{_ad_lastList.actors}
                                                             p 日期：#{_ad_lastList.releaseTime}
                                                             p 时长：#{_ad_lastList.filmLength}
+                                                            
                                                         div.btnbox
                                                             h3(style="display:none;") ¥#{indexAd.price}
                                                             b(style="display:none;").t
@@ -302,6 +307,7 @@ block prepend body
                                                                     演员：#{indexAd.actors}
                                                                 p 日期：#{indexAd.releaseTime}
                                                                 p 时长：#{indexAd.filmLength}
+                                                                 
                                                             div.btnbox
                                                                 h3(style="display:none;") ¥#{indexAd.price}
                                                                 b(style="display:none;").t
@@ -321,6 +327,7 @@ block prepend body
                                                                 演员：#{_ad_firstList.actors}
                                                             p 日期：#{_ad_firstList.releaseTime}
                                                             p 时长：#{_ad_firstList.filmLength}分
+                                                             
                                                         div.btnbox
                                                             h3(style="display:none;") ¥#{indexAd.price}
                                                             b(style="display:none;").t
@@ -343,12 +350,13 @@ block prepend body
                                                             演员：#{indexAd.actors}
                                                         p 日期：#{indexAd.releaseTime}
                                                         p 时长：#{indexAd.filmLength}分
+                                                         
                                                 div.btnbox
                                                     h3(style="display:none;") ¥#{indexAd.price}
                                                     b(style="display:none;").t
                                                     a(href="/#{data.publicsignal}/#{data.locationId}/ticket/#{_ad_lastList.movieID}").new 
                                                         i.btn_tick
-                                                            p 购票   
+                                                        p 购票   
                      
                 div.txthot
                     h2.hottie 精彩推荐
