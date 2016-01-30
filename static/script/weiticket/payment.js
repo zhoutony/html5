@@ -80,14 +80,34 @@ $(document).ready(function () {
                 if(param.success && param.data){
                     
                     config_wx_and_pay(param.data)
+
+                    paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
+                    isPayLock = false;
                 }else{
-                    Dialogs.tip('<i></i>' + param.errorInfo);
+                    if(param.orderState == 0){
+                        pollingPayment();
+                    }
+
+                    if(param.orderState == 20){
+                        Dialogs.tip('<i></i>' + param.errorInfo);
+                        paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
+                        isPayLock = false;
+                    }
                 }
+            }else{
+                // pollingPayment();
+                paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
+                isPayLock = false;
             }
-            paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
-            isPayLock = false;
+                
             // console.log(payment_data);
         });
+    }
+
+    function pollingPayment(){
+        setTimeout(function(){
+            do_payment()
+        }, 500)
     }
 
     var wechatPay = function (param, redirectUrl, modal) {

@@ -18,6 +18,7 @@ $(document).ready(function() {
     if(Util.is_weixn()){
         subscribe.removeClass('m-hide');
     }
+    var subscribeEm = subscribe.find('em').html();
 
     //加载 头条电影列表
     function getMovieNews(){
@@ -102,13 +103,20 @@ $(document).ready(function() {
                             display: 'none'
                         });
                         emEl.html('已订阅');
-                        subscribeCount += 1;
+                        if(subscribeEm != '已订阅'){
+                            subscribeCount += 1;
+                        }
+                        
                         subscribeEl.html(subscribeCount)
                     }else{
                         iconEl.removeClass('m-hide').css({
                             display: 'block'
                         });
                         emEl.html('订阅');
+                        if(subscribeEm == '已订阅'){
+                            subscribeCount -= 1;
+                        }
+                        // subscribeCount -= 1;
                         subscribeEl.html(subscribeCount)
                     }
                 }else{
