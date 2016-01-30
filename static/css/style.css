@@ -3756,7 +3756,7 @@ color:#fff;
 .addticketbox
 {
 	margin: 0em 0 0;
-	padding: 0rem 0;
+	padding: 1.5rem 0 0;
 	 
 	position: relative;
 }
@@ -3768,12 +3768,11 @@ color:#fff;
 	bottom: 0;
 	right: 0;
 	top: 0;
-	background: url(../images/maskbg.jpg) no-repeat center center;
-	background-size: cover;/*	-webkit-filter: blur(10px)*/
+	background: #F6F6F6;
 }
 .addticketbox .imgbox
 {
-	width: 6.2rem;
+	width: 8.4rem;
 	margin-left: 1.8rem;
 }
 .addticketbox .imgbox img{display:block; vertical-align: top;}
@@ -3798,20 +3797,20 @@ color:#fff;
 	font-size: 1.2rem;
 	line-height: 1.4;
 	padding: 0 0 0.3rem 0;
-	color: #fff;
+	color: #888;
 }
 .addticketbox .txtbox
 {
 	margin: 0 1rem;
 	padding-right:5rem;
-	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+	 
 }
 .addticketbox .btnbox a i { position: relative; }
 .addticketbox .txtbox p
 {
 	line-height: 1.8;
 	height: auto;
-	color: #fff;
+	color: #888;
 	font-size: 0.8rem;
 }
  .addticketbox .btnbox{height:8.7rem;}
@@ -3823,7 +3822,7 @@ color:#fff;
 	display: block;
 	position: absolute;
 	right:1rem;
-	bottom:-.4rem; 
+	bottom:-2rem; 
 	 
 	color:#fff;
 }
@@ -5537,7 +5536,11 @@ a.notbtn
 	    background: url(../images/infotick.png) no-repeat center center;
     background-size: auto 1.8rem;
 }
-.conttxt .addticketbox .btnbox a p{padding-top:5.6rem;}
+.conttxt .addticketbox{padding-top:.5rem;padding-bottom:.5rem;}
+.conttxt .addticketbox .imgbox{
+	width:6rem;
+}
+.conttxt .addticketbox .btnbox a p{padding-top:5.6rem;color:#068D86;}
 .conttxt .addticketbox .btnbox h3,
 .conttxt .addticketbox .btnbox .t{display:none;}
 .conttxt .addticketbox .txtbox
