@@ -28,14 +28,19 @@ $(document).ready(function() {
     }
     $.get('/get/queryadvertisements/4', {type: 4, wxtype: publicsignal}, function(adsHtml){
         var _addimg = $('.addimg').html(adsHtml);
+        var fourthadLen = $('.scrollpic').data('fourthad');
 
-        //顶部轮播
-        var indicator = $('.mui-slider');
-        $(indicator[0]).addClass('mui-active');
-        var gallery = mui('.mui-slider');
-        gallery.slider({
-            interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
-        });
+        if(fourthadLen == '1'){
+
+        }else{
+            //顶部轮播
+            var indicator = $('.mui-slider');
+            $(indicator[0]).addClass('mui-active');
+            var gallery = mui('.mui-slider');
+            gallery.slider({
+                interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
+            });
+        }
         // var myCitys = Citys.render();
     })
     //定位城市

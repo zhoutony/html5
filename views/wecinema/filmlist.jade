@@ -39,6 +39,12 @@ block prepend body
                                     a(href="javascript:;").btn_buy
                                         span 购票
                                 p #{movie.intro}
+                                p
+                                    | 导演: #{movie.director}
+                                p
+                                    | 主演: #{movie.actors}
+                                p
+                                    | 上映日期: #{movie.releaseTime}
                             div.toolmid
                                 div.btnbar
                                     - var firendClass = movie.isFriendsPay ? '' : 'm-hide';
