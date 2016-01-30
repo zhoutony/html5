@@ -1,24 +1,27 @@
 //轮刷1广告
 if(data && data.fourthAds)
-    div.scrollpic.mui-slider 
+    div.scrollpic.mui-slider(data-fourthad="#{data.fourthAds.length}")
         ul.mui-slider-group.mui-slider-loop
             - var _ad_firstList = data.fourthAds[0];
             - var _ad_firstLen = data.fourthAds.length;
             - var _ad_lastList = data.fourthAds[_ad_firstLen - 1];
             li.mui-slider-item.mui-slider-item-duplicate
-                a(href="/110000/ticket/10034")
-                    if _ad_lastList && _ad_lastList.imageUrl
-                        img(src="#{_ad_lastList.imageUrl}")
+                if _ad_lastList && _ad_lastList.url
+                    a(href="#{_ad_lastList.url")
+                        if _ad_lastList.imageUrl
+                            img(src="#{_ad_lastList.imageUrl}")
             each indexAd in data.fourthAds
                 li.mui-slider-item
-                    a(href="/110000/ticket/10034")
-                        if indexAd && indexAd.imageUrl
-                            img(src="#{indexAd.imageUrl}")
+                    if indexAd && indexAd.url
+                        a(href="#{indexAd.url}")
+                            if indexAd.imageUrl
+                                img(src="#{indexAd.imageUrl}")
             li.mui-slider-item.mui-slider-item-duplicate
-                a(href="/110000/ticket/10034")
-                    if _ad_firstList && _ad_firstList.imageUrl
-                        img(src="#{_ad_firstList.imageUrl}")
-        if data.isIndicator
+                if _ad_firstList && _ad_firstList.url
+                    a(href="#{_ad_firstList.url}")
+                        if _ad_firstList.imageUrl
+                            img(src="#{_ad_firstList.imageUrl}")
+        if data.isIndicator && data.fourthAds.length > 1
             div.currbox.mui-slider-indicator
                 each indexAd, index in data.fourthAds
                     span.mui-indicator

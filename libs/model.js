@@ -146,7 +146,7 @@ var getDataFromPhp = function(options, callback) {
                 // console.debug(my_name,options_for_requst);
                 // console.debug(my_name,body.data);
                 
-                // console.log(body.data);
+                // console.log('body.success:', JSON.stringify(body.data));
                 callback(null,body.data);
                 return;
             } else {
@@ -178,7 +178,7 @@ var getDataFromPhp = function(options, callback) {
                   // console.debug(my_name,options_for_requst);
                   // console.debug(my_name,return_data);
                   if(return_data.ret === 0 || return_data.ret ==='0'){
-                      // console.debug(my_name,"return data with no exception");
+                      console.debug('my_name: ',return_data.data);
                       callback(null, return_data.data);
                       return;
                   }else{

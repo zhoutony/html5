@@ -97,7 +97,7 @@ function setSeats(seats){
 
 var prepard_seat = function (seat_list) {
 
-    if (!seat_list && sSeatInfo.length > 0)return;
+    if (!seat_list && seat_list.length == 0)return;
     var sSeatInfo = seat_list;
     var collen = sSeatInfo.length;
     var rowlen = sSeatInfo[0].length; //取得row数据
