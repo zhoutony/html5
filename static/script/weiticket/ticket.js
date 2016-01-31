@@ -5,9 +5,9 @@ var _ = require('../lib/underscore');
 var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
-var widgets = require('../util/widgets.js');
 var wxbridge = require('../util/wxbridge');
 var ChooseCity = require('../util/chooseCity');
+var Util = require('../util/widgets');
 
 /* jshint ignore:end */
 $(document).ready(function() {
