@@ -150,8 +150,8 @@ $(document).ready(function() {
         desc: _shareInfo.desc ? _shareInfo.title : '[电影票友]荐：' + movie.intro,
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : movie.movieImage,
-        callback: function(){
-            Util.shearCallback(publicsignal, openId, showtype, 7, function(){
+        callback: function(shareobj){
+            Util.shearCallback(publicsignal, openId, showtype, 7, shareobj, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';

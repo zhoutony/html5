@@ -88,13 +88,13 @@ $(document).ready(function() {
     }
 
     //分享
-    var _shareInfo = shareInfo && shareInfo ;
+    var _shareInfo = shareInfo && shareInfo;
 
     if(!_shareInfo){
         _shareInfo = {};
     }
     //暂时只取js的分享内容
-    _shareInfo = {};
+    // _shareInfo = {};
     var shareImgs = $('.infocon').find('img');
     wxbridge.share({
         title: _shareInfo.title ? _shareInfo.title : Util.strShort($('.infotit').html(), 25)  + ' -' + weMediaName,
@@ -102,9 +102,9 @@ $(document).ready(function() {
         desc: _shareInfo.desc ? _shareInfo.desc : '[电影票友]荐：' + (window._summary != '' ? window._summary : '在电影的时光读懂自已     www.moviefan.com.cn'),
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
-        callback: function(){
+        callback: function(shareobj){
             shareTip();
-            Util.shearCallback(publicsignal, openId, newsId, 2, function(){
+            Util.shearCallback(publicsignal, openId, newsId, 2, shareobj, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';

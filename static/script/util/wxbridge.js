@@ -97,7 +97,7 @@ function share(param){
             imgUrl : _param.imgUrl,
             success : function (res) {
                 // 用户确认分享后执行的回调函数
-                _param.callback();
+                _param.callback('timeline');
 
             },
             cancel: function (res) {
@@ -115,7 +115,7 @@ function share(param){
             dataUrl : _param.dataUrl,
             success : function (res) {
                 // 用户确认分享后执行的回调函数
-                _param.callback();
+                _param.callback('appmessage');
 
 
             },
