@@ -131,6 +131,8 @@ $(document).ready(function() {
                     localStorage.setItem('lockseats_' + showtimeId, JSON.stringify( reture_data.data ));
                     var orderId = reture_data.data.orderID || '0';
                     location.href = '/payment/order/';
+                }else{
+                    dialogs.tip('服务器繁忙，请稍候再试');
                 }
             })
         }

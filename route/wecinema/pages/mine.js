@@ -209,8 +209,9 @@ app.get(["/my/usernews/:pageindex", '/:publicsignal/my/usernews/:pageindex'], fu
         }
     };
     render_data.data = {};
+    console.log(data)
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data)
+        console.log(data)
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;
