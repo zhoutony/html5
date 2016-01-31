@@ -1106,3 +1106,4 @@ ENOENT: no such file or directory, open '/Users/cdmatom/Documents/works/test/mov
   formData: { openID: '', wxType: 'dypy' },
   req_id: '8844fab0-c7dd-11e5-a1c9-a701e14af522' }
 [2016-01-31 13:43:19.287] [INFO] console - 请求结束： {"data":null,"success":false,"errorCode":-200,"errorInfo":"openID为空"}
+[2016-01-31 13:47:32.245] [INFO] console - Listening on port 80
