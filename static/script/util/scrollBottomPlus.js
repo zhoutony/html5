@@ -36,7 +36,7 @@ var ScrollBottomPlus = {
 
       this.checkScrollHandler = _.bind(this.checkScroll, this);
       $(document).bind("scroll", this.checkScrollHandler);
-      this.footerHeight = this.footer.length > 0 ? this.footer.height() + 70 : 300;
+      this.footerHeight = this.footer.length > 0 ? this.footer.height() + 200 : 500;
       this.bodyOffsetHeight = document.body.offsetHeight;
     },
 
