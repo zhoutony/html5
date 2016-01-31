@@ -86,13 +86,19 @@ $(document).ready(function () {
                 }else{
                     if(param.orderState == 0){
                         pollingPayment();
+                    }else{
+                        if(param.orderState != 10){
+                            Dialogs.tip('<i></i>' + param.errorInfo);
+                            paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
+                            isPayLock = false;
+                        }
                     }
 
-                    if(param.orderState == 20){
-                        Dialogs.tip('<i></i>' + param.errorInfo);
-                        paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
-                        isPayLock = false;
-                    }
+                    // if(param.orderState == 20){
+                    //     Dialogs.tip('<i></i>' + param.errorInfo);
+                    //     paymentBtn.find('a').css({'backgroundColor': ''}).html(paymentBtntxt);
+                    //     isPayLock = false;
+                    // }
                 }
             }else{
                 // pollingPayment();

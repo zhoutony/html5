@@ -13,6 +13,9 @@ $(document).ready(function() {
 		itemMethod(item);
 	})
 
+	//加载足迹
+	
+
 	function itemMethod(item){
 		switch(item){
 			case 'myorders':

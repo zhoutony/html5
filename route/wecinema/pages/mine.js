@@ -185,3 +185,37 @@ app.get(["/my/mask_myredbag"], function(req, res){
     render_data.data = {};
     res.render("wecinema/mask-redrule", render_data);
 });
+
+//足迹
+app.get(["/my/usernews/:pageindex", '/:publicsignal/my/usernews/:pageindex'], function(req, res){
+    var render_data = {};
+    var my_api_addr = "/queryUserNews.aspx";
+    var _pageIndex = req.params["pageindex"];
+
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
+    var open_id     = req.cookies.openids || '';
+
+    var options = {
+        uri: my_api_addr,
+        args: {
+            // type: '-1',
+            pageIndex: _pageIndex,
+            pageSize: 10,
+            openId: open_id,
+            wxtype: publicsignal
+        }
+    };
+    render_data.data = {};
+    model.getDataFromPhp(options, function (err, data) {
+        // console.log(data)
+        render_data.data.err = err;
+        if (!err && data) {
+            render_data.data = data;
+            
+        }
+        res.render("wecinema/movienews", render_data);
+    });
+});
