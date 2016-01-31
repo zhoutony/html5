@@ -154,6 +154,24 @@ $(document).ready(function() {
     })
 
     //-跳转自媒体列表
-    
+    // $(window).on("scrollstop",function(){
+    //       $('.gotolist').addClass('showgotolist')
+    // });
+    $(window).scroll(function () {
+        if ($(window).scrollTop()<200) {
+         $('.gotolist').hide(1000) ;
+
+        } else{
+         $('.gotolist').show(1000) ;
+        }
+        });
+   
+    //-特惠广告
+    setTimeout(function(){
+        $(".addstart").addClass('closeadd');
+    },2500) 
+    setTimeout(function(){
+        $(".addstart").addClass('autoclose');
+    },4000) 
 
 }); //END of jquery documet.ready 

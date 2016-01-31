@@ -119,7 +119,10 @@ block prepend body
         div.loading.flexbox_vh_c
             div.mui-spinner
             div 加载中.....
-        a.gotolist(style="display:none;",href="/#{data.publicsignal}/selflist")    
+        div.addstart
+            p
+                a(href="/#{data.publicsignal}/#{data.locationId}/filmlist/hot")
+        a.gotolist.showgotolist( href="/#{data.publicsignal}/selflist")    
         div.navtool
              ul.flexbox
                 li.flex.curr 

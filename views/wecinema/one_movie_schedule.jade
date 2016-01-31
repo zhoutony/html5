@@ -20,6 +20,8 @@ if data.shows
                                 div.vermid.flex
                                     h2 #{one_schedule.language} #{one_schedule.version}
                                     p #{one_schedule.hallName}
+                                    p.thot 
+                                        b #{one_schedule.voucherNote}
                                 div.pricemid
                                     if one_schedule.stopSellTime
                                         - var price = one_schedule.price / 100;
