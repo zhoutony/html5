@@ -87,7 +87,7 @@ function isLoggedIn(req, res, next) {
     };
 
     model.getDataFromPhp(options, function(err,data) {
-        // console.log("data:", data);
+        // console.log("open_id:", open_id);
         if(!err && data){
             publicsignalshort_data = data;
             //console.log("viewColor:", data.viewColor);
