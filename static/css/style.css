@@ -5237,6 +5237,7 @@ a.notbtn {
 }
 .scrollselful {
 	overflow: hidden;
+	padding:.5rem 0 0;
 	margin: 1rem 0 2rem 4rem;
 }
 .scrollselful li {
@@ -5256,14 +5257,14 @@ a.notbtn {
 	margin-right: 1.3rem;
 }
 .scrollselful li .selfclose {
-	width: 1.4rem;
-	height: 1.4rem;
+	width: 1.8rem;
+	height: 1.8rem;
 	display: block;
 	position: absolute;
-	right: 1rem;
-	top: 0;
-	background: url(../images/selfclose.png) no-repeat center center;
-	background-size: 1.4rem;
+	right: .8rem;
+	top: -.3rem;
+	background: url(../images/self.png) no-repeat center center;
+	background-size: 1.8rem;
 	-webkit-transition: .4s all;
 	-moz-transition: .4s all;
 	-o-transition: .4s all;
@@ -5271,11 +5272,8 @@ a.notbtn {
 	transition: .4s all
 }
 .scrollselful li.join .selfclose {
-	transform: rotate(45deg);
-	-ms-transform: rotate(45deg); 	/* IE 9 */
-	-moz-transform: rotate(45deg); 	/* Firefox */
-	-webkit-transform: rotate(45deg); /* Safari 和 Chrome */
-	-o-transform: rotate(45deg); 	/* Opera */
+	background: url(../images/closejoin.png) no-repeat center center;
+	background-size: 1.8rem;
 }
 .scrollselful .imgbox {
 	margin: 0 auto .5rem;
@@ -5662,11 +5660,11 @@ a.notbtn {
 	display: none;
 	position: fixed;
 	right: 0;
-	bottom: 5rem;
+	bottom: 7rem;
 	width: 3rem;
 	height: 2rem;
 	background: url(../images/gotolist.png) no-repeat center center;
-	background-size: cover;
+	background-size: auto 2rem;
 }
 .addstart {
 	z-index: 10;
@@ -5677,24 +5675,24 @@ a.notbtn {
 	bottom: 0;
 	background: rgba(255,255,255,.9);
 	-webkit-animation-name: addstart;
-	-webkit-animation-duration: .8s;
+	-webkit-animation-duration: .4s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: 1;
 }
-.addstart p a {
+.addstart p a ,.endadd p a{
 	display: block;
 	width: 12rem;
 	height: 8rem;
 	float: right;
 }
-.addstart p {
+.addstart p ,.endadd p{
 	background: url(../images/ac_big.png) no-repeat center center;
 	background-size: 30rem auto;
 	width: 100%;
 	height: 100%;
 	-webkit-animation-name: addstart-p;
-	-webkit-animation-duration: .8s;
+	-webkit-animation-duration: .4s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: 1;
@@ -5710,7 +5708,7 @@ a.notbtn {
 @-webkit-keyframes addstart-p {
  0% {
 opacity: 0;
- transform:scale(2, 2.5);
+ transform:scale(1);
 }
  100% {
 opacity: 1;
@@ -5729,7 +5727,7 @@ opacity: 1;
 }
 .closeadd p {
 	-webkit-animation-name: closeadd;
-	-webkit-animation-duration: .8s;
+	-webkit-animation-duration: .4s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: 1;
@@ -5742,5 +5740,36 @@ opacity: 1;
  opacity: 1;
  background:url(../images/ac_big.png) no-repeat top right;
  background-size:10rem auto;
+}
+}
+
+.endadd{position: fixed;
+    top: 0;
+	left: auto;
+	bottom: auto;
+	height: 8rem;
+	width: 14rem;background: none;
+	z-index: 0;
+	right:0;
+}
+.endadd p{
+
+ background:url(../images/ac_big.png) no-repeat top right;
+ background-size:10rem auto;
+ -webkit-animation-name: endadd;
+	-webkit-animation-duration: .4s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes endadd{
+ 0% {
+opacity: 1;
+ transform:scale(1);
+}
+ 100% {
+opacity: 1;
+ transform:scale(1);
 }
 }

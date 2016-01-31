@@ -1,9 +1,12 @@
 var $ = require('../lib/zepto.js');
 var Util = require('../util/widgets.js');
 var Dialogs = require('../util/dialogs');
+var ScrollBottomPlus = require('../util/scrollBottomPlus.js');
 
 
 $(document).ready(function() {
+	var movienewsPageindex = 1;
+    var mylistbox = $('.mylistbox');
 	var mymenuEl = $('.mymenu'),
 		itemMask, itemMaskEl;
 
@@ -14,7 +17,31 @@ $(document).ready(function() {
 	})
 
 	//加载足迹
-	
+	// function getmylistbox(){
+ //        var _url = '/my/usernews/'+ sourceId +'/' + movienewsPageindex;
+ //        $.get(_url, function(data) {
+ //            if(data == ""){
+ //            	alert('a');
+ //                ScrollBottomPlus.remove();
+ //                return;
+ //            }
+ //            // var _el = $('<div></div>').html(data).appendTo(hotmovie);
+ //            mylistbox.html(mylistbox.html() + data)
+ //            ScrollBottomPlus.gotoBottomShowed = false;
+ //            alert('b');
+ //        });
+
+ //    }
+    
+    ScrollBottomPlus.render({
+        el: '.hotmovie',
+        app_el: '.wrap',
+        footer: '.navtool',
+        callback: function(){
+            movienewsPageindex++;
+            getmylistbox();
+        }
+    })
 
 	function itemMethod(item){
 		switch(item){

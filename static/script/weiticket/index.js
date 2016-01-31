@@ -166,12 +166,39 @@ $(document).ready(function() {
         }
         });
    
+    
     //-特惠广告
-    setTimeout(function(){
-        $(".addstart").addClass('closeadd');
-    },2500) 
-    setTimeout(function(){
-        $(".addstart").addClass('autoclose');
-    },4000) 
+     
+      
+      if( getCookie("mainbg")==0){ 
+          clearTimeout();
+         $(".addstart").removeClass('addstart').addClass('endadd') ;
+
+          
+      }else{ 
+          setTimeout(function(){
+            $(".addstart").addClass('closeadd');
+                   
+            },1500)
+            setTimeout(function(){
+                $(".addstart").addClass('autoclose');
+                  
+            },4000)  
+             setCookie("mainbg","0"); 
+        } 
+         
+    //设置cookie 
+    function setCookie(name,value){ 
+        var exp = new Date();  
+        exp.setTime(exp.getTime() + 1*60*60*24000);//有效期1小时 
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+    } 
+    //取cookies函数 
+    function getCookie(name){ 
+        var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)")); 
+        if(arr != null) return unescape(arr[2]); return null; 
+    } 
+     
+    
 
 }); //END of jquery documet.ready 

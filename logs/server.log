@@ -1279,3 +1279,218 @@ Error: getaddrinfo ENOTFOUND localhost localhost:3091
 Error: getaddrinfo ENOTFOUND localhost localhost:3091
     at errnoException (dns.js:26:10)
     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 18:12:37.970] [INFO] console - Listening on port 80
+[2016-01-31 18:12:37.974] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 18:23:34.017] [INFO] console - Listening on port 80
+[2016-01-31 18:23:34.024] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 18:23:42.500] [INFO] console - Listening on port 80
+[2016-01-31 18:23:42.504] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 18:28:26.517] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:67
+    65|                                 section.flexbox_v_c
+    66|                                     div.txtbox.flex
+  > 67|                                         h2 #{movieNew.title}
+    68|                                         p #{movieNew.summary}
+    69|                                     div.imgbox
+    70|                                         p
+
+Cannot read property 'title' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:505:51)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1037:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:150:17)
+[2016-01-31 18:28:32.579] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:67
+    65|                             section.flexbox_v_c
+    66|                                 div.txtbox.flex
+  > 67|                                     h2 #{movieNew.title}
+    68|                                     p #{movieNew.summary}
+    69|                                 div.imgbox
+    70|                                     p
+
+Cannot read property 'title' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:505:51)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1037:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+    at Request._callback (/Users/mapollo06/Documents/movikr-work/html5/libs/model.js:150:17)
+[2016-01-31 18:28:42.300] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each data, index in data 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 18:29:07.533] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each movieNew, index in data.movieNews 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 18:29:08.785] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each movieNew, index in data.movieNews 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 18:29:30.014] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each movieNew, index in data.movieNews 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 18:29:40.877] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each movieNew1, index in data.movieNews 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 18:29:42.205] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each movieNew1, index in data.movieNews 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 18:32:12.196] [ERROR] console - TypeError: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/my.jade:58
+    56|                 ul.mylistbox(style="display:n1one;")
+    57|                     if data && !data.err && data 
+  > 58|                         each movieNew, index in data.movieNews 
+    59|                             li
+    60|                                 header.flexbox_v_c
+    61|                                     i.timeico
+
+Cannot read property 'length' of undefined
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:460:31)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:653:4)
+    at eval (eval at <anonymous> (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:218:8), <anonymous>:1150:22)
+    at res (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:219:38)
+    at Object.exports.renderFile (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:380:38)
+    at View.exports.renderFile [as engine] (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/index.js:370:21)
+    at View.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/view.js:93:8)
+    at EventEmitter.app.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/application.js:566:10)
+    at ServerResponse.res.render (/Users/mapollo06/Documents/movikr-work/html5/node_modules/express/lib/response.js:938:7)
+    at /Users/mapollo06/Documents/movikr-work/html5/route/wecinema/pages/mine.js:56:13
+[2016-01-31 19:49:03.239] [INFO] console - Listening on port 80
+[2016-01-31 19:49:03.247] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
