@@ -45,8 +45,8 @@ block prepend body
                                                 h2 #{_cinemas.cinemaName}
                                                 p #{_cinemas.cinemaAddress}
                                                 p 最近场次：
-                                                    | #{_cinemas.showTimeCount}
-                                                    | 场
+                                                    | #{_cinemas.RecentShowtime}
+                                                p.cinemasvouch    
                                                     if _cinemas.voucherNote != ''
                                                         b #{_cinemas.voucherNote}
                                             div.pricebox
@@ -57,6 +57,7 @@ block prepend body
                                                 p.newprice 
                                                     | ￥#{_cinemas.limitPrice}
                                                     b 起
+                                         
 
 block prepend footer
 

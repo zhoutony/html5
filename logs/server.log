@@ -1175,3 +1175,96 @@ ENOENT: no such file or directory, open '/Users/cdmatom/Documents/works/test/mov
         [Object],
         [Object] ] },
   shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-01-31 15:29:39.097] [INFO] console - Listening on port 80
+[2016-01-31 15:29:39.101] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 15:38:00.316] [INFO] console - Listening on port 80
+[2016-01-31 15:38:00.323] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 16:00:00.447] [INFO] console - Listening on port 80
+[2016-01-31 16:00:00.452] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 16:11:04.091] [INFO] console - Listening on port 80
+[2016-01-31 16:11:04.095] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+[2016-01-31 16:20:37.885] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:122
+    120|             div.mui-spinner
+    121|             div 加载中.....
+  > 122|         a.gotolist(style="display:none;)(href="/#{data.publicsignal}/selflist")    
+    123|         div.navtool
+    124|              ul.flexbox
+    125|                 li.flex.curr 
+
+The end of the string was reached with no closing bracket found.
+    at Function.parseMax (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/node_modules/character-parser/index.js:26:13)
+    at Object.Lexer.bracketExpression (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:129:33)
+    at Object.Lexer.attrs (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:595:24)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:922:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+[2016-01-31 16:20:37.996] [ERROR] console - Error: /Users/mapollo06/Documents/movikr-work/html5/views/wecinema/index.jade:122
+    120|             div.mui-spinner
+    121|             div 加载中.....
+  > 122|         a.gotolist(style="display:none;)(href="/#{data.publicsignal}/selflist")    
+    123|         div.navtool
+    124|              ul.flexbox
+    125|                 li.flex.curr 
+
+The end of the string was reached with no closing bracket found.
+    at Function.parseMax (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/node_modules/character-parser/index.js:26:13)
+    at Object.Lexer.bracketExpression (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:129:33)
+    at Object.Lexer.attrs (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:595:24)
+    at Object.Lexer.next (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:922:15)
+    at Object.Lexer.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/lexer.js:113:46)
+    at Parser.lookahead (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:102:23)
+    at Parser.peek (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:79:17)
+    at Parser.tag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:752:22)
+    at Parser.parseTag (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:738:17)
+    at Parser.parseExpr (/Users/mapollo06/Documents/movikr-work/html5/node_modules/jade/lib/parser.js:211:21)
+[2016-01-31 16:21:17.046] [INFO] console - Listening on port 80
+[2016-01-31 16:21:17.051] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)

@@ -1455,8 +1455,10 @@ body {
 .tabstime li span {
 	font-size: 1.4rem;
 	padding: 0.2rem 0.4rem;
-	display: inlne-block;
+	display: inline-block;
 	vertical-align: middle;
+	min-width:7rem;
+	text-align:center;
 }
 .tabstime li.curr span {
 	background: #00968e;
@@ -1481,6 +1483,10 @@ body {
 }
 .timebox li a p {
 	color: #666;
+}
+.timebox li a p.thot{
+	color:red;
+	font-weight: bold;
 }
 .toolmid {
 	width: 4rem;
@@ -1542,6 +1548,12 @@ body {
 .pricemid p {
 	font-size: 1.1rem;
 }
+.pricemid p.del{
+	font-size: 1.2rem;
+    color: #C2C2C2;
+    text-decoration: line-through;
+ }
+
 .pricemid p.pricetxt {
 	color: #00968d;
 	font-size: 1.6rem;
@@ -1996,6 +2008,9 @@ body {
 	border-radius: 10rem;
 	line-height: 1;
 	margin-left: 1rem;
+}
+.filmlist .infobox p.cinemasvouch b{
+	margin-left:0;
 }
 .filmlist .pricebox {
 	text-align: right;
@@ -5635,4 +5650,13 @@ a.notbtn {
 	background:#fff;
 	overflow:auto;
 }
- 
+.gotolist{
+	display:block;
+	position: fixed;
+	right:0;
+	bottom:5rem;
+	width:3rem;
+	height:2rem;
+	background:url(../images/gotolist.png) no-repeat center center;
+	background-size:cover;
+ }

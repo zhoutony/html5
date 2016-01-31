@@ -153,4 +153,7 @@ $(document).ready(function() {
         }, 1000);    
     })
 
+    //-跳转自媒体列表
+    
+
 }); //END of jquery documet.ready 
