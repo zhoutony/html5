@@ -1846,6 +1846,7 @@ body {
 	line-height: 1.4;
 	padding: 4rem 0 4rem;
 }
+.paytool .otherinfo a{color: #c8c8c8;}
 .paytool .otherinfo dd {
 	line-height: 1.8;
 }
@@ -1856,7 +1857,7 @@ body {
 	text-align: center;
 	padding: 1rem 0;
 }
-.footer h2 {
+.footer h2 ,.footer h2 a{
 	color: #00968d;
 	font-size: 1.1rem;
 	line-height: 2;
