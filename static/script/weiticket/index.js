@@ -136,8 +136,8 @@ $(document).ready(function() {
         desc: _shareInfo.desc ? _shareInfo.desc : '在电影的时光读懂自已     www.moviefan.com.cn',
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : 'http://p2.pstatp.com/large/3245/1852234910',
-        callback: function(){
-            Util.shearCallback(publicsignal, openId, 0, 1, function(){
+        callback: function(shareobj){
+            Util.shearCallback(publicsignal, openId, 0, 1, shareobj, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
