@@ -5626,3 +5626,12 @@ a.notbtn {
 .conttxt .addticketbox .txtbox {
 	padding-right: 0rem;
 }
+.infoaddimg{
+	padding:  1rem;
+}
+.infoaddimg .scrollpic{
+	height:auto;
+	background:#fff;
+	overflow:auto;
+}
+ 
