@@ -179,7 +179,7 @@ $(document).ready(function() {
           setTimeout(function(){
             $(".addstart").addClass('closeadd');
                    
-            },1500)
+            },3000)
             setTimeout(function(){
                 $(".addstart").addClass('autoclose');
                   
