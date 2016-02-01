@@ -244,7 +244,6 @@ define([
         }
 
         function shearCallback(publicsignal, openId, sourceId, shareType, shareobj, callback){
-            // alert(openId);
             var url = '/yesunion/sharecallback';
             var options = {
                 openId: openId,
