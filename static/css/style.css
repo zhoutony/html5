@@ -703,8 +703,10 @@ body {
 .scrollpic .currbox {
 	position: absolute;
 	bottom: 0.5rem;
-	left: 50%;
-	transform: translateX(-50%);
+	left:0;
+	right:0;
+	text-align:center;
+	 
 }
 .scrollpic .currbox span {
 	width: 0.5rem;
@@ -1253,10 +1255,16 @@ body {
 	overflow: hidden;
 	margin-top: 1.1rem;
 }
+.movielist .txtmid{
+	background: url(../images/ac_small.png) no-repeat right 3rem;
+	background-size:5.4rem 1.6rem;
+	margin-right:1rem;
+}
 .movielist .txtmid .flexbox {
 	padding: 1rem 0 0;
 }
 .movielist .txtmid .btn_buy {
+	margin-right:1rem;
 	display: block;
 	padding-top: 0;
 	background: url(../images/pay_buy.png) no-repeat center center;
@@ -5246,13 +5254,13 @@ a.notbtn {
 	position: relative;
 }
 .selful {
-	padding: 0rem 0 0rem 3.5rem;
+	padding: 1.5rem 0 1.5rem 3.5rem;
 }
 .selful .imgbox,
 .scrollselful .imgbox {
-	width: 4.4rem;
-	height: 4.4rem;
-	border-radius: 4.4rem;
+	width: 5.5rem;
+	height: 5.5rem;
+	border-radius: 6rem;
 	overflow: hidden;
 	margin-right: 1.3rem;
 }
@@ -5349,6 +5357,7 @@ a.notbtn {
 }
 .selfcont li {
 	position: relative;
+
 }
 .selfcont li .selful .textbox .selfinfo,
 .selfcont li .selful .textbox h2 {
@@ -5360,13 +5369,13 @@ a.notbtn {
 .selftit i {
 	display: block;
 	background: #00948D;
-	width: .8rem;
-	height: .8rem;
+	width: 1.2rem;
+	height: 1.2rem;
 	border-radius: .8rem;
 	margin-right: 1rem;
 }
 .selftit p {
-	font-size: 1rem;
+	font-size: 1.4rem;
 	color: #00948D;
 }
 .selflist footer {
@@ -5394,6 +5403,9 @@ a.notbtn {
 	right: 0rem;
 	-webkit-transform: scaleY(.5);
 	transform: scaleY(.5);
+}
+.selfcont li:first-child:after{
+	display:none;
 }
 .selfcont .showmore {
 	margin-bottom: 3rem;
@@ -5509,6 +5521,10 @@ a.notbtn {
 .navmy li.curr {
 	color: #00948D;
 	border-bottom: 2px solid #00948D;
+	font-weight: bold;
+}
+.selfcont .navmy li{
+	font-size:1.4rem;
 }
 .myadd {
 	padding: 0.5rem 0 0;
@@ -5661,10 +5677,10 @@ a.notbtn {
 	position: fixed;
 	right: 0;
 	bottom: 7rem;
-	width: 3rem;
-	height: 2rem;
+	width: 4.2rem;
+	height: 3rem;
 	background: url(../images/gotolist.png) no-repeat center center;
-	background-size: auto 2rem;
+	background-size: auto 3rem;
 }
 .addstart {
 	z-index: 10;
@@ -5692,7 +5708,7 @@ a.notbtn {
 	width: 100%;
 	height: 100%;
 	-webkit-animation-name: addstart-p;
-	-webkit-animation-duration: .4s;
+	-webkit-animation-duration: 1s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: 1;
@@ -5727,7 +5743,7 @@ opacity: 1;
 }
 .closeadd p {
 	-webkit-animation-name: closeadd;
-	-webkit-animation-duration: .4s;
+	-webkit-animation-duration: 1s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: 1;
@@ -5757,7 +5773,7 @@ opacity: 1;
  background:url(../images/ac_big.png) no-repeat top right;
  background-size:10rem auto;
  -webkit-animation-name: endadd;
-	-webkit-animation-duration: .4s;
+	-webkit-animation-duration: 1s;
 	-webkit-animation-timing-function: ease;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-iteration-count: 1;
