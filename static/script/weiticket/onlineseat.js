@@ -6,12 +6,14 @@ var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
 var seatRender = require('./modul/seatrender');
 var wxbridge = require('../util/wxbridge');
-var Util = require('../util/widgets')
+var Util = require('../util/widgets');
+var cookie = require("../util/cookie.js");
 
 /* jshint ignore:end */
 $(document).ready(function() {
     window.dialogs = dialogs;
     var selected_seats;
+    var openId = cookie.getItem('openids');
     function init(){
         initSeatControl();
         localStorage.setItem('cinema', JSON.stringify(window.cinema));
@@ -152,7 +154,7 @@ $(document).ready(function() {
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : movie.movieImage,
         callback: function(shareobj){
-            Util.shearCallback(publicsignal, openId, showtype, 7, shareobj, function(){
+            Util.shearCallback(publicsignal, openId, showtime.showtimeID, 7, shareobj, function(){
                 console.log('分享成功，并发送服务器');
             })
             // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';

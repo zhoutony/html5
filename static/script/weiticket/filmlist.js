@@ -17,6 +17,7 @@ $(document).ready(function() {
         cityEl,
         city = cookie.getItem('city'),
         locationId;
+    var openId = cookie.getItem('openids');
     if(city){
         city = JSON.parse(city);
         _chooseCity.find('span').html(city.name);

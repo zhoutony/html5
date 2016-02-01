@@ -22,6 +22,7 @@ $(document).ready(function() {
         firendbtn          = $('#firendbtn'),
         redbagbtn          = $('#redbagbtn'),
         movie              = {};
+    var openId = cookie.getItem('openids');
 
     //切换日期
     filmlist.on('click', '.flexbox li', function(e) {
@@ -155,7 +156,7 @@ $(document).ready(function() {
             link: window.location.href,
             imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : movie.movieImage,
             callback: function(shareobj){
-                Util.shearCallback(publicsignal, openId, showtype, 6, shareobj, function(){
+                Util.shearCallback(publicsignal, openId, movie.movieID, 6, shareobj, function(){
                     console.log('分享成功，并发送服务器');
                 })
                 // location.href = 'http://weixin.qq.com/r/fEPm40XEi433KAGAbxb4';
