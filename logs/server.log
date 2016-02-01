@@ -121,3 +121,4 @@
        movie: [Object] } ],
   thirdIndex: 3,
   shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:34:53.359] [INFO] console - Listening on port 80
