@@ -5,7 +5,7 @@ var _ = require('../lib/underscore');
 var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
-var widgets = require('../util/widgets.js');
+var Util = require('../util/widgets.js');
 var wxbridge = require('../util/wxbridge');
 var dialogs = require('../util/dialogs');
 // var Citys = require('./citys');
@@ -47,7 +47,7 @@ $(document).ready(function() {
     //定位城市
     function getCurrentPosition () {
         //this.$currentCity.html('正在定位...');
-        widgets.getCurrentPosition(function (coords) {
+        Util.getCurrentPosition(function (coords) {
             // alert(coords.longitude);
             $.get('/queryLocation/' + coords.longitude + '/' + coords.latitude, function(render_data){
                 if(render_data && render_data.location){
@@ -126,6 +126,7 @@ $(document).ready(function() {
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : 'http://p2.pstatp.com/large/3245/1852234910',
         callback: function(shareobj){
+            
             Util.shearCallback(publicsignal, openId, window.showtype, 4, shareobj, function(){
                 console.log('分享成功，并发送服务器');
             })

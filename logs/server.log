@@ -1,4 +1,123 @@
-[2016-02-01 00:49:05.714] [INFO] console - Listening on port 3000
-[2016-02-01 00:49:17.673] [INFO] console - Listening on port 80
-[2016-02-01 14:55:45.634] [INFO] console - Listening on port 80
-[2016-02-01 15:06:54.712] [INFO] console - Listening on port 80
+[2016-02-02 00:01:54.071] [INFO] console - Listening on port 80
+[2016-02-02 00:06:45.366] [INFO] console - Listening on port 80
+[2016-02-02 00:06:49.087] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:07:14.745] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:07:18.071] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:07:20.626] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:07:29.347] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:10:08.567] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:10:11.518] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:14:20.288] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:15:00.876] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:21:39.767] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
+[2016-02-02 00:22:16.245] [INFO] console - { advertisements: 
+   [ { advertisementID: 32,
+       advertisementName: '人人娱乐 人人都是营销自媒体',
+       advertisementType: 4,
+       imageUrl: 'http://image.moviefan.com.cn/AdvertisementInfo/2016-1-31/635898766666266710.jpg',
+       url: 'http://moviefan.com.cn/dypy/110100/filmlist/hot',
+       movieID: 169,
+       intro: '人人娱乐 人人都是营销自媒体',
+       movie: [Object] } ],
+  thirdIndex: 3,
+  shareInfo: { title: null, timelineTitle: null, desc: null, imgUrl: null } }
