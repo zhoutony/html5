@@ -2,12 +2,11 @@
 var $ = require('../lib/zepto.js');
 var iScroll = require('../lib/iscroll');
 var _ = require('../lib/underscore');
-var widgets = require('../util/widgets.js');
 var dialogs = require('../util/dialogs');
 var seatChooser = require('./modul/seatchooser');
 var seatRender = require('./modul/seatrender');
 var wxbridge = require('../util/wxbridge');
-
+var Util = require('../util/widgets')
 
 /* jshint ignore:end */
 $(document).ready(function() {
@@ -132,6 +131,8 @@ $(document).ready(function() {
                     localStorage.setItem('lockseats_' + showtimeId, JSON.stringify( reture_data.data ));
                     var orderId = reture_data.data.orderID || '0';
                     location.href = '/payment/order/';
+                }else{
+                    dialogs.tip('服务器繁忙，请稍候再试');
                 }
             })
         }

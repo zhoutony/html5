@@ -6,7 +6,7 @@ var cache = require('../util/session_cache.js');
 var cookie = require("../util/cookie.js");
 var mui = require('../lib/mui.js');
 var wxbridge = require('../util/wxbridge');
-var widgets = require('../util/widgets.js');
+var Util = require('../util/widgets.js');
 
 /* jshint ignore:end */
 $(document).ready(function() {
@@ -92,9 +92,9 @@ $(document).ready(function() {
                 scrollY: false,
                 mouseWheel: true,
                 bindToWrapper: true,
-                preventDefault: widgets.iScrollClick(),
-                tap: widgets.iScrollClick(),
-                click: widgets.iScrollClick()
+                preventDefault: Util.iScrollClick(),
+                tap: Util.iScrollClick(),
+                click: Util.iScrollClick()
             });
         }
         var _movies = $('.filmscroll').find('li'),
@@ -109,9 +109,9 @@ $(document).ready(function() {
                 scrollY: false,
                 mouseWheel: true,
                 bindToWrapper: true,
-                preventDefault: widgets.iScrollClick(),
-                tap: widgets.iScrollClick(),
-                click: widgets.iScrollClick()
+                preventDefault: Util.iScrollClick(),
+                tap: Util.iScrollClick(),
+                click: Util.iScrollClick()
             });
             if (movieId) {
                 var _movie = $('#movie-' + movieId);
