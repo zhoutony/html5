@@ -33,15 +33,15 @@ $(document).ready(function() {
 
  //    }
     
-    ScrollBottomPlus.render({
-        el: '.hotmovie',
-        app_el: '.wrap',
-        footer: '.navtool',
-        callback: function(){
-            movienewsPageindex++;
-            getmylistbox();
-        }
-    })
+ //    ScrollBottomPlus.render({
+ //        el: '.mylistbox',
+ //        app_el: ' ',
+ //        footer: ' ',
+ //        callback: function(){
+ //            movienewsPageindex++;
+ //            getmylistbox();
+ //        }
+ //    })
 
 	function itemMethod(item){
 		switch(item){

@@ -54,8 +54,8 @@ block prepend body
                 div.empty(style="display:none")
                     
                 ul.mylistbox(style="display:n1one;")
-                    if data && !data.err && data 
-                        each movieNew, index in data 
+                    if data && !data.err && data.movieNews 
+                        each movieNew, index in data.movieNews
                             li
                                 header.flexbox_v_c
                                     i.timeico

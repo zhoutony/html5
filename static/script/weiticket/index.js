@@ -157,14 +157,31 @@ $(document).ready(function() {
     // $(window).on("scrollstop",function(){
     //       $('.gotolist').addClass('showgotolist')
     // });
-    $(window).scroll(function () {
-        if ($(window).scrollTop()<200) {
-         $('.gotolist').hide(1000) ;
+    // $(window).scroll(function () {
+    //     if ($(window).scrollTop()<200) {
+    //      $('.gotolist').hide(1000) ;
 
-        } else{
-         $('.gotolist').show(1000) ;
-        }
+    //     } else{
+    //      $('.gotolist').show(1000) ;
+    //     }
+    //     });
+        $(document).bind('touchstart', function (event) {
+            // event.preventDefault();
+              setTimeout($('.gotolist').hide(),3000)  
+            
         });
+        $(document).bind('touchmove', function (event) {
+            // event.preventDefault();
+             setTimeout($('.gotolist').hide(),3000)
+        });
+
+        $(document).bind('touchend', function (event) {
+            // event.preventDefault();
+            setTimeout($('.gotolist').show(),23000)
+             
+        });
+
+       
    
     
     //-特惠广告

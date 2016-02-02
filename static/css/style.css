@@ -5681,6 +5681,45 @@ a.notbtn {
 	height: 3rem;
 	background: url(../images/gotolist.png) no-repeat center center;
 	background-size: auto 3rem;
+	-webkit-animation-name: gotolist;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+	-moz-animation-name: gotolist;
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: forwards;
+	-moz-animation-iteration-count: 1;
+	animation-name: gotolist;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+@-webkit-keyframes gotolist {
+ 0% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 1;
+}
+}
+@-moz-keyframes gotolist {
+ 0% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 1;
+}
+}
+@keyframes gotolist {
+ 0% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 1;
+}
 }
 .addstart {
 	z-index: 10;
