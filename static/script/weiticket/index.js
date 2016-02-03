@@ -165,19 +165,31 @@ $(document).ready(function() {
     //      $('.gotolist').show(1000) ;
     //     }
     //     });
+        $(window).scroll(function () {
+            if ($(window).scrollTop()<160) {
+             $('.gotolist').hide(1000) ;
+            }  
+        });
         $(document).bind('touchstart', function (event) {
             // event.preventDefault();
-              setTimeout($('.gotolist').hide(),3000)  
+              $('.gotolist').hide()  
             
         });
         $(document).bind('touchmove', function (event) {
             // event.preventDefault();
-             setTimeout($('.gotolist').hide(),3000)
+             $('.gotolist').hide()
         });
 
         $(document).bind('touchend', function (event) {
             // event.preventDefault();
-            setTimeout($('.gotolist').show(),23000)
+            $(window).scroll(function () {
+            if ($(window).scrollTop()<160) {
+             $('.gotolist').hide(1000) ;
+            }  else{
+                $('.gotolist').show()
+            }
+        });
+            
              
         });
 
