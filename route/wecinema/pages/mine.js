@@ -191,13 +191,11 @@ app.get(["/my/usernews/:pageindex", '/:publicsignal/my/usernews/:pageindex'], fu
     var render_data = {};
     var my_api_addr = "/queryUserNews.aspx";
     var _pageIndex = req.params["pageindex"];
-
     var publicsignal = req.params["publicsignal"];
     if(!publicsignal){
         publicsignal = constant.str.PUBLICSIGNAL;
     }
     var open_id     = req.cookies.openids || '';
-
     var options = {
         uri: my_api_addr,
         args: {
