@@ -103,7 +103,7 @@ $(document).ready(function() {
         link: window.location.href,
         imgUrl: _shareInfo.imgUrl ? _shareInfo.imgUrl : shareImgs.length > 0 ? shareImgs[0].src : $('.logobox').find('img')[0].src,
         callback: function(shareobj){
-            shareTip();
+            // shareTip();
             Util.shearCallback(publicsignal, openId, newsId, 2, shareobj, function(){
                 console.log('分享成功，并发送服务器');
             })

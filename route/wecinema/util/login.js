@@ -81,7 +81,7 @@ app.route('/oauth2/toget').get(function(req, res) {
     if(!req_url){
         req_url = publicsignalshort + '/choose_cinema/';
     }
-    console.log("req.url:"+req.url);
+    // console.log("req.url:"+req.url);
     //console.log("publicsignalshort::" + publicsignalshort +"::cinema_id::" + cinema_id);
 
     //调用的接口列表
@@ -114,7 +114,7 @@ app.route('/oauth2/toget').get(function(req, res) {
 
     model.getDataFromPhp(options, function(err,data) {
         //res.send(data);
-        console.log('data:', data)
+        // console.log('data:', data)
         if(!err){
                 // console.debug(my_name,"publicsignalshort_data",data);
                 publicsignalshort_data = data;
