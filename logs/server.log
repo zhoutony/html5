@@ -124,3 +124,14 @@
 [2016-02-02 00:34:53.359] [INFO] console - Listening on port 80
 [2016-02-03 08:58:40.592] [INFO] console - Listening on port 80
 [2016-02-03 09:01:37.931] [INFO] console - Listening on port 80
+[2016-02-03 22:12:47.927] [INFO] console - Listening on port 80
+[2016-02-03 22:17:47.859] [INFO] console - req.url:/oauth2/toget?publicsignalshort=url_/dypy/movienews/87/108238&code=0018aa41ef2babacecbd25cd74be5069&state=1
+[2016-02-03 22:17:47.878] [INFO] console - data: { appId: 'wxde101a87cf4530ba',
+  appSecret: 'da9ecb9486ae67195dd6386a4defd9df',
+  token: 'weixinpt',
+  merchantId: null,
+  merchantName: '北京亚视联合文化发展有限公司',
+  currentToken: null,
+  merchantApiKey: null,
+  encodingAESKey: null,
+  weixinNo: 'yesunion' }
