@@ -18,7 +18,7 @@ var ChooseCity = {
 	},
 
 	initVariable: function(){
-		var cityHtml = localStorage.getItem('cityHtml1'),
+		var cityHtml = localStorage.getItem('cityHtml2'),
 			cityEl;
         if(cityHtml){
             cityEl = $(cityHtml).appendTo(document.body);
@@ -29,7 +29,7 @@ var ChooseCity = {
         }else{
             $.get('/get/citys', function(_html){
                 if(_html && _html != ''){
-                    localStorage.setItem('cityHtml1', _html);
+                    localStorage.setItem('cityHtml2', _html);
                     cityEl = $(_html).appendTo(document.body);
                     this.cityEl = cityEl;
                     this.initElements();
