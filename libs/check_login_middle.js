@@ -26,13 +26,20 @@ var urlencode   = require('urlencode');
 function isLoggedIn(req, res, next) {
     // console.log(req.headers['user-agent']);
     var ua = req.headers['user-agent'].toLowerCase();
-    // console.log(ua.match(/MicroMessenger/i));
-    if(ua.indexOf('micromessenger') >= 0) {
-        // console.log('微信里打开');
+    if(ua){
+        ua = ua.toLowerCase();
+        if(ua.indexOf('micromessenger') >= 0) {
+            // console.log('微信里打开');
+        }else{
+            // console.log('非微信里打开');
+            return next();
+        }
     }else{
         // console.log('非微信里打开');
         return next();
     }
+    // console.log(ua.match(/MicroMessenger/i));
+        
     
     var publicsignalshort_in_cookie          = "url";
     var open_id                              = req.cookies.openids;
@@ -93,7 +100,7 @@ function isLoggedIn(req, res, next) {
             //console.log("viewColor:", data.viewColor);
             //如果cookies里面没有存公共号的缩写，肯定是非法页面调用，不管
             if(!publicsignalshort_in_cookie){
-                console.error("非法页面调用");
+                // console.error("非法页面调用");
                 res.send("非法页面调用");
             }
             // if(data.viewColor){

@@ -134,13 +134,13 @@ app.route('/oauth2/toget').get(function(req, res) {
                                     //res.redirect('/' + publicsignalshort + '/cinema/' + cinema_id);
                                     res.redirect(req_url);
                                 }else{
-                                    console.error(my_name,"wx error.....");
-                                    console.error(my_name,err);
+                                    // console.error(my_name,"wx error.....");
+                                    // console.error(my_name,err);
                                     res.send(err);
                                 }
                             });
                     }else{
-                        console.error(my_name,"获取微信code失败");
+                        // console.error(my_name,"获取微信code失败");
                         res.send("获取微信code失败");
                     }
         }else{

@@ -103,9 +103,9 @@ app.post(['/yesunion/subscriberWeMedia'], function (req, res) {
     };
 
     render_data.data = {};
-    console.log('options:', options);
+    // console.log('options:', options);
     model.getDataFromPhp(options, function (err, data) {
-        console.log('data:', data);
+        // console.log('data:', data);
         render_data.data.err = err;
         if (!err && data) {
             render_data.data = data;
@@ -128,7 +128,7 @@ app.post(['/yesunion/unsubscriberWeMedia'], function (req, res) {
     };
 
     render_data.data = {};
-    console.log('unsubscriberWeMedia:',options);
+    // console.log('unsubscriberWeMedia:',options);
     model.getDataFromPhp(options, function (err, data) {
         console.log('data:', data);
         render_data.data.err = err;
