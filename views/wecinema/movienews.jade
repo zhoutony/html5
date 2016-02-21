@@ -154,8 +154,11 @@ block prepend body
                                 p 
                                     img(src="#{data.newsInfo.logoURL}")
                         div.txtbox
-                            h3 #{data.newsInfo.weMediaName}
-                            time #{data.newsInfo.publishtime}
+
+                            h3 
+                                 a(href='/#{data.publicsignal}/medialist/#{data.sourceId}') #{data.newsInfo.weMediaName}
+                            time  
+                                a(href='/#{data.publicsignal}/medialist/#{data.sourceId}') #{data.newsInfo.publishtime}
                             div.intol.m-hide 
                                 //- b.icon_y(style="display:none") 原创
                                 if data.newsInfo.isSubscribe && data.newsInfo.isSubscribe == 'false'

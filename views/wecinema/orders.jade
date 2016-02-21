@@ -1,17 +1,80 @@
 if data && data.orders
     ul 
         each order in data.orders
-            li.new
-                strong 未放映
-                h2
-                    | #{order.movieName}
-                p 
-                    | #{order.movieVersions} | #{order.showTime}
-                div.flexbox.ordermid
-                    div.ordercode.flex 
-                        | #{order.orderCode}
-                    div.ordertxt
-                        | #{order.cinemaName}
+            if order.status
+                li
+                    div.ordertips.flexbox
+                        p.flex.numorder
+                            span 订单号：#{order.orderID}
+                        p.str
+                            strong 已放映
+                    div.orderinfo.flexbox
+                        div.flex
+                            h2 #{order.cinemaName} #{order.hallName}
+                        div.time
+                            p #{order.showTime}
+                    div.flexbox  
+                        div.main
+                            h2  #{order.seatName}
+                            h2 #{order.movieName} | #{order.movieVersions}
+                            
+                            div.showcode
+                                if order.PrintCode != ''
+                                    p 序列号：
+                                        span #{order.PrintCode}
+                                    p 验证码：
+                                        span #{order.VerifyCode}
+                                else
+                                    p 出票失败
+
+                        div.showmovietxt.flex
+                            -var retailPrice = order.amount / 100
+                            p 总价：#{retailPrice}元
+                    div
+                        p.tl #{order.ChangeInfo} 
+            else
+                li.new
+                    div.ordertips.flexbox
+                        p.flex.numorder
+                            span 订单号：#{order.orderID}
+                        p.str
+                            strong 未放映
+                    div.orderinfo.flexbox
+                        div.flex
+                            h2 #{order.cinemaName} #{order.hallName}
+                        div.time
+                            p #{order.showTime}
+                    div.flexbox  
+                        div.main
+                            h2  #{order.seatName}
+                            h2 #{order.movieName} | #{order.movieVersions}
+                            
+                            div.showcode
+                                if order.PrintCode != ''
+                                    p 序列号：
+                                        span #{order.PrintCode}
+                                    p 验证码：
+                                        span #{order.VerifyCode}
+                                else
+                                    p.odrereo 出票失败
+                        div.showmovietxt.flex
+                            -var retailPrice = order.amount / 100
+                            p 总价：#{retailPrice}元
+                    div
+                        p.tl #{order.ChangeInfo} 
+
+
+            //- li.new
+            //-     strong 未放映
+            //-     h2
+            //-         | #{order.movieName}
+            //-     p 
+            //-         | #{order.movieVersions} | #{order.showTime}
+            //-     div.flexbox.ordermid
+            //-         div.ordercode.flex 
+            //-             | #{order.orderCode}
+            //-         div.ordertxt
+            //-             | #{order.cinemaName}
             //- li
             //-     strong 已放映
             //-     h2 蚁人
@@ -19,3 +82,4 @@ if data && data.orders
             //-     div.flexbox.ordermid
             //-         div.ordercode.flex PY100100200 02
             //-         div.ordertxt 北京沃美影城(常营店)
+
