@@ -199,22 +199,22 @@ $(document).ready(function() {
     //-特惠广告
      
       
-      if( getCookie("mainbg")==0){ 
-          clearTimeout();
-         $(".addstart").removeClass('addstart').addClass('endadd') ;
+      // if( getCookie("mainbg")==0){ 
+      //     clearTimeout();
+      //    $(".addstart").removeClass('addstart').addClass('endadd') ;
 
           
-      }else{ 
-          setTimeout(function(){
-            $(".addstart").addClass('closeadd');
+      // }else{ 
+      //     setTimeout(function(){
+      //       $(".addstart").addClass('closeadd');
                    
-            },3000)
-            setTimeout(function(){
-                $(".addstart").addClass('autoclose');
+      //       },3000)
+      //       setTimeout(function(){
+      //           $(".addstart").addClass('autoclose');
                   
-            },4000)  
-             setCookie("mainbg","0"); 
-        } 
+      //       },4000)  
+      //        setCookie("mainbg","0"); 
+      //   } 
          
     //设置cookie 
     function setCookie(name,value){ 
