@@ -231,8 +231,8 @@ block prepend body
                 div.formtxt 
                     div.main 阅读：#{data.newsInfo.readCount}
                     div.aside    
-                        //-| 原页面经票友开放平台转码整理 文章来源 
-                        //-a(href="#{data.newsInfo.sourceURL}") #{data.newsInfo.weMediaName}       
+                        | 原页面经票友开放平台转码整理 文章来源 
+                        a(href="#{data.newsInfo.sourceURL}") #{data.newsInfo.weMediaName}       
                 div.sharetoolbox.m-hide
                     a
                         i.b_fav
