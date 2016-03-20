@@ -36,6 +36,25 @@ app.get(["/get/citys"], function(req, res){
     
 });
 
+// 获取定位
+app.get(["/queryLocation/:longitude/:latitude"], function (req, res) {
+    var apiURL = "/queryLocationByLatitudeLongitude.aspx";
+    var longitude = req.params["longitude"];
+    var latitude = req.params["latitude"];
+
+    var options = {
+        uri: apiURL,
+        args: {
+            longitude: longitude,
+            latitude: latitude
+        }
+    };
+
+    model.getDataFromPhp(options, function (err, data) {
+        res.json(data || {});
+    });
+});
+
 
 var group_data = function (city_list) {
     if(!city_list) return;

@@ -1,26 +1,69 @@
-/* jshint ignore:start */
 var $ = require('../lib/zepto.js');
-var iScroll = require('../lib/iscroll');
 var _ = require('../lib/underscore');
-var cache = require('../util/session_cache.js');
-var cookie = require("../util/cookie.js");
-var mui = require('../lib/mui.js');
-var Util = require('../util/widgets.js');
-var wxbridge = require('../util/wxbridge');
-var dialogs = require('../util/dialogs');
-// var Citys = require('./citys');
-var ChooseCity = require('../util/chooseCity');
+var Vue = require('vue');
 
-/* jshint ignore:end */
-$(document).ready(function() {
-     var join  = $('.scrollselful li')
-     var joinlen = join.length();
-     for(var i  = 0, i<joinlen, i++){
-        _this = $(this);
-        _this[i].on('click',function(){
-           _this[i].addClass('join') 
-        })
-     }
-     
+function modifySource (item) {
+    item.isSubscribe = item.isSubscribe === 'true';
+}
 
-}); //END of jquery documet.ready
+$(function () {
+    var sourceInfo = window.sourceInfo || {};
+    var newsSourceInfos = sourceInfo.newsSourceInfos || [];
+    var topNewsSourceInfos = sourceInfo.topNewsSourceInfos || [];
+    
+    var data = {};
+
+    // 处理一下后端传递的数据
+    data.newsSourceInfos = _.uniq((newsSourceInfos || []).concat(topNewsSourceInfos || []), function (infoA, infoB) {
+        return infoA.sourceID;
+    });
+    
+    _.each(data.newsSourceInfos, function (info) {
+        var finded = _.find(topNewsSourceInfos, function (topInfo) {
+            return topInfo.sourceID === info.sourceID;
+        });
+
+        if (finded) {
+            info.isTop = true;
+        }
+
+        // 更改是否订阅的数据类型
+        info.isSubscribe = info.isSubscribe === 'true';
+    });
+    
+    // 添加 tab 切换数据
+    data.currentTab = 'all';
+    
+    new Vue({
+        el: '.wrap',
+        data: data,
+        methods: {
+            toggleSubscribe: function (event) {
+                var sourceId = parseInt($(event.currentTarget).attr('data-id'), 10);
+                
+                var source = _.find(
+                    this.newsSourceInfos, 
+                    function(info){ 
+                        return info.sourceID === sourceId; 
+                    }
+                );
+                var isSubscribe = source.isSubscribe;
+                var action = (isSubscribe ? 'unsubscribe' : 'subscribe'); 
+                
+                $.get('/selflist/' + action + '/' + sourceId, function (res) {
+                    if (!res.err) {
+                        _.each(this.newsSourceInfos, function (info) {
+                            if (info.sourceID === sourceId) {
+                                info.isSubscribe = !isSubscribe;
+                            }
+                        });
+                    }
+                }.bind(this))
+            },
+            
+            changeTab: function (tab) {
+                this.currentTab = tab;
+            }
+        }
+    })
+});
