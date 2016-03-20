@@ -15,237 +15,200 @@ block prepend body
                 p 推荐自媒体
             div.scrollselful
                 ul.flexbox_v_c
-                    li
+                    li(v-for="info in newsSourceInfos", v-if="info.isTop", v-bind:class="{ 'join': info.isSubscribe }", data-id="{{ info.sourceID }}", v-on:click="toggleSubscribe")
                         a.selfclose
-                        a(href="")
+                        a(href="javascript:;")
                             div.imgbox
-                                img(src="/images/logo180.png")
+                                img(:src="info.logoURL")
                             div.textbox
-                                h2 电影票友
-                    li.join
-                        a.selfclose
-                        a(href="")
-                            div.imgbox
-                                img(src="/images/logo180.png")
-                            div.textbox
-                                h2 电影票友
-                    li
-                        a.selfclose
-                        a(href="")
-                            div.imgbox
-                                img(src="/images/logo180.png")
-                            div.textbox
-                                h2 电影票友
-                    li
-                        a.selfclose
-                        a(href="")
-                            div.imgbox
-                                img(src="/images/logo180.png")
-                            div.textbox
-                                h2 电影票友
-            
+                                h2 {{ info.sourceName }}
+                        
+                    //li
+                    //    a.selfclose
+                    //    a(href="")
+                    //        div.imgbox
+                    //            img(src="/images/logo180.png")
+                    //        div.textbox
+                    //            h2 电影票友
+                    //li.join
+                    //    a.selfclose
+                    //    a(href="")
+                    //        div.imgbox
+                    //            img(src="/images/logo180.png")
+                    //        div.textbox
+                    //            h2 电影票友
+                    //li
+                    //    a.selfclose
+                    //    a(href="")
+                    //        div.imgbox
+                    //            img(src="/images/logo180.png")
+                    //        div.textbox
+                    //            h2 电影票友
+                    //li
+                    //    a.selfclose
+                    //    a(href="")
+                    //        div.imgbox
+                    //            img(src="/images/logo180.png")
+                    //        div.textbox
+                    //            h2 电影票友
+                    //
             //- header end
             div.selfcont
                 ul.navmy.flexbox
-                    li.curr.flex 大家的小伙伴
-                    li.flex 我的小伙伴
-                div.subtablist
+                    li.flex(v-bind:class="{ 'curr': currentTab === 'all' }", v-on:click="changeTab('all')") 大家的小伙伴
+                    li.flex(v-bind:class="{ 'curr': currentTab === 'my' }", v-on:click="changeTab('my')") 我的小伙伴
+                div.subtablist(v-show="currentTab === 'all'")
                     ul
-                        li
+                        li(v-for="info in newsSourceInfos")
                             div.flexbox_v_c.selful
                                 div.imgbox
-                                    img(src="/images/logo180.png")
+                                    img(:src="info.logoURL")
                                 div.textbox.flex
-                                    h2 电影票友
+                                    h2 {{ info.sourceName }}
                                     p.selftip
                                         span
                                             | 粉丝
                                         span
-                                            | 3000
+                                            | {{ info.subscribeCount }}
                                         span
                                             | |
                                         span
                                             | 累计阅读
                                         span
-                                            | 2000
+                                            | {{ info.AllReadCount }}
                                     p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                        li
-                            div.flexbox_v_c.selful
-                                div.imgbox
-                                    img(src="/images/logo180.png")
-                                div.textbox.flex
-                                    h2 电影票友
-                                    p.selftip
-                                        span
-                                            | 粉丝
-                                        span
-                                            | 3000
-                                        span
-                                            | |
-                                        span
-                                            | 累计阅读
-                                        span
-                                            | 2000
-                                    p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join.btn_curr
-                                        span
-                                            | -
-                        li
-                            div.flexbox_v_c.selful
-                                div.imgbox
-                                    img(src="/images/logo180.png")
-                                div.textbox.flex
-                                    h2 电影票友
-                                    p.selftip
-                                        span
-                                            | 粉丝
-                                        span
-                                            | 3000
-                                        span
-                                            | |
-                                        span
-                                            | 累计阅读
-                                        span
-                                            | 2000
-                                    p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                        li
-                            div.flexbox_v_c.selful
-                                div.imgbox
-                                    img(src="/images/logo180.png")
-                                div.textbox.flex
-                                    h2 电影票友
-                                    p.selftip
-                                        span
-                                            | 粉丝
-                                        span
-                                            | 3000
-                                        span
-                                            | |
-                                        span
-                                            | 累计阅读
-                                        span
-                                            | 2000
-                                    p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                         
+                                        | {{ info.summary }}
+                                    div.toolbox
+                                        a.btn_join(v-bind:class="{ 'btn_curr': info.isSubscribe }")
+                                            span(v-if="info.isSubscribe", data-id="{{ info.sourceID }}", v-on:click="toggleSubscribe")
+                                                | -
+                                            span(v-else, data-id="{{ info.sourceID }}", v-on:click="toggleSubscribe")
+                                                | +
+                        //li
+                        //    div.flexbox_v_c.selful
+                        //        div.imgbox
+                        //            img(src="/images/logo180.png")
+                        //        div.textbox.flex
+                        //            h2 电影票友
+                        //            p.selftip
+                        //                span
+                        //                    | 粉丝
+                        //                span
+                        //                    | 3000
+                        //                span
+                        //                    | |
+                        //                span
+                        //                    | 累计阅读
+                        //                span
+                        //                    | 2000
+                        //            p.selfinfo
+                        //                | 在电影时光时读懂自已
+                        //        div.toolbox
+                        //            a.btn_join
+                        //                span
+                        //                    | +
+                        //li
+                        //    div.flexbox_v_c.selful
+                        //        div.imgbox
+                        //            img(src="/images/logo180.png")
+                        //        div.textbox.flex
+                        //            h2 电影票友
+                        //            p.selftip
+                        //                span
+                        //                    | 粉丝
+                        //                span
+                        //                    | 3000
+                        //                span
+                        //                    | |
+                        //                span
+                        //                    | 累计阅读
+                        //                span
+                        //                    | 2000
+                        //            p.selfinfo
+                        //                | 在电影时光时读懂自已
+                        //        div.toolbox
+                        //            a.btn_join.btn_curr
+                        //                span
+                        //                    | -
+                        //li
+                        //    div.flexbox_v_c.selful
+                        //        div.imgbox
+                        //            img(src="/images/logo180.png")
+                        //        div.textbox.flex
+                        //            h2 电影票友
+                        //            p.selftip
+                        //                span
+                        //                    | 粉丝
+                        //                span
+                        //                    | 3000
+                        //                span
+                        //                    | |
+                        //                span
+                        //                    | 累计阅读
+                        //                span
+                        //                    | 2000
+                        //            p.selfinfo
+                        //                | 在电影时光时读懂自已
+                        //        div.toolbox
+                        //            a.btn_join
+                        //                span
+                        //                    | +
+                        //li
+                        //    div.flexbox_v_c.selful
+                        //        div.imgbox
+                        //            img(src="/images/logo180.png")
+                        //        div.textbox.flex
+                        //            h2 电影票友
+                        //            p.selftip
+                        //                span
+                        //                    | 粉丝
+                        //                span
+                        //                    | 3000
+                        //                span
+                        //                    | |
+                        //                span
+                        //                    | 累计阅读
+                        //                span
+                        //                    | 2000
+                        //            p.selfinfo
+                        //                | 在电影时光时读懂自已
+                        //        div.toolbox
+                        //            a.btn_join
+                        //                span
+                        //                    | +
+                        // 
                     //- ul end
-                    a.showmore
-                        | 更多精彩内容 
+                    //a.showmore
+                    //    | 更多精彩内容 
                 //- subtablist end
-                div.subtablist(style="display:none;")
+                div.subtablist(v-show="currentTab === 'my'")
                     ul
-                        li
+                        li(v-for="info in newsSourceInfos", v-if="info.isSubscribe")
                             div.flexbox_v_c.selful
                                 div.imgbox
-                                    img(src="/images/logo180.png")
+                                    img(:src="info.logoURL")
                                 div.textbox.flex
-                                    h2 电影票友
+                                    h2 {{ info.sourceName }}
                                     p.selftip
                                         span
                                             | 粉丝
                                         span
-                                            | 3000
+                                            | {{ info.subscribeCount }}
                                         span
                                             | |
                                         span
                                             | 累计阅读
                                         span
-                                            | 2000
+                                            | {{ info.AllReadCount }}
                                     p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                        li
-                            div.flexbox_v_c.selful
-                                div.imgbox
-                                    img(src="/images/logo180.png")
-                                div.textbox.flex
-                                    h2 电影票友
-                                    p.selftip
-                                        span
-                                            | 粉丝
-                                        span
-                                            | 3000
-                                        span
-                                            | |
-                                        span
-                                            | 累计阅读
-                                        span
-                                            | 2000
-                                    p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                        li
-                            div.flexbox_v_c.selful
-                                div.imgbox
-                                    img(src="/images/logo180.png")
-                                div.textbox.flex
-                                    h2 电影票友
-                                    p.selftip
-                                        span
-                                            | 粉丝
-                                        span
-                                            | 3000
-                                        span
-                                            | |
-                                        span
-                                            | 累计阅读
-                                        span
-                                            | 2000
-                                    p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                        li
-                            div.flexbox_v_c.selful
-                                div.imgbox
-                                    img(src="/images/logo180.png")
-                                div.textbox.flex
-                                    h2 电影票友
-                                    p.selftip
-                                        span
-                                            | 粉丝
-                                        span
-                                            | 3000
-                                        span
-                                            | |
-                                        span
-                                            | 累计阅读
-                                        span
-                                            | 2000
-                                    p.selfinfo
-                                        | 在电影时光时读懂自已
-                                div.toolbox
-                                    a.btn_join
-                                        span
-                                            | +
-                         
+                                        | {{ info.summary }}
+                                    div.toolbox
+                                        a.btn_join.btn_curr
+                                            span(data-id="{{ info.sourceID }}", v-on:click="toggleSubscribe")
+                                                | -
                     //- ul end
-                    a.showmore
-                        | 更多精彩内容 
+                    //a.showmore
+                    //    | 更多精彩内容 
             //- selfcont end
             
 
@@ -254,7 +217,9 @@ block prepend body
 block prepend footer
 
 block prepend script
-    script
-        
+    script.
+        window.sourceInfo = !{JSON.stringify(data)};
+    script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
+    script(src="#{data.staticBase}/script/weiticket/selflist.js?#{data.reversion}")
 
 

@@ -148,8 +148,8 @@ define([
                 return currentCoords;
             }
 
-            successCallback = successCallback || emptyFunction;
-            errorCallback = errorCallback || emptyFunction;
+            successCallback = successCallback || _.noop;
+            errorCallback = errorCallback || _.noop;
 
             // if (currentCoords) {
             //     log('current position:', currentCoords);

@@ -43,30 +43,72 @@ $(document).ready(function() {
             });
         }
         // var myCitys = Citys.render();
-    })
-    //定位城市
+    });
+
+    // 获取当前位址
     function getCurrentPosition () {
-        //this.$currentCity.html('正在定位...');
+        // 如果坐标信息没有时效, 就不再获取坐标, 避免多次获取, 浪费用户手机的电量
+        if (cookie.getItem('currentCoords')) {
+            return;
+        }
+
         Util.getCurrentPosition(function (coords) {
-            // alert(coords.longitude);
+
+            // 设置时效为1个小时的坐标信息
+            cookie.setItem(
+                'currentCoords',
+                JSON.stringify({
+                    latitude: coords.latitude,
+                    longitude: coords.longitude
+                }),
+                60 * 60 * 24, '/');
+
+            // 如果已经定位过城市, 就不再定位
+            if (cookie.getItem('currentCityPositioned')) {
+                return;
+            }
+
             $.get('/queryLocation/' + coords.longitude + '/' + coords.latitude, function(render_data){
                 if(render_data && render_data.location){
-                    alert(render_data.location.nameCN);
+                    var location = render_data.location;
+
+                    // 设置时效为365天的 Cookie 标记
+                    cookie.setItem('currentCityPositioned', 'true', 60 * 60 * 24 * 365, '/');
+
+                    // 如果页面已经是当前城市的, 就不处理了
+                    if (locationId === location.locationID) {
+                        return;
+                    }
+
+                    var message = _.template('<p>当前定位您在 <%= city%>，是否切换？</p>')({
+                        city: location.nameCN
+                    });
+
+                    dialogs.confirm(message, function () {
+                        setCity({
+                            locationId: location.locationID,
+                            name: location.nameCN
+                        });
+                    });
                 }
             })
-            // ajax.get('/GetCityByLongitudelatitude.api?longitude=' + coords.longitude + '&latitude=' + coords.latitude, _.bind(function (city) {
-            //     if (city && city.cityId) {
-            //         app.user.setCity(city.cityId, city.name);
-            //         this.$currentCity.html(city.name);
-            //         this.$currentCity.attr('data-id', city.cityId);
-            //         this.$currentCity.attr('data-name', city.name);
-            //     }
-            // }, this), 'json');
-        }, function () {
-            //this.$currentCity.html('定位失败');
         });
     }
+
+    // 获取当前位址
     getCurrentPosition();
+
+    // 设置城市
+    function setCity(city) {
+        // 设置 Cookie
+        var cookieExpired = 60 * 60 * 24 * 30; //30天
+        var cookiePath = '/';
+        cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
+
+        // 跳转页面
+        var subPage = window.showtype === 'coming' ? '/ticket/' : '/filmlist/hot';
+        location.href = '/'+ window.publicsignal + '/' + city.locationId + subPage;
+    }
 
     $('#menutop').on('click', 'li', function(evt){
         var _el = $(evt.currentTarget),
@@ -92,17 +134,9 @@ $(document).ready(function() {
     })
 
     _chooseCity.on('click', function(evt){
-        ChooseCity.init(function(city){
-            var cookieExpired = 60 * 60 * 24 * 30; //30天
-            var cookiePath = '/';
-            cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
-            if(window.showtype == 'coming'){
-                location.href = '/'+ window.publicsignal + '/' + city.locationId + '/ticket/';
-            }else{
-                location.href = '/'+ window.publicsignal + '/' + city.locationId + '/filmlist/hot';
-            }
-        }.bind(this))
-    })
+        ChooseCity.init(setCity);
+    });
+
     //-发现弹出 即将开启
     var _findbox = $('#findbox ');
     _findbox.on('click',function(){

@@ -23,6 +23,18 @@ app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], 
             wxtype: publicsignal
         }
     };
+
+    // 获取用户坐标
+    var currentCoords;
+
+    try {
+        currentCoords = JSON.parse(req.cookies.currentCoords);
+    } catch(err) {}
+
+    if (currentCoords && currentCoords.longitude && currentCoords.latitude) {
+        options.args.longitude = currentCoords.longitude;
+        options.args.latitude = currentCoords.latitude;
+    }
     
     render_data.data = {};
     render_data.data = {

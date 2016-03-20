@@ -23,6 +23,7 @@ module.exports = {
         schedule: config.src.js + '/weiticket/schedule.js',
         onlineseat: config.src.js + '/weiticket/onlineseat.js',
         mine: config.src.js + '/weiticket/mine.js',
+        selflist: config.src.js + '/weiticket/selflist.js',
         payment: config.src.js + '/weiticket/payment.js',
         result: config.src.js + '/weiticket/result.js',
         mycards: config.src.js + '/weiticket/mycards.js',
