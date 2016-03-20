@@ -36,7 +36,8 @@
     "pid-file": "^0.3.3",
     "request": "^2.51.0",
     "underscore": "^1.7.0",
-    "urlencode": "^1.0.0"
+    "urlencode": "^1.0.0",
+    "vue": "^1.0.18"
   },
   "devDependencies": {
     "browserify": "^8.1.0",
