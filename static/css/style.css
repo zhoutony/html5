@@ -1352,7 +1352,7 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
 .timeico { display: block; width: 1.2rem; height: 1.2rem; background: url(../images/timeico.png) no-repeat center center; background-size: cover; }
 .mylistbox li header time, .mylistbox li header p, .mylistbox li header p.myclose i { display: block; }
 .mylistbox li header time { margin: 0 0.5rem; }
-.mylistbox li header p.myclose { padding: 1rem 0; }
+.mylistbox li header p.myclose { padding: 1rem; }
 .mylistbox li header p.myclose i { width: 1.2rem; height: 1.2rem; background: url(../images/icoclose.png) no-repeat center center; background-size: cover; }
 .mylistbox li section h2:after { display: none; }
 .mylistbox li section .txtbox { margin: 0; }
