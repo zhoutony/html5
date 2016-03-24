@@ -70,7 +70,14 @@ $(document).ready(function() {
                     cookie.setItem('currentCityPositioned', 'true', 60 * 60 * 24, '/');
 
                     // 如果页面已经是当前城市的, 就不处理了
-                    if (parseInt(locationId, 10) === location.locationID) {
+                    if ((locationId || 110100) === location.locationID) {
+                        if (location.locationID === 110100) {
+                            setCity({
+                                locationId: location.locationID,
+                                name: location.nameCN
+                            }, true);
+                        }
+
                         return;
                     }
 
@@ -95,11 +102,15 @@ $(document).ready(function() {
     getCurrentPosition();
 
     // 设置城市
-    function setCity(city) {
+    function setCity(city, dontRedirect) {
         // 设置 Cookie
         var cookieExpired = 60 * 60 * 24 * 30; //30天
         var cookiePath = '/';
         cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
+
+        if (dontRedirect) {
+            return;
+        }
 
         // 跳转页面
         var subPage = window.showtype === 'coming' ? '/ticket/' : '/filmlist/hot';
