@@ -34,7 +34,7 @@ function getUserNews(req, pageIndex, callback) {
     };
 
     model.getDataFromPhp(options, function (err, data) {
-        callback(err, data && data.movieNews);
+        callback(err, data && data.movieNews, publicsignal);
     });
 }
 
@@ -218,10 +218,11 @@ app.get(["/my/mask_myredbag"], function(req, res){
 
 // 足迹
 app.get(["/my/usernews/:pageindex", '/:publicsignal/my/usernews/:pageindex'], function(req, res){
-    getUserNews(req, req.params.pageindex, function (err, userNews) {
+    getUserNews(req, req.params.pageindex, function (err, userNews, publicsignal) {
         res.render('wecinema/pagelets/user-news', {
             data: {
                 err: err,
+                publicsignal: publicsignal,
                 userNews: userNews
             }
         });

@@ -50,20 +50,26 @@ var Mine = {
             
             if (res) {
                 mine.$newsList.append(res);
+                mine.newsLength = mine.$newsList.find('li[data-id]').length;
                 mine.newsPageIndex = pageIndex;
             }
         });
     },
     deleteNews: function (event) {
+        event.preventDefault();
+
+        var mine = this;
         var $close = $(event.currentTarget);
         var $news = $close.parents('li[data-id]');
         var newsId = $news.data('id');
 
         $.get('/my/usernews/delete/' + newsId, function (res) {
-            console.log(JSON.stringify(arguments));
-            
             if (!res.err) {
                 $news.remove();
+
+                if (--mine.newsLength <= 0) {
+                    mine.fetchNews(1);
+                }
             }
         });
     }
