@@ -47,13 +47,7 @@ $(document).ready(function() {
 
     // 获取当前位址
     function getCurrentPosition () {
-        // 如果坐标信息没有时效, 就不再获取坐标, 避免多次获取, 浪费用户手机的电量
-        if (cookie.getItem('currentCoords')) {
-            return;
-        }
-
-        Util.getCurrentPosition(function (coords) {
-
+        Util.repeat(Util.getCurrentPosition, 3).then(function (coords) {
             // 设置时效为1个小时的坐标信息
             cookie.setItem(
                 'currentCoords',
@@ -72,11 +66,18 @@ $(document).ready(function() {
                 if(render_data && render_data.location){
                     var location = render_data.location;
 
-                    // 设置时效为365天的 Cookie 标记
-                    cookie.setItem('currentCityPositioned', 'true', 60 * 60 * 24 * 365, '/');
+                    // 设置时效为1天的 Cookie 标记
+                    cookie.setItem('currentCityPositioned', 'true', 60 * 60 * 24, '/');
 
                     // 如果页面已经是当前城市的, 就不处理了
-                    if (locationId === location.locationID) {
+                    if ((locationId || 110100) === location.locationID) {
+                        if (location.locationID === 110100) {
+                            setCity({
+                                locationId: location.locationID,
+                                name: location.nameCN
+                            }, true);
+                        }
+
                         return;
                     }
 
@@ -91,7 +92,9 @@ $(document).ready(function() {
                         });
                     });
                 }
-            })
+            });
+        }, function () {
+            console.log('定位失败');
         });
     }
 
@@ -99,11 +102,15 @@ $(document).ready(function() {
     getCurrentPosition();
 
     // 设置城市
-    function setCity(city) {
+    function setCity(city, dontRedirect) {
         // 设置 Cookie
         var cookieExpired = 60 * 60 * 24 * 30; //30天
         var cookiePath = '/';
         cookie.setItem('city', JSON.stringify(city), cookieExpired, cookiePath);
+
+        if (dontRedirect) {
+            return;
+        }
 
         // 跳转页面
         var subPage = window.showtype === 'coming' ? '/ticket/' : '/filmlist/hot';

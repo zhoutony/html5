@@ -1,15 +1,16 @@
 if data && !data.err && data.userNews
     each userNew, index in data.userNews
         li(data-id="#{userNew.movieNewID}")
-            header.flexbox_v_c
-                i.timeico
-                time.flex 2小时前
-                p.myclose
-                    i
-            section.flexbox_v_c
-                div.txtbox.flex
-                    h2 #{userNew.title}
-                    p #{userNew.summary}
-                div.imgbox
-                    p
-                        img(src="#{userNew.image1}")
+            a(href="/#{data.publicsignal}/movienews/#{userNew.sourceType}/#{userNew.movieNewID}")
+                header.flexbox_v_c
+                    i.timeico
+                    time.flex 2小时前
+                    p.myclose
+                        i
+                section.flexbox_v_c
+                    div.txtbox.flex
+                        h2 #{userNew.title}
+                        p #{userNew.summary}
+                    div.imgbox
+                        p
+                            img(src="#{userNew.image1}")
