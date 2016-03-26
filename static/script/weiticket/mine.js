@@ -12,8 +12,9 @@ var Mine = {
         var $wrap = $('.wrap');
 
         // 用户足迹相关
-        this.$newsList = $wrap.find('.mylistbox');
-        this.$empty = $wrap.find('.empty');
+        this.$newsList = $wrap.find('.userNews .mylistbox');
+        this.$newsEmpty = $wrap.find('.userNews .empty');
+        this.$newsLoading = $wrap.find('.userNews .loading');
         this.newsLength = this.$newsList.find('li[data-id]').length;
         this.newsPageIndex = 1;
         
@@ -44,9 +45,11 @@ var Mine = {
         }
 
         this.fetchNewsLock = true;
+        this.$newsLoading.show();
         
         $.get('/my/usernews/' + pageIndex, function (res) {
             mine.fetchNewsLock = false;
+            mine.$newsLoading.hide();
             
             if (res) {
                 mine.$newsList.append(res);

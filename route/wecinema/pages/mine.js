@@ -2,6 +2,7 @@
  * Created by LemonHall on 2015/4/
  */
 var util            = require('util');
+var moment          = require('moment');
 var model           = require(process.cwd()+"/libs/model.js");
 
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
@@ -14,6 +15,8 @@ var os       = require('os');
 var pid      = process.pid;
 var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
+
+moment.locale('zh-cn');
 
 // 获取用户的电影新闻
 function getUserNews(req, pageIndex, callback) {
@@ -34,7 +37,15 @@ function getUserNews(req, pageIndex, callback) {
     };
 
     model.getDataFromPhp(options, function (err, data) {
-        callback(err, data && data.movieNews, publicsignal);
+        var userNews = data && data.movieNews;
+
+        if (userNews) {
+            userNews.forEach(function (news) {
+                news.moment = moment(news.publishtime, 'YYYY-MM-DD hh:mm:ss').fromNow();
+            });
+        }
+
+        callback(err, userNews, publicsignal);
     });
 }
 

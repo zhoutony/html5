@@ -1313,7 +1313,7 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
 /**自媒体列表**/
 .selflist, .hauto { height: 100%; }
 .selflist { padding-top: 3.5rem; }
-.scrollselful { overflow: auto; padding: .5rem 0 0; margin: 1rem 0 2rem 4rem; }
+.scrollselful { overflow: auto; padding: .5rem 0 0; margin: 1rem 0 2rem 4rem; -webkit-overflow-scrolling: touch;}
 .scrollselful li { padding: 0 1.4rem 0 0; text-align: center; position: relative; }
 .selful { padding: 1.5rem 0 1.5rem 3.5rem; }
 .selful .imgbox, .scrollselful .imgbox { width: 5.5rem; height: 5.5rem; border-radius: 6rem; overflow: hidden; margin-right: 1.3rem; }
