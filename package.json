@@ -4,6 +4,7 @@
   "description": "wechat movie node.js base",
   "main": "app.js",
   "scripts": {
+    "start": "webpack -w",
     "pretest": "kill $(cat server.pid);node server.js &",
     "test": "mocha --recursive -R xunit test/ > test-reports.xml;kill $(cat server.pid);"
   },
@@ -32,6 +33,7 @@
     "log4js": "^0.6.22",
     "lru-cache": "^2.5.2",
     "method-override": "^2.3.1",
+    "moment": "^2.12.0",
     "node-uuid": "^1.4.3",
     "pid-file": "^0.3.3",
     "promise": "^7.1.1",
