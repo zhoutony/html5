@@ -48,11 +48,14 @@ block prepend body
                         i.ico_io
                     li.flex
                         a(href="") 注册
-            div.subtablist
+            div.subtablist.userNews
                 div.empty(style= data.userNews ? 'display:none' : '')
                     
                 ul.mylistbox(style= data.userNews ? '' : 'display:none')
                     include ./pagelets/user-news
+                div.loading(style='display: none;')
+                    div.mui-spinner
+                    div 加载中.....
             div.subtablist(style="display:none;")
                 div.mymenu
                     ul.flexbox

@@ -35,7 +35,7 @@ app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], 
         options.args.longitude = currentCoords.longitude;
         options.args.latitude = currentCoords.latitude;
     }
-    
+
     render_data.data = {};
     render_data.data = {
         reversion: global.reversion,
@@ -45,12 +45,13 @@ app.get(['/:cityId/ticket/:movieId', '/:publicsignal/:cityId/ticket/:movieId'], 
         publicsignal: publicsignal
     }
     model.getDataFromPhp(options, function (err, data) {
-        // console.log(data);
         render_data.data.err = err;
         if (!err && data) {
-            render_data.data.cinemas = getCinemas(data.cinemas);
+            var cinemas = data.cinemas;
+            render_data.data.cinemas = getCinemas(cinemas);
             render_data.data.movie = data.movie;
             render_data.data.shareInfo = data.shareInfo;
+            render_data.data.cityName = cinemas && cinemas.length ? cinemas[0].cityName : '';
         }
         res.render("wecinema/ticket", render_data);
     });

@@ -48,26 +48,18 @@ $(document).ready(function() {
     // 获取当前位址
     function getCurrentPosition () {
         Util.repeat(Util.getCurrentPosition, 3).then(function (coords) {
-            // 设置时效为1个小时的坐标信息
+            // 设置时效为30天的坐标信息
             cookie.setItem(
                 'currentCoords',
                 JSON.stringify({
                     latitude: coords.latitude,
                     longitude: coords.longitude
                 }),
-                60 * 60 * 24, '/');
-
-            // 如果已经定位过城市, 就不再定位
-            if (cookie.getItem('currentCityPositioned')) {
-                return;
-            }
+                60 * 60 * 24 * 30, '/');
 
             $.get('/queryLocation/' + coords.longitude + '/' + coords.latitude, function(render_data){
                 if(render_data && render_data.location){
                     var location = render_data.location;
-
-                    // 设置时效为1天的 Cookie 标记
-                    cookie.setItem('currentCityPositioned', 'true', 60 * 60 * 24, '/');
 
                     // 如果页面已经是当前城市的, 就不处理了
                     if ((locationId || 110100) === location.locationID) {
