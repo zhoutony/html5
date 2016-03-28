@@ -431,3 +431,14 @@ Error: getaddrinfo ENOTFOUND localhost localhost:3091
     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
 [2016-03-26 20:08:58.087] [INFO] console - Listening on port 3000
 >>>>>>> 0959be95bf7116f33a6fcc550e9ce4c80ddb238b
+[2016-03-28 21:23:18.217] [INFO] console - Listening on port 80
+[2016-03-28 21:23:18.223] [ERROR] console - Error caught in uncaughtException event: { [Error: getaddrinfo ENOTFOUND localhost localhost:3091]
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'localhost',
+  host: 'localhost',
+  port: 3091 }
+Error: getaddrinfo ENOTFOUND localhost localhost:3091
+    at errnoException (dns.js:26:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
