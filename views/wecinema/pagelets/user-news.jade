@@ -1,0 +1,16 @@
+if data && !data.err && data.userNews
+    each news, index in data.userNews
+        li(data-id="#{news.movieNewID}")
+            a(href="/#{data.publicsignal}/movienews/#{news.sourceType}/#{news.movieNewID}")
+                header.flexbox_v_c
+                    i.timeico
+                    time.flex #{news.moment}
+                    p.myclose
+                        i
+                section.flexbox_v_c
+                    div.txtbox.flex
+                        h2 #{news.title}
+                        p #{news.summary}
+                    div.imgbox
+                        p
+                            img(src="#{news.image1}")

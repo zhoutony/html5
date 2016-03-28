@@ -6,13 +6,14 @@ define([
         '../lib/underscore',
         '../util/modal',
         '../util/cookie',
-        '../lib/director'
+        '../lib/director',
+        'promise'
     ], function ($,
                  _,
                  Modal,
                  cookie,
                  director,
-                 dialogs) {
+                 Promise) {
 
         // 字符串长度限制, 最大长度默认为12
         function strShort(string, maxLength) {
@@ -132,65 +133,37 @@ define([
 
 
         /**
-        * 获取当前地理位置（已转换成Google坐标），并会将当前地理位置缓存到内存中
-        * 如果不传递任何一个回调函数，就只返回缓存中的当前地理位置信息
-        *
-        * @param successCallback {Function} 获取成功的回调函数，
-        * 会传入{latitude: latitude, longitude: longitude}结构的经纬度数据
-        * @param errorCallback 获取失败的回调函数
-        * @param notShowTip {Boolean} 不显示失败Tip
+        * 获取当前地理位置
         */
-        function getCurrentPosition(successCallback, errorCallback, notShowTip) {
-            // var currentCoords = app.cache.get('currentCoords'); // 先尝试从缓存中获取之前定位的坐标
-
-            // 只从缓存中获取地理位置，如果缓存中没有地理位置信息，就返回undefined
-            if (_.isUndefined(successCallback) && _.isUndefined(errorCallback)) {
-                return currentCoords;
-            }
-
-            successCallback = successCallback || emptyFunction;
-            errorCallback = errorCallback || emptyFunction;
-
-            // if (currentCoords) {
-            //     log('current position:', currentCoords);
-            //     successCallback(currentCoords);
-            // } else {
-                if ("geolocation" in navigator) {
+        function getCurrentPosition() {
+            return new Promise(function (resolve, reject) {
+                if ('geolocation' in navigator) {
                     // GPS定位
                     navigator.geolocation.getCurrentPosition(function (position) {
-                        successCallback(position.coords);
-                        // 将GPS的坐标转换为Google的坐标
-                        // coordsConvert(0, 2, position.coords, function (coords) {
-                        //     log('current position:', coords);
-                        //     //app.cache.set('currentCoords', coords);
-                        //     successCallback(coords);
-                        // }, function () {
-                        //     error('convert coords failed!');
-                        //     errorCallback();
-                        // });
+                        resolve(position.coords);
                     }, function (error) {
-                        if (!notShowTip) {
-                            switch (error.code) {
-                                case error.PERMISSION_DENIED:
-                                    // dialogs.tip('定位未开启', app.constant.ERROR_TIP);
-                                    break;
-                                case error.POSITION_UNAVAILABLE:
-                                    // dialogs.tip('定位失败，请稍后再试', app.constant.ERROR_TIP);
-                                    break;
-                                case error.TIMEOUT:
-                                    // dialogs.tip('定位超时，请稍后再试', app.constant.ERROR_TIP);
-                                    break;
-                            }
-                        }
-                        errorCallback(error);
-                    }, { timeout: 30e3 }); // 获取地址的超时为半分钟
-                } else {
-                    error('browser unsupport geolocation!');
-                    errorCallback();
-                }
-            // }
+                        reject(error);
+                    }, { timeout: 3e3 });
 
-            return null;
+                    setTimeout(function () {
+                        reject('timeout');
+                    }, 3e3);
+                } else {
+                    reject('browser unsupport geolocation!');
+                }
+            });
+        }
+
+        function repeat(func, count) {
+            var promise = func();
+
+            for (var i = 0; i < count - 1; ++i) {
+                promise = promise.catch(function () {
+                    return func();
+                });
+            }
+
+            return promise;
         }
 
         function iScrollClick(){
@@ -277,7 +250,8 @@ define([
             iScrollClick: iScrollClick,
             is_weixn: is_weixn,
             barToolMethod: barToolMethod,
-            shearCallback: shearCallback
+            shearCallback: shearCallback,
+            repeat: repeat
         };
     }
 )

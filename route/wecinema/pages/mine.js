@@ -2,6 +2,7 @@
  * Created by LemonHall on 2015/4/
  */
 var util            = require('util');
+var moment          = require('moment');
 var model           = require(process.cwd()+"/libs/model.js");
 
 var chk_login       = require(process.cwd() + "/libs/check_login_middle.js");
@@ -14,6 +15,39 @@ var os       = require('os');
 var pid      = process.pid;
 var hostname = os.hostname();
 var my_name  = hostname + ':' + pid;
+
+moment.locale('zh-cn');
+
+// 获取用户的电影新闻
+function getUserNews(req, pageIndex, callback) {
+    var publicsignal = req.params.publicsignal;
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
+    
+    var options = {
+        uri: '/queryUserNews.aspx',
+        args: {
+            // type: '-1',
+            pageIndex: pageIndex,
+            pageSize: 10,
+            openId: req.cookies.openids || '',
+            wxtype: publicsignal
+        }
+    };
+
+    model.getDataFromPhp(options, function (err, data) {
+        var userNews = data && data.movieNews;
+
+        if (userNews) {
+            userNews.forEach(function (news) {
+                news.moment = moment(news.publishtime, 'YYYY-MM-DD hh:mm:ss').fromNow();
+            });
+        }
+
+        callback(err, userNews, publicsignal);
+    });
+}
 
 // 首页
 app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function (req, res) {//
@@ -53,7 +87,14 @@ app.get(['/my/index', '/:publicsignal/my/index'], chk_login.isLoggedIn, function
         if(!err && data){
             render_data.data.uses = data;
         }
-        res.render("wecinema/my", render_data);
+
+        getUserNews(req, 1, function (err, userNews) {
+            if (!err && userNews) {
+                render_data.data.userNews = userNews;
+            }
+
+            res.render('wecinema/my', render_data);
+        });
     });
     
 });
@@ -186,35 +227,32 @@ app.get(["/my/mask_myredbag"], function(req, res){
     res.render("wecinema/mask-redrule", render_data);
 });
 
-//足迹
+// 足迹
 app.get(["/my/usernews/:pageindex", '/:publicsignal/my/usernews/:pageindex'], function(req, res){
-    var render_data = {};
-    var my_api_addr = "/queryUserNews.aspx";
-    var _pageIndex = req.params["pageindex"];
-    var publicsignal = req.params["publicsignal"];
-    if(!publicsignal){
-        publicsignal = constant.str.PUBLICSIGNAL;
-    }
-    var open_id     = req.cookies.openids || '';
+    getUserNews(req, req.params.pageindex, function (err, userNews, publicsignal) {
+        res.render('wecinema/pagelets/user-news', {
+            data: {
+                err: err,
+                publicsignal: publicsignal,
+                userNews: userNews
+            }
+        });
+    });
+});
+
+app.get(['/my/usernews/delete/:newsId'], function (req, res) {
     var options = {
-        uri: my_api_addr,
+        uri: '/DeleteUserNewsHistroy.aspx',
         args: {
-            // type: '-1',
-            pageIndex: _pageIndex,
-            pageSize: 10,
-            openId: open_id,
-            wxtype: publicsignal
+            openId: req.cookies.openids || '',
+            movieNewID: req.params.newsId
         }
     };
-    render_data.data = {};
-    console.log(data)
+
     model.getDataFromPhp(options, function (err, data) {
-        console.log(data)
-        render_data.data.err = err;
-        if (!err && data) {
-            render_data.data = data;
-            
-        }
-        res.render("wecinema/movienews", render_data);
+        res.json({
+            err: err,
+            data: data
+        });
     });
 });

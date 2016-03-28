@@ -1313,7 +1313,7 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
 /**自媒体列表**/
 .selflist, .hauto { height: 100%; }
 .selflist { padding-top: 3.5rem; }
-.scrollselful { overflow: hidden; padding: .5rem 0 0; margin: 1rem 0 2rem 4rem; }
+.scrollselful { overflow: auto; padding: .5rem 0 0; margin: 1rem 0 2rem 4rem; -webkit-overflow-scrolling: touch;}
 .scrollselful li { padding: 0 1.4rem 0 0; text-align: center; position: relative; }
 .selful { padding: 1.5rem 0 1.5rem 3.5rem; }
 .selful .imgbox, .scrollselful .imgbox { width: 5.5rem; height: 5.5rem; border-radius: 6rem; overflow: hidden; margin-right: 1.3rem; }
@@ -1327,7 +1327,7 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
 .selful .textbox .selftip span { padding: 0 0.2rem; font-size: 0.8rem; color: #888; }
 .selful .textbox .selftip span:first-child { padding-left: 0; }
 .selful .toolbox .selftip { padding: 0.5rem 0; }
-.selful .btn_join, .selful .btn_join span { display: block; }
+.selful .btn_join, .selful .btn_join span { display: inline-block; }
 .selful .btn_join { padding: 1.5rem 3.5rem 1.5rem 1.5rem; }
 .selful .btn_join span { width: 3rem; height: 3rem; text-align: center; line-height: 2.4rem; background: #00948D; color: #fff; font-size: 2.4rem; }
 .selful .btn_curr span { background: #EEEEEF; }
@@ -1352,7 +1352,7 @@ a.notbtn { background: #ddd!important; color: #fff!important; }
 .timeico { display: block; width: 1.2rem; height: 1.2rem; background: url(../images/timeico.png) no-repeat center center; background-size: cover; }
 .mylistbox li header time, .mylistbox li header p, .mylistbox li header p.myclose i { display: block; }
 .mylistbox li header time { margin: 0 0.5rem; }
-.mylistbox li header p.myclose { padding: 1rem 0; }
+.mylistbox li header p.myclose { padding: 1rem; }
 .mylistbox li header p.myclose i { width: 1.2rem; height: 1.2rem; background: url(../images/icoclose.png) no-repeat center center; background-size: cover; }
 .mylistbox li section h2:after { display: none; }
 .mylistbox li section .txtbox { margin: 0; }
