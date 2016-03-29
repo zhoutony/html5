@@ -1,5 +1,6 @@
 var $ = require('../lib/zepto.js');
 var _ = require('../lib/underscore');
+var Util = require('../util/widgets');
 var Vue = require('vue');
 
 function modifySource (item) {
@@ -31,6 +32,8 @@ $(function () {
         info.isSubscribe = info.isSubscribe === 'true';
     });
     
+        
+
     // 添加 tab 切换数据
     data.currentTab = 'all';
     
