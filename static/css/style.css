@@ -1357,7 +1357,7 @@ transform:scale(1)
 
 .subtablist .selful{padding: 1.5rem 1.5rem 1.5rem 1.5rem }
 .subtablist .selful .toolbox .btn_join{padding-left:0;padding-top:1rem;padding-bottom:1rem;}
-.subtablist .selful .toolbox .btn_join span{font-size:1.4rem;height:2rem;line-height:2rem;}
+.subtablist .selful .toolbox .btn_join span{font-size:1.4rem; padding:.2rem 0 .5rem;height:auto;line-height:1;display:block;}
 .subtablist  .selful .textbox h2{font-size:1.6rem;}
 .subtablist  .selful .textbox  .selfinfo,
 .subtablist  .selful .textbox  .selftip span{font-size:1rem;}
