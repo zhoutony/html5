@@ -25,7 +25,7 @@ var urlencode   = require('urlencode');
 
 function isLoggedIn(req, res, next) {
     // console.log(req.headers['user-agent']);
-    var ua = req.headers['user-agent'].toLowerCase();
+    var ua = req.headers['user-agent'];
     if(ua){
         ua = ua.toLowerCase();
         if(ua.indexOf('micromessenger') >= 0) {

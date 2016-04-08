@@ -18,11 +18,16 @@ $(document).ready(function() {
     //加载 头条电影列表
     function getMovieNews(){
         //缓存时间1000 * 60 * 15  15分钟 900000
+        var _cachetime = 300000;
+        if(cachetime){
+            cachetime = parseInt(cachetime);
+            _cachetime = 1000 * 60 * cachetime;
+        }
         var indexMovieNewsHtmlStarttime = localStorage.getItem('indexMovieNewsHtmlStarttime');
 
         if(indexMovieNewsHtmlStarttime && indexMovieNewsHtmlStarttime != ''){
             var _time = new Date() * 1 - parseInt(indexMovieNewsHtmlStarttime);
-            if(_time > 900000){
+            if(_time > 300000){
                 localStorage.removeItem('indexMovieNewsHtml')
                 
             }

@@ -161,6 +161,7 @@ block prepend script
                 | var thirdIndex = '0';
                 | var shareInfo = ''
             | window.publicsignal = '#{data.publicsignal}';
+            | var cachetime = '#{data.cachetime}';
 
     script(src="#{data.staticBase}/script/weiticket/main.js?#{data.reversion}")
     script(src="#{data.staticBase}/script/weiticket/index.js?#{data.reversion}")

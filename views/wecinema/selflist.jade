@@ -59,7 +59,7 @@ block prepend body
                     li.flex(v-bind:class="{ 'curr': currentTab === 'my' }", v-on:click="changeTab('my')") 我的小伙伴
                 div.subtablist(v-show="currentTab === 'all'")
                     ul
-                        li(v-for="info in newsSourceInfos")
+                        li(v-for="info in newsSourceInfos" data-sourceid="{{ info.sourceID }}")
                             div.flexbox_v_c.selful
                                 div.imgbox
                                     img(:src="info.logoURL")

@@ -1,6 +1,7 @@
 var util = require('util');
 var model = require(process.cwd() + "/libs/model.js");
 var chk_login = require(process.cwd() + "/libs/check_login_middle.js");
+var constant  = require(process.cwd() + "/route/wecinema/util/constant.js");
 
 var os = require('os');
 var pid = process.pid;
@@ -15,11 +16,16 @@ app.get(["/selflist", "/:publicsignal/selflist"], function (req, res) {
             openId: req.cookies.openids || ''
         }
     };
+    var publicsignal = req.params["publicsignal"];
+    if(!publicsignal){
+        publicsignal = constant.str.PUBLICSIGNAL;
+    }
 
     model.getDataFromPhp(options, function (err, data) {
         data = !err && data ? data : {};
         data.reversion = global.reversion;
         data.staticBase = global.staticBase;
+        data.publicsignal = publicsignal;
         
         res.render('wecinema/selflist', {
             data: data
