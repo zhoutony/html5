@@ -69,6 +69,7 @@ app.get(['/', '/index.html', '/:publicsignal'], function (req, res) {
                 }
             }
             render_data.data.baseData = data;
+            render_data.data.cachetime = data.shareInfo.cachetime;
         }
         //隐藏工具条
         render_data.data.isToolHide = true;

@@ -69,4 +69,14 @@ $(function () {
             }
         }
     })
+
+    $('.subtablist').on('click', 'li', function(evt){
+        // console.log(evt)
+        var parentEl = $(evt.currentTarget),
+            el = evt.target,
+            sourceId = parentEl.data('sourceid');
+        if(el.tagName == "IMG"){
+            location.href = location.origin + '/' + sourceInfo.publicsignal + '/medialist/' + sourceId;
+        }
+    })
 });
