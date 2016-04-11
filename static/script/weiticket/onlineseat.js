@@ -91,7 +91,7 @@ $(document).ready(function() {
             var _el = $(evt.currentTarget);
             var _len = selected_seats && selected_seats.length;
             var localTel = localStorage.getItem('tel') || '';
-            dialogs.confirm('<p class="telinput flexbox"><input id="tel" type="tel" placeholder="请输入手机号" class="flex" value="'+localTel+'"></p>',
+            dialogs.confirm('<p class="telinput flexbox"><input id="tel" type="tel" placeholder="请在这里输入手机号：" class="flex" value="'+localTel+'"></p>',
                 function(){
                     var inputTel = $('#tel'),
                         tel = inputTel.val();
