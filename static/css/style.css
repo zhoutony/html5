@@ -1206,7 +1206,7 @@ opacity:0
 .scrollselful { overflow: auto; padding: .5rem 0 0; margin: 1rem 0 2rem 4rem; -webkit-overflow-scrolling: touch }
 .scrollselful li { padding: 0 1.4rem 0 0; text-align: center; position: relative }
 .selful { padding: 1.5rem 0 1.5rem 3.5rem }
-
+.selflist .scrollselful{overflow-y:hidden;}
 
 .scrollselful .imgbox, .selful .imgbox { width: 5.5rem; height: 5.5rem; border-radius: 6rem; overflow: hidden; margin-right: 1.3rem }
 .scrollselful li .selfclose { width: 1.8rem; height: 1.8rem; display: block; position: absolute; right: .8rem; top: -.3rem; background: url(../images/self.png) center center no-repeat; background-size: 1.8rem; -webkit-transition: .4s all; -moz-transition: .4s all; -o-transition: .4s all; -ms-transition: .4s all; transition: .4s all }
@@ -1216,9 +1216,10 @@ opacity:0
 .scrollselful .textbox h2 { color: #C8C9CA }
 .selful .textbox .selfinfo { overflow: hidden; white-space: nowrap; text-overflow: ellipsis }
 .selful .textbox .selftip { padding: .5rem 0 }
-.selful .textbox .selftip span { padding: 0 .2rem; font-size: .8rem; color: #888 }
+.selful .textbox .selftip span { padding: 0 .2rem; font-size: .8rem; color: #757575; }
 .selful .textbox .selftip span:first-child { padding-left: 0 }
 .selful .toolbox .selftip { padding: .5rem 0 }
+
 .selful .btn_join, .selful .btn_join span { display: inline-block }
 .selful .btn_join { padding: 1.5rem 3.5rem 1.5rem 1.5rem }
 .selful .btn_join span { width: 3rem; height: 3rem; text-align: center; line-height: 2.4rem; background: #00948D; color: #fff; font-size: 2.4rem }
@@ -1229,6 +1230,7 @@ opacity:0
 .selfcont .seltit i { display: inline-block; vertical-align: middle; background: #00948D; width: .7rem; height: .7rem; overflow: hidden; border-radius: 1rem; margin-right: .5rem }
 .selfcont li { position: relative }
 .selfcont li .selful .textbox .selfinfo, .selfcont li .selful .textbox h2 { color: #231815 }
+.selfcont li .selful .textbox .selfinfo{color: #757575; }
 .selftit { padding: .5rem 4rem }
 .selftit i { display: block; background: #00948D; width: 1.2rem; height: 1.2rem; border-radius: .8rem; margin-right: 1rem }
 .selftit p { font-size: 1.4rem; color: #00948D }
@@ -1258,8 +1260,9 @@ opacity:0
 .myadd { padding: .5rem 0 0 }
 .myadd em, .myadd span, .myadd strong { display: block; background: #00948D; color: #fff; font-style: normal; padding: .1rem .5rem; height: 1.2rem; overflow: hidden; font-size: .8rem }
 .myadd span { background: 0 0; color: #00948D }
-.myadd em { font-size: 1.4rem; line-height: .8rem; padding: .1rem 1rem }
-.succ dd p.mytxt { font-size: 1rem; line-height: 1; color: #000; padding: .5rem 0 0 }
+.myadd em { font-size: 1.8rem; line-height: 1.1rem;
+height:auto; padding: .5rem 1rem;font-weight:bold; }
+.succ dd p.mytxt { font-size: 1rem; line-height: 1; color: #000; padding: .3rem 0 0 }
 .setline { background: url(../images/setline.png) repeat-y; background-size: cover; position: absolute; top: 0; bottom: 0; left: 50%; width: 6px; margin-left: 10px }
 .empty { background: url(../images/empty.png) center center no-repeat; height: 32rem; background-size: auto 90% }
 .addtickinfo { margin-top: 1rem; padding-left: 1.8rem; padding-right: 1.8rem; margin-bottom: -1rem }
@@ -1357,11 +1360,13 @@ transform:scale(1)
 
 .subtablist .selful{padding: 1.5rem 1.5rem 1.5rem 1.5rem }
 .subtablist .selful .toolbox .btn_join{padding-left:0;padding-top:1rem;padding-bottom:1rem;}
-.subtablist .selful .toolbox .btn_join span{font-size:1.4rem; padding:.2rem 0 .5rem;height:auto;line-height:1;display:block;}
-.subtablist  .selful .textbox h2{font-size:1.6rem;}
+.subtablist .selful .toolbox .btn_join span{font-size:2rem;line-height:1;
+ padding:0rem 0 .5rem;height:auto;line-height:1;display:block;}
+.subtablist  .selful .textbox h2{font-size:1.4rem;}
 .subtablist  .selful .textbox  .selfinfo,
 .subtablist  .selful .textbox  .selftip span{font-size:1rem;}
-.selflist .scrollselful .imgbox{width:3rem;height:3rem;}
+.selflist .scrollselful .imgbox{width:5rem;height:5rem;}
+.selflist .scrollselful li{margin-right:2.2rem;}
 .eis2{overflow : hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
