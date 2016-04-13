@@ -137,7 +137,12 @@ var getDataFromPhp = function(options, callback) {
             }
 
             //判断是否是成功返回，如果是已经解析好了的json，直接返回
-            body = JSON.parse(body);
+            try {
+              body = JSON.parse(body);
+            } catch (error) {
+              callback(error);
+              return;
+            }
             
             if (body.success) {
                 // console.debug(my_name,"I am in first level if....");
