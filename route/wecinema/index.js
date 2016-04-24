@@ -77,11 +77,14 @@ require('./pages/medialist');
 //upload
 require('./pages/upload');
 
-//upload
+//selflist
 require('./pages/selflist');
 
 //skip
 require('./pages/skip');
+
+//video
+require('./pages/video');
 
 
 

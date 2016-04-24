@@ -1,0 +1,73 @@
+extends ./layout
+
+block title
+        title 电影票友
+
+
+
+block prepend body
+    
+    //wrap
+    div.wrap
+        section.video
+            header.imgico
+            article.bigvideo
+                div.videobox
+                    img(src="/tempimages/video.jpg")
+                    a(href="#").i_play
+                        i
+                dl
+                    dt 《蚁人》
+                    dd
+                        p 可信度极高的剧透
+                        p.
+                            1：保罗路德扮演的男主角阿宝被迈克尔道格拉斯扮演的小熊猫师傅选中去帮后者清理门户。
+                        p.
+                            经过师傅的女儿，伊万杰琳莉莉饰演的悍娇虎的一番调教，
+                    dd.videobuy
+                        a(href="#").i_videobuy
+            div.hotmovie
+                section.onevideo
+                    a(href="#")
+                        article.bigvideo
+                            div.videobox
+                                img(src="/tempimages/video.jpg")
+                                a(href="#").i_play
+                                    i
+                        ul.flexbox_v_c
+                            li.flex
+                                h2.
+                                    票友推荐 | 轻熟男养成秘籍！
+                        footer.flexbox
+                                div.main.flex.flexbox_v_c
+                                    span.n_name Dreamers电影评论
+                                    span.num 阅读
+                                        b 37
+                                    time 1小时前
+                section.imgtxt
+                    a(href="#")
+                        ul.flexbox_v_c
+                            li.flex
+                                h2.
+                                    票友推荐 | 轻熟男养成秘籍！
+                                div.txt 票友推荐 | 轻熟男养成秘籍，妈！我就想要这样的男票！
+                            li.videoimg
+                                div(href="#").i_play
+                                    i
+                                img(src="http://p2.pstatp.com/list/52e0002bf3272f064ba")
+                        footer.flexbox
+                            div.main.flex.flexbox_v_c
+                                span.n_name Dreamers电影评论
+                                span.num 阅读
+                                    b 37
+                                time 1小时前
+
+
+                                         
+
+block prepend footer
+
+block prepend script
+     
+
+
