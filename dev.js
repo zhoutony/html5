@@ -20,7 +20,7 @@ process.on('uncaughtException', function(err) {
 
 //git版本
 
-global.reversion = "51f98e7";
+global.reversion = "54ce652";
 
 
 global.staticBase = "";//"http://smart-static.wepiao.com";

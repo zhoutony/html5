@@ -10,12 +10,22 @@ block prepend body
     //wrap
     div.wrap
         section.video
-            header.imgico
+            nav.v_nav
+                ul.flexbox_vh_c
+                    li
+                        a(href="#") 推荐
+                    li.curr
+                        a(href="#") 视频
+                    li
+                        a(href="#") 在线电影
+                    li
+                        a(href="#") 订阅
             article.bigvideo
                 div.videobox
                     img(src="/tempimages/video.jpg")
-                    a(href="#").i_play
+                    a(href="#").i_play.flexbox_vh_c
                         i
+                    time 90:11
                 dl
                     dt 《蚁人》
                     dd
@@ -26,14 +36,32 @@ block prepend body
                             经过师傅的女儿，伊万杰琳莉莉饰演的悍娇虎的一番调教，
                     dd.videobuy
                         a(href="#").i_videobuy
+            ul.videobuy.flexbox
+                li.flex.curr
+                    a(href="#") 免费
+                li.flex 
+                    a(href="#") 会员
+            div.showvideo
+                ul
+                    li.flexbox
+                        a.flex.curr(href="#") 喜剧
+                        a.flex(href="#") 动作
+                        a.flex(href="#") 爱情
+                        a.flex(href="#") 恐怖
+                    li.flexbox
+                        a.flex(href="#") 科幻
+                        a.flex(href="#") 动画
+                        a.flex(href="#") 剧情
+                        a.flex(href="#") 伦理
             div.hotmovie
                 section.onevideo
                     a(href="#")
                         article.bigvideo
                             div.videobox
-                                img(src="/tempimages/video.jpg")
-                                a(href="#").i_play
+                                img(src="/tempimages/video01.jpg")
+                                a(href="#").i_play.flexbox_vh_c
                                     i
+                                time 90:11
                         ul.flexbox_v_c
                             li.flex
                                 h2.
@@ -54,6 +82,7 @@ block prepend body
                             li.videoimg
                                 div(href="#").i_play
                                     i
+                                time 90:11
                                 img(src="http://p2.pstatp.com/list/52e0002bf3272f064ba")
                         footer.flexbox
                             div.main.flex.flexbox_v_c

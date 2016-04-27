@@ -58,6 +58,15 @@ block prepend body
     //- if data.newsInfo.title
     //-     h2.infotit #{data.newsInfo.title}
     div.wrap
+        //-- vdieo begin
+        //- section.video
+        //-     article.bigvideo
+        //-         div.videobox
+        //-             img(src="/tempimages/video.jpg")
+        //-             a(href="#").i_play.flexbox_vh_c
+        //-                 i
+        //-             h2 《蚁人》
+        //-- vdieo End
         if data && !data.err && data.newsInfo
             div.infotxt
                 if data.movies && data.movies && data.movies.length > 0
@@ -364,11 +373,31 @@ block prepend body
                 div.txthot
                     h2.hottie 精彩推荐
                     div.hotmovie
+                        //-- vdieo begin
+                        //- section.onevideo
+                        //-     a(href="#")
+                        //-         article.bigvideo
+                        //-             div.videobox
+                        //-                 img(src="/tempimages/video01.jpg")
+                        //-                 a(href="#").i_play.flexbox_vh_c
+                        //-                     i
+                        //-         ul.flexbox_v_c
+                        //-             li.flex
+                        //-                 h2.
+                        //-                     票友推荐 | 轻熟男养成秘籍！
+                        //-         footer.flexbox
+                        //-                 div.main.flex.flexbox_v_c
+                        //-                     span.n_name Dreamers电影评论
+                        //-                     span.num 阅读
+                        //-                         b 37
+                        //-                     time 1小时前
+                        //-- vdieo End
                         if data && !data.err && data.movieNews && data.movieNews.Items
                             each movieNew, index in data.movieNews.Items
                                 - var _time = Math.floor( (new Date() - new Date(movieNew.publishtime)) / 1000 / 60 )
                                 - var _date = _time > 59 ? movieNew.publishtime : _time + "分钟前";
                                 if movieNew.image2 == '' || movieNew.image3 == ''
+                                   
                                     section.imgtxt
                                         a(href="/#{data.publicsignal}/movienews/#{movieNew.sourceType}/#{movieNew.movieNewID}")
                                             ul.flexbox_v_c

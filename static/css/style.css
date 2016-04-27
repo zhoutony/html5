@@ -1390,6 +1390,26 @@ transform:scale(1)
 .bigvideo .videobox{
 	position:relative;
 }
+.videobox time,.videoimg time{
+	display:block;
+	position:absolute;
+	right:.5rem;
+	bottom:.8rem;
+	padding:0 0 0 1.3rem;
+	color:white;
+	background: url(../images/video_time.png) 0 center no-repeat;
+	 background-size: 1rem auto;	
+}
+.videobox h2{
+	background:rgba(255,255,255,.4);
+	text-align:center;
+	line-height:2;
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	color:rgba(0,0,0,.8);
+}
 .i_play i{
 	display:block;
 	margin:auto;
@@ -1399,7 +1419,7 @@ transform:scale(1)
 	 background-size: cover;
 	 border:1px solid white;
 	 border-radius:6rem;
-	 margin-top:18%;
+
 }
 .i_play:active{
 	opacity: .9;
@@ -1470,4 +1490,77 @@ transform:scale(1)
 }
 .video .hotmovie .imgtxt .txt{
 	color:#9e9e9f;
+}
+ 
+.v_nav li a{
+	display:block;
+	font-size:1.4rem;
+	padding:1rem  ;
+}
+.v_nav li.curr a{
+	color:#25908b;
+}
+
+.mlist .onevideo{
+	padding:0;
+}
+.mlist .onevideo h2,
+.mlist .onevideo p{
+	padding-left:1rem;
+	padding-right:1rem;
+}
+.videobuy li{
+	padding:1rem 0 .5rem;
+	text-align:center;
+}
+.videobuy li a{
+	font-size:1.4rem;
+	display:inline-block;
+	padding:.3rem .8rem;
+	border-radius:5rem;
+}
+.videobuy li.curr a{
+	background:#25908b;
+	color:white;
+}
+.showvideo li {
+	position:relative;
+}
+.showvideo li:after{
+	content: '';
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    background: #cecece;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
+.showvideo li a{
+	display:block;
+	position:relative;
+	text-align:center;
+	font-size:1.4rem;line-height:2.2;
+}
+.showvideo li a.curr{
+	color:#25908b;
+}
+.showvideo li a:last-child:after{
+	display:none;
+}
+.showvideo li a:after{
+	content: '';
+    display: block;
+    width: 1px;
+    overflow: hidden;
+    background: #cecece;
+    position: absolute;
+    top: .5rem;
+    right: 0;
+    bottom: .5rem;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
 }
